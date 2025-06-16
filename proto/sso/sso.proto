@@ -1,0 +1,87 @@
+syntax = "proto3";
+package sso;
+option go_package = "github.com/chains-lab/proto-storage/gen/go/sso;sso";
+
+service SsoService {
+  // Получить информацию о текущем пользователе
+  rpc GetOwnUser (Empty) returns (UserResponse);
+
+  // Обновить токен доступа
+  rpc RefreshToken (RefreshTokenRequest) returns (TokensPairResponse);
+
+  // Начало входа через Google: возвращает URL для редиректа
+  rpc GoogleLogin (Empty) returns (GoogleLoginResponse);
+  // Коллбек после Google OAuth: принимает код и возвращает пару токенов
+  rpc GoogleCallback (GoogleCallbackRequest) returns (TokensPairResponse);
+
+  // Выход пользователя
+  rpc Logout (Empty) returns (Empty);
+
+  // Сессии пользователя
+  rpc ListSessions (Empty) returns (SessionsListResponse);
+  rpc DeleteAllSessions (Empty) returns (SessionsListResponse);
+  rpc GetSession (SessionRequest) returns (SessionResponse);
+  rpc DeleteSession (SessionRequest) returns (SessionsListResponse);
+
+  // Админские методы
+  rpc AdminGetUser (AdminUserRequest) returns (UserResponse);
+  rpc AdminUpdateRole (AdminUpdateRoleRequest) returns (UserResponse);
+  rpc AdminListUserSessions (AdminUserRequest) returns (SessionsListResponse);
+  rpc AdminDeleteUserSessions (AdminUserRequest) returns (Empty);
+  rpc AdminGetSession (AdminGetSessionRequest) returns (SessionResponse);
+  rpc AdminDeleteSession (AdminGetSessionRequest) returns (Empty);
+}
+
+message Empty {}
+
+message SessionRequest {
+  string session_id = 1;
+}
+
+message AdminUserRequest {
+  string user_id = 1;
+}
+
+message AdminGetSessionRequest {
+  string user_id = 1;
+  string session_id = 2;
+}
+
+message AdminUpdateRoleRequest {
+  string user_id = 1;
+  string role = 2;
+}
+
+// Ответы
+message GoogleLoginResponse { string url = 1; }
+message GoogleCallbackRequest { string code = 1; }
+
+message TokensPairResponse {
+  string access_token = 1;
+  string refresh_token = 2;
+}
+
+message RefreshTokenRequest { string refresh_token = 1; }
+
+message UserResponse {
+  string id = 1;
+  string email = 2;
+  string role = 3;
+  string subscription = 4;
+  string created_at = 5;
+  string updated_at = 6;
+}
+
+message SessionResponse {
+  string id = 1;
+  string user_id = 2;
+  string client = 3;
+  string ip = 4;
+  string created_at = 5;
+  string last_used = 6;
+}
+
+message SessionsListResponse {
+  repeated SessionResponse sessions = 1;
+}
+
