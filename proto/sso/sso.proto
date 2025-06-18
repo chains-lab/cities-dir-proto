@@ -29,7 +29,8 @@ message UserRequest {
 }
 
 message SessionRequest {
-  string session_id = 1;
+  string user_id = 1;
+  string session_id = 2;
 }
 
 message RefreshTokenRequest {
