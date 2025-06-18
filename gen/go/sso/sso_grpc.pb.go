@@ -44,7 +44,7 @@ type SsoServiceClient interface {
 	GetUserSessions(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*SessionsListResponse, error)
 	DeleteSession(ctx context.Context, in *SessionRequest, opts ...grpc.CallOption) (*SessionsListResponse, error)
 	DeleteUserSessions(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*SessionsListResponse, error)
-	UpdateUserRole(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error)
+	UpdateUserRole(ctx context.Context, in *UpdateUserRoleRequest, opts ...grpc.CallOption) (*UserResponse, error)
 }
 
 type ssoServiceClient struct {
@@ -145,7 +145,7 @@ func (c *ssoServiceClient) DeleteUserSessions(ctx context.Context, in *UserReque
 	return out, nil
 }
 
-func (c *ssoServiceClient) UpdateUserRole(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error) {
+func (c *ssoServiceClient) UpdateUserRole(ctx context.Context, in *UpdateUserRoleRequest, opts ...grpc.CallOption) (*UserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UserResponse)
 	err := c.cc.Invoke(ctx, SsoService_UpdateUserRole_FullMethodName, in, out, cOpts...)
@@ -168,7 +168,7 @@ type SsoServiceServer interface {
 	GetUserSessions(context.Context, *UserRequest) (*SessionsListResponse, error)
 	DeleteSession(context.Context, *SessionRequest) (*SessionsListResponse, error)
 	DeleteUserSessions(context.Context, *UserRequest) (*SessionsListResponse, error)
-	UpdateUserRole(context.Context, *UserRequest) (*UserResponse, error)
+	UpdateUserRole(context.Context, *UpdateUserRoleRequest) (*UserResponse, error)
 	mustEmbedUnimplementedSsoServiceServer()
 }
 
@@ -206,7 +206,7 @@ func (UnimplementedSsoServiceServer) DeleteSession(context.Context, *SessionRequ
 func (UnimplementedSsoServiceServer) DeleteUserSessions(context.Context, *UserRequest) (*SessionsListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteUserSessions not implemented")
 }
-func (UnimplementedSsoServiceServer) UpdateUserRole(context.Context, *UserRequest) (*UserResponse, error) {
+func (UnimplementedSsoServiceServer) UpdateUserRole(context.Context, *UpdateUserRoleRequest) (*UserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserRole not implemented")
 }
 func (UnimplementedSsoServiceServer) mustEmbedUnimplementedSsoServiceServer() {}
@@ -393,7 +393,7 @@ func _SsoService_DeleteUserSessions_Handler(srv interface{}, ctx context.Context
 }
 
 func _SsoService_UpdateUserRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UserRequest)
+	in := new(UpdateUserRoleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -405,7 +405,7 @@ func _SsoService_UpdateUserRole_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: SsoService_UpdateUserRole_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SsoServiceServer).UpdateUserRole(ctx, req.(*UserRequest))
+		return srv.(SsoServiceServer).UpdateUserRole(ctx, req.(*UpdateUserRoleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

@@ -18,7 +18,7 @@ service SsoService {
   rpc DeleteSession (SessionRequest) returns (SessionsListResponse);
   rpc DeleteUserSessions (UserRequest) returns (SessionsListResponse);
 
-  rpc UpdateUserRole (UserRequest) returns (UserResponse);
+  rpc UpdateUserRole (UpdateUserRoleRequest) returns (UserResponse);
 }
 
 // Requests
@@ -34,6 +34,11 @@ message SessionRequest {
 
 message RefreshTokenRequest {
   string refresh_token = 1;
+}
+
+message UpdateUserRoleRequest {
+  string user_id = 1;
+  string role = 2;
 }
 
 message GoogleLoginResponse { string url = 1; }
