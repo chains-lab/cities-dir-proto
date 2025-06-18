@@ -40,7 +40,7 @@ type SsoServiceClient interface {
 	GoogleLogin(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GoogleLoginResponse, error)
 	GoogleCallback(ctx context.Context, in *GoogleCallbackRequest, opts ...grpc.CallOption) (*TokensPairResponse, error)
 	Logout(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error)
-	GetSession(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*SessionResponse, error)
+	GetSession(ctx context.Context, in *SessionRequest, opts ...grpc.CallOption) (*SessionResponse, error)
 	GetUserSessions(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*SessionsListResponse, error)
 	DeleteSession(ctx context.Context, in *SessionRequest, opts ...grpc.CallOption) (*SessionsListResponse, error)
 	DeleteUserSessions(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*SessionsListResponse, error)
@@ -105,7 +105,7 @@ func (c *ssoServiceClient) Logout(ctx context.Context, in *Empty, opts ...grpc.C
 	return out, nil
 }
 
-func (c *ssoServiceClient) GetSession(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*SessionResponse, error) {
+func (c *ssoServiceClient) GetSession(ctx context.Context, in *SessionRequest, opts ...grpc.CallOption) (*SessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SessionResponse)
 	err := c.cc.Invoke(ctx, SsoService_GetSession_FullMethodName, in, out, cOpts...)
@@ -164,7 +164,7 @@ type SsoServiceServer interface {
 	GoogleLogin(context.Context, *Empty) (*GoogleLoginResponse, error)
 	GoogleCallback(context.Context, *GoogleCallbackRequest) (*TokensPairResponse, error)
 	Logout(context.Context, *Empty) (*Empty, error)
-	GetSession(context.Context, *UserRequest) (*SessionResponse, error)
+	GetSession(context.Context, *SessionRequest) (*SessionResponse, error)
 	GetUserSessions(context.Context, *UserRequest) (*SessionsListResponse, error)
 	DeleteSession(context.Context, *SessionRequest) (*SessionsListResponse, error)
 	DeleteUserSessions(context.Context, *UserRequest) (*SessionsListResponse, error)
@@ -194,7 +194,7 @@ func (UnimplementedSsoServiceServer) GoogleCallback(context.Context, *GoogleCall
 func (UnimplementedSsoServiceServer) Logout(context.Context, *Empty) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Logout not implemented")
 }
-func (UnimplementedSsoServiceServer) GetSession(context.Context, *UserRequest) (*SessionResponse, error) {
+func (UnimplementedSsoServiceServer) GetSession(context.Context, *SessionRequest) (*SessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSession not implemented")
 }
 func (UnimplementedSsoServiceServer) GetUserSessions(context.Context, *UserRequest) (*SessionsListResponse, error) {
@@ -321,7 +321,7 @@ func _SsoService_Logout_Handler(srv interface{}, ctx context.Context, dec func(i
 }
 
 func _SsoService_GetSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UserRequest)
+	in := new(SessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -333,7 +333,7 @@ func _SsoService_GetSession_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: SsoService_GetSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SsoServiceServer).GetSession(ctx, req.(*UserRequest))
+		return srv.(SsoServiceServer).GetSession(ctx, req.(*SessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

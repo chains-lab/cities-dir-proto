@@ -12,7 +12,7 @@ service SsoService {
 
   rpc Logout (Empty) returns (Empty);
 
-  rpc GetSession (UserRequest) returns (SessionResponse);
+  rpc GetSession (SessionRequest) returns (SessionResponse);
   rpc GetUserSessions (UserRequest) returns (SessionsListResponse);
 
   rpc DeleteSession (SessionRequest) returns (SessionsListResponse);
