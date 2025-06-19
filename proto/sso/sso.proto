@@ -95,8 +95,9 @@ message UserResponse {
   string role = 3;
   string subscription = 4;
   bool   verified = 5;
-  string created_at = 6;
-  string updated_at = 7;
+  bool   suspended = 6;
+  string created_at = 7;
+  string updated_at = 8;
 }
 
 message SessionResponse {
