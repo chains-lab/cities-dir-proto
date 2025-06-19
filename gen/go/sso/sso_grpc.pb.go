@@ -19,17 +19,20 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	SsoService_GetUser_FullMethodName                    = "/sso.SsoService/GetUser"
-	SsoService_RefreshToken_FullMethodName               = "/sso.SsoService/RefreshToken"
-	SsoService_GoogleLogin_FullMethodName                = "/sso.SsoService/GoogleLogin"
-	SsoService_GoogleCallback_FullMethodName             = "/sso.SsoService/GoogleCallback"
-	SsoService_Logout_FullMethodName                     = "/sso.SsoService/Logout"
-	SsoService_GetUserSession_FullMethodName             = "/sso.SsoService/GetUserSession"
-	SsoService_GetUserSessions_FullMethodName            = "/sso.SsoService/GetUserSessions"
-	SsoService_DeleteUserSession_FullMethodName          = "/sso.SsoService/DeleteUserSession"
-	SsoService_TerminateUserSessions_FullMethodName      = "/sso.SsoService/TerminateUserSessions"
-	SsoService_AdminDeleteUserSession_FullMethodName     = "/sso.SsoService/AdminDeleteUserSession"
-	SsoService_AdminTerminateUserSessions_FullMethodName = "/sso.SsoService/AdminTerminateUserSessions"
+	SsoService_GetUser_FullMethodName                     = "/sso.SsoService/GetUser"
+	SsoService_GoogleLogin_FullMethodName                 = "/sso.SsoService/GoogleLogin"
+	SsoService_GoogleCallback_FullMethodName              = "/sso.SsoService/GoogleCallback"
+	SsoService_Logout_FullMethodName                      = "/sso.SsoService/Logout"
+	SsoService_RefreshToken_FullMethodName                = "/sso.SsoService/RefreshToken"
+	SsoService_GetUserSession_FullMethodName              = "/sso.SsoService/GetUserSession"
+	SsoService_GetUserSessions_FullMethodName             = "/sso.SsoService/GetUserSessions"
+	SsoService_DeleteUserSession_FullMethodName           = "/sso.SsoService/DeleteUserSession"
+	SsoService_TerminateUserSessions_FullMethodName       = "/sso.SsoService/TerminateUserSessions"
+	SsoService_AdminTerminateUserSessions_FullMethodName  = "/sso.SsoService/AdminTerminateUserSessions"
+	SsoService_AdminUpdateUserRole_FullMethodName         = "/sso.SsoService/AdminUpdateUserRole"
+	SsoService_AdminUpdateUserSubscription_FullMethodName = "/sso.SsoService/AdminUpdateUserSubscription"
+	SsoService_AdminUpdateUserSuspended_FullMethodName    = "/sso.SsoService/AdminUpdateUserSuspended"
+	SsoService_AdminUpdateUserVerified_FullMethodName     = "/sso.SsoService/AdminUpdateUserVerified"
 )
 
 // SsoServiceClient is the client API for SsoService service.
@@ -37,16 +40,21 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SsoServiceClient interface {
 	GetUser(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error)
-	RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*TokensPairResponse, error)
+	// Google OAuth operations
 	GoogleLogin(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GoogleLoginResponse, error)
 	GoogleCallback(ctx context.Context, in *GoogleCallbackRequest, opts ...grpc.CallOption) (*TokensPairResponse, error)
 	Logout(ctx context.Context, in *SessionRequest, opts ...grpc.CallOption) (*Empty, error)
+	RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*TokensPairResponse, error)
 	GetUserSession(ctx context.Context, in *SessionRequest, opts ...grpc.CallOption) (*SessionResponse, error)
 	GetUserSessions(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*SessionsListResponse, error)
 	DeleteUserSession(ctx context.Context, in *SessionRequest, opts ...grpc.CallOption) (*SessionsListResponse, error)
 	TerminateUserSessions(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*Empty, error)
-	AdminDeleteUserSession(ctx context.Context, in *AdminSessionRequest, opts ...grpc.CallOption) (*SessionsListResponse, error)
-	AdminTerminateUserSessions(ctx context.Context, in *AdminUserRequest, opts ...grpc.CallOption) (*Empty, error)
+	// Admin operations
+	AdminTerminateUserSessions(ctx context.Context, in *TerminateUserSessionByAdminRequest, opts ...grpc.CallOption) (*Empty, error)
+	AdminUpdateUserRole(ctx context.Context, in *UpdateUserRoleRequest, opts ...grpc.CallOption) (*Empty, error)
+	AdminUpdateUserSubscription(ctx context.Context, in *UpdateUserSubscriptionRequest, opts ...grpc.CallOption) (*Empty, error)
+	AdminUpdateUserSuspended(ctx context.Context, in *UpdateUserSuspendedRequest, opts ...grpc.CallOption) (*Empty, error)
+	AdminUpdateUserVerified(ctx context.Context, in *UpdateUserVerifiedRequest, opts ...grpc.CallOption) (*Empty, error)
 }
 
 type ssoServiceClient struct {
@@ -61,16 +69,6 @@ func (c *ssoServiceClient) GetUser(ctx context.Context, in *UserRequest, opts ..
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UserResponse)
 	err := c.cc.Invoke(ctx, SsoService_GetUser_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ssoServiceClient) RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*TokensPairResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(TokensPairResponse)
-	err := c.cc.Invoke(ctx, SsoService_RefreshToken_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,6 +99,16 @@ func (c *ssoServiceClient) Logout(ctx context.Context, in *SessionRequest, opts 
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
 	err := c.cc.Invoke(ctx, SsoService_Logout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ssoServiceClient) RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*TokensPairResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TokensPairResponse)
+	err := c.cc.Invoke(ctx, SsoService_RefreshToken_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -147,20 +155,50 @@ func (c *ssoServiceClient) TerminateUserSessions(ctx context.Context, in *UserRe
 	return out, nil
 }
 
-func (c *ssoServiceClient) AdminDeleteUserSession(ctx context.Context, in *AdminSessionRequest, opts ...grpc.CallOption) (*SessionsListResponse, error) {
+func (c *ssoServiceClient) AdminTerminateUserSessions(ctx context.Context, in *TerminateUserSessionByAdminRequest, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SessionsListResponse)
-	err := c.cc.Invoke(ctx, SsoService_AdminDeleteUserSession_FullMethodName, in, out, cOpts...)
+	out := new(Empty)
+	err := c.cc.Invoke(ctx, SsoService_AdminTerminateUserSessions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *ssoServiceClient) AdminTerminateUserSessions(ctx context.Context, in *AdminUserRequest, opts ...grpc.CallOption) (*Empty, error) {
+func (c *ssoServiceClient) AdminUpdateUserRole(ctx context.Context, in *UpdateUserRoleRequest, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, SsoService_AdminTerminateUserSessions_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SsoService_AdminUpdateUserRole_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ssoServiceClient) AdminUpdateUserSubscription(ctx context.Context, in *UpdateUserSubscriptionRequest, opts ...grpc.CallOption) (*Empty, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Empty)
+	err := c.cc.Invoke(ctx, SsoService_AdminUpdateUserSubscription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ssoServiceClient) AdminUpdateUserSuspended(ctx context.Context, in *UpdateUserSuspendedRequest, opts ...grpc.CallOption) (*Empty, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Empty)
+	err := c.cc.Invoke(ctx, SsoService_AdminUpdateUserSuspended_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ssoServiceClient) AdminUpdateUserVerified(ctx context.Context, in *UpdateUserVerifiedRequest, opts ...grpc.CallOption) (*Empty, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Empty)
+	err := c.cc.Invoke(ctx, SsoService_AdminUpdateUserVerified_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -172,16 +210,21 @@ func (c *ssoServiceClient) AdminTerminateUserSessions(ctx context.Context, in *A
 // for forward compatibility.
 type SsoServiceServer interface {
 	GetUser(context.Context, *UserRequest) (*UserResponse, error)
-	RefreshToken(context.Context, *RefreshTokenRequest) (*TokensPairResponse, error)
+	// Google OAuth operations
 	GoogleLogin(context.Context, *Empty) (*GoogleLoginResponse, error)
 	GoogleCallback(context.Context, *GoogleCallbackRequest) (*TokensPairResponse, error)
 	Logout(context.Context, *SessionRequest) (*Empty, error)
+	RefreshToken(context.Context, *RefreshTokenRequest) (*TokensPairResponse, error)
 	GetUserSession(context.Context, *SessionRequest) (*SessionResponse, error)
 	GetUserSessions(context.Context, *UserRequest) (*SessionsListResponse, error)
 	DeleteUserSession(context.Context, *SessionRequest) (*SessionsListResponse, error)
 	TerminateUserSessions(context.Context, *UserRequest) (*Empty, error)
-	AdminDeleteUserSession(context.Context, *AdminSessionRequest) (*SessionsListResponse, error)
-	AdminTerminateUserSessions(context.Context, *AdminUserRequest) (*Empty, error)
+	// Admin operations
+	AdminTerminateUserSessions(context.Context, *TerminateUserSessionByAdminRequest) (*Empty, error)
+	AdminUpdateUserRole(context.Context, *UpdateUserRoleRequest) (*Empty, error)
+	AdminUpdateUserSubscription(context.Context, *UpdateUserSubscriptionRequest) (*Empty, error)
+	AdminUpdateUserSuspended(context.Context, *UpdateUserSuspendedRequest) (*Empty, error)
+	AdminUpdateUserVerified(context.Context, *UpdateUserVerifiedRequest) (*Empty, error)
 	mustEmbedUnimplementedSsoServiceServer()
 }
 
@@ -195,9 +238,6 @@ type UnimplementedSsoServiceServer struct{}
 func (UnimplementedSsoServiceServer) GetUser(context.Context, *UserRequest) (*UserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
 }
-func (UnimplementedSsoServiceServer) RefreshToken(context.Context, *RefreshTokenRequest) (*TokensPairResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RefreshToken not implemented")
-}
 func (UnimplementedSsoServiceServer) GoogleLogin(context.Context, *Empty) (*GoogleLoginResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GoogleLogin not implemented")
 }
@@ -206,6 +246,9 @@ func (UnimplementedSsoServiceServer) GoogleCallback(context.Context, *GoogleCall
 }
 func (UnimplementedSsoServiceServer) Logout(context.Context, *SessionRequest) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Logout not implemented")
+}
+func (UnimplementedSsoServiceServer) RefreshToken(context.Context, *RefreshTokenRequest) (*TokensPairResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RefreshToken not implemented")
 }
 func (UnimplementedSsoServiceServer) GetUserSession(context.Context, *SessionRequest) (*SessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserSession not implemented")
@@ -219,11 +262,20 @@ func (UnimplementedSsoServiceServer) DeleteUserSession(context.Context, *Session
 func (UnimplementedSsoServiceServer) TerminateUserSessions(context.Context, *UserRequest) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TerminateUserSessions not implemented")
 }
-func (UnimplementedSsoServiceServer) AdminDeleteUserSession(context.Context, *AdminSessionRequest) (*SessionsListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AdminDeleteUserSession not implemented")
-}
-func (UnimplementedSsoServiceServer) AdminTerminateUserSessions(context.Context, *AdminUserRequest) (*Empty, error) {
+func (UnimplementedSsoServiceServer) AdminTerminateUserSessions(context.Context, *TerminateUserSessionByAdminRequest) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AdminTerminateUserSessions not implemented")
+}
+func (UnimplementedSsoServiceServer) AdminUpdateUserRole(context.Context, *UpdateUserRoleRequest) (*Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AdminUpdateUserRole not implemented")
+}
+func (UnimplementedSsoServiceServer) AdminUpdateUserSubscription(context.Context, *UpdateUserSubscriptionRequest) (*Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AdminUpdateUserSubscription not implemented")
+}
+func (UnimplementedSsoServiceServer) AdminUpdateUserSuspended(context.Context, *UpdateUserSuspendedRequest) (*Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AdminUpdateUserSuspended not implemented")
+}
+func (UnimplementedSsoServiceServer) AdminUpdateUserVerified(context.Context, *UpdateUserVerifiedRequest) (*Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AdminUpdateUserVerified not implemented")
 }
 func (UnimplementedSsoServiceServer) mustEmbedUnimplementedSsoServiceServer() {}
 func (UnimplementedSsoServiceServer) testEmbeddedByValue()                    {}
@@ -260,24 +312,6 @@ func _SsoService_GetUser_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SsoServiceServer).GetUser(ctx, req.(*UserRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SsoService_RefreshToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RefreshTokenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SsoServiceServer).RefreshToken(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SsoService_RefreshToken_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SsoServiceServer).RefreshToken(ctx, req.(*RefreshTokenRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -332,6 +366,24 @@ func _SsoService_Logout_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SsoServiceServer).Logout(ctx, req.(*SessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SsoService_RefreshToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RefreshTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SsoServiceServer).RefreshToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SsoService_RefreshToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SsoServiceServer).RefreshToken(ctx, req.(*RefreshTokenRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -408,26 +460,8 @@ func _SsoService_TerminateUserSessions_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SsoService_AdminDeleteUserSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AdminSessionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SsoServiceServer).AdminDeleteUserSession(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SsoService_AdminDeleteUserSession_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SsoServiceServer).AdminDeleteUserSession(ctx, req.(*AdminSessionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _SsoService_AdminTerminateUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AdminUserRequest)
+	in := new(TerminateUserSessionByAdminRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -439,7 +473,79 @@ func _SsoService_AdminTerminateUserSessions_Handler(srv interface{}, ctx context
 		FullMethod: SsoService_AdminTerminateUserSessions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SsoServiceServer).AdminTerminateUserSessions(ctx, req.(*AdminUserRequest))
+		return srv.(SsoServiceServer).AdminTerminateUserSessions(ctx, req.(*TerminateUserSessionByAdminRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SsoService_AdminUpdateUserRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateUserRoleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SsoServiceServer).AdminUpdateUserRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SsoService_AdminUpdateUserRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SsoServiceServer).AdminUpdateUserRole(ctx, req.(*UpdateUserRoleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SsoService_AdminUpdateUserSubscription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateUserSubscriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SsoServiceServer).AdminUpdateUserSubscription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SsoService_AdminUpdateUserSubscription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SsoServiceServer).AdminUpdateUserSubscription(ctx, req.(*UpdateUserSubscriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SsoService_AdminUpdateUserSuspended_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateUserSuspendedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SsoServiceServer).AdminUpdateUserSuspended(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SsoService_AdminUpdateUserSuspended_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SsoServiceServer).AdminUpdateUserSuspended(ctx, req.(*UpdateUserSuspendedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SsoService_AdminUpdateUserVerified_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateUserVerifiedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SsoServiceServer).AdminUpdateUserVerified(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SsoService_AdminUpdateUserVerified_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SsoServiceServer).AdminUpdateUserVerified(ctx, req.(*UpdateUserVerifiedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -456,10 +562,6 @@ var SsoService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _SsoService_GetUser_Handler,
 		},
 		{
-			MethodName: "RefreshToken",
-			Handler:    _SsoService_RefreshToken_Handler,
-		},
-		{
 			MethodName: "GoogleLogin",
 			Handler:    _SsoService_GoogleLogin_Handler,
 		},
@@ -470,6 +572,10 @@ var SsoService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Logout",
 			Handler:    _SsoService_Logout_Handler,
+		},
+		{
+			MethodName: "RefreshToken",
+			Handler:    _SsoService_RefreshToken_Handler,
 		},
 		{
 			MethodName: "GetUserSession",
@@ -488,12 +594,24 @@ var SsoService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _SsoService_TerminateUserSessions_Handler,
 		},
 		{
-			MethodName: "AdminDeleteUserSession",
-			Handler:    _SsoService_AdminDeleteUserSession_Handler,
-		},
-		{
 			MethodName: "AdminTerminateUserSessions",
 			Handler:    _SsoService_AdminTerminateUserSessions_Handler,
+		},
+		{
+			MethodName: "AdminUpdateUserRole",
+			Handler:    _SsoService_AdminUpdateUserRole_Handler,
+		},
+		{
+			MethodName: "AdminUpdateUserSubscription",
+			Handler:    _SsoService_AdminUpdateUserSubscription_Handler,
+		},
+		{
+			MethodName: "AdminUpdateUserSuspended",
+			Handler:    _SsoService_AdminUpdateUserSuspended_Handler,
+		},
+		{
+			MethodName: "AdminUpdateUserVerified",
+			Handler:    _SsoService_AdminUpdateUserVerified_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -5,20 +5,25 @@ option go_package = "github.com/chains-lab/proto-storage/gen/go/sso;sso";
 service SsoService {
   rpc GetUser (UserRequest) returns (UserResponse);
 
-  rpc RefreshToken (RefreshTokenRequest) returns (TokensPairResponse);
-
+  //Google OAuth operations
   rpc GoogleLogin (Empty) returns (GoogleLoginResponse);
   rpc GoogleCallback (GoogleCallbackRequest) returns (TokensPairResponse);
 
   rpc Logout (SessionRequest) returns (Empty);
+  rpc RefreshToken (RefreshTokenRequest) returns (TokensPairResponse);
 
   rpc GetUserSession (SessionRequest) returns (SessionResponse);
   rpc GetUserSessions (UserRequest) returns (SessionsListResponse);
   rpc DeleteUserSession (SessionRequest) returns (SessionsListResponse);
   rpc TerminateUserSessions (UserRequest) returns (Empty);
 
-  rpc AdminDeleteUserSession (AdminSessionRequest) returns (SessionsListResponse);
-  rpc AdminTerminateUserSessions (AdminUserRequest) returns (Empty);
+  // Admin operations
+  rpc AdminTerminateUserSessions (TerminateUserSessionByAdminRequest) returns (Empty);
+  rpc AdminUpdateUserRole (UpdateUserRoleRequest) returns (Empty);
+  rpc AdminUpdateUserSubscription (UpdateUserSubscriptionRequest) returns (Empty);
+  rpc AdminUpdateUserSuspended (UpdateUserSuspendedRequest) returns (Empty);
+  rpc AdminUpdateUserVerified (UpdateUserVerifiedRequest) returns (Empty);
+
 }
 
 // Requests
@@ -40,10 +45,35 @@ message RefreshTokenRequest {
   string refresh_token = 4;
 }
 
-message UpdateUserRoleRequest {
-  string user_id = 1;
-  string role = 2;
+message UpdateUserRoleRequest{
+  string initiator_id = 1;
+  string user_id = 2;
+  string role = 3;
 }
+
+message UpdateUserSubscriptionRequest {
+  string initiator_id = 1;
+  string user_id = 2;
+  string subscription = 3;
+}
+
+message UpdateUserSuspendedRequest {
+  string initiator_id = 1;
+  string user_id = 2;
+  bool   suspended = 3;
+}
+
+message UpdateUserVerifiedRequest {
+  string initiator_id = 1;
+  string user_id = 2;
+  bool   verified = 3;
+}
+
+message TerminateUserSessionByAdminRequest {
+  string initiator_id = 1;
+  string user_id = 2;
+}
+
 
 message GoogleLoginResponse {
   string url = 1;
@@ -51,17 +81,6 @@ message GoogleLoginResponse {
 
 message GoogleCallbackRequest {
   string code = 1;
-}
-
-message AdminUserRequest {
-  string initiator_id = 1;
-  string user_id = 2;
-}
-
-message AdminSessionRequest {
-  string initiator_id = 1;
-  string user_id = 2;
-  string session_id = 3;
 }
 
 // Responses
