@@ -10,21 +10,15 @@ service SsoService {
   rpc GoogleLogin (Empty) returns (GoogleLoginResponse);
   rpc GoogleCallback (GoogleCallbackRequest) returns (TokensPairResponse);
 
-  rpc Logout (Empty) returns (Empty);
+  rpc Logout (SessionRequest) returns (Empty);
 
   rpc GetUserOwnSession (SessionRequest) returns (SessionResponse);
   rpc GetUserOwnSessions (UserRequest) returns (SessionsListResponse);
   rpc DeleteUserOwnSession (SessionRequest) returns (SessionsListResponse);
   rpc TerminateUserOwnSessions (UserRequest) returns (Empty);
 
-  // Admin methods
-  rpc GetUserSessionByAdmin (AdminUserRequest) returns (SessionResponse);
-  rpc GetUserSessionsByAdmin (AdminUserRequest) returns (SessionsListResponse);
   rpc DeleteUserSessionByAdmin (AdminSessionRequest) returns (SessionsListResponse);
-  rpc TerminateUserSessionsByAdmin (AdminSessionRequest) returns (Empty);
-
-  rpc UpdateUserRole (UpdateUserRoleRequest) returns (UserResponse);
-
+  rpc TerminateUserSessionsByAdmin (AdminUserRequest) returns (Empty);
 }
 
 // Requests
@@ -40,7 +34,10 @@ message SessionRequest {
 }
 
 message RefreshTokenRequest {
-  string refresh_token = 1;
+  string user_id = 1;
+  string session_id = 2;
+  string agent = 3;
+  string refresh_token = 4;
 }
 
 message UpdateUserRoleRequest {
@@ -69,7 +66,8 @@ message AdminSessionRequest {
 
 // Responses
 message TokensPairResponse {
-  string refresh_token = 1;
+  string access_token = 1;
+  string refresh_token = 2;
 }
 
 message UserResponse {
