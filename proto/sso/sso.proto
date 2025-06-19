@@ -12,13 +12,19 @@ service SsoService {
 
   rpc Logout (Empty) returns (Empty);
 
-  rpc GetSession (SessionRequest) returns (SessionResponse);
-  rpc GetUserSessions (UserRequest) returns (SessionsListResponse);
+  rpc GetUserOwnSession (SessionRequest) returns (SessionResponse);
+  rpc GetUserOwnSessions (UserRequest) returns (SessionsListResponse);
+  rpc DeleteUserOwnSession (SessionRequest) returns (SessionsListResponse);
+  rpc TerminateUserOwnSessions (UserRequest) returns (Empty);
 
-  rpc DeleteSession (SessionRequest) returns (SessionsListResponse);
-  rpc DeleteUserSessions (UserRequest) returns (SessionsListResponse);
+  // Admin methods
+  rpc GetUserSessionByAdmin (AdminUserRequest) returns (SessionResponse);
+  rpc GetUserSessionsByAdmin (AdminUserRequest) returns (SessionsListResponse);
+  rpc DeleteUserSessionByAdmin (AdminSessionRequest) returns (SessionsListResponse);
+  rpc TerminateUserSessionsByAdmin (AdminSessionRequest) returns (Empty);
 
   rpc UpdateUserRole (UpdateUserRoleRequest) returns (UserResponse);
+
 }
 
 // Requests
@@ -42,8 +48,24 @@ message UpdateUserRoleRequest {
   string role = 2;
 }
 
-message GoogleLoginResponse { string url = 1; }
-message GoogleCallbackRequest { string code = 1; }
+message GoogleLoginResponse {
+  string url = 1;
+}
+
+message GoogleCallbackRequest {
+  string code = 1;
+}
+
+message AdminUserRequest {
+  string initiator_id = 1;
+  string user_id = 2;
+}
+
+message AdminSessionRequest {
+  string initiator_id = 1;
+  string user_id = 2;
+  string session_id = 3;
+}
 
 // Responses
 message TokensPairResponse {
