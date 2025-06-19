@@ -12,13 +12,13 @@ service SsoService {
 
   rpc Logout (SessionRequest) returns (Empty);
 
-  rpc GetUserOwnSession (SessionRequest) returns (SessionResponse);
-  rpc GetUserOwnSessions (UserRequest) returns (SessionsListResponse);
-  rpc DeleteUserOwnSession (SessionRequest) returns (SessionsListResponse);
-  rpc TerminateUserOwnSessions (UserRequest) returns (Empty);
+  rpc GetUserSession (SessionRequest) returns (SessionResponse);
+  rpc GetUserSessions (UserRequest) returns (SessionsListResponse);
+  rpc DeleteUserSession (SessionRequest) returns (SessionsListResponse);
+  rpc TerminateUserSessions (UserRequest) returns (Empty);
 
-  rpc DeleteUserSessionByAdmin (AdminSessionRequest) returns (SessionsListResponse);
-  rpc TerminateUserSessionsByAdmin (AdminUserRequest) returns (Empty);
+  rpc AdminDeleteUserSession (AdminSessionRequest) returns (SessionsListResponse);
+  rpc AdminTerminateUserSessions (AdminUserRequest) returns (Empty);
 }
 
 // Requests
