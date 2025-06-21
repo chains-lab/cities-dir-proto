@@ -12,10 +12,10 @@ service SsoService {
   rpc Logout (Empty) returns (Empty);
   rpc RefreshToken (RefreshTokenRequest) returns (TokensPairResponse);
 
-  rpc GetUserSession (Empty) returns (SessionResponse);
-  rpc GetUserSessions (Empty) returns (SessionsListResponse);
-  rpc DeleteUserSession (DeleteUserSessionRequest) returns (Empty);
-  rpc TerminateUserSessions (Empty) returns (Empty);
+  rpc GetOwnUserSession (Empty) returns (SessionResponse);
+  rpc GetOwnUserSessions (Empty) returns (SessionsListResponse);
+  rpc DeleteOwnUserSession (DeleteOwnUserSessionRequest) returns (Empty);
+  rpc TerminateOwnUserSessions (Empty) returns (Empty);
 
   // Admin operations
 
@@ -60,7 +60,7 @@ message AdminUpdateUserVerifiedRequest {
   bool   verified = 2;
 }
 
-message DeleteUserSessionRequest {
+message DeleteOwnUserSessionRequest {
   string session_id = 1;
 }
 
