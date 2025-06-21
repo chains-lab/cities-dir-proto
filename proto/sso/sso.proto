@@ -3,77 +3,98 @@ package sso;
 option go_package = "github.com/chains-lab/proto-storage/gen/go/sso;sso";
 
 service SsoService {
-  rpc GetUser (UserRequest) returns (UserResponse);
+  rpc GetUser (Empty) returns (UserResponse);
 
   //Google OAuth operations
   rpc GoogleLogin (Empty) returns (GoogleLoginResponse);
   rpc GoogleCallback (GoogleCallbackRequest) returns (TokensPairResponse);
 
-  rpc Logout (SessionRequest) returns (Empty);
+  rpc Logout (Empty) returns (Empty);
   rpc RefreshToken (RefreshTokenRequest) returns (TokensPairResponse);
 
-  rpc GetUserSession (SessionRequest) returns (SessionResponse);
-  rpc GetUserSessions (UserRequest) returns (SessionsListResponse);
-  rpc DeleteUserSession (SessionRequest) returns (SessionsListResponse);
-  rpc TerminateUserSessions (UserRequest) returns (Empty);
+  rpc GetUserSession (Empty) returns (SessionResponse);
+  rpc GetUserSessions (Empty) returns (SessionsListResponse);
+  rpc DeleteUserSession (DeleteUserSessionRequest) returns (Empty);
+  rpc TerminateUserSessions (Empty) returns (Empty);
 
   // Admin operations
-  rpc AdminTerminateUserSessions (TerminateUserSessionByAdminRequest) returns (Empty);
-  rpc AdminUpdateUserRole (UpdateUserRoleRequest) returns (Empty);
-  rpc AdminUpdateUserSubscription (UpdateUserSubscriptionRequest) returns (Empty);
-  rpc AdminUpdateUserSuspended (UpdateUserSuspendedRequest) returns (Empty);
-  rpc AdminUpdateUserVerified (UpdateUserVerifiedRequest) returns (Empty);
 
+  rpc AdminGetUser (AdminGetUserRequest) returns (UserResponse);
+
+  rpc AdminUpdateUserRole (AdminUpdateUserRoleRequest) returns (UserResponse);
+  rpc AdminUpdateUserSubscription (AdminUpdateUserSubscriptionRequest) returns (UserResponse);
+  rpc AdminUpdateUserSuspended (AdminUpdateUserSuspendedRequest) returns (UserResponse);
+  rpc AdminUpdateUserVerified (AdminUpdateUserVerifiedRequest) returns (UserResponse);
+
+  rpc AdminGetUserSessions (AdminGetUserSessionsRequest) returns (SessionsListResponse);
+  rpc AdminGetUserSession (AdminGetUserSessionRequest) returns (SessionResponse);
+  rpc AdminDeleteUserSession (AdminDeleteUserSessionRequest) returns (Empty);
+  rpc AdminTerminateUserSessions (AdminTerminateUserSessionsRequest) returns (Empty);
 }
 
 // Requests
 message Empty {}
 
-message UserRequest {
-  string user_id = 1;
-}
-
-message SessionRequest {
-  string user_id = 1;
-  string session_id = 2;
-}
-
 message RefreshTokenRequest {
+  string agent = 1;
+  string refresh_token = 2;
+}
+
+message AdminUpdateUserRoleRequest{
+  string user_id = 1;
+  string role = 2;
+}
+
+message AdminUpdateUserSubscriptionRequest {
+  string user_id = 1;
+  string subscription = 2;
+}
+
+message AdminUpdateUserSuspendedRequest {
+  string user_id = 1;
+  bool   suspended = 2;
+}
+
+message AdminUpdateUserVerifiedRequest {
+  string user_id = 1;
+  bool   verified = 2;
+}
+
+message DeleteUserSessionRequest {
+  string session_id = 1;
+}
+
+message AdminTerminateUserSessions {
+  string user_id = 1;
+}
+
+message AdminGetUserRequest {
+  string user_id = 1;
+}
+
+message AdminGetUserSessionsRequest {
+  string user_id = 1;
+}
+
+message AdminGetUserSessionRequest {
   string user_id = 1;
   string session_id = 2;
-  string agent = 3;
-  string refresh_token = 4;
 }
 
-message UpdateUserRoleRequest{
-  string initiator_id = 1;
-  string user_id = 2;
-  string role = 3;
+message AdminDeleteUserSession {
+  string user_id = 1;
+  string session_id = 2;
 }
 
-message UpdateUserSubscriptionRequest {
-  string initiator_id = 1;
-  string user_id = 2;
-  string subscription = 3;
-}
-
-message UpdateUserSuspendedRequest {
-  string initiator_id = 1;
-  string user_id = 2;
-  bool   suspended = 3;
-}
-
-message UpdateUserVerifiedRequest {
-  string initiator_id = 1;
-  string user_id = 2;
-  bool   verified = 3;
-}
-
-message TerminateUserSessionByAdminRequest {
+message AdminTerminateUserSessionsRequest {
   string initiator_id = 1;
   string user_id = 2;
 }
 
+message AdminDeleteUserSessionRequest {
+  string user_id = 1;
+  string session_id = 2;
+}
 
 message GoogleLoginResponse {
   string url = 1;
@@ -112,4 +133,3 @@ message SessionResponse {
 message SessionsListResponse {
   repeated SessionResponse sessions = 1;
 }
-
