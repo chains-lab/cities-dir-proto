@@ -28,8 +28,8 @@ service SsoService {
 
   rpc AdminGetUserSessions (AdminGetUserSessionsRequest) returns (SessionsListResponse);
   rpc AdminGetUserSession (AdminGetUserSessionRequest) returns (SessionResponse);
-  rpc AdminDeleteUserSession (AdminDeleteUserSessionRequest) returns (Empty);
   rpc AdminTerminateUserSessions (AdminTerminateUserSessionsRequest) returns (Empty);
+  rpc AdminDeleteUserSession (AdminDeleteUserSessionRequest) returns (Empty);
 }
 
 // Requests
@@ -87,8 +87,7 @@ message AdminDeleteUserSession {
 }
 
 message AdminTerminateUserSessionsRequest {
-  string initiator_id = 1;
-  string user_id = 2;
+  string user_id = 1;
 }
 
 message AdminDeleteUserSessionRequest {
