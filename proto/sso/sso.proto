@@ -3,7 +3,7 @@ package sso;
 option go_package = "github.com/chains-lab/proto-storage/gen/go/sso;sso";
 
 service SsoService {
-  rpc GetUser (Empty) returns (UserResponse);
+  rpc GetOwnUser (Empty) returns (UserResponse);
 
   //Google OAuth operations
   rpc GoogleLogin (Empty) returns (GoogleLoginResponse);
