@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.34.2
 // 	protoc        v3.21.12
-// source: sso/sso.proto
+// source: chains-auth/chains-auth.proto
 
 package sso
 
@@ -30,7 +30,7 @@ type Empty struct {
 func (x *Empty) Reset() {
 	*x = Empty{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[0]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -43,7 +43,7 @@ func (x *Empty) String() string {
 func (*Empty) ProtoMessage() {}
 
 func (x *Empty) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[0]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +56,7 @@ func (x *Empty) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Empty.ProtoReflect.Descriptor instead.
 func (*Empty) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{0}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{0}
 }
 
 type RefreshTokenRequest struct {
@@ -71,7 +71,7 @@ type RefreshTokenRequest struct {
 func (x *RefreshTokenRequest) Reset() {
 	*x = RefreshTokenRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[1]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -84,7 +84,7 @@ func (x *RefreshTokenRequest) String() string {
 func (*RefreshTokenRequest) ProtoMessage() {}
 
 func (x *RefreshTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[1]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -97,7 +97,7 @@ func (x *RefreshTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RefreshTokenRequest.ProtoReflect.Descriptor instead.
 func (*RefreshTokenRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{1}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *RefreshTokenRequest) GetAgent() string {
@@ -126,7 +126,7 @@ type AdminUpdateUserRoleRequest struct {
 func (x *AdminUpdateUserRoleRequest) Reset() {
 	*x = AdminUpdateUserRoleRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[2]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -139,7 +139,7 @@ func (x *AdminUpdateUserRoleRequest) String() string {
 func (*AdminUpdateUserRoleRequest) ProtoMessage() {}
 
 func (x *AdminUpdateUserRoleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[2]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -152,7 +152,7 @@ func (x *AdminUpdateUserRoleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminUpdateUserRoleRequest.ProtoReflect.Descriptor instead.
 func (*AdminUpdateUserRoleRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{2}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *AdminUpdateUserRoleRequest) GetUserId() string {
@@ -181,7 +181,7 @@ type AdminUpdateUserSubscriptionRequest struct {
 func (x *AdminUpdateUserSubscriptionRequest) Reset() {
 	*x = AdminUpdateUserSubscriptionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[3]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -194,7 +194,7 @@ func (x *AdminUpdateUserSubscriptionRequest) String() string {
 func (*AdminUpdateUserSubscriptionRequest) ProtoMessage() {}
 
 func (x *AdminUpdateUserSubscriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[3]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -207,7 +207,7 @@ func (x *AdminUpdateUserSubscriptionRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use AdminUpdateUserSubscriptionRequest.ProtoReflect.Descriptor instead.
 func (*AdminUpdateUserSubscriptionRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{3}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *AdminUpdateUserSubscriptionRequest) GetUserId() string {
@@ -236,7 +236,7 @@ type AdminUpdateUserSuspendedRequest struct {
 func (x *AdminUpdateUserSuspendedRequest) Reset() {
 	*x = AdminUpdateUserSuspendedRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[4]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -249,7 +249,7 @@ func (x *AdminUpdateUserSuspendedRequest) String() string {
 func (*AdminUpdateUserSuspendedRequest) ProtoMessage() {}
 
 func (x *AdminUpdateUserSuspendedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[4]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -262,7 +262,7 @@ func (x *AdminUpdateUserSuspendedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminUpdateUserSuspendedRequest.ProtoReflect.Descriptor instead.
 func (*AdminUpdateUserSuspendedRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{4}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *AdminUpdateUserSuspendedRequest) GetUserId() string {
@@ -291,7 +291,7 @@ type AdminUpdateUserVerifiedRequest struct {
 func (x *AdminUpdateUserVerifiedRequest) Reset() {
 	*x = AdminUpdateUserVerifiedRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[5]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -304,7 +304,7 @@ func (x *AdminUpdateUserVerifiedRequest) String() string {
 func (*AdminUpdateUserVerifiedRequest) ProtoMessage() {}
 
 func (x *AdminUpdateUserVerifiedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[5]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -317,7 +317,7 @@ func (x *AdminUpdateUserVerifiedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminUpdateUserVerifiedRequest.ProtoReflect.Descriptor instead.
 func (*AdminUpdateUserVerifiedRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{5}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *AdminUpdateUserVerifiedRequest) GetUserId() string {
@@ -345,7 +345,7 @@ type DeleteOwnUserSessionRequest struct {
 func (x *DeleteOwnUserSessionRequest) Reset() {
 	*x = DeleteOwnUserSessionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[6]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -358,7 +358,7 @@ func (x *DeleteOwnUserSessionRequest) String() string {
 func (*DeleteOwnUserSessionRequest) ProtoMessage() {}
 
 func (x *DeleteOwnUserSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[6]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -371,7 +371,7 @@ func (x *DeleteOwnUserSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteOwnUserSessionRequest.ProtoReflect.Descriptor instead.
 func (*DeleteOwnUserSessionRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{6}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *DeleteOwnUserSessionRequest) GetSessionId() string {
@@ -392,7 +392,7 @@ type AdminTerminateUserSessions struct {
 func (x *AdminTerminateUserSessions) Reset() {
 	*x = AdminTerminateUserSessions{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[7]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -405,7 +405,7 @@ func (x *AdminTerminateUserSessions) String() string {
 func (*AdminTerminateUserSessions) ProtoMessage() {}
 
 func (x *AdminTerminateUserSessions) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[7]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -418,7 +418,7 @@ func (x *AdminTerminateUserSessions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminTerminateUserSessions.ProtoReflect.Descriptor instead.
 func (*AdminTerminateUserSessions) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{7}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *AdminTerminateUserSessions) GetUserId() string {
@@ -439,7 +439,7 @@ type AdminGetUserRequest struct {
 func (x *AdminGetUserRequest) Reset() {
 	*x = AdminGetUserRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[8]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -452,7 +452,7 @@ func (x *AdminGetUserRequest) String() string {
 func (*AdminGetUserRequest) ProtoMessage() {}
 
 func (x *AdminGetUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[8]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -465,7 +465,7 @@ func (x *AdminGetUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminGetUserRequest.ProtoReflect.Descriptor instead.
 func (*AdminGetUserRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{8}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *AdminGetUserRequest) GetUserId() string {
@@ -486,7 +486,7 @@ type AdminGetUserSessionsRequest struct {
 func (x *AdminGetUserSessionsRequest) Reset() {
 	*x = AdminGetUserSessionsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[9]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -499,7 +499,7 @@ func (x *AdminGetUserSessionsRequest) String() string {
 func (*AdminGetUserSessionsRequest) ProtoMessage() {}
 
 func (x *AdminGetUserSessionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[9]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -512,7 +512,7 @@ func (x *AdminGetUserSessionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminGetUserSessionsRequest.ProtoReflect.Descriptor instead.
 func (*AdminGetUserSessionsRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{9}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *AdminGetUserSessionsRequest) GetUserId() string {
@@ -534,7 +534,7 @@ type AdminGetUserSessionRequest struct {
 func (x *AdminGetUserSessionRequest) Reset() {
 	*x = AdminGetUserSessionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[10]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -547,7 +547,7 @@ func (x *AdminGetUserSessionRequest) String() string {
 func (*AdminGetUserSessionRequest) ProtoMessage() {}
 
 func (x *AdminGetUserSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[10]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -560,7 +560,7 @@ func (x *AdminGetUserSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminGetUserSessionRequest.ProtoReflect.Descriptor instead.
 func (*AdminGetUserSessionRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{10}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *AdminGetUserSessionRequest) GetUserId() string {
@@ -589,7 +589,7 @@ type AdminDeleteUserSession struct {
 func (x *AdminDeleteUserSession) Reset() {
 	*x = AdminDeleteUserSession{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[11]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -602,7 +602,7 @@ func (x *AdminDeleteUserSession) String() string {
 func (*AdminDeleteUserSession) ProtoMessage() {}
 
 func (x *AdminDeleteUserSession) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[11]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -615,7 +615,7 @@ func (x *AdminDeleteUserSession) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminDeleteUserSession.ProtoReflect.Descriptor instead.
 func (*AdminDeleteUserSession) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{11}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *AdminDeleteUserSession) GetUserId() string {
@@ -637,14 +637,13 @@ type AdminTerminateUserSessionsRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	InitiatorId string `protobuf:"bytes,1,opt,name=initiator_id,json=initiatorId,proto3" json:"initiator_id,omitempty"`
-	UserId      string `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId string `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 }
 
 func (x *AdminTerminateUserSessionsRequest) Reset() {
 	*x = AdminTerminateUserSessionsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[12]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -657,7 +656,7 @@ func (x *AdminTerminateUserSessionsRequest) String() string {
 func (*AdminTerminateUserSessionsRequest) ProtoMessage() {}
 
 func (x *AdminTerminateUserSessionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[12]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -670,14 +669,7 @@ func (x *AdminTerminateUserSessionsRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use AdminTerminateUserSessionsRequest.ProtoReflect.Descriptor instead.
 func (*AdminTerminateUserSessionsRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *AdminTerminateUserSessionsRequest) GetInitiatorId() string {
-	if x != nil {
-		return x.InitiatorId
-	}
-	return ""
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *AdminTerminateUserSessionsRequest) GetUserId() string {
@@ -699,7 +691,7 @@ type AdminDeleteUserSessionRequest struct {
 func (x *AdminDeleteUserSessionRequest) Reset() {
 	*x = AdminDeleteUserSessionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[13]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -712,7 +704,7 @@ func (x *AdminDeleteUserSessionRequest) String() string {
 func (*AdminDeleteUserSessionRequest) ProtoMessage() {}
 
 func (x *AdminDeleteUserSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[13]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -725,7 +717,7 @@ func (x *AdminDeleteUserSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminDeleteUserSessionRequest.ProtoReflect.Descriptor instead.
 func (*AdminDeleteUserSessionRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{13}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *AdminDeleteUserSessionRequest) GetUserId() string {
@@ -753,7 +745,7 @@ type GoogleLoginResponse struct {
 func (x *GoogleLoginResponse) Reset() {
 	*x = GoogleLoginResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[14]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -766,7 +758,7 @@ func (x *GoogleLoginResponse) String() string {
 func (*GoogleLoginResponse) ProtoMessage() {}
 
 func (x *GoogleLoginResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[14]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -779,7 +771,7 @@ func (x *GoogleLoginResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GoogleLoginResponse.ProtoReflect.Descriptor instead.
 func (*GoogleLoginResponse) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{14}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GoogleLoginResponse) GetUrl() string {
@@ -800,7 +792,7 @@ type GoogleCallbackRequest struct {
 func (x *GoogleCallbackRequest) Reset() {
 	*x = GoogleCallbackRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[15]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -813,7 +805,7 @@ func (x *GoogleCallbackRequest) String() string {
 func (*GoogleCallbackRequest) ProtoMessage() {}
 
 func (x *GoogleCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[15]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -826,7 +818,7 @@ func (x *GoogleCallbackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GoogleCallbackRequest.ProtoReflect.Descriptor instead.
 func (*GoogleCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{15}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GoogleCallbackRequest) GetCode() string {
@@ -849,7 +841,7 @@ type TokensPairResponse struct {
 func (x *TokensPairResponse) Reset() {
 	*x = TokensPairResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[16]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -862,7 +854,7 @@ func (x *TokensPairResponse) String() string {
 func (*TokensPairResponse) ProtoMessage() {}
 
 func (x *TokensPairResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[16]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -875,7 +867,7 @@ func (x *TokensPairResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TokensPairResponse.ProtoReflect.Descriptor instead.
 func (*TokensPairResponse) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{16}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *TokensPairResponse) GetAccessToken() string {
@@ -910,7 +902,7 @@ type UserResponse struct {
 func (x *UserResponse) Reset() {
 	*x = UserResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[17]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -923,7 +915,7 @@ func (x *UserResponse) String() string {
 func (*UserResponse) ProtoMessage() {}
 
 func (x *UserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[17]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -936,7 +928,7 @@ func (x *UserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserResponse.ProtoReflect.Descriptor instead.
 func (*UserResponse) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{17}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *UserResponse) GetId() string {
@@ -1011,7 +1003,7 @@ type SessionResponse struct {
 func (x *SessionResponse) Reset() {
 	*x = SessionResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[18]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1024,7 +1016,7 @@ func (x *SessionResponse) String() string {
 func (*SessionResponse) ProtoMessage() {}
 
 func (x *SessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[18]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1037,7 +1029,7 @@ func (x *SessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SessionResponse.ProtoReflect.Descriptor instead.
 func (*SessionResponse) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{18}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *SessionResponse) GetId() string {
@@ -1093,7 +1085,7 @@ type SessionsListResponse struct {
 func (x *SessionsListResponse) Reset() {
 	*x = SessionsListResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[19]
+		mi := &file_chains_auth_chains_auth_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1106,7 +1098,7 @@ func (x *SessionsListResponse) String() string {
 func (*SessionsListResponse) ProtoMessage() {}
 
 func (x *SessionsListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[19]
+	mi := &file_chains_auth_chains_auth_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1119,7 +1111,7 @@ func (x *SessionsListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SessionsListResponse.ProtoReflect.Descriptor instead.
 func (*SessionsListResponse) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{19}
+	return file_chains_auth_chains_auth_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *SessionsListResponse) GetSessions() []*SessionResponse {
@@ -1129,10 +1121,11 @@ func (x *SessionsListResponse) GetSessions() []*SessionResponse {
 	return nil
 }
 
-var File_sso_sso_proto protoreflect.FileDescriptor
+var File_chains_auth_chains_auth_proto protoreflect.FileDescriptor
 
-var file_sso_sso_proto_rawDesc = []byte{
-	0x0a, 0x0d, 0x73, 0x73, 0x6f, 0x2f, 0x73, 0x73, 0x6f, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12,
+var file_chains_auth_chains_auth_proto_rawDesc = []byte{
+	0x0a, 0x1d, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x73, 0x2d, 0x61, 0x75, 0x74, 0x68, 0x2f, 0x63, 0x68,
+	0x61, 0x69, 0x6e, 0x73, 0x2d, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12,
 	0x03, 0x73, 0x73, 0x6f, 0x22, 0x07, 0x0a, 0x05, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x22, 0x50, 0x0a,
 	0x13, 0x52, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x71,
 	0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x61, 0x67, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20,
@@ -1185,60 +1178,58 @@ var file_sso_sso_proto_rawDesc = []byte{
 	0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73,
 	0x65, 0x72, 0x49, 0x64, 0x12, 0x1d, 0x0a, 0x0a, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x5f,
 	0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f,
-	0x6e, 0x49, 0x64, 0x22, 0x5f, 0x0a, 0x21, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x54, 0x65, 0x72, 0x6d,
+	0x6e, 0x49, 0x64, 0x22, 0x3c, 0x0a, 0x21, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x54, 0x65, 0x72, 0x6d,
 	0x69, 0x6e, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e,
-	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x21, 0x0a, 0x0c, 0x69, 0x6e, 0x69, 0x74,
-	0x69, 0x61, 0x74, 0x6f, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b,
-	0x69, 0x6e, 0x69, 0x74, 0x69, 0x61, 0x74, 0x6f, 0x72, 0x49, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x75,
-	0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73,
-	0x65, 0x72, 0x49, 0x64, 0x22, 0x57, 0x0a, 0x1d, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x44, 0x65, 0x6c,
-	0x65, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x1d,
-	0x0a, 0x0a, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x09, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x22, 0x27, 0x0a,
-	0x13, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x75, 0x72, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x03, 0x75, 0x72, 0x6c, 0x22, 0x2b, 0x0a, 0x15, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
-	0x43, 0x61, 0x6c, 0x6c, 0x62, 0x61, 0x63, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
-	0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x63,
-	0x6f, 0x64, 0x65, 0x22, 0x5c, 0x0a, 0x12, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x73, 0x50, 0x61, 0x69,
-	0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x21, 0x0a, 0x0c, 0x61, 0x63, 0x63,
-	0x65, 0x73, 0x73, 0x5f, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x0b, 0x61, 0x63, 0x63, 0x65, 0x73, 0x73, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x12, 0x23, 0x0a, 0x0d,
-	0x72, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x5f, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x0c, 0x72, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x54, 0x6f, 0x6b, 0x65,
-	0x6e, 0x22, 0xe4, 0x01, 0x0a, 0x0c, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02,
-	0x69, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x02, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x12, 0x12, 0x0a, 0x04, 0x72, 0x6f, 0x6c, 0x65,
-	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x72, 0x6f, 0x6c, 0x65, 0x12, 0x22, 0x0a, 0x0c,
-	0x73, 0x75, 0x62, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x04, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x0c, 0x73, 0x75, 0x62, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e,
-	0x12, 0x1a, 0x0a, 0x08, 0x76, 0x65, 0x72, 0x69, 0x66, 0x69, 0x65, 0x64, 0x18, 0x05, 0x20, 0x01,
-	0x28, 0x08, 0x52, 0x08, 0x76, 0x65, 0x72, 0x69, 0x66, 0x69, 0x65, 0x64, 0x12, 0x1c, 0x0a, 0x09,
-	0x73, 0x75, 0x73, 0x70, 0x65, 0x6e, 0x64, 0x65, 0x64, 0x18, 0x06, 0x20, 0x01, 0x28, 0x08, 0x52,
-	0x09, 0x73, 0x75, 0x73, 0x70, 0x65, 0x6e, 0x64, 0x65, 0x64, 0x12, 0x1d, 0x0a, 0x0a, 0x63, 0x72,
-	0x65, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09,
-	0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x12, 0x1d, 0x0a, 0x0a, 0x75, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x75,
-	0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x22, 0x9e, 0x01, 0x0a, 0x0f, 0x53, 0x65, 0x73,
-	0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02,
-	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x17, 0x0a, 0x07,
-	0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75,
-	0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x63, 0x6c, 0x69, 0x65, 0x6e, 0x74, 0x18,
-	0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x63, 0x6c, 0x69, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a,
-	0x02, 0x69, 0x70, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x70, 0x12, 0x1d, 0x0a,
-	0x0a, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x05, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x09, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x12, 0x1b, 0x0a, 0x09,
-	0x6c, 0x61, 0x73, 0x74, 0x5f, 0x75, 0x73, 0x65, 0x64, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x08, 0x6c, 0x61, 0x73, 0x74, 0x55, 0x73, 0x65, 0x64, 0x22, 0x48, 0x0a, 0x14, 0x53, 0x65, 0x73,
-	0x73, 0x69, 0x6f, 0x6e, 0x73, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x30, 0x0a, 0x08, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x18, 0x01, 0x20,
-	0x03, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x73, 0x73, 0x6f, 0x2e, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f,
-	0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x08, 0x73, 0x65, 0x73, 0x73, 0x69,
-	0x6f, 0x6e, 0x73, 0x32, 0xcf, 0x09, 0x0a, 0x0a, 0x53, 0x73, 0x6f, 0x53, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x12, 0x28, 0x0a, 0x07, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x12, 0x0a, 0x2e,
+	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72,
+	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49,
+	0x64, 0x22, 0x57, 0x0a, 0x1d, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65,
+	0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x1d, 0x0a, 0x0a, 0x73,
+	0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x09, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x22, 0x27, 0x0a, 0x13, 0x47, 0x6f,
+	0x6f, 0x67, 0x6c, 0x65, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x10, 0x0a, 0x03, 0x75, 0x72, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03,
+	0x75, 0x72, 0x6c, 0x22, 0x2b, 0x0a, 0x15, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x43, 0x61, 0x6c,
+	0x6c, 0x62, 0x61, 0x63, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04,
+	0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65,
+	0x22, 0x5c, 0x0a, 0x12, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x73, 0x50, 0x61, 0x69, 0x72, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x21, 0x0a, 0x0c, 0x61, 0x63, 0x63, 0x65, 0x73, 0x73,
+	0x5f, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x61, 0x63,
+	0x63, 0x65, 0x73, 0x73, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x12, 0x23, 0x0a, 0x0d, 0x72, 0x65, 0x66,
+	0x72, 0x65, 0x73, 0x68, 0x5f, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x0c, 0x72, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0xe4,
+	0x01, 0x0a, 0x0c, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12,
+	0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05,
+	0x65, 0x6d, 0x61, 0x69, 0x6c, 0x12, 0x12, 0x0a, 0x04, 0x72, 0x6f, 0x6c, 0x65, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x04, 0x72, 0x6f, 0x6c, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x73, 0x75, 0x62,
+	0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x0c, 0x73, 0x75, 0x62, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x1a, 0x0a,
+	0x08, 0x76, 0x65, 0x72, 0x69, 0x66, 0x69, 0x65, 0x64, 0x18, 0x05, 0x20, 0x01, 0x28, 0x08, 0x52,
+	0x08, 0x76, 0x65, 0x72, 0x69, 0x66, 0x69, 0x65, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x73, 0x75, 0x73,
+	0x70, 0x65, 0x6e, 0x64, 0x65, 0x64, 0x18, 0x06, 0x20, 0x01, 0x28, 0x08, 0x52, 0x09, 0x73, 0x75,
+	0x73, 0x70, 0x65, 0x6e, 0x64, 0x65, 0x64, 0x12, 0x1d, 0x0a, 0x0a, 0x63, 0x72, 0x65, 0x61, 0x74,
+	0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x12, 0x1d, 0x0a, 0x0a, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65,
+	0x64, 0x5f, 0x61, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x75, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x64, 0x41, 0x74, 0x22, 0x9e, 0x01, 0x0a, 0x0f, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f,
+	0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65,
+	0x72, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72,
+	0x49, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x63, 0x6c, 0x69, 0x65, 0x6e, 0x74, 0x18, 0x03, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x06, 0x63, 0x6c, 0x69, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x70,
+	0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x70, 0x12, 0x1d, 0x0a, 0x0a, 0x63, 0x72,
+	0x65, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09,
+	0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x12, 0x1b, 0x0a, 0x09, 0x6c, 0x61, 0x73,
+	0x74, 0x5f, 0x75, 0x73, 0x65, 0x64, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6c, 0x61,
+	0x73, 0x74, 0x55, 0x73, 0x65, 0x64, 0x22, 0x48, 0x0a, 0x14, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f,
+	0x6e, 0x73, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30,
+	0x0a, 0x08, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b,
+	0x32, 0x14, 0x2e, 0x73, 0x73, 0x6f, 0x2e, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x08, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73,
+	0x32, 0xd2, 0x09, 0x0a, 0x0a, 0x53, 0x73, 0x6f, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12,
+	0x2b, 0x0a, 0x0a, 0x47, 0x65, 0x74, 0x4f, 0x77, 0x6e, 0x55, 0x73, 0x65, 0x72, 0x12, 0x0a, 0x2e,
 	0x73, 0x73, 0x6f, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x11, 0x2e, 0x73, 0x73, 0x6f, 0x2e,
 	0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x33, 0x0a, 0x0b,
 	0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x12, 0x0a, 0x2e, 0x73, 0x73,
@@ -1304,16 +1295,16 @@ var file_sso_sso_proto_rawDesc = []byte{
 	0x6f, 0x6e, 0x12, 0x1f, 0x2e, 0x73, 0x73, 0x6f, 0x2e, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x47, 0x65,
 	0x74, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75,
 	0x65, 0x73, 0x74, 0x1a, 0x14, 0x2e, 0x73, 0x73, 0x6f, 0x2e, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f,
-	0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x48, 0x0a, 0x16, 0x41, 0x64, 0x6d,
-	0x69, 0x6e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73,
-	0x69, 0x6f, 0x6e, 0x12, 0x22, 0x2e, 0x73, 0x73, 0x6f, 0x2e, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x44,
-	0x65, 0x6c, 0x65, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0a, 0x2e, 0x73, 0x73, 0x6f, 0x2e, 0x45, 0x6d,
-	0x70, 0x74, 0x79, 0x12, 0x50, 0x0a, 0x1a, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x54, 0x65, 0x72, 0x6d,
-	0x69, 0x6e, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e,
-	0x73, 0x12, 0x26, 0x2e, 0x73, 0x73, 0x6f, 0x2e, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x54, 0x65, 0x72,
-	0x6d, 0x69, 0x6e, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f,
-	0x6e, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0a, 0x2e, 0x73, 0x73, 0x6f, 0x2e,
+	0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x50, 0x0a, 0x1a, 0x41, 0x64, 0x6d,
+	0x69, 0x6e, 0x54, 0x65, 0x72, 0x6d, 0x69, 0x6e, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53,
+	0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x26, 0x2e, 0x73, 0x73, 0x6f, 0x2e, 0x41, 0x64,
+	0x6d, 0x69, 0x6e, 0x54, 0x65, 0x72, 0x6d, 0x69, 0x6e, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72,
+	0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x0a, 0x2e, 0x73, 0x73, 0x6f, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x12, 0x48, 0x0a, 0x16, 0x41,
+	0x64, 0x6d, 0x69, 0x6e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65,
+	0x73, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x22, 0x2e, 0x73, 0x73, 0x6f, 0x2e, 0x41, 0x64, 0x6d, 0x69,
+	0x6e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69,
+	0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0a, 0x2e, 0x73, 0x73, 0x6f, 0x2e,
 	0x45, 0x6d, 0x70, 0x74, 0x79, 0x42, 0x34, 0x5a, 0x32, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e,
 	0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x73, 0x2d, 0x6c, 0x61, 0x62, 0x2f, 0x70,
 	0x72, 0x6f, 0x74, 0x6f, 0x2d, 0x73, 0x74, 0x6f, 0x72, 0x61, 0x67, 0x65, 0x2f, 0x67, 0x65, 0x6e,
@@ -1322,19 +1313,19 @@ var file_sso_sso_proto_rawDesc = []byte{
 }
 
 var (
-	file_sso_sso_proto_rawDescOnce sync.Once
-	file_sso_sso_proto_rawDescData = file_sso_sso_proto_rawDesc
+	file_chains_auth_chains_auth_proto_rawDescOnce sync.Once
+	file_chains_auth_chains_auth_proto_rawDescData = file_chains_auth_chains_auth_proto_rawDesc
 )
 
-func file_sso_sso_proto_rawDescGZIP() []byte {
-	file_sso_sso_proto_rawDescOnce.Do(func() {
-		file_sso_sso_proto_rawDescData = protoimpl.X.CompressGZIP(file_sso_sso_proto_rawDescData)
+func file_chains_auth_chains_auth_proto_rawDescGZIP() []byte {
+	file_chains_auth_chains_auth_proto_rawDescOnce.Do(func() {
+		file_chains_auth_chains_auth_proto_rawDescData = protoimpl.X.CompressGZIP(file_chains_auth_chains_auth_proto_rawDescData)
 	})
-	return file_sso_sso_proto_rawDescData
+	return file_chains_auth_chains_auth_proto_rawDescData
 }
 
-var file_sso_sso_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
-var file_sso_sso_proto_goTypes = []any{
+var file_chains_auth_chains_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
+var file_chains_auth_chains_auth_proto_goTypes = []any{
 	(*Empty)(nil),                              // 0: sso.Empty
 	(*RefreshTokenRequest)(nil),                // 1: sso.RefreshTokenRequest
 	(*AdminUpdateUserRoleRequest)(nil),         // 2: sso.AdminUpdateUserRoleRequest
@@ -1356,9 +1347,9 @@ var file_sso_sso_proto_goTypes = []any{
 	(*SessionResponse)(nil),                    // 18: sso.SessionResponse
 	(*SessionsListResponse)(nil),               // 19: sso.SessionsListResponse
 }
-var file_sso_sso_proto_depIdxs = []int32{
+var file_chains_auth_chains_auth_proto_depIdxs = []int32{
 	18, // 0: sso.SessionsListResponse.sessions:type_name -> sso.SessionResponse
-	0,  // 1: sso.SsoService.GetUser:input_type -> sso.Empty
+	0,  // 1: sso.SsoService.GetOwnUser:input_type -> sso.Empty
 	0,  // 2: sso.SsoService.GoogleLogin:input_type -> sso.Empty
 	15, // 3: sso.SsoService.GoogleCallback:input_type -> sso.GoogleCallbackRequest
 	0,  // 4: sso.SsoService.Logout:input_type -> sso.Empty
@@ -1374,9 +1365,9 @@ var file_sso_sso_proto_depIdxs = []int32{
 	5,  // 14: sso.SsoService.AdminUpdateUserVerified:input_type -> sso.AdminUpdateUserVerifiedRequest
 	9,  // 15: sso.SsoService.AdminGetUserSessions:input_type -> sso.AdminGetUserSessionsRequest
 	10, // 16: sso.SsoService.AdminGetUserSession:input_type -> sso.AdminGetUserSessionRequest
-	13, // 17: sso.SsoService.AdminDeleteUserSession:input_type -> sso.AdminDeleteUserSessionRequest
-	12, // 18: sso.SsoService.AdminTerminateUserSessions:input_type -> sso.AdminTerminateUserSessionsRequest
-	17, // 19: sso.SsoService.GetUser:output_type -> sso.UserResponse
+	12, // 17: sso.SsoService.AdminTerminateUserSessions:input_type -> sso.AdminTerminateUserSessionsRequest
+	13, // 18: sso.SsoService.AdminDeleteUserSession:input_type -> sso.AdminDeleteUserSessionRequest
+	17, // 19: sso.SsoService.GetOwnUser:output_type -> sso.UserResponse
 	14, // 20: sso.SsoService.GoogleLogin:output_type -> sso.GoogleLoginResponse
 	16, // 21: sso.SsoService.GoogleCallback:output_type -> sso.TokensPairResponse
 	0,  // 22: sso.SsoService.Logout:output_type -> sso.Empty
@@ -1392,8 +1383,8 @@ var file_sso_sso_proto_depIdxs = []int32{
 	17, // 32: sso.SsoService.AdminUpdateUserVerified:output_type -> sso.UserResponse
 	19, // 33: sso.SsoService.AdminGetUserSessions:output_type -> sso.SessionsListResponse
 	18, // 34: sso.SsoService.AdminGetUserSession:output_type -> sso.SessionResponse
-	0,  // 35: sso.SsoService.AdminDeleteUserSession:output_type -> sso.Empty
-	0,  // 36: sso.SsoService.AdminTerminateUserSessions:output_type -> sso.Empty
+	0,  // 35: sso.SsoService.AdminTerminateUserSessions:output_type -> sso.Empty
+	0,  // 36: sso.SsoService.AdminDeleteUserSession:output_type -> sso.Empty
 	19, // [19:37] is the sub-list for method output_type
 	1,  // [1:19] is the sub-list for method input_type
 	1,  // [1:1] is the sub-list for extension type_name
@@ -1401,13 +1392,13 @@ var file_sso_sso_proto_depIdxs = []int32{
 	0,  // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_sso_sso_proto_init() }
-func file_sso_sso_proto_init() {
-	if File_sso_sso_proto != nil {
+func init() { file_chains_auth_chains_auth_proto_init() }
+func file_chains_auth_chains_auth_proto_init() {
+	if File_chains_auth_chains_auth_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_sso_sso_proto_msgTypes[0].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[0].Exporter = func(v any, i int) any {
 			switch v := v.(*Empty); i {
 			case 0:
 				return &v.state
@@ -1419,7 +1410,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[1].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[1].Exporter = func(v any, i int) any {
 			switch v := v.(*RefreshTokenRequest); i {
 			case 0:
 				return &v.state
@@ -1431,7 +1422,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[2].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[2].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminUpdateUserRoleRequest); i {
 			case 0:
 				return &v.state
@@ -1443,7 +1434,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[3].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[3].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminUpdateUserSubscriptionRequest); i {
 			case 0:
 				return &v.state
@@ -1455,7 +1446,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[4].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[4].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminUpdateUserSuspendedRequest); i {
 			case 0:
 				return &v.state
@@ -1467,7 +1458,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[5].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[5].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminUpdateUserVerifiedRequest); i {
 			case 0:
 				return &v.state
@@ -1479,7 +1470,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[6].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[6].Exporter = func(v any, i int) any {
 			switch v := v.(*DeleteOwnUserSessionRequest); i {
 			case 0:
 				return &v.state
@@ -1491,7 +1482,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[7].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[7].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminTerminateUserSessions); i {
 			case 0:
 				return &v.state
@@ -1503,7 +1494,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[8].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[8].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminGetUserRequest); i {
 			case 0:
 				return &v.state
@@ -1515,7 +1506,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[9].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[9].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminGetUserSessionsRequest); i {
 			case 0:
 				return &v.state
@@ -1527,7 +1518,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[10].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[10].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminGetUserSessionRequest); i {
 			case 0:
 				return &v.state
@@ -1539,7 +1530,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[11].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[11].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminDeleteUserSession); i {
 			case 0:
 				return &v.state
@@ -1551,7 +1542,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[12].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[12].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminTerminateUserSessionsRequest); i {
 			case 0:
 				return &v.state
@@ -1563,7 +1554,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[13].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[13].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminDeleteUserSessionRequest); i {
 			case 0:
 				return &v.state
@@ -1575,7 +1566,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[14].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[14].Exporter = func(v any, i int) any {
 			switch v := v.(*GoogleLoginResponse); i {
 			case 0:
 				return &v.state
@@ -1587,7 +1578,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[15].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[15].Exporter = func(v any, i int) any {
 			switch v := v.(*GoogleCallbackRequest); i {
 			case 0:
 				return &v.state
@@ -1599,7 +1590,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[16].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[16].Exporter = func(v any, i int) any {
 			switch v := v.(*TokensPairResponse); i {
 			case 0:
 				return &v.state
@@ -1611,7 +1602,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[17].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[17].Exporter = func(v any, i int) any {
 			switch v := v.(*UserResponse); i {
 			case 0:
 				return &v.state
@@ -1623,7 +1614,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[18].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[18].Exporter = func(v any, i int) any {
 			switch v := v.(*SessionResponse); i {
 			case 0:
 				return &v.state
@@ -1635,7 +1626,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[19].Exporter = func(v any, i int) any {
+		file_chains_auth_chains_auth_proto_msgTypes[19].Exporter = func(v any, i int) any {
 			switch v := v.(*SessionsListResponse); i {
 			case 0:
 				return &v.state
@@ -1652,18 +1643,18 @@ func file_sso_sso_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_sso_sso_proto_rawDesc,
+			RawDescriptor: file_chains_auth_chains_auth_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   20,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_sso_sso_proto_goTypes,
-		DependencyIndexes: file_sso_sso_proto_depIdxs,
-		MessageInfos:      file_sso_sso_proto_msgTypes,
+		GoTypes:           file_chains_auth_chains_auth_proto_goTypes,
+		DependencyIndexes: file_chains_auth_chains_auth_proto_depIdxs,
+		MessageInfos:      file_chains_auth_chains_auth_proto_msgTypes,
 	}.Build()
-	File_sso_sso_proto = out.File
-	file_sso_sso_proto_rawDesc = nil
-	file_sso_sso_proto_goTypes = nil
-	file_sso_sso_proto_depIdxs = nil
+	File_chains_auth_chains_auth_proto = out.File
+	file_chains_auth_chains_auth_proto_rawDesc = nil
+	file_chains_auth_chains_auth_proto_goTypes = nil
+	file_chains_auth_chains_auth_proto_depIdxs = nil
 }
