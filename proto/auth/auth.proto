@@ -1,8 +1,8 @@
 syntax = "proto3";
-package sso;
-option go_package = "github.com/chains-lab/proto-storage/gen/go/sso;sso";
+package auth;
+option go_package = "github.com/chains-lab/proto-storage/gen/go/auth;auth";
 
-service SsoService {
+service AuthService {
   rpc GetOwnUser (Empty) returns (UserResponse);
 
   //Google OAuth operations
