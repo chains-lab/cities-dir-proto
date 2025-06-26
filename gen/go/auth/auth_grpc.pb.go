@@ -19,30 +19,30 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AuthService_GetOwnUser_FullMethodName                  = "/auth.AuthService/GetOwnUser"
-	AuthService_GoogleLogin_FullMethodName                 = "/auth.AuthService/GoogleLogin"
-	AuthService_GoogleCallback_FullMethodName              = "/auth.AuthService/GoogleCallback"
-	AuthService_Logout_FullMethodName                      = "/auth.AuthService/Logout"
-	AuthService_RefreshToken_FullMethodName                = "/auth.AuthService/RefreshToken"
-	AuthService_GetOwnUserSession_FullMethodName           = "/auth.AuthService/GetOwnUserSession"
-	AuthService_GetOwnUserSessions_FullMethodName          = "/auth.AuthService/GetOwnUserSessions"
-	AuthService_DeleteOwnUserSession_FullMethodName        = "/auth.AuthService/DeleteOwnUserSession"
-	AuthService_TerminateOwnUserSessions_FullMethodName    = "/auth.AuthService/TerminateOwnUserSessions"
-	AuthService_AdminGetUser_FullMethodName                = "/auth.AuthService/AdminGetUser"
-	AuthService_AdminUpdateUserRole_FullMethodName         = "/auth.AuthService/AdminUpdateUserRole"
-	AuthService_AdminUpdateUserSubscription_FullMethodName = "/auth.AuthService/AdminUpdateUserSubscription"
-	AuthService_AdminUpdateUserSuspended_FullMethodName    = "/auth.AuthService/AdminUpdateUserSuspended"
-	AuthService_AdminUpdateUserVerified_FullMethodName     = "/auth.AuthService/AdminUpdateUserVerified"
-	AuthService_AdminGetUserSessions_FullMethodName        = "/auth.AuthService/AdminGetUserSessions"
-	AuthService_AdminGetUserSession_FullMethodName         = "/auth.AuthService/AdminGetUserSession"
-	AuthService_AdminTerminateUserSessions_FullMethodName  = "/auth.AuthService/AdminTerminateUserSessions"
-	AuthService_AdminDeleteUserSession_FullMethodName      = "/auth.AuthService/AdminDeleteUserSession"
+	Service_GetOwnUser_FullMethodName                  = "/auth.Service/GetOwnUser"
+	Service_GoogleLogin_FullMethodName                 = "/auth.Service/GoogleLogin"
+	Service_GoogleCallback_FullMethodName              = "/auth.Service/GoogleCallback"
+	Service_Logout_FullMethodName                      = "/auth.Service/Logout"
+	Service_RefreshToken_FullMethodName                = "/auth.Service/RefreshToken"
+	Service_GetOwnUserSession_FullMethodName           = "/auth.Service/GetOwnUserSession"
+	Service_GetOwnUserSessions_FullMethodName          = "/auth.Service/GetOwnUserSessions"
+	Service_DeleteOwnUserSession_FullMethodName        = "/auth.Service/DeleteOwnUserSession"
+	Service_TerminateOwnUserSessions_FullMethodName    = "/auth.Service/TerminateOwnUserSessions"
+	Service_AdminGetUser_FullMethodName                = "/auth.Service/AdminGetUser"
+	Service_AdminUpdateUserRole_FullMethodName         = "/auth.Service/AdminUpdateUserRole"
+	Service_AdminUpdateUserSubscription_FullMethodName = "/auth.Service/AdminUpdateUserSubscription"
+	Service_AdminUpdateUserSuspended_FullMethodName    = "/auth.Service/AdminUpdateUserSuspended"
+	Service_AdminUpdateUserVerified_FullMethodName     = "/auth.Service/AdminUpdateUserVerified"
+	Service_AdminGetUserSessions_FullMethodName        = "/auth.Service/AdminGetUserSessions"
+	Service_AdminGetUserSession_FullMethodName         = "/auth.Service/AdminGetUserSession"
+	Service_AdminTerminateUserSessions_FullMethodName  = "/auth.Service/AdminTerminateUserSessions"
+	Service_AdminDeleteUserSession_FullMethodName      = "/auth.Service/AdminDeleteUserSession"
 )
 
-// AuthServiceClient is the client API for AuthService service.
+// ServiceClient is the client API for Service service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AuthServiceClient interface {
+type ServiceClient interface {
 	GetOwnUser(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*UserResponse, error)
 	// Google OAuth operations
 	GoogleLogin(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GoogleLoginResponse, error)
@@ -64,198 +64,198 @@ type AuthServiceClient interface {
 	AdminDeleteUserSession(ctx context.Context, in *AdminDeleteUserSessionRequest, opts ...grpc.CallOption) (*Empty, error)
 }
 
-type authServiceClient struct {
+type serviceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAuthServiceClient(cc grpc.ClientConnInterface) AuthServiceClient {
-	return &authServiceClient{cc}
+func NewServiceClient(cc grpc.ClientConnInterface) ServiceClient {
+	return &serviceClient{cc}
 }
 
-func (c *authServiceClient) GetOwnUser(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*UserResponse, error) {
+func (c *serviceClient) GetOwnUser(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*UserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UserResponse)
-	err := c.cc.Invoke(ctx, AuthService_GetOwnUser_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_GetOwnUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) GoogleLogin(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GoogleLoginResponse, error) {
+func (c *serviceClient) GoogleLogin(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GoogleLoginResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GoogleLoginResponse)
-	err := c.cc.Invoke(ctx, AuthService_GoogleLogin_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_GoogleLogin_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) GoogleCallback(ctx context.Context, in *GoogleCallbackRequest, opts ...grpc.CallOption) (*TokensPairResponse, error) {
+func (c *serviceClient) GoogleCallback(ctx context.Context, in *GoogleCallbackRequest, opts ...grpc.CallOption) (*TokensPairResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(TokensPairResponse)
-	err := c.cc.Invoke(ctx, AuthService_GoogleCallback_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_GoogleCallback_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) Logout(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error) {
+func (c *serviceClient) Logout(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, AuthService_Logout_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_Logout_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*TokensPairResponse, error) {
+func (c *serviceClient) RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*TokensPairResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(TokensPairResponse)
-	err := c.cc.Invoke(ctx, AuthService_RefreshToken_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_RefreshToken_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) GetOwnUserSession(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*SessionResponse, error) {
+func (c *serviceClient) GetOwnUserSession(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*SessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SessionResponse)
-	err := c.cc.Invoke(ctx, AuthService_GetOwnUserSession_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_GetOwnUserSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) GetOwnUserSessions(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*SessionsListResponse, error) {
+func (c *serviceClient) GetOwnUserSessions(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*SessionsListResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SessionsListResponse)
-	err := c.cc.Invoke(ctx, AuthService_GetOwnUserSessions_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_GetOwnUserSessions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) DeleteOwnUserSession(ctx context.Context, in *DeleteOwnUserSessionRequest, opts ...grpc.CallOption) (*Empty, error) {
+func (c *serviceClient) DeleteOwnUserSession(ctx context.Context, in *DeleteOwnUserSessionRequest, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, AuthService_DeleteOwnUserSession_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_DeleteOwnUserSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) TerminateOwnUserSessions(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error) {
+func (c *serviceClient) TerminateOwnUserSessions(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, AuthService_TerminateOwnUserSessions_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_TerminateOwnUserSessions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) AdminGetUser(ctx context.Context, in *AdminGetUserRequest, opts ...grpc.CallOption) (*UserResponse, error) {
+func (c *serviceClient) AdminGetUser(ctx context.Context, in *AdminGetUserRequest, opts ...grpc.CallOption) (*UserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UserResponse)
-	err := c.cc.Invoke(ctx, AuthService_AdminGetUser_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_AdminGetUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) AdminUpdateUserRole(ctx context.Context, in *AdminUpdateUserRoleRequest, opts ...grpc.CallOption) (*UserResponse, error) {
+func (c *serviceClient) AdminUpdateUserRole(ctx context.Context, in *AdminUpdateUserRoleRequest, opts ...grpc.CallOption) (*UserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UserResponse)
-	err := c.cc.Invoke(ctx, AuthService_AdminUpdateUserRole_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_AdminUpdateUserRole_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) AdminUpdateUserSubscription(ctx context.Context, in *AdminUpdateUserSubscriptionRequest, opts ...grpc.CallOption) (*UserResponse, error) {
+func (c *serviceClient) AdminUpdateUserSubscription(ctx context.Context, in *AdminUpdateUserSubscriptionRequest, opts ...grpc.CallOption) (*UserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UserResponse)
-	err := c.cc.Invoke(ctx, AuthService_AdminUpdateUserSubscription_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_AdminUpdateUserSubscription_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) AdminUpdateUserSuspended(ctx context.Context, in *AdminUpdateUserSuspendedRequest, opts ...grpc.CallOption) (*UserResponse, error) {
+func (c *serviceClient) AdminUpdateUserSuspended(ctx context.Context, in *AdminUpdateUserSuspendedRequest, opts ...grpc.CallOption) (*UserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UserResponse)
-	err := c.cc.Invoke(ctx, AuthService_AdminUpdateUserSuspended_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_AdminUpdateUserSuspended_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) AdminUpdateUserVerified(ctx context.Context, in *AdminUpdateUserVerifiedRequest, opts ...grpc.CallOption) (*UserResponse, error) {
+func (c *serviceClient) AdminUpdateUserVerified(ctx context.Context, in *AdminUpdateUserVerifiedRequest, opts ...grpc.CallOption) (*UserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UserResponse)
-	err := c.cc.Invoke(ctx, AuthService_AdminUpdateUserVerified_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_AdminUpdateUserVerified_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) AdminGetUserSessions(ctx context.Context, in *AdminGetUserSessionsRequest, opts ...grpc.CallOption) (*SessionsListResponse, error) {
+func (c *serviceClient) AdminGetUserSessions(ctx context.Context, in *AdminGetUserSessionsRequest, opts ...grpc.CallOption) (*SessionsListResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SessionsListResponse)
-	err := c.cc.Invoke(ctx, AuthService_AdminGetUserSessions_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_AdminGetUserSessions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) AdminGetUserSession(ctx context.Context, in *AdminGetUserSessionRequest, opts ...grpc.CallOption) (*SessionResponse, error) {
+func (c *serviceClient) AdminGetUserSession(ctx context.Context, in *AdminGetUserSessionRequest, opts ...grpc.CallOption) (*SessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SessionResponse)
-	err := c.cc.Invoke(ctx, AuthService_AdminGetUserSession_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_AdminGetUserSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) AdminTerminateUserSessions(ctx context.Context, in *AdminTerminateUserSessionsRequest, opts ...grpc.CallOption) (*Empty, error) {
+func (c *serviceClient) AdminTerminateUserSessions(ctx context.Context, in *AdminTerminateUserSessionsRequest, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, AuthService_AdminTerminateUserSessions_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_AdminTerminateUserSessions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authServiceClient) AdminDeleteUserSession(ctx context.Context, in *AdminDeleteUserSessionRequest, opts ...grpc.CallOption) (*Empty, error) {
+func (c *serviceClient) AdminDeleteUserSession(ctx context.Context, in *AdminDeleteUserSessionRequest, opts ...grpc.CallOption) (*Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, AuthService_AdminDeleteUserSession_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Service_AdminDeleteUserSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AuthServiceServer is the server API for AuthService service.
-// All implementations must embed UnimplementedAuthServiceServer
+// ServiceServer is the server API for Service service.
+// All implementations must embed UnimplementedServiceServer
 // for forward compatibility.
-type AuthServiceServer interface {
+type ServiceServer interface {
 	GetOwnUser(context.Context, *Empty) (*UserResponse, error)
 	// Google OAuth operations
 	GoogleLogin(context.Context, *Empty) (*GoogleLoginResponse, error)
@@ -275,493 +275,493 @@ type AuthServiceServer interface {
 	AdminGetUserSession(context.Context, *AdminGetUserSessionRequest) (*SessionResponse, error)
 	AdminTerminateUserSessions(context.Context, *AdminTerminateUserSessionsRequest) (*Empty, error)
 	AdminDeleteUserSession(context.Context, *AdminDeleteUserSessionRequest) (*Empty, error)
-	mustEmbedUnimplementedAuthServiceServer()
+	mustEmbedUnimplementedServiceServer()
 }
 
-// UnimplementedAuthServiceServer must be embedded to have
+// UnimplementedServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAuthServiceServer struct{}
+type UnimplementedServiceServer struct{}
 
-func (UnimplementedAuthServiceServer) GetOwnUser(context.Context, *Empty) (*UserResponse, error) {
+func (UnimplementedServiceServer) GetOwnUser(context.Context, *Empty) (*UserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOwnUser not implemented")
 }
-func (UnimplementedAuthServiceServer) GoogleLogin(context.Context, *Empty) (*GoogleLoginResponse, error) {
+func (UnimplementedServiceServer) GoogleLogin(context.Context, *Empty) (*GoogleLoginResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GoogleLogin not implemented")
 }
-func (UnimplementedAuthServiceServer) GoogleCallback(context.Context, *GoogleCallbackRequest) (*TokensPairResponse, error) {
+func (UnimplementedServiceServer) GoogleCallback(context.Context, *GoogleCallbackRequest) (*TokensPairResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GoogleCallback not implemented")
 }
-func (UnimplementedAuthServiceServer) Logout(context.Context, *Empty) (*Empty, error) {
+func (UnimplementedServiceServer) Logout(context.Context, *Empty) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Logout not implemented")
 }
-func (UnimplementedAuthServiceServer) RefreshToken(context.Context, *RefreshTokenRequest) (*TokensPairResponse, error) {
+func (UnimplementedServiceServer) RefreshToken(context.Context, *RefreshTokenRequest) (*TokensPairResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RefreshToken not implemented")
 }
-func (UnimplementedAuthServiceServer) GetOwnUserSession(context.Context, *Empty) (*SessionResponse, error) {
+func (UnimplementedServiceServer) GetOwnUserSession(context.Context, *Empty) (*SessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOwnUserSession not implemented")
 }
-func (UnimplementedAuthServiceServer) GetOwnUserSessions(context.Context, *Empty) (*SessionsListResponse, error) {
+func (UnimplementedServiceServer) GetOwnUserSessions(context.Context, *Empty) (*SessionsListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOwnUserSessions not implemented")
 }
-func (UnimplementedAuthServiceServer) DeleteOwnUserSession(context.Context, *DeleteOwnUserSessionRequest) (*Empty, error) {
+func (UnimplementedServiceServer) DeleteOwnUserSession(context.Context, *DeleteOwnUserSessionRequest) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteOwnUserSession not implemented")
 }
-func (UnimplementedAuthServiceServer) TerminateOwnUserSessions(context.Context, *Empty) (*Empty, error) {
+func (UnimplementedServiceServer) TerminateOwnUserSessions(context.Context, *Empty) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TerminateOwnUserSessions not implemented")
 }
-func (UnimplementedAuthServiceServer) AdminGetUser(context.Context, *AdminGetUserRequest) (*UserResponse, error) {
+func (UnimplementedServiceServer) AdminGetUser(context.Context, *AdminGetUserRequest) (*UserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AdminGetUser not implemented")
 }
-func (UnimplementedAuthServiceServer) AdminUpdateUserRole(context.Context, *AdminUpdateUserRoleRequest) (*UserResponse, error) {
+func (UnimplementedServiceServer) AdminUpdateUserRole(context.Context, *AdminUpdateUserRoleRequest) (*UserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AdminUpdateUserRole not implemented")
 }
-func (UnimplementedAuthServiceServer) AdminUpdateUserSubscription(context.Context, *AdminUpdateUserSubscriptionRequest) (*UserResponse, error) {
+func (UnimplementedServiceServer) AdminUpdateUserSubscription(context.Context, *AdminUpdateUserSubscriptionRequest) (*UserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AdminUpdateUserSubscription not implemented")
 }
-func (UnimplementedAuthServiceServer) AdminUpdateUserSuspended(context.Context, *AdminUpdateUserSuspendedRequest) (*UserResponse, error) {
+func (UnimplementedServiceServer) AdminUpdateUserSuspended(context.Context, *AdminUpdateUserSuspendedRequest) (*UserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AdminUpdateUserSuspended not implemented")
 }
-func (UnimplementedAuthServiceServer) AdminUpdateUserVerified(context.Context, *AdminUpdateUserVerifiedRequest) (*UserResponse, error) {
+func (UnimplementedServiceServer) AdminUpdateUserVerified(context.Context, *AdminUpdateUserVerifiedRequest) (*UserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AdminUpdateUserVerified not implemented")
 }
-func (UnimplementedAuthServiceServer) AdminGetUserSessions(context.Context, *AdminGetUserSessionsRequest) (*SessionsListResponse, error) {
+func (UnimplementedServiceServer) AdminGetUserSessions(context.Context, *AdminGetUserSessionsRequest) (*SessionsListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AdminGetUserSessions not implemented")
 }
-func (UnimplementedAuthServiceServer) AdminGetUserSession(context.Context, *AdminGetUserSessionRequest) (*SessionResponse, error) {
+func (UnimplementedServiceServer) AdminGetUserSession(context.Context, *AdminGetUserSessionRequest) (*SessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AdminGetUserSession not implemented")
 }
-func (UnimplementedAuthServiceServer) AdminTerminateUserSessions(context.Context, *AdminTerminateUserSessionsRequest) (*Empty, error) {
+func (UnimplementedServiceServer) AdminTerminateUserSessions(context.Context, *AdminTerminateUserSessionsRequest) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AdminTerminateUserSessions not implemented")
 }
-func (UnimplementedAuthServiceServer) AdminDeleteUserSession(context.Context, *AdminDeleteUserSessionRequest) (*Empty, error) {
+func (UnimplementedServiceServer) AdminDeleteUserSession(context.Context, *AdminDeleteUserSessionRequest) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AdminDeleteUserSession not implemented")
 }
-func (UnimplementedAuthServiceServer) mustEmbedUnimplementedAuthServiceServer() {}
-func (UnimplementedAuthServiceServer) testEmbeddedByValue()                     {}
+func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
+func (UnimplementedServiceServer) testEmbeddedByValue()                 {}
 
-// UnsafeAuthServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AuthServiceServer will
+// UnsafeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServiceServer will
 // result in compilation errors.
-type UnsafeAuthServiceServer interface {
-	mustEmbedUnimplementedAuthServiceServer()
+type UnsafeServiceServer interface {
+	mustEmbedUnimplementedServiceServer()
 }
 
-func RegisterAuthServiceServer(s grpc.ServiceRegistrar, srv AuthServiceServer) {
-	// If the following call pancis, it indicates UnimplementedAuthServiceServer was
+func RegisterServiceServer(s grpc.ServiceRegistrar, srv ServiceServer) {
+	// If the following call pancis, it indicates UnimplementedServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AuthService_ServiceDesc, srv)
+	s.RegisterService(&Service_ServiceDesc, srv)
 }
 
-func _AuthService_GetOwnUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_GetOwnUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).GetOwnUser(ctx, in)
+		return srv.(ServiceServer).GetOwnUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_GetOwnUser_FullMethodName,
+		FullMethod: Service_GetOwnUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).GetOwnUser(ctx, req.(*Empty))
+		return srv.(ServiceServer).GetOwnUser(ctx, req.(*Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_GoogleLogin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_GoogleLogin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).GoogleLogin(ctx, in)
+		return srv.(ServiceServer).GoogleLogin(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_GoogleLogin_FullMethodName,
+		FullMethod: Service_GoogleLogin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).GoogleLogin(ctx, req.(*Empty))
+		return srv.(ServiceServer).GoogleLogin(ctx, req.(*Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_GoogleCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_GoogleCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GoogleCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).GoogleCallback(ctx, in)
+		return srv.(ServiceServer).GoogleCallback(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_GoogleCallback_FullMethodName,
+		FullMethod: Service_GoogleCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).GoogleCallback(ctx, req.(*GoogleCallbackRequest))
+		return srv.(ServiceServer).GoogleCallback(ctx, req.(*GoogleCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_Logout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_Logout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).Logout(ctx, in)
+		return srv.(ServiceServer).Logout(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_Logout_FullMethodName,
+		FullMethod: Service_Logout_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).Logout(ctx, req.(*Empty))
+		return srv.(ServiceServer).Logout(ctx, req.(*Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_RefreshToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_RefreshToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RefreshTokenRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).RefreshToken(ctx, in)
+		return srv.(ServiceServer).RefreshToken(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_RefreshToken_FullMethodName,
+		FullMethod: Service_RefreshToken_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).RefreshToken(ctx, req.(*RefreshTokenRequest))
+		return srv.(ServiceServer).RefreshToken(ctx, req.(*RefreshTokenRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_GetOwnUserSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_GetOwnUserSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).GetOwnUserSession(ctx, in)
+		return srv.(ServiceServer).GetOwnUserSession(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_GetOwnUserSession_FullMethodName,
+		FullMethod: Service_GetOwnUserSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).GetOwnUserSession(ctx, req.(*Empty))
+		return srv.(ServiceServer).GetOwnUserSession(ctx, req.(*Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_GetOwnUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_GetOwnUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).GetOwnUserSessions(ctx, in)
+		return srv.(ServiceServer).GetOwnUserSessions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_GetOwnUserSessions_FullMethodName,
+		FullMethod: Service_GetOwnUserSessions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).GetOwnUserSessions(ctx, req.(*Empty))
+		return srv.(ServiceServer).GetOwnUserSessions(ctx, req.(*Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_DeleteOwnUserSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_DeleteOwnUserSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteOwnUserSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).DeleteOwnUserSession(ctx, in)
+		return srv.(ServiceServer).DeleteOwnUserSession(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_DeleteOwnUserSession_FullMethodName,
+		FullMethod: Service_DeleteOwnUserSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).DeleteOwnUserSession(ctx, req.(*DeleteOwnUserSessionRequest))
+		return srv.(ServiceServer).DeleteOwnUserSession(ctx, req.(*DeleteOwnUserSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_TerminateOwnUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_TerminateOwnUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).TerminateOwnUserSessions(ctx, in)
+		return srv.(ServiceServer).TerminateOwnUserSessions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_TerminateOwnUserSessions_FullMethodName,
+		FullMethod: Service_TerminateOwnUserSessions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).TerminateOwnUserSessions(ctx, req.(*Empty))
+		return srv.(ServiceServer).TerminateOwnUserSessions(ctx, req.(*Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_AdminGetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_AdminGetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AdminGetUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).AdminGetUser(ctx, in)
+		return srv.(ServiceServer).AdminGetUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_AdminGetUser_FullMethodName,
+		FullMethod: Service_AdminGetUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).AdminGetUser(ctx, req.(*AdminGetUserRequest))
+		return srv.(ServiceServer).AdminGetUser(ctx, req.(*AdminGetUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_AdminUpdateUserRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_AdminUpdateUserRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AdminUpdateUserRoleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).AdminUpdateUserRole(ctx, in)
+		return srv.(ServiceServer).AdminUpdateUserRole(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_AdminUpdateUserRole_FullMethodName,
+		FullMethod: Service_AdminUpdateUserRole_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).AdminUpdateUserRole(ctx, req.(*AdminUpdateUserRoleRequest))
+		return srv.(ServiceServer).AdminUpdateUserRole(ctx, req.(*AdminUpdateUserRoleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_AdminUpdateUserSubscription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_AdminUpdateUserSubscription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AdminUpdateUserSubscriptionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).AdminUpdateUserSubscription(ctx, in)
+		return srv.(ServiceServer).AdminUpdateUserSubscription(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_AdminUpdateUserSubscription_FullMethodName,
+		FullMethod: Service_AdminUpdateUserSubscription_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).AdminUpdateUserSubscription(ctx, req.(*AdminUpdateUserSubscriptionRequest))
+		return srv.(ServiceServer).AdminUpdateUserSubscription(ctx, req.(*AdminUpdateUserSubscriptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_AdminUpdateUserSuspended_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_AdminUpdateUserSuspended_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AdminUpdateUserSuspendedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).AdminUpdateUserSuspended(ctx, in)
+		return srv.(ServiceServer).AdminUpdateUserSuspended(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_AdminUpdateUserSuspended_FullMethodName,
+		FullMethod: Service_AdminUpdateUserSuspended_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).AdminUpdateUserSuspended(ctx, req.(*AdminUpdateUserSuspendedRequest))
+		return srv.(ServiceServer).AdminUpdateUserSuspended(ctx, req.(*AdminUpdateUserSuspendedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_AdminUpdateUserVerified_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_AdminUpdateUserVerified_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AdminUpdateUserVerifiedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).AdminUpdateUserVerified(ctx, in)
+		return srv.(ServiceServer).AdminUpdateUserVerified(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_AdminUpdateUserVerified_FullMethodName,
+		FullMethod: Service_AdminUpdateUserVerified_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).AdminUpdateUserVerified(ctx, req.(*AdminUpdateUserVerifiedRequest))
+		return srv.(ServiceServer).AdminUpdateUserVerified(ctx, req.(*AdminUpdateUserVerifiedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_AdminGetUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_AdminGetUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AdminGetUserSessionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).AdminGetUserSessions(ctx, in)
+		return srv.(ServiceServer).AdminGetUserSessions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_AdminGetUserSessions_FullMethodName,
+		FullMethod: Service_AdminGetUserSessions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).AdminGetUserSessions(ctx, req.(*AdminGetUserSessionsRequest))
+		return srv.(ServiceServer).AdminGetUserSessions(ctx, req.(*AdminGetUserSessionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_AdminGetUserSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_AdminGetUserSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AdminGetUserSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).AdminGetUserSession(ctx, in)
+		return srv.(ServiceServer).AdminGetUserSession(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_AdminGetUserSession_FullMethodName,
+		FullMethod: Service_AdminGetUserSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).AdminGetUserSession(ctx, req.(*AdminGetUserSessionRequest))
+		return srv.(ServiceServer).AdminGetUserSession(ctx, req.(*AdminGetUserSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_AdminTerminateUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_AdminTerminateUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AdminTerminateUserSessionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).AdminTerminateUserSessions(ctx, in)
+		return srv.(ServiceServer).AdminTerminateUserSessions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_AdminTerminateUserSessions_FullMethodName,
+		FullMethod: Service_AdminTerminateUserSessions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).AdminTerminateUserSessions(ctx, req.(*AdminTerminateUserSessionsRequest))
+		return srv.(ServiceServer).AdminTerminateUserSessions(ctx, req.(*AdminTerminateUserSessionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_AdminDeleteUserSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_AdminDeleteUserSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AdminDeleteUserSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).AdminDeleteUserSession(ctx, in)
+		return srv.(ServiceServer).AdminDeleteUserSession(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_AdminDeleteUserSession_FullMethodName,
+		FullMethod: Service_AdminDeleteUserSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).AdminDeleteUserSession(ctx, req.(*AdminDeleteUserSessionRequest))
+		return srv.(ServiceServer).AdminDeleteUserSession(ctx, req.(*AdminDeleteUserSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AuthService_ServiceDesc is the grpc.ServiceDesc for AuthService service.
+// Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AuthService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "auth.AuthService",
-	HandlerType: (*AuthServiceServer)(nil),
+var Service_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "auth.Service",
+	HandlerType: (*ServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetOwnUser",
-			Handler:    _AuthService_GetOwnUser_Handler,
+			Handler:    _Service_GetOwnUser_Handler,
 		},
 		{
 			MethodName: "GoogleLogin",
-			Handler:    _AuthService_GoogleLogin_Handler,
+			Handler:    _Service_GoogleLogin_Handler,
 		},
 		{
 			MethodName: "GoogleCallback",
-			Handler:    _AuthService_GoogleCallback_Handler,
+			Handler:    _Service_GoogleCallback_Handler,
 		},
 		{
 			MethodName: "Logout",
-			Handler:    _AuthService_Logout_Handler,
+			Handler:    _Service_Logout_Handler,
 		},
 		{
 			MethodName: "RefreshToken",
-			Handler:    _AuthService_RefreshToken_Handler,
+			Handler:    _Service_RefreshToken_Handler,
 		},
 		{
 			MethodName: "GetOwnUserSession",
-			Handler:    _AuthService_GetOwnUserSession_Handler,
+			Handler:    _Service_GetOwnUserSession_Handler,
 		},
 		{
 			MethodName: "GetOwnUserSessions",
-			Handler:    _AuthService_GetOwnUserSessions_Handler,
+			Handler:    _Service_GetOwnUserSessions_Handler,
 		},
 		{
 			MethodName: "DeleteOwnUserSession",
-			Handler:    _AuthService_DeleteOwnUserSession_Handler,
+			Handler:    _Service_DeleteOwnUserSession_Handler,
 		},
 		{
 			MethodName: "TerminateOwnUserSessions",
-			Handler:    _AuthService_TerminateOwnUserSessions_Handler,
+			Handler:    _Service_TerminateOwnUserSessions_Handler,
 		},
 		{
 			MethodName: "AdminGetUser",
-			Handler:    _AuthService_AdminGetUser_Handler,
+			Handler:    _Service_AdminGetUser_Handler,
 		},
 		{
 			MethodName: "AdminUpdateUserRole",
-			Handler:    _AuthService_AdminUpdateUserRole_Handler,
+			Handler:    _Service_AdminUpdateUserRole_Handler,
 		},
 		{
 			MethodName: "AdminUpdateUserSubscription",
-			Handler:    _AuthService_AdminUpdateUserSubscription_Handler,
+			Handler:    _Service_AdminUpdateUserSubscription_Handler,
 		},
 		{
 			MethodName: "AdminUpdateUserSuspended",
-			Handler:    _AuthService_AdminUpdateUserSuspended_Handler,
+			Handler:    _Service_AdminUpdateUserSuspended_Handler,
 		},
 		{
 			MethodName: "AdminUpdateUserVerified",
-			Handler:    _AuthService_AdminUpdateUserVerified_Handler,
+			Handler:    _Service_AdminUpdateUserVerified_Handler,
 		},
 		{
 			MethodName: "AdminGetUserSessions",
-			Handler:    _AuthService_AdminGetUserSessions_Handler,
+			Handler:    _Service_AdminGetUserSessions_Handler,
 		},
 		{
 			MethodName: "AdminGetUserSession",
-			Handler:    _AuthService_AdminGetUserSession_Handler,
+			Handler:    _Service_AdminGetUserSession_Handler,
 		},
 		{
 			MethodName: "AdminTerminateUserSessions",
-			Handler:    _AuthService_AdminTerminateUserSessions_Handler,
+			Handler:    _Service_AdminTerminateUserSessions_Handler,
 		},
 		{
 			MethodName: "AdminDeleteUserSession",
-			Handler:    _AuthService_AdminDeleteUserSession_Handler,
+			Handler:    _Service_AdminDeleteUserSession_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

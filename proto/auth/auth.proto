@@ -2,7 +2,7 @@ syntax = "proto3";
 package auth;
 option go_package = "github.com/chains-lab/proto-storage/gen/go/auth;auth";
 
-service AuthService {
+service Service {
   rpc GetOwnUser (Empty) returns (UserResponse);
 
   //Google OAuth operations
