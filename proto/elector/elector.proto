@@ -1,0 +1,118 @@
+syntax = "proto3";
+package elector;
+
+option go_package = "github.com/chains-lab/proto-storage/gen/go/elector;elector";
+
+service Service {
+  rpc GetOwnCabinet (Empty) returns (Cabinet);
+  rpc AdminGetCabinet (Empty) returns (Cabinet);
+
+  rpc GetOwnProfile (Empty) returns (Profile);
+  rpc GetOwnBiography (Empty) returns (Biography);
+  rpc GetOwnJob (Empty) returns (Job);
+
+  rpc UpdateOwnProfile (UpdateOwnProfileRequest) returns (Profile);
+  rpc UpdateOwnResidence (UpdateOwnResidenceRequest) returns (Biography);
+  rpc UpdateOwnSex (UpdateOwnSexRequest) returns (Biography);
+  rpc UpdateOwnBirthday (UpdateOwnBirthdayRequest) returns (Biography);
+  rpc UpdateOwnNationality (UpdateOwnNationalityRequest) returns (Biography);
+  rpc UpdateOwnPrimaryLanguage (UpdateOwnPrimaryLanguageRequest) returns (Biography);
+  rpc UpdateOwnCountry (UpdateOwnCountryRequest) returns (Biography);
+  rpc UpdateOwnCity (UpdateOwnCityRequest) returns (Biography);
+  rpc UpdateOwnDegree (UpdateOwnDegreeRequest) returns (Job);
+  rpc UpdateOwnIndustry (UpdateOwnIndustryRequest) returns (Job);
+  rpc UpdateOwnIncome (UpdateOwnIncomeRequest) returns (Job);
+}
+
+message Empty {}
+
+// REQUESTS
+message UpdateOwnProfileRequest {
+  optional string username = 1;
+  optional string pseudonym = 2;
+  optional string description = 3;
+  optional string avatar = 4;
+}
+
+message UpdateOwnSexRequest {
+  string sex = 1;
+}
+
+message UpdateOwnBirthdayRequest {
+  string birthday = 1; // Format: YYYY-MM-DD
+}
+
+message UpdateOwnNationalityRequest {
+  string nationality = 1;
+}
+
+message UpdateOwnPrimaryLanguageRequest {
+  string primary_language = 1;
+}
+
+message UpdateOwnCountryRequest {
+  string country = 1;
+}
+
+message UpdateOwnCityRequest {
+  string city = 1;
+}
+
+message UpdateOwnDegreeRequest {
+  string degree = 1;
+}
+
+message UpdateOwnIndustryRequest {
+  string industry = 1;
+}
+
+message UpdateOwnIncomeRequest {
+  string income = 1;
+}
+
+message UpdateOwnResidenceRequest {
+  string country = 1;
+  string city = 2;
+}
+
+
+message Profile {
+  string user_id = 1;
+  string username = 2;
+  string pseudonym = 3;
+  string description = 4;
+  string avatar = 5;
+  bool   official = 6;
+  string updated_at = 7;
+  string created_at = 8;
+}
+
+message Biography {
+  string user_id = 1;
+  string sex = 2;
+  string birthday = 3;
+  string nationality = 4;
+  string primary_language = 5;
+  string country = 6;
+  string city = 7;
+  string sex_updated_at = 8;
+  string nationality_updated_at = 9;
+  string primary_language_updated_at = 10;
+  string country_updated_at = 11;
+}
+
+message Job {
+  string user_id = 1;
+  string degree = 2;
+  string industry = 3;
+  string income = 4;
+  string degree_updated_at = 5;
+  string industry_updated_at = 6;
+  string income_updated_at = 7;
+}
+
+message Cabinet {
+  Profile   profile = 1;
+  Biography biography = 2;
+  Job       job = 3;
+}
