@@ -1,7 +1,7 @@
 syntax = "proto3";
 package elector;
 
-option go_package = "github.com/chains-lab/proto-storage/gen/go/elector-cab/electorcab;electorcab";
+option go_package = "github.com/chains-lab/proto-storage/gen/go/electorcab;electorcab";
 
 service UserService {
   rpc GetOwnCabinet (Empty) returns (Cabinet);
