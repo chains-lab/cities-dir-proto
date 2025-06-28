@@ -1,24 +1,23 @@
 syntax = "proto3";
 package elector;
 
-option go_package = "github.com/chains-lab/proto-storage/gen/go/elector;elector";
+option go_package = "github.com/chains-lab/proto-storage/gen/go/elector-cab/electorcab;electorcab";
 
-service Service {
+service UserService {
   rpc GetOwnCabinet (Empty) returns (Cabinet);
-  rpc AdminGetCabinet (Empty) returns (Cabinet);
-
   rpc GetOwnProfile (Empty) returns (Profile);
   rpc GetOwnBiography (Empty) returns (Biography);
   rpc GetOwnJob (Empty) returns (Job);
 
+  // Profile
   rpc UpdateOwnProfile (UpdateOwnProfileRequest) returns (Profile);
-  rpc UpdateOwnResidence (UpdateOwnResidenceRequest) returns (Biography);
+  // Biography
   rpc UpdateOwnSex (UpdateOwnSexRequest) returns (Biography);
   rpc UpdateOwnBirthday (UpdateOwnBirthdayRequest) returns (Biography);
   rpc UpdateOwnNationality (UpdateOwnNationalityRequest) returns (Biography);
   rpc UpdateOwnPrimaryLanguage (UpdateOwnPrimaryLanguageRequest) returns (Biography);
-  rpc UpdateOwnCountry (UpdateOwnCountryRequest) returns (Biography);
-  rpc UpdateOwnCity (UpdateOwnCityRequest) returns (Biography);
+  rpc UpdateOwnResidence (UpdateOwnResidenceRequest) returns (Biography);
+  // Job
   rpc UpdateOwnDegree (UpdateOwnDegreeRequest) returns (Job);
   rpc UpdateOwnIndustry (UpdateOwnIndustryRequest) returns (Job);
   rpc UpdateOwnIncome (UpdateOwnIncomeRequest) returns (Job);
