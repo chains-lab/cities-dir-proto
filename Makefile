@@ -12,7 +12,7 @@ generate-sso:
 generate-elector:
 	protoc \
       -I proto \
-      proto/elector-cab/user.proto \
+      proto/electorcab/user.proto \
       --go_out=gen/go \
       --go_opt=paths=source_relative \
       --go-grpc_out=gen/go \
