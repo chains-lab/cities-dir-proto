@@ -98,6 +98,7 @@ message Biography {
   optional string nationality_updated_at = 9;
   optional string primary_language_updated_at = 10;
   optional string country_updated_at = 11;
+  optional string residence_updated_at = 12;
 }
 
 message Job {
