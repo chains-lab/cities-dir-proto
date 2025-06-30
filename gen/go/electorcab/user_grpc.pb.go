@@ -22,7 +22,7 @@ const (
 	UserService_GetOwnCabinet_FullMethodName            = "/elector.UserService/GetOwnCabinet"
 	UserService_GetOwnProfile_FullMethodName            = "/elector.UserService/GetOwnProfile"
 	UserService_GetOwnBiography_FullMethodName          = "/elector.UserService/GetOwnBiography"
-	UserService_GetOwnJob_FullMethodName                = "/elector.UserService/GetOwnJob"
+	UserService_GetOwnJobResume_FullMethodName          = "/elector.UserService/GetOwnJobResume"
 	UserService_UpdateOwnProfile_FullMethodName         = "/elector.UserService/UpdateOwnProfile"
 	UserService_UpdateOwnSex_FullMethodName             = "/elector.UserService/UpdateOwnSex"
 	UserService_UpdateOwnBirthday_FullMethodName        = "/elector.UserService/UpdateOwnBirthday"
@@ -41,7 +41,7 @@ type UserServiceClient interface {
 	GetOwnCabinet(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Cabinet, error)
 	GetOwnProfile(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Profile, error)
 	GetOwnBiography(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Biography, error)
-	GetOwnJob(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Job, error)
+	GetOwnJobResume(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*JobResume, error)
 	// Profile
 	UpdateOwnProfile(ctx context.Context, in *UpdateOwnProfileRequest, opts ...grpc.CallOption) (*Profile, error)
 	// Biography
@@ -51,9 +51,9 @@ type UserServiceClient interface {
 	UpdateOwnPrimaryLanguage(ctx context.Context, in *UpdateOwnPrimaryLanguageRequest, opts ...grpc.CallOption) (*Biography, error)
 	UpdateOwnResidence(ctx context.Context, in *UpdateOwnResidenceRequest, opts ...grpc.CallOption) (*Biography, error)
 	// Job
-	UpdateOwnDegree(ctx context.Context, in *UpdateOwnDegreeRequest, opts ...grpc.CallOption) (*Job, error)
-	UpdateOwnIndustry(ctx context.Context, in *UpdateOwnIndustryRequest, opts ...grpc.CallOption) (*Job, error)
-	UpdateOwnIncome(ctx context.Context, in *UpdateOwnIncomeRequest, opts ...grpc.CallOption) (*Job, error)
+	UpdateOwnDegree(ctx context.Context, in *UpdateOwnDegreeRequest, opts ...grpc.CallOption) (*JobResume, error)
+	UpdateOwnIndustry(ctx context.Context, in *UpdateOwnIndustryRequest, opts ...grpc.CallOption) (*JobResume, error)
+	UpdateOwnIncome(ctx context.Context, in *UpdateOwnIncomeRequest, opts ...grpc.CallOption) (*JobResume, error)
 }
 
 type userServiceClient struct {
@@ -94,10 +94,10 @@ func (c *userServiceClient) GetOwnBiography(ctx context.Context, in *Empty, opts
 	return out, nil
 }
 
-func (c *userServiceClient) GetOwnJob(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Job, error) {
+func (c *userServiceClient) GetOwnJobResume(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*JobResume, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Job)
-	err := c.cc.Invoke(ctx, UserService_GetOwnJob_FullMethodName, in, out, cOpts...)
+	out := new(JobResume)
+	err := c.cc.Invoke(ctx, UserService_GetOwnJobResume_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -164,9 +164,9 @@ func (c *userServiceClient) UpdateOwnResidence(ctx context.Context, in *UpdateOw
 	return out, nil
 }
 
-func (c *userServiceClient) UpdateOwnDegree(ctx context.Context, in *UpdateOwnDegreeRequest, opts ...grpc.CallOption) (*Job, error) {
+func (c *userServiceClient) UpdateOwnDegree(ctx context.Context, in *UpdateOwnDegreeRequest, opts ...grpc.CallOption) (*JobResume, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Job)
+	out := new(JobResume)
 	err := c.cc.Invoke(ctx, UserService_UpdateOwnDegree_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -174,9 +174,9 @@ func (c *userServiceClient) UpdateOwnDegree(ctx context.Context, in *UpdateOwnDe
 	return out, nil
 }
 
-func (c *userServiceClient) UpdateOwnIndustry(ctx context.Context, in *UpdateOwnIndustryRequest, opts ...grpc.CallOption) (*Job, error) {
+func (c *userServiceClient) UpdateOwnIndustry(ctx context.Context, in *UpdateOwnIndustryRequest, opts ...grpc.CallOption) (*JobResume, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Job)
+	out := new(JobResume)
 	err := c.cc.Invoke(ctx, UserService_UpdateOwnIndustry_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -184,9 +184,9 @@ func (c *userServiceClient) UpdateOwnIndustry(ctx context.Context, in *UpdateOwn
 	return out, nil
 }
 
-func (c *userServiceClient) UpdateOwnIncome(ctx context.Context, in *UpdateOwnIncomeRequest, opts ...grpc.CallOption) (*Job, error) {
+func (c *userServiceClient) UpdateOwnIncome(ctx context.Context, in *UpdateOwnIncomeRequest, opts ...grpc.CallOption) (*JobResume, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Job)
+	out := new(JobResume)
 	err := c.cc.Invoke(ctx, UserService_UpdateOwnIncome_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -201,7 +201,7 @@ type UserServiceServer interface {
 	GetOwnCabinet(context.Context, *Empty) (*Cabinet, error)
 	GetOwnProfile(context.Context, *Empty) (*Profile, error)
 	GetOwnBiography(context.Context, *Empty) (*Biography, error)
-	GetOwnJob(context.Context, *Empty) (*Job, error)
+	GetOwnJobResume(context.Context, *Empty) (*JobResume, error)
 	// Profile
 	UpdateOwnProfile(context.Context, *UpdateOwnProfileRequest) (*Profile, error)
 	// Biography
@@ -211,9 +211,9 @@ type UserServiceServer interface {
 	UpdateOwnPrimaryLanguage(context.Context, *UpdateOwnPrimaryLanguageRequest) (*Biography, error)
 	UpdateOwnResidence(context.Context, *UpdateOwnResidenceRequest) (*Biography, error)
 	// Job
-	UpdateOwnDegree(context.Context, *UpdateOwnDegreeRequest) (*Job, error)
-	UpdateOwnIndustry(context.Context, *UpdateOwnIndustryRequest) (*Job, error)
-	UpdateOwnIncome(context.Context, *UpdateOwnIncomeRequest) (*Job, error)
+	UpdateOwnDegree(context.Context, *UpdateOwnDegreeRequest) (*JobResume, error)
+	UpdateOwnIndustry(context.Context, *UpdateOwnIndustryRequest) (*JobResume, error)
+	UpdateOwnIncome(context.Context, *UpdateOwnIncomeRequest) (*JobResume, error)
 	mustEmbedUnimplementedUserServiceServer()
 }
 
@@ -233,8 +233,8 @@ func (UnimplementedUserServiceServer) GetOwnProfile(context.Context, *Empty) (*P
 func (UnimplementedUserServiceServer) GetOwnBiography(context.Context, *Empty) (*Biography, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOwnBiography not implemented")
 }
-func (UnimplementedUserServiceServer) GetOwnJob(context.Context, *Empty) (*Job, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetOwnJob not implemented")
+func (UnimplementedUserServiceServer) GetOwnJobResume(context.Context, *Empty) (*JobResume, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOwnJobResume not implemented")
 }
 func (UnimplementedUserServiceServer) UpdateOwnProfile(context.Context, *UpdateOwnProfileRequest) (*Profile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnProfile not implemented")
@@ -254,13 +254,13 @@ func (UnimplementedUserServiceServer) UpdateOwnPrimaryLanguage(context.Context, 
 func (UnimplementedUserServiceServer) UpdateOwnResidence(context.Context, *UpdateOwnResidenceRequest) (*Biography, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnResidence not implemented")
 }
-func (UnimplementedUserServiceServer) UpdateOwnDegree(context.Context, *UpdateOwnDegreeRequest) (*Job, error) {
+func (UnimplementedUserServiceServer) UpdateOwnDegree(context.Context, *UpdateOwnDegreeRequest) (*JobResume, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnDegree not implemented")
 }
-func (UnimplementedUserServiceServer) UpdateOwnIndustry(context.Context, *UpdateOwnIndustryRequest) (*Job, error) {
+func (UnimplementedUserServiceServer) UpdateOwnIndustry(context.Context, *UpdateOwnIndustryRequest) (*JobResume, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnIndustry not implemented")
 }
-func (UnimplementedUserServiceServer) UpdateOwnIncome(context.Context, *UpdateOwnIncomeRequest) (*Job, error) {
+func (UnimplementedUserServiceServer) UpdateOwnIncome(context.Context, *UpdateOwnIncomeRequest) (*JobResume, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnIncome not implemented")
 }
 func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}
@@ -338,20 +338,20 @@ func _UserService_GetOwnBiography_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserService_GetOwnJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserService_GetOwnJobResume_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserServiceServer).GetOwnJob(ctx, in)
+		return srv.(UserServiceServer).GetOwnJobResume(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UserService_GetOwnJob_FullMethodName,
+		FullMethod: UserService_GetOwnJobResume_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).GetOwnJob(ctx, req.(*Empty))
+		return srv.(UserServiceServer).GetOwnJobResume(ctx, req.(*Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -538,8 +538,8 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _UserService_GetOwnBiography_Handler,
 		},
 		{
-			MethodName: "GetOwnJob",
-			Handler:    _UserService_GetOwnJob_Handler,
+			MethodName: "GetOwnJobResume",
+			Handler:    _UserService_GetOwnJobResume_Handler,
 		},
 		{
 			MethodName: "UpdateOwnProfile",
