@@ -7,7 +7,7 @@ service UserService {
   rpc GetOwnCabinet (Empty) returns (Cabinet);
   rpc GetOwnProfile (Empty) returns (Profile);
   rpc GetOwnBiography (Empty) returns (Biography);
-  rpc GetOwnJob (Empty) returns (Job);
+  rpc GetOwnJobResume (Empty) returns (JobResume);
 
   // Profile
   rpc UpdateOwnProfile (UpdateOwnProfileRequest) returns (Profile);
@@ -18,9 +18,9 @@ service UserService {
   rpc UpdateOwnPrimaryLanguage (UpdateOwnPrimaryLanguageRequest) returns (Biography);
   rpc UpdateOwnResidence (UpdateOwnResidenceRequest) returns (Biography);
   // Job
-  rpc UpdateOwnDegree (UpdateOwnDegreeRequest) returns (Job);
-  rpc UpdateOwnIndustry (UpdateOwnIndustryRequest) returns (Job);
-  rpc UpdateOwnIncome (UpdateOwnIncomeRequest) returns (Job);
+  rpc UpdateOwnDegree (UpdateOwnDegreeRequest) returns (JobResume);
+  rpc UpdateOwnIndustry (UpdateOwnIndustryRequest) returns (JobResume);
+  rpc UpdateOwnIncome (UpdateOwnIncomeRequest) returns (JobResume);
 }
 
 message Empty {}
@@ -101,7 +101,7 @@ message Biography {
   optional string residence_updated_at = 12;
 }
 
-message Job {
+message JobResume {
   string user_id = 1;
   optional string degree = 2;
   optional string industry = 3;
@@ -114,5 +114,5 @@ message Job {
 message Cabinet {
   Profile   profile = 1;
   Biography biography = 2;
-  Job       job = 3;
+  JobResume job_resume = 3;
 }
