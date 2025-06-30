@@ -1,13 +1,18 @@
 syntax = "proto3";
 package elector;
 
-option go_package = "github.com/chains-lab/proto-storage/gen/go/electorcab;electorcab";
+option go_package = "github.com/chains-lab/proto-storage/gen/go/svc/electorcab;electorcab";
+
+import "svc/electorcab/cab_structs.proto";
+import "google/protobuf/empty.proto";
 
 service UserService {
-  rpc GetOwnCabinet (Empty) returns (Cabinet);
-  rpc GetOwnProfile (Empty) returns (Profile);
-  rpc GetOwnBiography (Empty) returns (Biography);
-  rpc GetOwnJobResume (Empty) returns (JobResume);
+  rpc CreateCabinet (google.protobuf.Empty) returns (Cabinet);
+
+  rpc GetOwnCabinet   (google.protobuf.Empty) returns (Cabinet);
+  rpc GetOwnProfile   (google.protobuf.Empty) returns (Profile);
+  rpc GetOwnBiography (google.protobuf.Empty) returns (Biography);
+  rpc GetOwnJobResume (google.protobuf.Empty) returns (JobResume);
 
   // Profile
   rpc UpdateOwnProfile (UpdateOwnProfileRequest) returns (Profile);
@@ -22,8 +27,6 @@ service UserService {
   rpc UpdateOwnIndustry (UpdateOwnIndustryRequest) returns (JobResume);
   rpc UpdateOwnIncome (UpdateOwnIncomeRequest) returns (JobResume);
 }
-
-message Empty {}
 
 // REQUESTS
 message UpdateOwnProfileRequest {
@@ -74,45 +77,3 @@ message UpdateOwnResidenceRequest {
   string city = 2;
 }
 
-
-message Profile {
-  string user_id = 1;
-  string username = 2;
-  optional string pseudonym = 3;
-  optional string description = 4;
-  optional string avatar = 5;
-  bool   official = 6;
-  string updated_at = 7;
-  string created_at = 8;
-}
-
-message Biography {
-  string user_id = 1;
-  optional string sex = 2;
-  optional string birthday = 3;
-  optional string nationality = 4;
-  optional string primary_language = 5;
-  optional string country = 6;
-  optional string city = 7;
-  optional string sex_updated_at = 8;
-  optional string nationality_updated_at = 9;
-  optional string primary_language_updated_at = 10;
-  optional string country_updated_at = 11;
-  optional string residence_updated_at = 12;
-}
-
-message JobResume {
-  string user_id = 1;
-  optional string degree = 2;
-  optional string industry = 3;
-  optional string income = 4;
-  optional string degree_updated_at = 5;
-  optional string industry_updated_at = 6;
-  optional string income_updated_at = 7;
-}
-
-message Cabinet {
-  Profile   profile = 1;
-  Biography biography = 2;
-  JobResume job_resume = 3;
-}

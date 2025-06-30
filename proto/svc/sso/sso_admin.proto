@@ -1,0 +1,55 @@
+syntax = "proto3";
+package sso;
+
+option go_package = "github.com/chains-lab/proto-storage/gen/go/svc/sso;sso";
+
+import "google/protobuf/empty.proto";
+import "svc/sso/sso_structs.proto";
+
+
+service AdminService {
+  rpc AdminGetUser (AdminGetUserRequest) returns (User);
+
+  rpc AdminUpdateUserRole (AdminUpdateUserRoleRequest) returns (User);
+
+  rpc AdminGetUserSessions (AdminGetUserSessionsRequest) returns (SessionsList);
+  rpc AdminGetUserSession (AdminGetUserSessionRequest) returns (Session);
+  rpc AdminTerminateUserSessions (AdminTerminateUserSessionsRequest) returns (google.protobuf.Empty);
+  rpc AdminDeleteUserSession (AdminDeleteUserSessionRequest) returns (google.protobuf.Empty);
+}
+
+message AdminUpdateUserRoleRequest{
+  string user_id = 1;
+  string role = 2;
+}
+
+message AdminTerminateUserSessions {
+  string user_id = 1;
+}
+
+message AdminGetUserRequest {
+  string user_id = 1;
+}
+
+message AdminGetUserSessionsRequest {
+  string user_id = 1;
+}
+
+message AdminGetUserSessionRequest {
+  string user_id = 1;
+  string session_id = 2;
+}
+
+message AdminDeleteUserSession {
+  string user_id = 1;
+  string session_id = 2;
+}
+
+message AdminTerminateUserSessionsRequest {
+  string user_id = 1;
+}
+
+message AdminDeleteUserSessionRequest {
+  string user_id = 1;
+  string session_id = 2;
+}

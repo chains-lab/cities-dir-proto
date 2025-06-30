@@ -2,12 +2,13 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: electorcab/user.proto
+// source: svc/electorcab/user.proto
 
 package electorcab
 
 import (
 	context "context"
+	common "github.com/chains-lab/proto-storage/gen/go/common"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -38,10 +39,10 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserServiceClient interface {
-	GetOwnCabinet(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Cabinet, error)
-	GetOwnProfile(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Profile, error)
-	GetOwnBiography(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Biography, error)
-	GetOwnJobResume(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*JobResume, error)
+	GetOwnCabinet(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*Cabinet, error)
+	GetOwnProfile(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*Profile, error)
+	GetOwnBiography(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*Biography, error)
+	GetOwnJobResume(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*JobResume, error)
 	// Profile
 	UpdateOwnProfile(ctx context.Context, in *UpdateOwnProfileRequest, opts ...grpc.CallOption) (*Profile, error)
 	// Biography
@@ -64,7 +65,7 @@ func NewUserServiceClient(cc grpc.ClientConnInterface) UserServiceClient {
 	return &userServiceClient{cc}
 }
 
-func (c *userServiceClient) GetOwnCabinet(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Cabinet, error) {
+func (c *userServiceClient) GetOwnCabinet(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*Cabinet, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Cabinet)
 	err := c.cc.Invoke(ctx, UserService_GetOwnCabinet_FullMethodName, in, out, cOpts...)
@@ -74,7 +75,7 @@ func (c *userServiceClient) GetOwnCabinet(ctx context.Context, in *Empty, opts .
 	return out, nil
 }
 
-func (c *userServiceClient) GetOwnProfile(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Profile, error) {
+func (c *userServiceClient) GetOwnProfile(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*Profile, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Profile)
 	err := c.cc.Invoke(ctx, UserService_GetOwnProfile_FullMethodName, in, out, cOpts...)
@@ -84,7 +85,7 @@ func (c *userServiceClient) GetOwnProfile(ctx context.Context, in *Empty, opts .
 	return out, nil
 }
 
-func (c *userServiceClient) GetOwnBiography(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Biography, error) {
+func (c *userServiceClient) GetOwnBiography(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*Biography, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Biography)
 	err := c.cc.Invoke(ctx, UserService_GetOwnBiography_FullMethodName, in, out, cOpts...)
@@ -94,7 +95,7 @@ func (c *userServiceClient) GetOwnBiography(ctx context.Context, in *Empty, opts
 	return out, nil
 }
 
-func (c *userServiceClient) GetOwnJobResume(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*JobResume, error) {
+func (c *userServiceClient) GetOwnJobResume(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*JobResume, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(JobResume)
 	err := c.cc.Invoke(ctx, UserService_GetOwnJobResume_FullMethodName, in, out, cOpts...)
@@ -198,10 +199,10 @@ func (c *userServiceClient) UpdateOwnIncome(ctx context.Context, in *UpdateOwnIn
 // All implementations must embed UnimplementedUserServiceServer
 // for forward compatibility.
 type UserServiceServer interface {
-	GetOwnCabinet(context.Context, *Empty) (*Cabinet, error)
-	GetOwnProfile(context.Context, *Empty) (*Profile, error)
-	GetOwnBiography(context.Context, *Empty) (*Biography, error)
-	GetOwnJobResume(context.Context, *Empty) (*JobResume, error)
+	GetOwnCabinet(context.Context, *google.protobuf.Empty) (*Cabinet, error)
+	GetOwnProfile(context.Context, *google.protobuf.Empty) (*Profile, error)
+	GetOwnBiography(context.Context, *google.protobuf.Empty) (*Biography, error)
+	GetOwnJobResume(context.Context, *google.protobuf.Empty) (*JobResume, error)
 	// Profile
 	UpdateOwnProfile(context.Context, *UpdateOwnProfileRequest) (*Profile, error)
 	// Biography
@@ -224,16 +225,16 @@ type UserServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedUserServiceServer struct{}
 
-func (UnimplementedUserServiceServer) GetOwnCabinet(context.Context, *Empty) (*Cabinet, error) {
+func (UnimplementedUserServiceServer) GetOwnCabinet(context.Context, *google.protobuf.Empty) (*Cabinet, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOwnCabinet not implemented")
 }
-func (UnimplementedUserServiceServer) GetOwnProfile(context.Context, *Empty) (*Profile, error) {
+func (UnimplementedUserServiceServer) GetOwnProfile(context.Context, *google.protobuf.Empty) (*Profile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOwnProfile not implemented")
 }
-func (UnimplementedUserServiceServer) GetOwnBiography(context.Context, *Empty) (*Biography, error) {
+func (UnimplementedUserServiceServer) GetOwnBiography(context.Context, *google.protobuf.Empty) (*Biography, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOwnBiography not implemented")
 }
-func (UnimplementedUserServiceServer) GetOwnJobResume(context.Context, *Empty) (*JobResume, error) {
+func (UnimplementedUserServiceServer) GetOwnJobResume(context.Context, *google.protobuf.Empty) (*JobResume, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOwnJobResume not implemented")
 }
 func (UnimplementedUserServiceServer) UpdateOwnProfile(context.Context, *UpdateOwnProfileRequest) (*Profile, error) {
@@ -285,7 +286,7 @@ func RegisterUserServiceServer(s grpc.ServiceRegistrar, srv UserServiceServer) {
 }
 
 func _UserService_GetOwnCabinet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
+	in := new(google.protobuf.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -297,13 +298,13 @@ func _UserService_GetOwnCabinet_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: UserService_GetOwnCabinet_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).GetOwnCabinet(ctx, req.(*Empty))
+		return srv.(UserServiceServer).GetOwnCabinet(ctx, req.(*google.protobuf.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _UserService_GetOwnProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
+	in := new(google.protobuf.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -315,13 +316,13 @@ func _UserService_GetOwnProfile_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: UserService_GetOwnProfile_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).GetOwnProfile(ctx, req.(*Empty))
+		return srv.(UserServiceServer).GetOwnProfile(ctx, req.(*google.protobuf.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _UserService_GetOwnBiography_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
+	in := new(google.protobuf.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -333,13 +334,13 @@ func _UserService_GetOwnBiography_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: UserService_GetOwnBiography_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).GetOwnBiography(ctx, req.(*Empty))
+		return srv.(UserServiceServer).GetOwnBiography(ctx, req.(*google.protobuf.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _UserService_GetOwnJobResume_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
+	in := new(google.protobuf.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -351,7 +352,7 @@ func _UserService_GetOwnJobResume_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: UserService_GetOwnJobResume_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).GetOwnJobResume(ctx, req.(*Empty))
+		return srv.(UserServiceServer).GetOwnJobResume(ctx, req.(*google.protobuf.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -579,5 +580,5 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "electorcab/user.proto",
+	Metadata: "svc/electorcab/user.proto",
 }

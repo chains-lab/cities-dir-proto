@@ -2,11 +2,12 @@
 // versions:
 // 	protoc-gen-go v1.34.2
 // 	protoc        v3.21.12
-// source: sso/sso.proto
+// source: svc/sso/sso.proto
 
 package sso
 
 import (
+	common "github.com/chains-lab/proto-storage/gen/go/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -20,45 +21,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Requests
-type Empty struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-}
-
-func (x *Empty) Reset() {
-	*x = Empty{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *Empty) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Empty) ProtoMessage() {}
-
-func (x *Empty) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Empty.ProtoReflect.Descriptor instead.
-func (*Empty) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{0}
-}
-
 type RefreshTokenRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -71,7 +33,7 @@ type RefreshTokenRequest struct {
 func (x *RefreshTokenRequest) Reset() {
 	*x = RefreshTokenRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[1]
+		mi := &file_svc_sso_sso_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -84,7 +46,7 @@ func (x *RefreshTokenRequest) String() string {
 func (*RefreshTokenRequest) ProtoMessage() {}
 
 func (x *RefreshTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[1]
+	mi := &file_svc_sso_sso_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -97,7 +59,7 @@ func (x *RefreshTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RefreshTokenRequest.ProtoReflect.Descriptor instead.
 func (*RefreshTokenRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{1}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *RefreshTokenRequest) GetAgent() string {
@@ -126,7 +88,7 @@ type AdminUpdateUserRoleRequest struct {
 func (x *AdminUpdateUserRoleRequest) Reset() {
 	*x = AdminUpdateUserRoleRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[2]
+		mi := &file_svc_sso_sso_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -139,7 +101,7 @@ func (x *AdminUpdateUserRoleRequest) String() string {
 func (*AdminUpdateUserRoleRequest) ProtoMessage() {}
 
 func (x *AdminUpdateUserRoleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[2]
+	mi := &file_svc_sso_sso_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -152,7 +114,7 @@ func (x *AdminUpdateUserRoleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminUpdateUserRoleRequest.ProtoReflect.Descriptor instead.
 func (*AdminUpdateUserRoleRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{2}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *AdminUpdateUserRoleRequest) GetUserId() string {
@@ -180,7 +142,7 @@ type DeleteOwnUserSessionRequest struct {
 func (x *DeleteOwnUserSessionRequest) Reset() {
 	*x = DeleteOwnUserSessionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[3]
+		mi := &file_svc_sso_sso_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -193,7 +155,7 @@ func (x *DeleteOwnUserSessionRequest) String() string {
 func (*DeleteOwnUserSessionRequest) ProtoMessage() {}
 
 func (x *DeleteOwnUserSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[3]
+	mi := &file_svc_sso_sso_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -206,7 +168,7 @@ func (x *DeleteOwnUserSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteOwnUserSessionRequest.ProtoReflect.Descriptor instead.
 func (*DeleteOwnUserSessionRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{3}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *DeleteOwnUserSessionRequest) GetSessionId() string {
@@ -227,7 +189,7 @@ type AdminTerminateUserSessions struct {
 func (x *AdminTerminateUserSessions) Reset() {
 	*x = AdminTerminateUserSessions{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[4]
+		mi := &file_svc_sso_sso_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -240,7 +202,7 @@ func (x *AdminTerminateUserSessions) String() string {
 func (*AdminTerminateUserSessions) ProtoMessage() {}
 
 func (x *AdminTerminateUserSessions) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[4]
+	mi := &file_svc_sso_sso_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -253,7 +215,7 @@ func (x *AdminTerminateUserSessions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminTerminateUserSessions.ProtoReflect.Descriptor instead.
 func (*AdminTerminateUserSessions) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{4}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *AdminTerminateUserSessions) GetUserId() string {
@@ -274,7 +236,7 @@ type AdminGetUserRequest struct {
 func (x *AdminGetUserRequest) Reset() {
 	*x = AdminGetUserRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[5]
+		mi := &file_svc_sso_sso_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -287,7 +249,7 @@ func (x *AdminGetUserRequest) String() string {
 func (*AdminGetUserRequest) ProtoMessage() {}
 
 func (x *AdminGetUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[5]
+	mi := &file_svc_sso_sso_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -300,7 +262,7 @@ func (x *AdminGetUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminGetUserRequest.ProtoReflect.Descriptor instead.
 func (*AdminGetUserRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{5}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *AdminGetUserRequest) GetUserId() string {
@@ -321,7 +283,7 @@ type AdminGetUserSessionsRequest struct {
 func (x *AdminGetUserSessionsRequest) Reset() {
 	*x = AdminGetUserSessionsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[6]
+		mi := &file_svc_sso_sso_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -334,7 +296,7 @@ func (x *AdminGetUserSessionsRequest) String() string {
 func (*AdminGetUserSessionsRequest) ProtoMessage() {}
 
 func (x *AdminGetUserSessionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[6]
+	mi := &file_svc_sso_sso_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -347,7 +309,7 @@ func (x *AdminGetUserSessionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminGetUserSessionsRequest.ProtoReflect.Descriptor instead.
 func (*AdminGetUserSessionsRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{6}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *AdminGetUserSessionsRequest) GetUserId() string {
@@ -369,7 +331,7 @@ type AdminGetUserSessionRequest struct {
 func (x *AdminGetUserSessionRequest) Reset() {
 	*x = AdminGetUserSessionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[7]
+		mi := &file_svc_sso_sso_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -382,7 +344,7 @@ func (x *AdminGetUserSessionRequest) String() string {
 func (*AdminGetUserSessionRequest) ProtoMessage() {}
 
 func (x *AdminGetUserSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[7]
+	mi := &file_svc_sso_sso_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -395,7 +357,7 @@ func (x *AdminGetUserSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminGetUserSessionRequest.ProtoReflect.Descriptor instead.
 func (*AdminGetUserSessionRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{7}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *AdminGetUserSessionRequest) GetUserId() string {
@@ -424,7 +386,7 @@ type AdminDeleteUserSession struct {
 func (x *AdminDeleteUserSession) Reset() {
 	*x = AdminDeleteUserSession{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[8]
+		mi := &file_svc_sso_sso_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -437,7 +399,7 @@ func (x *AdminDeleteUserSession) String() string {
 func (*AdminDeleteUserSession) ProtoMessage() {}
 
 func (x *AdminDeleteUserSession) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[8]
+	mi := &file_svc_sso_sso_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -450,7 +412,7 @@ func (x *AdminDeleteUserSession) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminDeleteUserSession.ProtoReflect.Descriptor instead.
 func (*AdminDeleteUserSession) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{8}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *AdminDeleteUserSession) GetUserId() string {
@@ -478,7 +440,7 @@ type AdminTerminateUserSessionsRequest struct {
 func (x *AdminTerminateUserSessionsRequest) Reset() {
 	*x = AdminTerminateUserSessionsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[9]
+		mi := &file_svc_sso_sso_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -491,7 +453,7 @@ func (x *AdminTerminateUserSessionsRequest) String() string {
 func (*AdminTerminateUserSessionsRequest) ProtoMessage() {}
 
 func (x *AdminTerminateUserSessionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[9]
+	mi := &file_svc_sso_sso_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -504,7 +466,7 @@ func (x *AdminTerminateUserSessionsRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use AdminTerminateUserSessionsRequest.ProtoReflect.Descriptor instead.
 func (*AdminTerminateUserSessionsRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{9}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *AdminTerminateUserSessionsRequest) GetUserId() string {
@@ -526,7 +488,7 @@ type AdminDeleteUserSessionRequest struct {
 func (x *AdminDeleteUserSessionRequest) Reset() {
 	*x = AdminDeleteUserSessionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[10]
+		mi := &file_svc_sso_sso_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -539,7 +501,7 @@ func (x *AdminDeleteUserSessionRequest) String() string {
 func (*AdminDeleteUserSessionRequest) ProtoMessage() {}
 
 func (x *AdminDeleteUserSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[10]
+	mi := &file_svc_sso_sso_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -552,7 +514,7 @@ func (x *AdminDeleteUserSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdminDeleteUserSessionRequest.ProtoReflect.Descriptor instead.
 func (*AdminDeleteUserSessionRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{10}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *AdminDeleteUserSessionRequest) GetUserId() string {
@@ -580,7 +542,7 @@ type GoogleLoginResponse struct {
 func (x *GoogleLoginResponse) Reset() {
 	*x = GoogleLoginResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[11]
+		mi := &file_svc_sso_sso_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -593,7 +555,7 @@ func (x *GoogleLoginResponse) String() string {
 func (*GoogleLoginResponse) ProtoMessage() {}
 
 func (x *GoogleLoginResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[11]
+	mi := &file_svc_sso_sso_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -606,7 +568,7 @@ func (x *GoogleLoginResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GoogleLoginResponse.ProtoReflect.Descriptor instead.
 func (*GoogleLoginResponse) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{11}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GoogleLoginResponse) GetUrl() string {
@@ -627,7 +589,7 @@ type GoogleCallbackRequest struct {
 func (x *GoogleCallbackRequest) Reset() {
 	*x = GoogleCallbackRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[12]
+		mi := &file_svc_sso_sso_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -640,7 +602,7 @@ func (x *GoogleCallbackRequest) String() string {
 func (*GoogleCallbackRequest) ProtoMessage() {}
 
 func (x *GoogleCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[12]
+	mi := &file_svc_sso_sso_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -653,7 +615,7 @@ func (x *GoogleCallbackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GoogleCallbackRequest.ProtoReflect.Descriptor instead.
 func (*GoogleCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{12}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GoogleCallbackRequest) GetCode() string {
@@ -676,7 +638,7 @@ type TokensPairResponse struct {
 func (x *TokensPairResponse) Reset() {
 	*x = TokensPairResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[13]
+		mi := &file_svc_sso_sso_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -689,7 +651,7 @@ func (x *TokensPairResponse) String() string {
 func (*TokensPairResponse) ProtoMessage() {}
 
 func (x *TokensPairResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[13]
+	mi := &file_svc_sso_sso_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -702,7 +664,7 @@ func (x *TokensPairResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TokensPairResponse.ProtoReflect.Descriptor instead.
 func (*TokensPairResponse) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{13}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *TokensPairResponse) GetAccessToken() string {
@@ -737,7 +699,7 @@ type UserResponse struct {
 func (x *UserResponse) Reset() {
 	*x = UserResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[14]
+		mi := &file_svc_sso_sso_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -750,7 +712,7 @@ func (x *UserResponse) String() string {
 func (*UserResponse) ProtoMessage() {}
 
 func (x *UserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[14]
+	mi := &file_svc_sso_sso_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -763,7 +725,7 @@ func (x *UserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserResponse.ProtoReflect.Descriptor instead.
 func (*UserResponse) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{14}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *UserResponse) GetId() string {
@@ -838,7 +800,7 @@ type SessionResponse struct {
 func (x *SessionResponse) Reset() {
 	*x = SessionResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[15]
+		mi := &file_svc_sso_sso_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -851,7 +813,7 @@ func (x *SessionResponse) String() string {
 func (*SessionResponse) ProtoMessage() {}
 
 func (x *SessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[15]
+	mi := &file_svc_sso_sso_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -864,7 +826,7 @@ func (x *SessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SessionResponse.ProtoReflect.Descriptor instead.
 func (*SessionResponse) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{15}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *SessionResponse) GetId() string {
@@ -920,7 +882,7 @@ type SessionsListResponse struct {
 func (x *SessionsListResponse) Reset() {
 	*x = SessionsListResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sso_sso_proto_msgTypes[16]
+		mi := &file_svc_sso_sso_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -933,7 +895,7 @@ func (x *SessionsListResponse) String() string {
 func (*SessionsListResponse) ProtoMessage() {}
 
 func (x *SessionsListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_sso_sso_proto_msgTypes[16]
+	mi := &file_svc_sso_sso_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -946,7 +908,7 @@ func (x *SessionsListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SessionsListResponse.ProtoReflect.Descriptor instead.
 func (*SessionsListResponse) Descriptor() ([]byte, []int) {
-	return file_sso_sso_proto_rawDescGZIP(), []int{16}
+	return file_svc_sso_sso_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *SessionsListResponse) GetSessions() []*SessionResponse {
@@ -956,11 +918,12 @@ func (x *SessionsListResponse) GetSessions() []*SessionResponse {
 	return nil
 }
 
-var File_sso_sso_proto protoreflect.FileDescriptor
+var File_svc_sso_sso_proto protoreflect.FileDescriptor
 
-var file_sso_sso_proto_rawDesc = []byte{
-	0x0a, 0x0d, 0x73, 0x73, 0x6f, 0x2f, 0x73, 0x73, 0x6f, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12,
-	0x04, 0x61, 0x75, 0x74, 0x68, 0x22, 0x07, 0x0a, 0x05, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x22, 0x50,
+var file_svc_sso_sso_proto_rawDesc = []byte{
+	0x0a, 0x11, 0x73, 0x76, 0x63, 0x2f, 0x73, 0x73, 0x6f, 0x2f, 0x73, 0x73, 0x6f, 0x2e, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x12, 0x04, 0x61, 0x75, 0x74, 0x68, 0x1a, 0x13, 0x63, 0x6f, 0x6d, 0x6d, 0x6f,
+	0x6e, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x50,
 	0x0a, 0x13, 0x52, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65,
 	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x61, 0x67, 0x65, 0x6e, 0x74, 0x18, 0x01,
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x61, 0x67, 0x65, 0x6e, 0x74, 0x12, 0x23, 0x0a, 0x0d, 0x72,
@@ -1044,141 +1007,143 @@ var file_sso_sso_proto_rawDesc = []byte{
 	0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x31, 0x0a, 0x08, 0x73,
 	0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x15, 0x2e,
 	0x61, 0x75, 0x74, 0x68, 0x2e, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x52, 0x08, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x32, 0x9b,
-	0x04, 0x0a, 0x0b, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x2d,
-	0x0a, 0x0a, 0x47, 0x65, 0x74, 0x4f, 0x77, 0x6e, 0x55, 0x73, 0x65, 0x72, 0x12, 0x0b, 0x2e, 0x61,
-	0x75, 0x74, 0x68, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x12, 0x2e, 0x61, 0x75, 0x74, 0x68,
-	0x2e, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x35, 0x0a,
-	0x0b, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x12, 0x0b, 0x2e, 0x61,
-	0x75, 0x74, 0x68, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x19, 0x2e, 0x61, 0x75, 0x74, 0x68,
-	0x2e, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x47, 0x0a, 0x0e, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x43, 0x61,
-	0x6c, 0x6c, 0x62, 0x61, 0x63, 0x6b, 0x12, 0x1b, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x47, 0x6f,
-	0x6f, 0x67, 0x6c, 0x65, 0x43, 0x61, 0x6c, 0x6c, 0x62, 0x61, 0x63, 0x6b, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x54, 0x6f, 0x6b, 0x65, 0x6e,
-	0x73, 0x50, 0x61, 0x69, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x22, 0x0a,
-	0x06, 0x4c, 0x6f, 0x67, 0x6f, 0x75, 0x74, 0x12, 0x0b, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x45,
-	0x6d, 0x70, 0x74, 0x79, 0x1a, 0x0b, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x45, 0x6d, 0x70, 0x74,
-	0x79, 0x12, 0x43, 0x0a, 0x0c, 0x52, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x54, 0x6f, 0x6b, 0x65,
-	0x6e, 0x12, 0x19, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x52, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68,
-	0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x61,
-	0x75, 0x74, 0x68, 0x2e, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x73, 0x50, 0x61, 0x69, 0x72, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x37, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x4f, 0x77, 0x6e,
-	0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x0b, 0x2e, 0x61, 0x75,
-	0x74, 0x68, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x15, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e,
-	0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x3d, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x4f, 0x77, 0x6e, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73,
-	0x73, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x0b, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x45, 0x6d, 0x70,
-	0x74, 0x79, 0x1a, 0x1a, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f,
-	0x6e, 0x73, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x46,
-	0x0a, 0x14, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x55, 0x73, 0x65, 0x72, 0x53,
-	0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x21, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x44, 0x65,
+	0x6f, 0x6e, 0x73, 0x65, 0x52, 0x08, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x32, 0xad,
+	0x04, 0x0a, 0x0b, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x2f,
+	0x0a, 0x0a, 0x47, 0x65, 0x74, 0x4f, 0x77, 0x6e, 0x55, 0x73, 0x65, 0x72, 0x12, 0x0d, 0x2e, 0x63,
+	0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x12, 0x2e, 0x61, 0x75,
+	0x74, 0x68, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x37, 0x0a, 0x0b, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x12, 0x0d,
+	0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x19, 0x2e,
+	0x61, 0x75, 0x74, 0x68, 0x2e, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x4c, 0x6f, 0x67, 0x69, 0x6e,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x47, 0x0a, 0x0e, 0x47, 0x6f, 0x6f, 0x67,
+	0x6c, 0x65, 0x43, 0x61, 0x6c, 0x6c, 0x62, 0x61, 0x63, 0x6b, 0x12, 0x1b, 0x2e, 0x61, 0x75, 0x74,
+	0x68, 0x2e, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x43, 0x61, 0x6c, 0x6c, 0x62, 0x61, 0x63, 0x6b,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x54,
+	0x6f, 0x6b, 0x65, 0x6e, 0x73, 0x50, 0x61, 0x69, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x26, 0x0a, 0x06, 0x4c, 0x6f, 0x67, 0x6f, 0x75, 0x74, 0x12, 0x0d, 0x2e, 0x63, 0x6f,
+	0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x0d, 0x2e, 0x63, 0x6f, 0x6d,
+	0x6d, 0x6f, 0x6e, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x12, 0x43, 0x0a, 0x0c, 0x52, 0x65, 0x66,
+	0x72, 0x65, 0x73, 0x68, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x12, 0x19, 0x2e, 0x61, 0x75, 0x74, 0x68,
+	0x2e, 0x52, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x54, 0x6f, 0x6b, 0x65,
+	0x6e, 0x73, 0x50, 0x61, 0x69, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x39,
+	0x0a, 0x11, 0x47, 0x65, 0x74, 0x4f, 0x77, 0x6e, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73,
+	0x69, 0x6f, 0x6e, 0x12, 0x0d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x45, 0x6d, 0x70,
+	0x74, 0x79, 0x1a, 0x15, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f,
+	0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3f, 0x0a, 0x12, 0x47, 0x65, 0x74,
+	0x4f, 0x77, 0x6e, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x12,
+	0x0d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x1a,
+	0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x4c, 0x69,
+	0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x48, 0x0a, 0x14, 0x44, 0x65,
 	0x6c, 0x65, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69,
-	0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0b, 0x2e, 0x61, 0x75, 0x74, 0x68,
-	0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x12, 0x34, 0x0a, 0x18, 0x54, 0x65, 0x72, 0x6d, 0x69, 0x6e,
-	0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f,
-	0x6e, 0x73, 0x12, 0x0b, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a,
-	0x0b, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x32, 0xe1, 0x03, 0x0a,
-	0x0c, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3d, 0x0a,
-	0x0c, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x12, 0x19, 0x2e,
-	0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65,
-	0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e,
-	0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4b, 0x0a, 0x13,
-	0x41, 0x64, 0x6d, 0x69, 0x6e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52,
-	0x6f, 0x6c, 0x65, 0x12, 0x20, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x64, 0x6d, 0x69, 0x6e,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x6f, 0x6c, 0x65, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x55, 0x73, 0x65,
-	0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x55, 0x0a, 0x14, 0x41, 0x64, 0x6d,
-	0x69, 0x6e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e,
-	0x73, 0x12, 0x21, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x47, 0x65,
-	0x74, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x53, 0x65, 0x73, 0x73,
-	0x69, 0x6f, 0x6e, 0x73, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x12, 0x4e, 0x0a, 0x13, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72,
-	0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x20, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41,
+	0x6f, 0x6e, 0x12, 0x21, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65,
+	0x4f, 0x77, 0x6e, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x45,
+	0x6d, 0x70, 0x74, 0x79, 0x12, 0x38, 0x0a, 0x18, 0x54, 0x65, 0x72, 0x6d, 0x69, 0x6e, 0x61, 0x74,
+	0x65, 0x4f, 0x77, 0x6e, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73,
+	0x12, 0x0d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a,
+	0x0d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x32, 0xe5,
+	0x03, 0x0a, 0x0c, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12,
+	0x3d, 0x0a, 0x0c, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x12,
+	0x19, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x47, 0x65, 0x74, 0x55,
+	0x73, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x61, 0x75, 0x74,
+	0x68, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4b,
+	0x0a, 0x13, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65,
+	0x72, 0x52, 0x6f, 0x6c, 0x65, 0x12, 0x20, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x64, 0x6d,
+	0x69, 0x6e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x6f, 0x6c, 0x65,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x55,
+	0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x55, 0x0a, 0x14, 0x41,
 	0x64, 0x6d, 0x69, 0x6e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69,
-	0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x61, 0x75, 0x74, 0x68,
-	0x2e, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x12, 0x52, 0x0a, 0x1a, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x54, 0x65, 0x72, 0x6d, 0x69, 0x6e, 0x61,
-	0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x27,
-	0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x54, 0x65, 0x72, 0x6d, 0x69,
+	0x6f, 0x6e, 0x73, 0x12, 0x21, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x64, 0x6d, 0x69, 0x6e,
+	0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x53, 0x65,
+	0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x4e, 0x0a, 0x13, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x47, 0x65, 0x74, 0x55, 0x73,
+	0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x20, 0x2e, 0x61, 0x75, 0x74, 0x68,
+	0x2e, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73,
+	0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x61, 0x75,
+	0x74, 0x68, 0x2e, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x54, 0x0a, 0x1a, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x54, 0x65, 0x72, 0x6d, 0x69,
 	0x6e, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x73,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0b, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x45,
-	0x6d, 0x70, 0x74, 0x79, 0x12, 0x4a, 0x0a, 0x16, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x44, 0x65, 0x6c,
-	0x65, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x23,
-	0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x44, 0x65, 0x6c, 0x65, 0x74,
-	0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x0b, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79,
-	0x42, 0x34, 0x5a, 0x32, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63,
-	0x68, 0x61, 0x69, 0x6e, 0x73, 0x2d, 0x6c, 0x61, 0x62, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2d,
-	0x73, 0x74, 0x6f, 0x72, 0x61, 0x67, 0x65, 0x2f, 0x67, 0x65, 0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x73,
-	0x73, 0x6f, 0x3b, 0x73, 0x73, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x12, 0x27, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x54, 0x65, 0x72,
+	0x6d, 0x69, 0x6e, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f,
+	0x6e, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d,
+	0x6f, 0x6e, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x12, 0x4c, 0x0a, 0x16, 0x41, 0x64, 0x6d, 0x69,
+	0x6e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69,
+	0x6f, 0x6e, 0x12, 0x23, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x44,
+	0x65, 0x6c, 0x65, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e,
+	0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x42, 0x38, 0x5a, 0x36, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62,
+	0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x73, 0x2d, 0x6c, 0x61, 0x62, 0x2f,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2d, 0x73, 0x74, 0x6f, 0x72, 0x61, 0x67, 0x65, 0x2f, 0x67, 0x65,
+	0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x76, 0x63, 0x2f, 0x73, 0x73, 0x6f, 0x3b, 0x73, 0x73, 0x6f,
+	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_sso_sso_proto_rawDescOnce sync.Once
-	file_sso_sso_proto_rawDescData = file_sso_sso_proto_rawDesc
+	file_svc_sso_sso_proto_rawDescOnce sync.Once
+	file_svc_sso_sso_proto_rawDescData = file_svc_sso_sso_proto_rawDesc
 )
 
-func file_sso_sso_proto_rawDescGZIP() []byte {
-	file_sso_sso_proto_rawDescOnce.Do(func() {
-		file_sso_sso_proto_rawDescData = protoimpl.X.CompressGZIP(file_sso_sso_proto_rawDescData)
+func file_svc_sso_sso_proto_rawDescGZIP() []byte {
+	file_svc_sso_sso_proto_rawDescOnce.Do(func() {
+		file_svc_sso_sso_proto_rawDescData = protoimpl.X.CompressGZIP(file_svc_sso_sso_proto_rawDescData)
 	})
-	return file_sso_sso_proto_rawDescData
+	return file_svc_sso_sso_proto_rawDescData
 }
 
-var file_sso_sso_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
-var file_sso_sso_proto_goTypes = []any{
-	(*Empty)(nil),                             // 0: auth.Empty
-	(*RefreshTokenRequest)(nil),               // 1: auth.RefreshTokenRequest
-	(*AdminUpdateUserRoleRequest)(nil),        // 2: auth.AdminUpdateUserRoleRequest
-	(*DeleteOwnUserSessionRequest)(nil),       // 3: auth.DeleteOwnUserSessionRequest
-	(*AdminTerminateUserSessions)(nil),        // 4: auth.AdminTerminateUserSessions
-	(*AdminGetUserRequest)(nil),               // 5: auth.AdminGetUserRequest
-	(*AdminGetUserSessionsRequest)(nil),       // 6: auth.AdminGetUserSessionsRequest
-	(*AdminGetUserSessionRequest)(nil),        // 7: auth.AdminGetUserSessionRequest
-	(*AdminDeleteUserSession)(nil),            // 8: auth.AdminDeleteUserSession
-	(*AdminTerminateUserSessionsRequest)(nil), // 9: auth.AdminTerminateUserSessionsRequest
-	(*AdminDeleteUserSessionRequest)(nil),     // 10: auth.AdminDeleteUserSessionRequest
-	(*GoogleLoginResponse)(nil),               // 11: auth.GoogleLoginResponse
-	(*GoogleCallbackRequest)(nil),             // 12: auth.GoogleCallbackRequest
-	(*TokensPairResponse)(nil),                // 13: auth.TokensPairResponse
-	(*UserResponse)(nil),                      // 14: auth.UserResponse
-	(*SessionResponse)(nil),                   // 15: auth.SessionResponse
-	(*SessionsListResponse)(nil),              // 16: auth.SessionsListResponse
+var file_svc_sso_sso_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
+var file_svc_sso_sso_proto_goTypes = []any{
+	(*RefreshTokenRequest)(nil),               // 0: auth.RefreshTokenRequest
+	(*AdminUpdateUserRoleRequest)(nil),        // 1: auth.AdminUpdateUserRoleRequest
+	(*DeleteOwnUserSessionRequest)(nil),       // 2: auth.DeleteOwnUserSessionRequest
+	(*AdminTerminateUserSessions)(nil),        // 3: auth.AdminTerminateUserSessions
+	(*AdminGetUserRequest)(nil),               // 4: auth.AdminGetUserRequest
+	(*AdminGetUserSessionsRequest)(nil),       // 5: auth.AdminGetUserSessionsRequest
+	(*AdminGetUserSessionRequest)(nil),        // 6: auth.AdminGetUserSessionRequest
+	(*AdminDeleteUserSession)(nil),            // 7: auth.AdminDeleteUserSession
+	(*AdminTerminateUserSessionsRequest)(nil), // 8: auth.AdminTerminateUserSessionsRequest
+	(*AdminDeleteUserSessionRequest)(nil),     // 9: auth.AdminDeleteUserSessionRequest
+	(*GoogleLoginResponse)(nil),               // 10: auth.GoogleLoginResponse
+	(*GoogleCallbackRequest)(nil),             // 11: auth.GoogleCallbackRequest
+	(*TokensPairResponse)(nil),                // 12: auth.TokensPairResponse
+	(*UserResponse)(nil),                      // 13: auth.UserResponse
+	(*SessionResponse)(nil),                   // 14: auth.SessionResponse
+	(*SessionsListResponse)(nil),              // 15: auth.SessionsListResponse
+	(*google.protobuf.Empty)(nil),                      // 16: google.protobuf.Empty
 }
-var file_sso_sso_proto_depIdxs = []int32{
-	15, // 0: auth.SessionsListResponse.sessions:type_name -> auth.SessionResponse
-	0,  // 1: auth.UserService.GetOwnUser:input_type -> auth.Empty
-	0,  // 2: auth.UserService.GoogleLogin:input_type -> auth.Empty
-	12, // 3: auth.UserService.GoogleCallback:input_type -> auth.GoogleCallbackRequest
-	0,  // 4: auth.UserService.Logout:input_type -> auth.Empty
-	1,  // 5: auth.UserService.RefreshToken:input_type -> auth.RefreshTokenRequest
-	0,  // 6: auth.UserService.GetOwnUserSession:input_type -> auth.Empty
-	0,  // 7: auth.UserService.GetOwnUserSessions:input_type -> auth.Empty
-	3,  // 8: auth.UserService.DeleteOwnUserSession:input_type -> auth.DeleteOwnUserSessionRequest
-	0,  // 9: auth.UserService.TerminateOwnUserSessions:input_type -> auth.Empty
-	5,  // 10: auth.AdminService.AdminGetUser:input_type -> auth.AdminGetUserRequest
-	2,  // 11: auth.AdminService.AdminUpdateUserRole:input_type -> auth.AdminUpdateUserRoleRequest
-	6,  // 12: auth.AdminService.AdminGetUserSessions:input_type -> auth.AdminGetUserSessionsRequest
-	7,  // 13: auth.AdminService.AdminGetUserSession:input_type -> auth.AdminGetUserSessionRequest
-	9,  // 14: auth.AdminService.AdminTerminateUserSessions:input_type -> auth.AdminTerminateUserSessionsRequest
-	10, // 15: auth.AdminService.AdminDeleteUserSession:input_type -> auth.AdminDeleteUserSessionRequest
-	14, // 16: auth.UserService.GetOwnUser:output_type -> auth.UserResponse
-	11, // 17: auth.UserService.GoogleLogin:output_type -> auth.GoogleLoginResponse
-	13, // 18: auth.UserService.GoogleCallback:output_type -> auth.TokensPairResponse
-	0,  // 19: auth.UserService.Logout:output_type -> auth.Empty
-	13, // 20: auth.UserService.RefreshToken:output_type -> auth.TokensPairResponse
-	15, // 21: auth.UserService.GetOwnUserSession:output_type -> auth.SessionResponse
-	16, // 22: auth.UserService.GetOwnUserSessions:output_type -> auth.SessionsListResponse
-	0,  // 23: auth.UserService.DeleteOwnUserSession:output_type -> auth.Empty
-	0,  // 24: auth.UserService.TerminateOwnUserSessions:output_type -> auth.Empty
-	14, // 25: auth.AdminService.AdminGetUser:output_type -> auth.UserResponse
-	14, // 26: auth.AdminService.AdminUpdateUserRole:output_type -> auth.UserResponse
-	16, // 27: auth.AdminService.AdminGetUserSessions:output_type -> auth.SessionsListResponse
-	15, // 28: auth.AdminService.AdminGetUserSession:output_type -> auth.SessionResponse
-	0,  // 29: auth.AdminService.AdminTerminateUserSessions:output_type -> auth.Empty
-	0,  // 30: auth.AdminService.AdminDeleteUserSession:output_type -> auth.Empty
+var file_svc_sso_sso_proto_depIdxs = []int32{
+	14, // 0: auth.SessionsListResponse.sessions:type_name -> auth.SessionResponse
+	16, // 1: auth.UserService.GetOwnUser:input_type -> google.protobuf.Empty
+	16, // 2: auth.UserService.GoogleLogin:input_type -> google.protobuf.Empty
+	11, // 3: auth.UserService.GoogleCallback:input_type -> auth.GoogleCallbackRequest
+	16, // 4: auth.UserService.Logout:input_type -> google.protobuf.Empty
+	0,  // 5: auth.UserService.RefreshToken:input_type -> auth.RefreshTokenRequest
+	16, // 6: auth.UserService.GetOwnUserSession:input_type -> google.protobuf.Empty
+	16, // 7: auth.UserService.GetOwnUserSessions:input_type -> google.protobuf.Empty
+	2,  // 8: auth.UserService.DeleteOwnUserSession:input_type -> auth.DeleteOwnUserSessionRequest
+	16, // 9: auth.UserService.TerminateOwnUserSessions:input_type -> google.protobuf.Empty
+	4,  // 10: auth.AdminService.AdminGetUser:input_type -> auth.AdminGetUserRequest
+	1,  // 11: auth.AdminService.AdminUpdateUserRole:input_type -> auth.AdminUpdateUserRoleRequest
+	5,  // 12: auth.AdminService.AdminGetUserSessions:input_type -> auth.AdminGetUserSessionsRequest
+	6,  // 13: auth.AdminService.AdminGetUserSession:input_type -> auth.AdminGetUserSessionRequest
+	8,  // 14: auth.AdminService.AdminTerminateUserSessions:input_type -> auth.AdminTerminateUserSessionsRequest
+	9,  // 15: auth.AdminService.AdminDeleteUserSession:input_type -> auth.AdminDeleteUserSessionRequest
+	13, // 16: auth.UserService.GetOwnUser:output_type -> auth.UserResponse
+	10, // 17: auth.UserService.GoogleLogin:output_type -> auth.GoogleLoginResponse
+	12, // 18: auth.UserService.GoogleCallback:output_type -> auth.TokensPairResponse
+	16, // 19: auth.UserService.Logout:output_type -> google.protobuf.Empty
+	12, // 20: auth.UserService.RefreshToken:output_type -> auth.TokensPairResponse
+	14, // 21: auth.UserService.GetOwnUserSession:output_type -> auth.SessionResponse
+	15, // 22: auth.UserService.GetOwnUserSessions:output_type -> auth.SessionsListResponse
+	16, // 23: auth.UserService.DeleteOwnUserSession:output_type -> google.protobuf.Empty
+	16, // 24: auth.UserService.TerminateOwnUserSessions:output_type -> google.protobuf.Empty
+	13, // 25: auth.AdminService.AdminGetUser:output_type -> auth.UserResponse
+	13, // 26: auth.AdminService.AdminUpdateUserRole:output_type -> auth.UserResponse
+	15, // 27: auth.AdminService.AdminGetUserSessions:output_type -> auth.SessionsListResponse
+	14, // 28: auth.AdminService.AdminGetUserSession:output_type -> auth.SessionResponse
+	16, // 29: auth.AdminService.AdminTerminateUserSessions:output_type -> google.protobuf.Empty
+	16, // 30: auth.AdminService.AdminDeleteUserSession:output_type -> google.protobuf.Empty
 	16, // [16:31] is the sub-list for method output_type
 	1,  // [1:16] is the sub-list for method input_type
 	1,  // [1:1] is the sub-list for extension type_name
@@ -1186,25 +1151,13 @@ var file_sso_sso_proto_depIdxs = []int32{
 	0,  // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_sso_sso_proto_init() }
-func file_sso_sso_proto_init() {
-	if File_sso_sso_proto != nil {
+func init() { file_svc_sso_sso_proto_init() }
+func file_svc_sso_sso_proto_init() {
+	if File_svc_sso_sso_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_sso_sso_proto_msgTypes[0].Exporter = func(v any, i int) any {
-			switch v := v.(*Empty); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_sso_sso_proto_msgTypes[1].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[0].Exporter = func(v any, i int) any {
 			switch v := v.(*RefreshTokenRequest); i {
 			case 0:
 				return &v.state
@@ -1216,7 +1169,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[2].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[1].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminUpdateUserRoleRequest); i {
 			case 0:
 				return &v.state
@@ -1228,7 +1181,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[3].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[2].Exporter = func(v any, i int) any {
 			switch v := v.(*DeleteOwnUserSessionRequest); i {
 			case 0:
 				return &v.state
@@ -1240,7 +1193,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[4].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[3].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminTerminateUserSessions); i {
 			case 0:
 				return &v.state
@@ -1252,7 +1205,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[5].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[4].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminGetUserRequest); i {
 			case 0:
 				return &v.state
@@ -1264,7 +1217,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[6].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[5].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminGetUserSessionsRequest); i {
 			case 0:
 				return &v.state
@@ -1276,7 +1229,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[7].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[6].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminGetUserSessionRequest); i {
 			case 0:
 				return &v.state
@@ -1288,7 +1241,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[8].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[7].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminDeleteUserSession); i {
 			case 0:
 				return &v.state
@@ -1300,7 +1253,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[9].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[8].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminTerminateUserSessionsRequest); i {
 			case 0:
 				return &v.state
@@ -1312,7 +1265,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[10].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[9].Exporter = func(v any, i int) any {
 			switch v := v.(*AdminDeleteUserSessionRequest); i {
 			case 0:
 				return &v.state
@@ -1324,7 +1277,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[11].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[10].Exporter = func(v any, i int) any {
 			switch v := v.(*GoogleLoginResponse); i {
 			case 0:
 				return &v.state
@@ -1336,7 +1289,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[12].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[11].Exporter = func(v any, i int) any {
 			switch v := v.(*GoogleCallbackRequest); i {
 			case 0:
 				return &v.state
@@ -1348,7 +1301,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[13].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[12].Exporter = func(v any, i int) any {
 			switch v := v.(*TokensPairResponse); i {
 			case 0:
 				return &v.state
@@ -1360,7 +1313,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[14].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[13].Exporter = func(v any, i int) any {
 			switch v := v.(*UserResponse); i {
 			case 0:
 				return &v.state
@@ -1372,7 +1325,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[15].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[14].Exporter = func(v any, i int) any {
 			switch v := v.(*SessionResponse); i {
 			case 0:
 				return &v.state
@@ -1384,7 +1337,7 @@ func file_sso_sso_proto_init() {
 				return nil
 			}
 		}
-		file_sso_sso_proto_msgTypes[16].Exporter = func(v any, i int) any {
+		file_svc_sso_sso_proto_msgTypes[15].Exporter = func(v any, i int) any {
 			switch v := v.(*SessionsListResponse); i {
 			case 0:
 				return &v.state
@@ -1401,18 +1354,18 @@ func file_sso_sso_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_sso_sso_proto_rawDesc,
+			RawDescriptor: file_svc_sso_sso_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   17,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   2,
 		},
-		GoTypes:           file_sso_sso_proto_goTypes,
-		DependencyIndexes: file_sso_sso_proto_depIdxs,
-		MessageInfos:      file_sso_sso_proto_msgTypes,
+		GoTypes:           file_svc_sso_sso_proto_goTypes,
+		DependencyIndexes: file_svc_sso_sso_proto_depIdxs,
+		MessageInfos:      file_svc_sso_sso_proto_msgTypes,
 	}.Build()
-	File_sso_sso_proto = out.File
-	file_sso_sso_proto_rawDesc = nil
-	file_sso_sso_proto_goTypes = nil
-	file_sso_sso_proto_depIdxs = nil
+	File_svc_sso_sso_proto = out.File
+	file_svc_sso_sso_proto_rawDesc = nil
+	file_svc_sso_sso_proto_goTypes = nil
+	file_svc_sso_sso_proto_depIdxs = nil
 }

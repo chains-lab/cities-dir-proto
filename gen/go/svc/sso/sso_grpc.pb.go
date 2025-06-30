@@ -2,12 +2,13 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: sso/sso.proto
+// source: svc/sso/sso.proto
 
 package sso
 
 import (
 	context "context"
+	common "github.com/chains-lab/proto-storage/gen/go/common"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -34,16 +35,16 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserServiceClient interface {
-	GetOwnUser(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*UserResponse, error)
+	GetOwnUser(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*UserResponse, error)
 	// Google OAuth operations
-	GoogleLogin(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GoogleLoginResponse, error)
+	GoogleLogin(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*GoogleLoginResponse, error)
 	GoogleCallback(ctx context.Context, in *GoogleCallbackRequest, opts ...grpc.CallOption) (*TokensPairResponse, error)
-	Logout(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error)
+	Logout(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*google.protobuf.Empty, error)
 	RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*TokensPairResponse, error)
-	GetOwnUserSession(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*SessionResponse, error)
-	GetOwnUserSessions(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*SessionsListResponse, error)
-	DeleteOwnUserSession(ctx context.Context, in *DeleteOwnUserSessionRequest, opts ...grpc.CallOption) (*Empty, error)
-	TerminateOwnUserSessions(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error)
+	GetOwnUserSession(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*SessionResponse, error)
+	GetOwnUserSessions(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*SessionsListResponse, error)
+	DeleteOwnUserSession(ctx context.Context, in *DeleteOwnUserSessionRequest, opts ...grpc.CallOption) (*google.protobuf.Empty, error)
+	TerminateOwnUserSessions(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*google.protobuf.Empty, error)
 }
 
 type userServiceClient struct {
@@ -54,7 +55,7 @@ func NewUserServiceClient(cc grpc.ClientConnInterface) UserServiceClient {
 	return &userServiceClient{cc}
 }
 
-func (c *userServiceClient) GetOwnUser(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*UserResponse, error) {
+func (c *userServiceClient) GetOwnUser(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*UserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UserResponse)
 	err := c.cc.Invoke(ctx, UserService_GetOwnUser_FullMethodName, in, out, cOpts...)
@@ -64,7 +65,7 @@ func (c *userServiceClient) GetOwnUser(ctx context.Context, in *Empty, opts ...g
 	return out, nil
 }
 
-func (c *userServiceClient) GoogleLogin(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GoogleLoginResponse, error) {
+func (c *userServiceClient) GoogleLogin(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*GoogleLoginResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GoogleLoginResponse)
 	err := c.cc.Invoke(ctx, UserService_GoogleLogin_FullMethodName, in, out, cOpts...)
@@ -84,9 +85,9 @@ func (c *userServiceClient) GoogleCallback(ctx context.Context, in *GoogleCallba
 	return out, nil
 }
 
-func (c *userServiceClient) Logout(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error) {
+func (c *userServiceClient) Logout(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*google.protobuf.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Empty)
+	out := new(google.protobuf.Empty)
 	err := c.cc.Invoke(ctx, UserService_Logout_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -104,7 +105,7 @@ func (c *userServiceClient) RefreshToken(ctx context.Context, in *RefreshTokenRe
 	return out, nil
 }
 
-func (c *userServiceClient) GetOwnUserSession(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*SessionResponse, error) {
+func (c *userServiceClient) GetOwnUserSession(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*SessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SessionResponse)
 	err := c.cc.Invoke(ctx, UserService_GetOwnUserSession_FullMethodName, in, out, cOpts...)
@@ -114,7 +115,7 @@ func (c *userServiceClient) GetOwnUserSession(ctx context.Context, in *Empty, op
 	return out, nil
 }
 
-func (c *userServiceClient) GetOwnUserSessions(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*SessionsListResponse, error) {
+func (c *userServiceClient) GetOwnUserSessions(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*SessionsListResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SessionsListResponse)
 	err := c.cc.Invoke(ctx, UserService_GetOwnUserSessions_FullMethodName, in, out, cOpts...)
@@ -124,9 +125,9 @@ func (c *userServiceClient) GetOwnUserSessions(ctx context.Context, in *Empty, o
 	return out, nil
 }
 
-func (c *userServiceClient) DeleteOwnUserSession(ctx context.Context, in *DeleteOwnUserSessionRequest, opts ...grpc.CallOption) (*Empty, error) {
+func (c *userServiceClient) DeleteOwnUserSession(ctx context.Context, in *DeleteOwnUserSessionRequest, opts ...grpc.CallOption) (*google.protobuf.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Empty)
+	out := new(google.protobuf.Empty)
 	err := c.cc.Invoke(ctx, UserService_DeleteOwnUserSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -134,9 +135,9 @@ func (c *userServiceClient) DeleteOwnUserSession(ctx context.Context, in *Delete
 	return out, nil
 }
 
-func (c *userServiceClient) TerminateOwnUserSessions(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error) {
+func (c *userServiceClient) TerminateOwnUserSessions(ctx context.Context, in *google.protobuf.Empty, opts ...grpc.CallOption) (*google.protobuf.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Empty)
+	out := new(google.protobuf.Empty)
 	err := c.cc.Invoke(ctx, UserService_TerminateOwnUserSessions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -148,16 +149,16 @@ func (c *userServiceClient) TerminateOwnUserSessions(ctx context.Context, in *Em
 // All implementations must embed UnimplementedUserServiceServer
 // for forward compatibility.
 type UserServiceServer interface {
-	GetOwnUser(context.Context, *Empty) (*UserResponse, error)
+	GetOwnUser(context.Context, *google.protobuf.Empty) (*UserResponse, error)
 	// Google OAuth operations
-	GoogleLogin(context.Context, *Empty) (*GoogleLoginResponse, error)
+	GoogleLogin(context.Context, *google.protobuf.Empty) (*GoogleLoginResponse, error)
 	GoogleCallback(context.Context, *GoogleCallbackRequest) (*TokensPairResponse, error)
-	Logout(context.Context, *Empty) (*Empty, error)
+	Logout(context.Context, *google.protobuf.Empty) (*google.protobuf.Empty, error)
 	RefreshToken(context.Context, *RefreshTokenRequest) (*TokensPairResponse, error)
-	GetOwnUserSession(context.Context, *Empty) (*SessionResponse, error)
-	GetOwnUserSessions(context.Context, *Empty) (*SessionsListResponse, error)
-	DeleteOwnUserSession(context.Context, *DeleteOwnUserSessionRequest) (*Empty, error)
-	TerminateOwnUserSessions(context.Context, *Empty) (*Empty, error)
+	GetOwnUserSession(context.Context, *google.protobuf.Empty) (*SessionResponse, error)
+	GetOwnUserSessions(context.Context, *google.protobuf.Empty) (*SessionsListResponse, error)
+	DeleteOwnUserSession(context.Context, *DeleteOwnUserSessionRequest) (*google.protobuf.Empty, error)
+	TerminateOwnUserSessions(context.Context, *google.protobuf.Empty) (*google.protobuf.Empty, error)
 	mustEmbedUnimplementedUserServiceServer()
 }
 
@@ -168,31 +169,31 @@ type UserServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedUserServiceServer struct{}
 
-func (UnimplementedUserServiceServer) GetOwnUser(context.Context, *Empty) (*UserResponse, error) {
+func (UnimplementedUserServiceServer) GetOwnUser(context.Context, *google.protobuf.Empty) (*UserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOwnUser not implemented")
 }
-func (UnimplementedUserServiceServer) GoogleLogin(context.Context, *Empty) (*GoogleLoginResponse, error) {
+func (UnimplementedUserServiceServer) GoogleLogin(context.Context, *google.protobuf.Empty) (*GoogleLoginResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GoogleLogin not implemented")
 }
 func (UnimplementedUserServiceServer) GoogleCallback(context.Context, *GoogleCallbackRequest) (*TokensPairResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GoogleCallback not implemented")
 }
-func (UnimplementedUserServiceServer) Logout(context.Context, *Empty) (*Empty, error) {
+func (UnimplementedUserServiceServer) Logout(context.Context, *google.protobuf.Empty) (*google.protobuf.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Logout not implemented")
 }
 func (UnimplementedUserServiceServer) RefreshToken(context.Context, *RefreshTokenRequest) (*TokensPairResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RefreshToken not implemented")
 }
-func (UnimplementedUserServiceServer) GetOwnUserSession(context.Context, *Empty) (*SessionResponse, error) {
+func (UnimplementedUserServiceServer) GetOwnUserSession(context.Context, *google.protobuf.Empty) (*SessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOwnUserSession not implemented")
 }
-func (UnimplementedUserServiceServer) GetOwnUserSessions(context.Context, *Empty) (*SessionsListResponse, error) {
+func (UnimplementedUserServiceServer) GetOwnUserSessions(context.Context, *google.protobuf.Empty) (*SessionsListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOwnUserSessions not implemented")
 }
-func (UnimplementedUserServiceServer) DeleteOwnUserSession(context.Context, *DeleteOwnUserSessionRequest) (*Empty, error) {
+func (UnimplementedUserServiceServer) DeleteOwnUserSession(context.Context, *DeleteOwnUserSessionRequest) (*google.protobuf.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteOwnUserSession not implemented")
 }
-func (UnimplementedUserServiceServer) TerminateOwnUserSessions(context.Context, *Empty) (*Empty, error) {
+func (UnimplementedUserServiceServer) TerminateOwnUserSessions(context.Context, *google.protobuf.Empty) (*google.protobuf.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TerminateOwnUserSessions not implemented")
 }
 func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}
@@ -217,7 +218,7 @@ func RegisterUserServiceServer(s grpc.ServiceRegistrar, srv UserServiceServer) {
 }
 
 func _UserService_GetOwnUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
+	in := new(google.protobuf.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -229,13 +230,13 @@ func _UserService_GetOwnUser_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: UserService_GetOwnUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).GetOwnUser(ctx, req.(*Empty))
+		return srv.(UserServiceServer).GetOwnUser(ctx, req.(*google.protobuf.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _UserService_GoogleLogin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
+	in := new(google.protobuf.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -247,7 +248,7 @@ func _UserService_GoogleLogin_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: UserService_GoogleLogin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).GoogleLogin(ctx, req.(*Empty))
+		return srv.(UserServiceServer).GoogleLogin(ctx, req.(*google.protobuf.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -271,7 +272,7 @@ func _UserService_GoogleCallback_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _UserService_Logout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
+	in := new(google.protobuf.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -283,7 +284,7 @@ func _UserService_Logout_Handler(srv interface{}, ctx context.Context, dec func(
 		FullMethod: UserService_Logout_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).Logout(ctx, req.(*Empty))
+		return srv.(UserServiceServer).Logout(ctx, req.(*google.protobuf.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -307,7 +308,7 @@ func _UserService_RefreshToken_Handler(srv interface{}, ctx context.Context, dec
 }
 
 func _UserService_GetOwnUserSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
+	in := new(google.protobuf.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -319,13 +320,13 @@ func _UserService_GetOwnUserSession_Handler(srv interface{}, ctx context.Context
 		FullMethod: UserService_GetOwnUserSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).GetOwnUserSession(ctx, req.(*Empty))
+		return srv.(UserServiceServer).GetOwnUserSession(ctx, req.(*google.protobuf.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _UserService_GetOwnUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
+	in := new(google.protobuf.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -337,7 +338,7 @@ func _UserService_GetOwnUserSessions_Handler(srv interface{}, ctx context.Contex
 		FullMethod: UserService_GetOwnUserSessions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).GetOwnUserSessions(ctx, req.(*Empty))
+		return srv.(UserServiceServer).GetOwnUserSessions(ctx, req.(*google.protobuf.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -361,7 +362,7 @@ func _UserService_DeleteOwnUserSession_Handler(srv interface{}, ctx context.Cont
 }
 
 func _UserService_TerminateOwnUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
+	in := new(google.protobuf.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -373,7 +374,7 @@ func _UserService_TerminateOwnUserSessions_Handler(srv interface{}, ctx context.
 		FullMethod: UserService_TerminateOwnUserSessions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).TerminateOwnUserSessions(ctx, req.(*Empty))
+		return srv.(UserServiceServer).TerminateOwnUserSessions(ctx, req.(*google.protobuf.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -423,7 +424,7 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "sso/sso.proto",
+	Metadata: "svc/sso/sso.proto",
 }
 
 const (
@@ -443,8 +444,8 @@ type AdminServiceClient interface {
 	AdminUpdateUserRole(ctx context.Context, in *AdminUpdateUserRoleRequest, opts ...grpc.CallOption) (*UserResponse, error)
 	AdminGetUserSessions(ctx context.Context, in *AdminGetUserSessionsRequest, opts ...grpc.CallOption) (*SessionsListResponse, error)
 	AdminGetUserSession(ctx context.Context, in *AdminGetUserSessionRequest, opts ...grpc.CallOption) (*SessionResponse, error)
-	AdminTerminateUserSessions(ctx context.Context, in *AdminTerminateUserSessionsRequest, opts ...grpc.CallOption) (*Empty, error)
-	AdminDeleteUserSession(ctx context.Context, in *AdminDeleteUserSessionRequest, opts ...grpc.CallOption) (*Empty, error)
+	AdminTerminateUserSessions(ctx context.Context, in *AdminTerminateUserSessionsRequest, opts ...grpc.CallOption) (*google.protobuf.Empty, error)
+	AdminDeleteUserSession(ctx context.Context, in *AdminDeleteUserSessionRequest, opts ...grpc.CallOption) (*google.protobuf.Empty, error)
 }
 
 type adminServiceClient struct {
@@ -495,9 +496,9 @@ func (c *adminServiceClient) AdminGetUserSession(ctx context.Context, in *AdminG
 	return out, nil
 }
 
-func (c *adminServiceClient) AdminTerminateUserSessions(ctx context.Context, in *AdminTerminateUserSessionsRequest, opts ...grpc.CallOption) (*Empty, error) {
+func (c *adminServiceClient) AdminTerminateUserSessions(ctx context.Context, in *AdminTerminateUserSessionsRequest, opts ...grpc.CallOption) (*google.protobuf.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Empty)
+	out := new(google.protobuf.Empty)
 	err := c.cc.Invoke(ctx, AdminService_AdminTerminateUserSessions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -505,9 +506,9 @@ func (c *adminServiceClient) AdminTerminateUserSessions(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *adminServiceClient) AdminDeleteUserSession(ctx context.Context, in *AdminDeleteUserSessionRequest, opts ...grpc.CallOption) (*Empty, error) {
+func (c *adminServiceClient) AdminDeleteUserSession(ctx context.Context, in *AdminDeleteUserSessionRequest, opts ...grpc.CallOption) (*google.protobuf.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Empty)
+	out := new(google.protobuf.Empty)
 	err := c.cc.Invoke(ctx, AdminService_AdminDeleteUserSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -523,8 +524,8 @@ type AdminServiceServer interface {
 	AdminUpdateUserRole(context.Context, *AdminUpdateUserRoleRequest) (*UserResponse, error)
 	AdminGetUserSessions(context.Context, *AdminGetUserSessionsRequest) (*SessionsListResponse, error)
 	AdminGetUserSession(context.Context, *AdminGetUserSessionRequest) (*SessionResponse, error)
-	AdminTerminateUserSessions(context.Context, *AdminTerminateUserSessionsRequest) (*Empty, error)
-	AdminDeleteUserSession(context.Context, *AdminDeleteUserSessionRequest) (*Empty, error)
+	AdminTerminateUserSessions(context.Context, *AdminTerminateUserSessionsRequest) (*google.protobuf.Empty, error)
+	AdminDeleteUserSession(context.Context, *AdminDeleteUserSessionRequest) (*google.protobuf.Empty, error)
 	mustEmbedUnimplementedAdminServiceServer()
 }
 
@@ -547,10 +548,10 @@ func (UnimplementedAdminServiceServer) AdminGetUserSessions(context.Context, *Ad
 func (UnimplementedAdminServiceServer) AdminGetUserSession(context.Context, *AdminGetUserSessionRequest) (*SessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AdminGetUserSession not implemented")
 }
-func (UnimplementedAdminServiceServer) AdminTerminateUserSessions(context.Context, *AdminTerminateUserSessionsRequest) (*Empty, error) {
+func (UnimplementedAdminServiceServer) AdminTerminateUserSessions(context.Context, *AdminTerminateUserSessionsRequest) (*google.protobuf.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AdminTerminateUserSessions not implemented")
 }
-func (UnimplementedAdminServiceServer) AdminDeleteUserSession(context.Context, *AdminDeleteUserSessionRequest) (*Empty, error) {
+func (UnimplementedAdminServiceServer) AdminDeleteUserSession(context.Context, *AdminDeleteUserSessionRequest) (*google.protobuf.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AdminDeleteUserSession not implemented")
 }
 func (UnimplementedAdminServiceServer) mustEmbedUnimplementedAdminServiceServer() {}
@@ -715,5 +716,5 @@ var AdminService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "sso/sso.proto",
+	Metadata: "svc/sso/sso.proto",
 }

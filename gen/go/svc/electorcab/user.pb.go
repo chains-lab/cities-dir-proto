@@ -2,11 +2,12 @@
 // versions:
 // 	protoc-gen-go v1.34.2
 // 	protoc        v3.21.12
-// source: electorcab/user.proto
+// source: svc/electorcab/user.proto
 
 package electorcab
 
 import (
+	common "github.com/chains-lab/proto-storage/gen/go/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -19,44 +20,6 @@ const (
 	// Verify that runtime/protoimpl is sufficiently up-to-date.
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
-
-type Empty struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-}
-
-func (x *Empty) Reset() {
-	*x = Empty{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *Empty) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Empty) ProtoMessage() {}
-
-func (x *Empty) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Empty.ProtoReflect.Descriptor instead.
-func (*Empty) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{0}
-}
 
 // REQUESTS
 type UpdateOwnProfileRequest struct {
@@ -73,7 +36,7 @@ type UpdateOwnProfileRequest struct {
 func (x *UpdateOwnProfileRequest) Reset() {
 	*x = UpdateOwnProfileRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[1]
+		mi := &file_svc_electorcab_user_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -86,7 +49,7 @@ func (x *UpdateOwnProfileRequest) String() string {
 func (*UpdateOwnProfileRequest) ProtoMessage() {}
 
 func (x *UpdateOwnProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[1]
+	mi := &file_svc_electorcab_user_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -99,7 +62,7 @@ func (x *UpdateOwnProfileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOwnProfileRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOwnProfileRequest) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{1}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *UpdateOwnProfileRequest) GetUsername() string {
@@ -141,7 +104,7 @@ type UpdateOwnSexRequest struct {
 func (x *UpdateOwnSexRequest) Reset() {
 	*x = UpdateOwnSexRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[2]
+		mi := &file_svc_electorcab_user_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -154,7 +117,7 @@ func (x *UpdateOwnSexRequest) String() string {
 func (*UpdateOwnSexRequest) ProtoMessage() {}
 
 func (x *UpdateOwnSexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[2]
+	mi := &file_svc_electorcab_user_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -167,7 +130,7 @@ func (x *UpdateOwnSexRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOwnSexRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOwnSexRequest) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{2}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *UpdateOwnSexRequest) GetSex() string {
@@ -188,7 +151,7 @@ type UpdateOwnBirthdayRequest struct {
 func (x *UpdateOwnBirthdayRequest) Reset() {
 	*x = UpdateOwnBirthdayRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[3]
+		mi := &file_svc_electorcab_user_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -201,7 +164,7 @@ func (x *UpdateOwnBirthdayRequest) String() string {
 func (*UpdateOwnBirthdayRequest) ProtoMessage() {}
 
 func (x *UpdateOwnBirthdayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[3]
+	mi := &file_svc_electorcab_user_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -214,7 +177,7 @@ func (x *UpdateOwnBirthdayRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOwnBirthdayRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOwnBirthdayRequest) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{3}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *UpdateOwnBirthdayRequest) GetBirthday() string {
@@ -235,7 +198,7 @@ type UpdateOwnNationalityRequest struct {
 func (x *UpdateOwnNationalityRequest) Reset() {
 	*x = UpdateOwnNationalityRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[4]
+		mi := &file_svc_electorcab_user_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -248,7 +211,7 @@ func (x *UpdateOwnNationalityRequest) String() string {
 func (*UpdateOwnNationalityRequest) ProtoMessage() {}
 
 func (x *UpdateOwnNationalityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[4]
+	mi := &file_svc_electorcab_user_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -261,7 +224,7 @@ func (x *UpdateOwnNationalityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOwnNationalityRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOwnNationalityRequest) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{4}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *UpdateOwnNationalityRequest) GetNationality() string {
@@ -282,7 +245,7 @@ type UpdateOwnPrimaryLanguageRequest struct {
 func (x *UpdateOwnPrimaryLanguageRequest) Reset() {
 	*x = UpdateOwnPrimaryLanguageRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[5]
+		mi := &file_svc_electorcab_user_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -295,7 +258,7 @@ func (x *UpdateOwnPrimaryLanguageRequest) String() string {
 func (*UpdateOwnPrimaryLanguageRequest) ProtoMessage() {}
 
 func (x *UpdateOwnPrimaryLanguageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[5]
+	mi := &file_svc_electorcab_user_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -308,7 +271,7 @@ func (x *UpdateOwnPrimaryLanguageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOwnPrimaryLanguageRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOwnPrimaryLanguageRequest) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{5}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *UpdateOwnPrimaryLanguageRequest) GetPrimaryLanguage() string {
@@ -329,7 +292,7 @@ type UpdateOwnCountryRequest struct {
 func (x *UpdateOwnCountryRequest) Reset() {
 	*x = UpdateOwnCountryRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[6]
+		mi := &file_svc_electorcab_user_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -342,7 +305,7 @@ func (x *UpdateOwnCountryRequest) String() string {
 func (*UpdateOwnCountryRequest) ProtoMessage() {}
 
 func (x *UpdateOwnCountryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[6]
+	mi := &file_svc_electorcab_user_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -355,7 +318,7 @@ func (x *UpdateOwnCountryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOwnCountryRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOwnCountryRequest) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{6}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *UpdateOwnCountryRequest) GetCountry() string {
@@ -376,7 +339,7 @@ type UpdateOwnCityRequest struct {
 func (x *UpdateOwnCityRequest) Reset() {
 	*x = UpdateOwnCityRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[7]
+		mi := &file_svc_electorcab_user_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -389,7 +352,7 @@ func (x *UpdateOwnCityRequest) String() string {
 func (*UpdateOwnCityRequest) ProtoMessage() {}
 
 func (x *UpdateOwnCityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[7]
+	mi := &file_svc_electorcab_user_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -402,7 +365,7 @@ func (x *UpdateOwnCityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOwnCityRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOwnCityRequest) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{7}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *UpdateOwnCityRequest) GetCity() string {
@@ -423,7 +386,7 @@ type UpdateOwnDegreeRequest struct {
 func (x *UpdateOwnDegreeRequest) Reset() {
 	*x = UpdateOwnDegreeRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[8]
+		mi := &file_svc_electorcab_user_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -436,7 +399,7 @@ func (x *UpdateOwnDegreeRequest) String() string {
 func (*UpdateOwnDegreeRequest) ProtoMessage() {}
 
 func (x *UpdateOwnDegreeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[8]
+	mi := &file_svc_electorcab_user_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -449,7 +412,7 @@ func (x *UpdateOwnDegreeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOwnDegreeRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOwnDegreeRequest) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{8}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *UpdateOwnDegreeRequest) GetDegree() string {
@@ -470,7 +433,7 @@ type UpdateOwnIndustryRequest struct {
 func (x *UpdateOwnIndustryRequest) Reset() {
 	*x = UpdateOwnIndustryRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[9]
+		mi := &file_svc_electorcab_user_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -483,7 +446,7 @@ func (x *UpdateOwnIndustryRequest) String() string {
 func (*UpdateOwnIndustryRequest) ProtoMessage() {}
 
 func (x *UpdateOwnIndustryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[9]
+	mi := &file_svc_electorcab_user_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -496,7 +459,7 @@ func (x *UpdateOwnIndustryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOwnIndustryRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOwnIndustryRequest) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{9}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *UpdateOwnIndustryRequest) GetIndustry() string {
@@ -517,7 +480,7 @@ type UpdateOwnIncomeRequest struct {
 func (x *UpdateOwnIncomeRequest) Reset() {
 	*x = UpdateOwnIncomeRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[10]
+		mi := &file_svc_electorcab_user_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -530,7 +493,7 @@ func (x *UpdateOwnIncomeRequest) String() string {
 func (*UpdateOwnIncomeRequest) ProtoMessage() {}
 
 func (x *UpdateOwnIncomeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[10]
+	mi := &file_svc_electorcab_user_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -543,7 +506,7 @@ func (x *UpdateOwnIncomeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOwnIncomeRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOwnIncomeRequest) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{10}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *UpdateOwnIncomeRequest) GetIncome() string {
@@ -565,7 +528,7 @@ type UpdateOwnResidenceRequest struct {
 func (x *UpdateOwnResidenceRequest) Reset() {
 	*x = UpdateOwnResidenceRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[11]
+		mi := &file_svc_electorcab_user_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -578,7 +541,7 @@ func (x *UpdateOwnResidenceRequest) String() string {
 func (*UpdateOwnResidenceRequest) ProtoMessage() {}
 
 func (x *UpdateOwnResidenceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[11]
+	mi := &file_svc_electorcab_user_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -591,7 +554,7 @@ func (x *UpdateOwnResidenceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateOwnResidenceRequest.ProtoReflect.Descriptor instead.
 func (*UpdateOwnResidenceRequest) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{11}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *UpdateOwnResidenceRequest) GetCountry() string {
@@ -626,7 +589,7 @@ type Profile struct {
 func (x *Profile) Reset() {
 	*x = Profile{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[12]
+		mi := &file_svc_electorcab_user_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -639,7 +602,7 @@ func (x *Profile) String() string {
 func (*Profile) ProtoMessage() {}
 
 func (x *Profile) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[12]
+	mi := &file_svc_electorcab_user_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -652,7 +615,7 @@ func (x *Profile) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Profile.ProtoReflect.Descriptor instead.
 func (*Profile) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{12}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *Profile) GetUserId() string {
@@ -733,7 +696,7 @@ type Biography struct {
 func (x *Biography) Reset() {
 	*x = Biography{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[13]
+		mi := &file_svc_electorcab_user_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -746,7 +709,7 @@ func (x *Biography) String() string {
 func (*Biography) ProtoMessage() {}
 
 func (x *Biography) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[13]
+	mi := &file_svc_electorcab_user_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -759,7 +722,7 @@ func (x *Biography) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Biography.ProtoReflect.Descriptor instead.
 func (*Biography) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{13}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *Biography) GetUserId() string {
@@ -863,7 +826,7 @@ type JobResume struct {
 func (x *JobResume) Reset() {
 	*x = JobResume{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[14]
+		mi := &file_svc_electorcab_user_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -876,7 +839,7 @@ func (x *JobResume) String() string {
 func (*JobResume) ProtoMessage() {}
 
 func (x *JobResume) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[14]
+	mi := &file_svc_electorcab_user_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -889,7 +852,7 @@ func (x *JobResume) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JobResume.ProtoReflect.Descriptor instead.
 func (*JobResume) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{14}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *JobResume) GetUserId() string {
@@ -954,7 +917,7 @@ type Cabinet struct {
 func (x *Cabinet) Reset() {
 	*x = Cabinet{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_electorcab_user_proto_msgTypes[15]
+		mi := &file_svc_electorcab_user_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -967,7 +930,7 @@ func (x *Cabinet) String() string {
 func (*Cabinet) ProtoMessage() {}
 
 func (x *Cabinet) ProtoReflect() protoreflect.Message {
-	mi := &file_electorcab_user_proto_msgTypes[15]
+	mi := &file_svc_electorcab_user_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -980,7 +943,7 @@ func (x *Cabinet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Cabinet.ProtoReflect.Descriptor instead.
 func (*Cabinet) Descriptor() ([]byte, []int) {
-	return file_electorcab_user_proto_rawDescGZIP(), []int{15}
+	return file_svc_electorcab_user_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *Cabinet) GetProfile() *Profile {
@@ -1004,12 +967,13 @@ func (x *Cabinet) GetJobResume() *JobResume {
 	return nil
 }
 
-var File_electorcab_user_proto protoreflect.FileDescriptor
+var File_svc_electorcab_user_proto protoreflect.FileDescriptor
 
-var file_electorcab_user_proto_rawDesc = []byte{
-	0x0a, 0x15, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x63, 0x61, 0x62, 0x2f, 0x75, 0x73, 0x65,
-	0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x07, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72,
-	0x22, 0x07, 0x0a, 0x05, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x22, 0xd7, 0x01, 0x0a, 0x17, 0x55, 0x70,
+var file_svc_electorcab_user_proto_rawDesc = []byte{
+	0x0a, 0x19, 0x73, 0x76, 0x63, 0x2f, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x63, 0x61, 0x62,
+	0x2f, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x07, 0x65, 0x6c, 0x65,
+	0x63, 0x74, 0x6f, 0x72, 0x1a, 0x13, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2f, 0x63, 0x6f, 0x6d,
+	0x6d, 0x6f, 0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xd7, 0x01, 0x0a, 0x17, 0x55, 0x70,
 	0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x52, 0x65,
 	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1f, 0x0a, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d,
 	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x48, 0x00, 0x52, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e,
@@ -1156,131 +1120,131 @@ var file_electorcab_user_proto_rawDesc = []byte{
 	0x31, 0x0a, 0x0a, 0x6a, 0x6f, 0x62, 0x5f, 0x72, 0x65, 0x73, 0x75, 0x6d, 0x65, 0x18, 0x03, 0x20,
 	0x01, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x4a, 0x6f,
 	0x62, 0x52, 0x65, 0x73, 0x75, 0x6d, 0x65, 0x52, 0x09, 0x6a, 0x6f, 0x62, 0x52, 0x65, 0x73, 0x75,
-	0x6d, 0x65, 0x32, 0x8d, 0x07, 0x0a, 0x0b, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x12, 0x31, 0x0a, 0x0d, 0x47, 0x65, 0x74, 0x4f, 0x77, 0x6e, 0x43, 0x61, 0x62, 0x69,
-	0x6e, 0x65, 0x74, 0x12, 0x0e, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x45, 0x6d,
-	0x70, 0x74, 0x79, 0x1a, 0x10, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x43, 0x61,
-	0x62, 0x69, 0x6e, 0x65, 0x74, 0x12, 0x31, 0x0a, 0x0d, 0x47, 0x65, 0x74, 0x4f, 0x77, 0x6e, 0x50,
-	0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x12, 0x0e, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72,
-	0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x10, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72,
-	0x2e, 0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x12, 0x35, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x4f,
-	0x77, 0x6e, 0x42, 0x69, 0x6f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x79, 0x12, 0x0e, 0x2e, 0x65, 0x6c,
-	0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x12, 0x2e, 0x65, 0x6c,
-	0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x42, 0x69, 0x6f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x79, 0x12,
-	0x35, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x4f, 0x77, 0x6e, 0x4a, 0x6f, 0x62, 0x52, 0x65, 0x73, 0x75,
-	0x6d, 0x65, 0x12, 0x0e, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x45, 0x6d, 0x70,
-	0x74, 0x79, 0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x4a, 0x6f, 0x62,
-	0x52, 0x65, 0x73, 0x75, 0x6d, 0x65, 0x12, 0x46, 0x0a, 0x10, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x4f, 0x77, 0x6e, 0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x12, 0x20, 0x2e, 0x65, 0x6c, 0x65,
-	0x63, 0x74, 0x6f, 0x72, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x50, 0x72,
-	0x6f, 0x66, 0x69, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x10, 0x2e, 0x65,
-	0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x12, 0x40,
-	0x0a, 0x0c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x53, 0x65, 0x78, 0x12, 0x1c,
-	0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f,
-	0x77, 0x6e, 0x53, 0x65, 0x78, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x65,
-	0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x42, 0x69, 0x6f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x79,
-	0x12, 0x4a, 0x0a, 0x11, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x42, 0x69, 0x72,
-	0x74, 0x68, 0x64, 0x61, 0x79, 0x12, 0x21, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x42, 0x69, 0x72, 0x74, 0x68, 0x64, 0x61,
-	0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74,
-	0x6f, 0x72, 0x2e, 0x42, 0x69, 0x6f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x79, 0x12, 0x50, 0x0a, 0x14,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x4e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x61,
-	0x6c, 0x69, 0x74, 0x79, 0x12, 0x24, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x55,
-	0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x4e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c,
-	0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65,
-	0x63, 0x74, 0x6f, 0x72, 0x2e, 0x42, 0x69, 0x6f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x79, 0x12, 0x58,
-	0x0a, 0x18, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x50, 0x72, 0x69, 0x6d, 0x61,
-	0x72, 0x79, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x12, 0x28, 0x2e, 0x65, 0x6c, 0x65,
-	0x63, 0x74, 0x6f, 0x72, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x50, 0x72,
-	0x69, 0x6d, 0x61, 0x72, 0x79, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x42,
-	0x69, 0x6f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x79, 0x12, 0x4c, 0x0a, 0x12, 0x55, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x4f, 0x77, 0x6e, 0x52, 0x65, 0x73, 0x69, 0x64, 0x65, 0x6e, 0x63, 0x65, 0x12, 0x22,
-	0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f,
-	0x77, 0x6e, 0x52, 0x65, 0x73, 0x69, 0x64, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x42, 0x69, 0x6f,
-	0x67, 0x72, 0x61, 0x70, 0x68, 0x79, 0x12, 0x46, 0x0a, 0x0f, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x4f, 0x77, 0x6e, 0x44, 0x65, 0x67, 0x72, 0x65, 0x65, 0x12, 0x1f, 0x2e, 0x65, 0x6c, 0x65, 0x63,
-	0x74, 0x6f, 0x72, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x44, 0x65, 0x67,
-	0x72, 0x65, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65,
-	0x63, 0x74, 0x6f, 0x72, 0x2e, 0x4a, 0x6f, 0x62, 0x52, 0x65, 0x73, 0x75, 0x6d, 0x65, 0x12, 0x4a,
-	0x0a, 0x11, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x49, 0x6e, 0x64, 0x75, 0x73,
-	0x74, 0x72, 0x79, 0x12, 0x21, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x55, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x49, 0x6e, 0x64, 0x75, 0x73, 0x74, 0x72, 0x79, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72,
-	0x2e, 0x4a, 0x6f, 0x62, 0x52, 0x65, 0x73, 0x75, 0x6d, 0x65, 0x12, 0x46, 0x0a, 0x0f, 0x55, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x49, 0x6e, 0x63, 0x6f, 0x6d, 0x65, 0x12, 0x1f, 0x2e,
-	0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77,
-	0x6e, 0x49, 0x6e, 0x63, 0x6f, 0x6d, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12,
+	0x6d, 0x65, 0x32, 0x89, 0x07, 0x0a, 0x0b, 0x55, 0x73, 0x65, 0x72, 0x53, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x12, 0x30, 0x0a, 0x0d, 0x47, 0x65, 0x74, 0x4f, 0x77, 0x6e, 0x43, 0x61, 0x62, 0x69,
+	0x6e, 0x65, 0x74, 0x12, 0x0d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x45, 0x6d, 0x70,
+	0x74, 0x79, 0x1a, 0x10, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x43, 0x61, 0x62,
+	0x69, 0x6e, 0x65, 0x74, 0x12, 0x30, 0x0a, 0x0d, 0x47, 0x65, 0x74, 0x4f, 0x77, 0x6e, 0x50, 0x72,
+	0x6f, 0x66, 0x69, 0x6c, 0x65, 0x12, 0x0d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x45,
+	0x6d, 0x70, 0x74, 0x79, 0x1a, 0x10, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x50,
+	0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x12, 0x34, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x4f, 0x77, 0x6e,
+	0x42, 0x69, 0x6f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x79, 0x12, 0x0d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d,
+	0x6f, 0x6e, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74,
+	0x6f, 0x72, 0x2e, 0x42, 0x69, 0x6f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x79, 0x12, 0x34, 0x0a, 0x0f,
+	0x47, 0x65, 0x74, 0x4f, 0x77, 0x6e, 0x4a, 0x6f, 0x62, 0x52, 0x65, 0x73, 0x75, 0x6d, 0x65, 0x12,
+	0x0d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x12,
 	0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x4a, 0x6f, 0x62, 0x52, 0x65, 0x73, 0x75,
-	0x6d, 0x65, 0x42, 0x42, 0x5a, 0x40, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
-	0x2f, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x73, 0x2d, 0x6c, 0x61, 0x62, 0x2f, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x2d, 0x73, 0x74, 0x6f, 0x72, 0x61, 0x67, 0x65, 0x2f, 0x67, 0x65, 0x6e, 0x2f, 0x67, 0x6f,
+	0x6d, 0x65, 0x12, 0x46, 0x0a, 0x10, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x50,
+	0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x12, 0x20, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72,
+	0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c,
+	0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x10, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74,
+	0x6f, 0x72, 0x2e, 0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x12, 0x40, 0x0a, 0x0c, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x53, 0x65, 0x78, 0x12, 0x1c, 0x2e, 0x65, 0x6c, 0x65,
+	0x63, 0x74, 0x6f, 0x72, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x53, 0x65,
+	0x78, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74,
+	0x6f, 0x72, 0x2e, 0x42, 0x69, 0x6f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x79, 0x12, 0x4a, 0x0a, 0x11,
+	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x42, 0x69, 0x72, 0x74, 0x68, 0x64, 0x61,
+	0x79, 0x12, 0x21, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x4f, 0x77, 0x6e, 0x42, 0x69, 0x72, 0x74, 0x68, 0x64, 0x61, 0x79, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x42,
+	0x69, 0x6f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x79, 0x12, 0x50, 0x0a, 0x14, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x4f, 0x77, 0x6e, 0x4e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x69, 0x74, 0x79,
+	0x12, 0x24, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74,
+	0x65, 0x4f, 0x77, 0x6e, 0x4e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x69, 0x74, 0x79, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72,
+	0x2e, 0x42, 0x69, 0x6f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x79, 0x12, 0x58, 0x0a, 0x18, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x50, 0x72, 0x69, 0x6d, 0x61, 0x72, 0x79, 0x4c, 0x61,
+	0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x12, 0x28, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72,
+	0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x50, 0x72, 0x69, 0x6d, 0x61, 0x72,
+	0x79, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x42, 0x69, 0x6f, 0x67, 0x72,
+	0x61, 0x70, 0x68, 0x79, 0x12, 0x4c, 0x0a, 0x12, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77,
+	0x6e, 0x52, 0x65, 0x73, 0x69, 0x64, 0x65, 0x6e, 0x63, 0x65, 0x12, 0x22, 0x2e, 0x65, 0x6c, 0x65,
+	0x63, 0x74, 0x6f, 0x72, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x52, 0x65,
+	0x73, 0x69, 0x64, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12,
+	0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x42, 0x69, 0x6f, 0x67, 0x72, 0x61, 0x70,
+	0x68, 0x79, 0x12, 0x46, 0x0a, 0x0f, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x44,
+	0x65, 0x67, 0x72, 0x65, 0x65, 0x12, 0x1f, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e,
+	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x44, 0x65, 0x67, 0x72, 0x65, 0x65, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72,
+	0x2e, 0x4a, 0x6f, 0x62, 0x52, 0x65, 0x73, 0x75, 0x6d, 0x65, 0x12, 0x4a, 0x0a, 0x11, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x49, 0x6e, 0x64, 0x75, 0x73, 0x74, 0x72, 0x79, 0x12,
+	0x21, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
+	0x4f, 0x77, 0x6e, 0x49, 0x6e, 0x64, 0x75, 0x73, 0x74, 0x72, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x4a, 0x6f, 0x62,
+	0x52, 0x65, 0x73, 0x75, 0x6d, 0x65, 0x12, 0x46, 0x0a, 0x0f, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
+	0x4f, 0x77, 0x6e, 0x49, 0x6e, 0x63, 0x6f, 0x6d, 0x65, 0x12, 0x1f, 0x2e, 0x65, 0x6c, 0x65, 0x63,
+	0x74, 0x6f, 0x72, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x77, 0x6e, 0x49, 0x6e, 0x63,
+	0x6f, 0x6d, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x65, 0x6c, 0x65,
+	0x63, 0x74, 0x6f, 0x72, 0x2e, 0x4a, 0x6f, 0x62, 0x52, 0x65, 0x73, 0x75, 0x6d, 0x65, 0x42, 0x46,
+	0x5a, 0x44, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x63, 0x68, 0x61,
+	0x69, 0x6e, 0x73, 0x2d, 0x6c, 0x61, 0x62, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2d, 0x73, 0x74,
+	0x6f, 0x72, 0x61, 0x67, 0x65, 0x2f, 0x67, 0x65, 0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x76, 0x63,
 	0x2f, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x63, 0x61, 0x62, 0x3b, 0x65, 0x6c, 0x65, 0x63,
 	0x74, 0x6f, 0x72, 0x63, 0x61, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_electorcab_user_proto_rawDescOnce sync.Once
-	file_electorcab_user_proto_rawDescData = file_electorcab_user_proto_rawDesc
+	file_svc_electorcab_user_proto_rawDescOnce sync.Once
+	file_svc_electorcab_user_proto_rawDescData = file_svc_electorcab_user_proto_rawDesc
 )
 
-func file_electorcab_user_proto_rawDescGZIP() []byte {
-	file_electorcab_user_proto_rawDescOnce.Do(func() {
-		file_electorcab_user_proto_rawDescData = protoimpl.X.CompressGZIP(file_electorcab_user_proto_rawDescData)
+func file_svc_electorcab_user_proto_rawDescGZIP() []byte {
+	file_svc_electorcab_user_proto_rawDescOnce.Do(func() {
+		file_svc_electorcab_user_proto_rawDescData = protoimpl.X.CompressGZIP(file_svc_electorcab_user_proto_rawDescData)
 	})
-	return file_electorcab_user_proto_rawDescData
+	return file_svc_electorcab_user_proto_rawDescData
 }
 
-var file_electorcab_user_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
-var file_electorcab_user_proto_goTypes = []any{
-	(*Empty)(nil),                           // 0: elector.Empty
-	(*UpdateOwnProfileRequest)(nil),         // 1: elector.UpdateOwnProfileRequest
-	(*UpdateOwnSexRequest)(nil),             // 2: elector.UpdateOwnSexRequest
-	(*UpdateOwnBirthdayRequest)(nil),        // 3: elector.UpdateOwnBirthdayRequest
-	(*UpdateOwnNationalityRequest)(nil),     // 4: elector.UpdateOwnNationalityRequest
-	(*UpdateOwnPrimaryLanguageRequest)(nil), // 5: elector.UpdateOwnPrimaryLanguageRequest
-	(*UpdateOwnCountryRequest)(nil),         // 6: elector.UpdateOwnCountryRequest
-	(*UpdateOwnCityRequest)(nil),            // 7: elector.UpdateOwnCityRequest
-	(*UpdateOwnDegreeRequest)(nil),          // 8: elector.UpdateOwnDegreeRequest
-	(*UpdateOwnIndustryRequest)(nil),        // 9: elector.UpdateOwnIndustryRequest
-	(*UpdateOwnIncomeRequest)(nil),          // 10: elector.UpdateOwnIncomeRequest
-	(*UpdateOwnResidenceRequest)(nil),       // 11: elector.UpdateOwnResidenceRequest
-	(*Profile)(nil),                         // 12: elector.Profile
-	(*Biography)(nil),                       // 13: elector.Biography
-	(*JobResume)(nil),                       // 14: elector.JobResume
-	(*Cabinet)(nil),                         // 15: elector.Cabinet
+var file_svc_electorcab_user_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
+var file_svc_electorcab_user_proto_goTypes = []any{
+	(*UpdateOwnProfileRequest)(nil),         // 0: elector.UpdateOwnProfileRequest
+	(*UpdateOwnSexRequest)(nil),             // 1: elector.UpdateOwnSexRequest
+	(*UpdateOwnBirthdayRequest)(nil),        // 2: elector.UpdateOwnBirthdayRequest
+	(*UpdateOwnNationalityRequest)(nil),     // 3: elector.UpdateOwnNationalityRequest
+	(*UpdateOwnPrimaryLanguageRequest)(nil), // 4: elector.UpdateOwnPrimaryLanguageRequest
+	(*UpdateOwnCountryRequest)(nil),         // 5: elector.UpdateOwnCountryRequest
+	(*UpdateOwnCityRequest)(nil),            // 6: elector.UpdateOwnCityRequest
+	(*UpdateOwnDegreeRequest)(nil),          // 7: elector.UpdateOwnDegreeRequest
+	(*UpdateOwnIndustryRequest)(nil),        // 8: elector.UpdateOwnIndustryRequest
+	(*UpdateOwnIncomeRequest)(nil),          // 9: elector.UpdateOwnIncomeRequest
+	(*UpdateOwnResidenceRequest)(nil),       // 10: elector.UpdateOwnResidenceRequest
+	(*Profile)(nil),                         // 11: elector.Profile
+	(*Biography)(nil),                       // 12: elector.Biography
+	(*JobResume)(nil),                       // 13: elector.JobResume
+	(*Cabinet)(nil),                         // 14: elector.Cabinet
+	(*google.protobuf.Empty)(nil),                    // 15: google.protobuf.Empty
 }
-var file_electorcab_user_proto_depIdxs = []int32{
-	12, // 0: elector.Cabinet.profile:type_name -> elector.Profile
-	13, // 1: elector.Cabinet.biography:type_name -> elector.Biography
-	14, // 2: elector.Cabinet.job_resume:type_name -> elector.JobResume
-	0,  // 3: elector.UserService.GetOwnCabinet:input_type -> elector.Empty
-	0,  // 4: elector.UserService.GetOwnProfile:input_type -> elector.Empty
-	0,  // 5: elector.UserService.GetOwnBiography:input_type -> elector.Empty
-	0,  // 6: elector.UserService.GetOwnJobResume:input_type -> elector.Empty
-	1,  // 7: elector.UserService.UpdateOwnProfile:input_type -> elector.UpdateOwnProfileRequest
-	2,  // 8: elector.UserService.UpdateOwnSex:input_type -> elector.UpdateOwnSexRequest
-	3,  // 9: elector.UserService.UpdateOwnBirthday:input_type -> elector.UpdateOwnBirthdayRequest
-	4,  // 10: elector.UserService.UpdateOwnNationality:input_type -> elector.UpdateOwnNationalityRequest
-	5,  // 11: elector.UserService.UpdateOwnPrimaryLanguage:input_type -> elector.UpdateOwnPrimaryLanguageRequest
-	11, // 12: elector.UserService.UpdateOwnResidence:input_type -> elector.UpdateOwnResidenceRequest
-	8,  // 13: elector.UserService.UpdateOwnDegree:input_type -> elector.UpdateOwnDegreeRequest
-	9,  // 14: elector.UserService.UpdateOwnIndustry:input_type -> elector.UpdateOwnIndustryRequest
-	10, // 15: elector.UserService.UpdateOwnIncome:input_type -> elector.UpdateOwnIncomeRequest
-	15, // 16: elector.UserService.GetOwnCabinet:output_type -> elector.Cabinet
-	12, // 17: elector.UserService.GetOwnProfile:output_type -> elector.Profile
-	13, // 18: elector.UserService.GetOwnBiography:output_type -> elector.Biography
-	14, // 19: elector.UserService.GetOwnJobResume:output_type -> elector.JobResume
-	12, // 20: elector.UserService.UpdateOwnProfile:output_type -> elector.Profile
-	13, // 21: elector.UserService.UpdateOwnSex:output_type -> elector.Biography
-	13, // 22: elector.UserService.UpdateOwnBirthday:output_type -> elector.Biography
-	13, // 23: elector.UserService.UpdateOwnNationality:output_type -> elector.Biography
-	13, // 24: elector.UserService.UpdateOwnPrimaryLanguage:output_type -> elector.Biography
-	13, // 25: elector.UserService.UpdateOwnResidence:output_type -> elector.Biography
-	14, // 26: elector.UserService.UpdateOwnDegree:output_type -> elector.JobResume
-	14, // 27: elector.UserService.UpdateOwnIndustry:output_type -> elector.JobResume
-	14, // 28: elector.UserService.UpdateOwnIncome:output_type -> elector.JobResume
+var file_svc_electorcab_user_proto_depIdxs = []int32{
+	11, // 0: elector.Cabinet.profile:type_name -> elector.Profile
+	12, // 1: elector.Cabinet.biography:type_name -> elector.Biography
+	13, // 2: elector.Cabinet.job_resume:type_name -> elector.JobResume
+	15, // 3: elector.UserService.GetOwnCabinet:input_type -> google.protobuf.Empty
+	15, // 4: elector.UserService.GetOwnProfile:input_type -> google.protobuf.Empty
+	15, // 5: elector.UserService.GetOwnBiography:input_type -> google.protobuf.Empty
+	15, // 6: elector.UserService.GetOwnJobResume:input_type -> google.protobuf.Empty
+	0,  // 7: elector.UserService.UpdateOwnProfile:input_type -> elector.UpdateOwnProfileRequest
+	1,  // 8: elector.UserService.UpdateOwnSex:input_type -> elector.UpdateOwnSexRequest
+	2,  // 9: elector.UserService.UpdateOwnBirthday:input_type -> elector.UpdateOwnBirthdayRequest
+	3,  // 10: elector.UserService.UpdateOwnNationality:input_type -> elector.UpdateOwnNationalityRequest
+	4,  // 11: elector.UserService.UpdateOwnPrimaryLanguage:input_type -> elector.UpdateOwnPrimaryLanguageRequest
+	10, // 12: elector.UserService.UpdateOwnResidence:input_type -> elector.UpdateOwnResidenceRequest
+	7,  // 13: elector.UserService.UpdateOwnDegree:input_type -> elector.UpdateOwnDegreeRequest
+	8,  // 14: elector.UserService.UpdateOwnIndustry:input_type -> elector.UpdateOwnIndustryRequest
+	9,  // 15: elector.UserService.UpdateOwnIncome:input_type -> elector.UpdateOwnIncomeRequest
+	14, // 16: elector.UserService.GetOwnCabinet:output_type -> elector.Cabinet
+	11, // 17: elector.UserService.GetOwnProfile:output_type -> elector.Profile
+	12, // 18: elector.UserService.GetOwnBiography:output_type -> elector.Biography
+	13, // 19: elector.UserService.GetOwnJobResume:output_type -> elector.JobResume
+	11, // 20: elector.UserService.UpdateOwnProfile:output_type -> elector.Profile
+	12, // 21: elector.UserService.UpdateOwnSex:output_type -> elector.Biography
+	12, // 22: elector.UserService.UpdateOwnBirthday:output_type -> elector.Biography
+	12, // 23: elector.UserService.UpdateOwnNationality:output_type -> elector.Biography
+	12, // 24: elector.UserService.UpdateOwnPrimaryLanguage:output_type -> elector.Biography
+	12, // 25: elector.UserService.UpdateOwnResidence:output_type -> elector.Biography
+	13, // 26: elector.UserService.UpdateOwnDegree:output_type -> elector.JobResume
+	13, // 27: elector.UserService.UpdateOwnIndustry:output_type -> elector.JobResume
+	13, // 28: elector.UserService.UpdateOwnIncome:output_type -> elector.JobResume
 	16, // [16:29] is the sub-list for method output_type
 	3,  // [3:16] is the sub-list for method input_type
 	3,  // [3:3] is the sub-list for extension type_name
@@ -1288,25 +1252,13 @@ var file_electorcab_user_proto_depIdxs = []int32{
 	0,  // [0:3] is the sub-list for field type_name
 }
 
-func init() { file_electorcab_user_proto_init() }
-func file_electorcab_user_proto_init() {
-	if File_electorcab_user_proto != nil {
+func init() { file_svc_electorcab_user_proto_init() }
+func file_svc_electorcab_user_proto_init() {
+	if File_svc_electorcab_user_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_electorcab_user_proto_msgTypes[0].Exporter = func(v any, i int) any {
-			switch v := v.(*Empty); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_electorcab_user_proto_msgTypes[1].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[0].Exporter = func(v any, i int) any {
 			switch v := v.(*UpdateOwnProfileRequest); i {
 			case 0:
 				return &v.state
@@ -1318,7 +1270,7 @@ func file_electorcab_user_proto_init() {
 				return nil
 			}
 		}
-		file_electorcab_user_proto_msgTypes[2].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[1].Exporter = func(v any, i int) any {
 			switch v := v.(*UpdateOwnSexRequest); i {
 			case 0:
 				return &v.state
@@ -1330,7 +1282,7 @@ func file_electorcab_user_proto_init() {
 				return nil
 			}
 		}
-		file_electorcab_user_proto_msgTypes[3].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[2].Exporter = func(v any, i int) any {
 			switch v := v.(*UpdateOwnBirthdayRequest); i {
 			case 0:
 				return &v.state
@@ -1342,7 +1294,7 @@ func file_electorcab_user_proto_init() {
 				return nil
 			}
 		}
-		file_electorcab_user_proto_msgTypes[4].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[3].Exporter = func(v any, i int) any {
 			switch v := v.(*UpdateOwnNationalityRequest); i {
 			case 0:
 				return &v.state
@@ -1354,7 +1306,7 @@ func file_electorcab_user_proto_init() {
 				return nil
 			}
 		}
-		file_electorcab_user_proto_msgTypes[5].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[4].Exporter = func(v any, i int) any {
 			switch v := v.(*UpdateOwnPrimaryLanguageRequest); i {
 			case 0:
 				return &v.state
@@ -1366,7 +1318,7 @@ func file_electorcab_user_proto_init() {
 				return nil
 			}
 		}
-		file_electorcab_user_proto_msgTypes[6].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[5].Exporter = func(v any, i int) any {
 			switch v := v.(*UpdateOwnCountryRequest); i {
 			case 0:
 				return &v.state
@@ -1378,7 +1330,7 @@ func file_electorcab_user_proto_init() {
 				return nil
 			}
 		}
-		file_electorcab_user_proto_msgTypes[7].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[6].Exporter = func(v any, i int) any {
 			switch v := v.(*UpdateOwnCityRequest); i {
 			case 0:
 				return &v.state
@@ -1390,7 +1342,7 @@ func file_electorcab_user_proto_init() {
 				return nil
 			}
 		}
-		file_electorcab_user_proto_msgTypes[8].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[7].Exporter = func(v any, i int) any {
 			switch v := v.(*UpdateOwnDegreeRequest); i {
 			case 0:
 				return &v.state
@@ -1402,7 +1354,7 @@ func file_electorcab_user_proto_init() {
 				return nil
 			}
 		}
-		file_electorcab_user_proto_msgTypes[9].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[8].Exporter = func(v any, i int) any {
 			switch v := v.(*UpdateOwnIndustryRequest); i {
 			case 0:
 				return &v.state
@@ -1414,7 +1366,7 @@ func file_electorcab_user_proto_init() {
 				return nil
 			}
 		}
-		file_electorcab_user_proto_msgTypes[10].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[9].Exporter = func(v any, i int) any {
 			switch v := v.(*UpdateOwnIncomeRequest); i {
 			case 0:
 				return &v.state
@@ -1426,7 +1378,7 @@ func file_electorcab_user_proto_init() {
 				return nil
 			}
 		}
-		file_electorcab_user_proto_msgTypes[11].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[10].Exporter = func(v any, i int) any {
 			switch v := v.(*UpdateOwnResidenceRequest); i {
 			case 0:
 				return &v.state
@@ -1438,7 +1390,7 @@ func file_electorcab_user_proto_init() {
 				return nil
 			}
 		}
-		file_electorcab_user_proto_msgTypes[12].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[11].Exporter = func(v any, i int) any {
 			switch v := v.(*Profile); i {
 			case 0:
 				return &v.state
@@ -1450,7 +1402,7 @@ func file_electorcab_user_proto_init() {
 				return nil
 			}
 		}
-		file_electorcab_user_proto_msgTypes[13].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[12].Exporter = func(v any, i int) any {
 			switch v := v.(*Biography); i {
 			case 0:
 				return &v.state
@@ -1462,7 +1414,7 @@ func file_electorcab_user_proto_init() {
 				return nil
 			}
 		}
-		file_electorcab_user_proto_msgTypes[14].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[13].Exporter = func(v any, i int) any {
 			switch v := v.(*JobResume); i {
 			case 0:
 				return &v.state
@@ -1474,7 +1426,7 @@ func file_electorcab_user_proto_init() {
 				return nil
 			}
 		}
-		file_electorcab_user_proto_msgTypes[15].Exporter = func(v any, i int) any {
+		file_svc_electorcab_user_proto_msgTypes[14].Exporter = func(v any, i int) any {
 			switch v := v.(*Cabinet); i {
 			case 0:
 				return &v.state
@@ -1487,26 +1439,26 @@ func file_electorcab_user_proto_init() {
 			}
 		}
 	}
-	file_electorcab_user_proto_msgTypes[1].OneofWrappers = []any{}
-	file_electorcab_user_proto_msgTypes[12].OneofWrappers = []any{}
-	file_electorcab_user_proto_msgTypes[13].OneofWrappers = []any{}
-	file_electorcab_user_proto_msgTypes[14].OneofWrappers = []any{}
+	file_svc_electorcab_user_proto_msgTypes[0].OneofWrappers = []any{}
+	file_svc_electorcab_user_proto_msgTypes[11].OneofWrappers = []any{}
+	file_svc_electorcab_user_proto_msgTypes[12].OneofWrappers = []any{}
+	file_svc_electorcab_user_proto_msgTypes[13].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_electorcab_user_proto_rawDesc,
+			RawDescriptor: file_svc_electorcab_user_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   16,
+			NumMessages:   15,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_electorcab_user_proto_goTypes,
-		DependencyIndexes: file_electorcab_user_proto_depIdxs,
-		MessageInfos:      file_electorcab_user_proto_msgTypes,
+		GoTypes:           file_svc_electorcab_user_proto_goTypes,
+		DependencyIndexes: file_svc_electorcab_user_proto_depIdxs,
+		MessageInfos:      file_svc_electorcab_user_proto_msgTypes,
 	}.Build()
-	File_electorcab_user_proto = out.File
-	file_electorcab_user_proto_rawDesc = nil
-	file_electorcab_user_proto_goTypes = nil
-	file_electorcab_user_proto_depIdxs = nil
+	File_svc_electorcab_user_proto = out.File
+	file_svc_electorcab_user_proto_rawDesc = nil
+	file_svc_electorcab_user_proto_goTypes = nil
+	file_svc_electorcab_user_proto_depIdxs = nil
 }
