@@ -16,16 +16,16 @@ message Profile {
 
 message Biography {
   string user_id = 1;
-  optional string sex = 2;
-  optional string birthday = 3;
-  optional string nationality = 4;
-  optional string primary_language = 5;
+  optional string birthday = 2;
+  optional string sex = 3;
+  optional string city = 4;
+  optional string region = 5;
   optional string country = 6;
-  optional string city = 7;
-  optional string sex_updated_at = 8;
-  optional string nationality_updated_at = 9;
-  optional string primary_language_updated_at = 10;
-  optional string country_updated_at = 11;
+  optional string nationality = 7;
+  optional string primary_language = 8;
+  optional string sex_updated_at = 9;
+  optional string nationality_updated_at = 10;
+  optional string primary_language_updated_at = 11;
   optional string residence_updated_at = 12;
 }
 

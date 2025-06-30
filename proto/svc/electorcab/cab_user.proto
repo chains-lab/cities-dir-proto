@@ -52,14 +52,6 @@ message UpdateOwnPrimaryLanguageRequest {
   string primary_language = 1;
 }
 
-message UpdateOwnCountryRequest {
-  string country = 1;
-}
-
-message UpdateOwnCityRequest {
-  string city = 1;
-}
-
 message UpdateOwnDegreeRequest {
   string degree = 1;
 }
@@ -74,6 +66,7 @@ message UpdateOwnIncomeRequest {
 
 message UpdateOwnResidenceRequest {
   string country = 1;
-  string city = 2;
+  string region = 2;
+  string city = 3;
 }
 

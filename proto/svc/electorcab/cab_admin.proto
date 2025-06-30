@@ -44,11 +44,12 @@ message AdminUpdateBiographyRequest {
   string user_id = 1;
   optional string birthday = 2; // Format: YYYY-MM-DD
   optional string sex = 3;
-  optional string nationality = 4;
-  optional string primary_language = 5;
+  optional string city = 4;
+  optional string region = 5;
   optional string country = 6;
-  optional string region = 7;
-  optional string city = 8;
+  optional string nationality = 7;
+  optional string primary_language = 8;
+
 }
 
 message AdminGetJobResumeRequest {
