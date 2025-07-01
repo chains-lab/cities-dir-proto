@@ -9,7 +9,7 @@ service AdminService {
   rpc GetCabinetByAdmin (GetCabinetByAdminRequest) returns (Cabinet);
 
   rpc GetProfileByAdmin (GetProfileByAdminRequest) returns (Profile);
-  rpc UpdateProfileByAdmin (UpdateProfileRequestByAdmin) returns (Profile);
+  rpc UpdateProfileByAdmin (UpdateProfileByAdminRequest) returns (Profile);
 
   rpc GetBiographyByAdmin (GetBiographyByAdminRequest) returns (Biography);
   rpc UpdateBiographyByAdmin (UpdateBiographyByAdminRequest) returns (Biography);
@@ -27,7 +27,7 @@ message GetProfileByAdminRequest {
   string user_id = 1;
 }
 
-message UpdateProfileRequestByAdmin {
+message UpdateProfileByAdminRequest {
   string user_id = 1;
   optional string username = 2;
   optional string pseudonym = 3;
