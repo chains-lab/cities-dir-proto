@@ -8,12 +8,12 @@ import "svc/sso/sso_structs.proto";
 
 
 service AdminService {
-  rpc GetUser (GetUserByAdminRequest) returns (User);
+  rpc GetUserByAdmin (GetUserByAdminRequest) returns (User);
 
-  rpc CreateAdmin (CreateAdminByAdminRequest) returns (User);
+  rpc CreateAdminByAdmin (CreateAdminByAdminRequest) returns (User);
 
-  rpc GetUserSessions (GetUserSessionsByAdminRequest) returns (SessionsList);
-  rpc TerminateUserSessions (TerminateUserSessionsByAdminRequest) returns (google.protobuf.Empty);
+  rpc GetUserSessionsByAdmin (GetUserSessionsByAdminRequest) returns (SessionsList);
+  rpc TerminateUserSessionsByAdmin (TerminateUserSessionsByAdminRequest) returns (google.protobuf.Empty);
 }
 
 message CreateAdminByAdminRequest{

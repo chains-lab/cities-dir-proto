@@ -6,16 +6,16 @@ option go_package = "github.com/chains-lab/proto-storage/gen/go/svc/electorcab;e
 import "svc/electorcab/cab_structs.proto";
 
 service AdminService {
-  rpc GetCabinet (GetCabinetByAdminRequestRequest) returns (Cabinet);
+  rpc GetCabinetByAdmin (GetCabinetByAdminRequestRequest) returns (Cabinet);
 
-  rpc GetProfile (GetProfileByAdminRequestRequest) returns (Profile);
-  rpc UpdateProfile (UpdateProfileByAdminRequestRequest) returns (Profile);
+  rpc GetProfileByAdmin (GetProfileByAdminRequestRequest) returns (Profile);
+  rpc UpdateProfileByAdmin (UpdateProfileByAdminRequestRequest) returns (Profile);
 
-  rpc GetBiography (GetBiographyByAdminRequestRequest) returns (Biography);
-  rpc UpdateBiography (UpdateBiographyByAdminRequestRequest) returns (Biography);
+  rpc GetBiographyByAdmin (GetBiographyByAdminRequestRequest) returns (Biography);
+  rpc UpdateBiographyByAdmin (UpdateBiographyByAdminRequestRequest) returns (Biography);
 
-  rpc GetJobResume (GetJobResumeByAdminRequestRequest) returns (JobResume);
-  rpc UpdateJobResume (UpdateJobResumeByAdminRequestRequest) returns (JobResume);
+  rpc GetJobResumeByAdmin (GetJobResumeByAdminRequestRequest) returns (JobResume);
+  rpc UpdateJobResumeByAdmin (UpdateJobResumeByAdminRequestRequest) returns (JobResume);
 }
 
 // REQUESTS

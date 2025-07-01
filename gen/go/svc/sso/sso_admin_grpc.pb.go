@@ -20,20 +20,20 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AdminService_GetUser_FullMethodName               = "/sso.AdminService/GetUser"
-	AdminService_CreateAdmin_FullMethodName           = "/sso.AdminService/CreateAdmin"
-	AdminService_GetUserSessions_FullMethodName       = "/sso.AdminService/GetUserSessions"
-	AdminService_TerminateUserSessions_FullMethodName = "/sso.AdminService/TerminateUserSessions"
+	AdminService_GetUserByAdmin_FullMethodName               = "/sso.AdminService/GetUserByAdmin"
+	AdminService_CreateAdminByAdmin_FullMethodName           = "/sso.AdminService/CreateAdminByAdmin"
+	AdminService_GetUserSessionsByAdmin_FullMethodName       = "/sso.AdminService/GetUserSessionsByAdmin"
+	AdminService_TerminateUserSessionsByAdmin_FullMethodName = "/sso.AdminService/TerminateUserSessionsByAdmin"
 )
 
 // AdminServiceClient is the client API for AdminService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AdminServiceClient interface {
-	GetUser(ctx context.Context, in *GetUserByAdminRequest, opts ...grpc.CallOption) (*User, error)
-	CreateAdmin(ctx context.Context, in *CreateAdminByAdminRequest, opts ...grpc.CallOption) (*User, error)
-	GetUserSessions(ctx context.Context, in *GetUserSessionsByAdminRequest, opts ...grpc.CallOption) (*SessionsList, error)
-	TerminateUserSessions(ctx context.Context, in *TerminateUserSessionsByAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	GetUserByAdmin(ctx context.Context, in *GetUserByAdminRequest, opts ...grpc.CallOption) (*User, error)
+	CreateAdminByAdmin(ctx context.Context, in *CreateAdminByAdminRequest, opts ...grpc.CallOption) (*User, error)
+	GetUserSessionsByAdmin(ctx context.Context, in *GetUserSessionsByAdminRequest, opts ...grpc.CallOption) (*SessionsList, error)
+	TerminateUserSessionsByAdmin(ctx context.Context, in *TerminateUserSessionsByAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
 type adminServiceClient struct {
@@ -44,40 +44,40 @@ func NewAdminServiceClient(cc grpc.ClientConnInterface) AdminServiceClient {
 	return &adminServiceClient{cc}
 }
 
-func (c *adminServiceClient) GetUser(ctx context.Context, in *GetUserByAdminRequest, opts ...grpc.CallOption) (*User, error) {
+func (c *adminServiceClient) GetUserByAdmin(ctx context.Context, in *GetUserByAdminRequest, opts ...grpc.CallOption) (*User, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(User)
-	err := c.cc.Invoke(ctx, AdminService_GetUser_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdminService_GetUserByAdmin_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) CreateAdmin(ctx context.Context, in *CreateAdminByAdminRequest, opts ...grpc.CallOption) (*User, error) {
+func (c *adminServiceClient) CreateAdminByAdmin(ctx context.Context, in *CreateAdminByAdminRequest, opts ...grpc.CallOption) (*User, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(User)
-	err := c.cc.Invoke(ctx, AdminService_CreateAdmin_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdminService_CreateAdminByAdmin_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) GetUserSessions(ctx context.Context, in *GetUserSessionsByAdminRequest, opts ...grpc.CallOption) (*SessionsList, error) {
+func (c *adminServiceClient) GetUserSessionsByAdmin(ctx context.Context, in *GetUserSessionsByAdminRequest, opts ...grpc.CallOption) (*SessionsList, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SessionsList)
-	err := c.cc.Invoke(ctx, AdminService_GetUserSessions_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdminService_GetUserSessionsByAdmin_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) TerminateUserSessions(ctx context.Context, in *TerminateUserSessionsByAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *adminServiceClient) TerminateUserSessionsByAdmin(ctx context.Context, in *TerminateUserSessionsByAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, AdminService_TerminateUserSessions_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdminService_TerminateUserSessionsByAdmin_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,10 +88,10 @@ func (c *adminServiceClient) TerminateUserSessions(ctx context.Context, in *Term
 // All implementations must embed UnimplementedAdminServiceServer
 // for forward compatibility.
 type AdminServiceServer interface {
-	GetUser(context.Context, *GetUserByAdminRequest) (*User, error)
-	CreateAdmin(context.Context, *CreateAdminByAdminRequest) (*User, error)
-	GetUserSessions(context.Context, *GetUserSessionsByAdminRequest) (*SessionsList, error)
-	TerminateUserSessions(context.Context, *TerminateUserSessionsByAdminRequest) (*emptypb.Empty, error)
+	GetUserByAdmin(context.Context, *GetUserByAdminRequest) (*User, error)
+	CreateAdminByAdmin(context.Context, *CreateAdminByAdminRequest) (*User, error)
+	GetUserSessionsByAdmin(context.Context, *GetUserSessionsByAdminRequest) (*SessionsList, error)
+	TerminateUserSessionsByAdmin(context.Context, *TerminateUserSessionsByAdminRequest) (*emptypb.Empty, error)
 	mustEmbedUnimplementedAdminServiceServer()
 }
 
@@ -102,17 +102,17 @@ type AdminServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedAdminServiceServer struct{}
 
-func (UnimplementedAdminServiceServer) GetUser(context.Context, *GetUserByAdminRequest) (*User, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
+func (UnimplementedAdminServiceServer) GetUserByAdmin(context.Context, *GetUserByAdminRequest) (*User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserByAdmin not implemented")
 }
-func (UnimplementedAdminServiceServer) CreateAdmin(context.Context, *CreateAdminByAdminRequest) (*User, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateAdmin not implemented")
+func (UnimplementedAdminServiceServer) CreateAdminByAdmin(context.Context, *CreateAdminByAdminRequest) (*User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateAdminByAdmin not implemented")
 }
-func (UnimplementedAdminServiceServer) GetUserSessions(context.Context, *GetUserSessionsByAdminRequest) (*SessionsList, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUserSessions not implemented")
+func (UnimplementedAdminServiceServer) GetUserSessionsByAdmin(context.Context, *GetUserSessionsByAdminRequest) (*SessionsList, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserSessionsByAdmin not implemented")
 }
-func (UnimplementedAdminServiceServer) TerminateUserSessions(context.Context, *TerminateUserSessionsByAdminRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method TerminateUserSessions not implemented")
+func (UnimplementedAdminServiceServer) TerminateUserSessionsByAdmin(context.Context, *TerminateUserSessionsByAdminRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TerminateUserSessionsByAdmin not implemented")
 }
 func (UnimplementedAdminServiceServer) mustEmbedUnimplementedAdminServiceServer() {}
 func (UnimplementedAdminServiceServer) testEmbeddedByValue()                      {}
@@ -135,74 +135,74 @@ func RegisterAdminServiceServer(s grpc.ServiceRegistrar, srv AdminServiceServer)
 	s.RegisterService(&AdminService_ServiceDesc, srv)
 }
 
-func _AdminService_GetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdminService_GetUserByAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetUserByAdminRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).GetUser(ctx, in)
+		return srv.(AdminServiceServer).GetUserByAdmin(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdminService_GetUser_FullMethodName,
+		FullMethod: AdminService_GetUserByAdmin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).GetUser(ctx, req.(*GetUserByAdminRequest))
+		return srv.(AdminServiceServer).GetUserByAdmin(ctx, req.(*GetUserByAdminRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_CreateAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdminService_CreateAdminByAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateAdminByAdminRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).CreateAdmin(ctx, in)
+		return srv.(AdminServiceServer).CreateAdminByAdmin(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdminService_CreateAdmin_FullMethodName,
+		FullMethod: AdminService_CreateAdminByAdmin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).CreateAdmin(ctx, req.(*CreateAdminByAdminRequest))
+		return srv.(AdminServiceServer).CreateAdminByAdmin(ctx, req.(*CreateAdminByAdminRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_GetUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdminService_GetUserSessionsByAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetUserSessionsByAdminRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).GetUserSessions(ctx, in)
+		return srv.(AdminServiceServer).GetUserSessionsByAdmin(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdminService_GetUserSessions_FullMethodName,
+		FullMethod: AdminService_GetUserSessionsByAdmin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).GetUserSessions(ctx, req.(*GetUserSessionsByAdminRequest))
+		return srv.(AdminServiceServer).GetUserSessionsByAdmin(ctx, req.(*GetUserSessionsByAdminRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_TerminateUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdminService_TerminateUserSessionsByAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TerminateUserSessionsByAdminRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).TerminateUserSessions(ctx, in)
+		return srv.(AdminServiceServer).TerminateUserSessionsByAdmin(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdminService_TerminateUserSessions_FullMethodName,
+		FullMethod: AdminService_TerminateUserSessionsByAdmin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).TerminateUserSessions(ctx, req.(*TerminateUserSessionsByAdminRequest))
+		return srv.(AdminServiceServer).TerminateUserSessionsByAdmin(ctx, req.(*TerminateUserSessionsByAdminRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -215,20 +215,20 @@ var AdminService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*AdminServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetUser",
-			Handler:    _AdminService_GetUser_Handler,
+			MethodName: "GetUserByAdmin",
+			Handler:    _AdminService_GetUserByAdmin_Handler,
 		},
 		{
-			MethodName: "CreateAdmin",
-			Handler:    _AdminService_CreateAdmin_Handler,
+			MethodName: "CreateAdminByAdmin",
+			Handler:    _AdminService_CreateAdminByAdmin_Handler,
 		},
 		{
-			MethodName: "GetUserSessions",
-			Handler:    _AdminService_GetUserSessions_Handler,
+			MethodName: "GetUserSessionsByAdmin",
+			Handler:    _AdminService_GetUserSessionsByAdmin_Handler,
 		},
 		{
-			MethodName: "TerminateUserSessions",
-			Handler:    _AdminService_TerminateUserSessions_Handler,
+			MethodName: "TerminateUserSessionsByAdmin",
+			Handler:    _AdminService_TerminateUserSessionsByAdmin_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
