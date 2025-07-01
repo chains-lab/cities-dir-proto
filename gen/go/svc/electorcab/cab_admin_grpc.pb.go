@@ -34,7 +34,7 @@ const (
 type AdminServiceClient interface {
 	GetCabinetByAdmin(ctx context.Context, in *GetCabinetByAdminRequest, opts ...grpc.CallOption) (*Cabinet, error)
 	GetProfileByAdmin(ctx context.Context, in *GetProfileByAdminRequest, opts ...grpc.CallOption) (*Profile, error)
-	UpdateProfileByAdmin(ctx context.Context, in *UpdateProfileRequestByAdmin, opts ...grpc.CallOption) (*Profile, error)
+	UpdateProfileByAdmin(ctx context.Context, in *UpdateProfileByAdminRequest, opts ...grpc.CallOption) (*Profile, error)
 	GetBiographyByAdmin(ctx context.Context, in *GetBiographyByAdminRequest, opts ...grpc.CallOption) (*Biography, error)
 	UpdateBiographyByAdmin(ctx context.Context, in *UpdateBiographyByAdminRequest, opts ...grpc.CallOption) (*Biography, error)
 	GetJobResumeByAdmin(ctx context.Context, in *GetJobResumeByAdminRequest, opts ...grpc.CallOption) (*JobResume, error)
@@ -69,7 +69,7 @@ func (c *adminServiceClient) GetProfileByAdmin(ctx context.Context, in *GetProfi
 	return out, nil
 }
 
-func (c *adminServiceClient) UpdateProfileByAdmin(ctx context.Context, in *UpdateProfileRequestByAdmin, opts ...grpc.CallOption) (*Profile, error) {
+func (c *adminServiceClient) UpdateProfileByAdmin(ctx context.Context, in *UpdateProfileByAdminRequest, opts ...grpc.CallOption) (*Profile, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Profile)
 	err := c.cc.Invoke(ctx, AdminService_UpdateProfileByAdmin_FullMethodName, in, out, cOpts...)
@@ -125,7 +125,7 @@ func (c *adminServiceClient) UpdateJobResumeByAdmin(ctx context.Context, in *Upd
 type AdminServiceServer interface {
 	GetCabinetByAdmin(context.Context, *GetCabinetByAdminRequest) (*Cabinet, error)
 	GetProfileByAdmin(context.Context, *GetProfileByAdminRequest) (*Profile, error)
-	UpdateProfileByAdmin(context.Context, *UpdateProfileRequestByAdmin) (*Profile, error)
+	UpdateProfileByAdmin(context.Context, *UpdateProfileByAdminRequest) (*Profile, error)
 	GetBiographyByAdmin(context.Context, *GetBiographyByAdminRequest) (*Biography, error)
 	UpdateBiographyByAdmin(context.Context, *UpdateBiographyByAdminRequest) (*Biography, error)
 	GetJobResumeByAdmin(context.Context, *GetJobResumeByAdminRequest) (*JobResume, error)
@@ -146,7 +146,7 @@ func (UnimplementedAdminServiceServer) GetCabinetByAdmin(context.Context, *GetCa
 func (UnimplementedAdminServiceServer) GetProfileByAdmin(context.Context, *GetProfileByAdminRequest) (*Profile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetProfileByAdmin not implemented")
 }
-func (UnimplementedAdminServiceServer) UpdateProfileByAdmin(context.Context, *UpdateProfileRequestByAdmin) (*Profile, error) {
+func (UnimplementedAdminServiceServer) UpdateProfileByAdmin(context.Context, *UpdateProfileByAdminRequest) (*Profile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateProfileByAdmin not implemented")
 }
 func (UnimplementedAdminServiceServer) GetBiographyByAdmin(context.Context, *GetBiographyByAdminRequest) (*Biography, error) {
@@ -219,7 +219,7 @@ func _AdminService_GetProfileByAdmin_Handler(srv interface{}, ctx context.Contex
 }
 
 func _AdminService_UpdateProfileByAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateProfileRequestByAdmin)
+	in := new(UpdateProfileByAdminRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -231,7 +231,7 @@ func _AdminService_UpdateProfileByAdmin_Handler(srv interface{}, ctx context.Con
 		FullMethod: AdminService_UpdateProfileByAdmin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).UpdateProfileByAdmin(ctx, req.(*UpdateProfileRequestByAdmin))
+		return srv.(AdminServiceServer).UpdateProfileByAdmin(ctx, req.(*UpdateProfileByAdminRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

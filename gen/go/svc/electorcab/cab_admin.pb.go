@@ -115,7 +115,7 @@ func (x *GetProfileByAdminRequest) GetUserId() string {
 	return ""
 }
 
-type UpdateProfileRequestByAdmin struct {
+type UpdateProfileByAdminRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -128,8 +128,8 @@ type UpdateProfileRequestByAdmin struct {
 	Official    *bool   `protobuf:"varint,6,opt,name=official,proto3,oneof" json:"official,omitempty"`
 }
 
-func (x *UpdateProfileRequestByAdmin) Reset() {
-	*x = UpdateProfileRequestByAdmin{}
+func (x *UpdateProfileByAdminRequest) Reset() {
+	*x = UpdateProfileByAdminRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_svc_electorcab_cab_admin_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -137,13 +137,13 @@ func (x *UpdateProfileRequestByAdmin) Reset() {
 	}
 }
 
-func (x *UpdateProfileRequestByAdmin) String() string {
+func (x *UpdateProfileByAdminRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UpdateProfileRequestByAdmin) ProtoMessage() {}
+func (*UpdateProfileByAdminRequest) ProtoMessage() {}
 
-func (x *UpdateProfileRequestByAdmin) ProtoReflect() protoreflect.Message {
+func (x *UpdateProfileByAdminRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_svc_electorcab_cab_admin_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -155,47 +155,47 @@ func (x *UpdateProfileRequestByAdmin) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UpdateProfileRequestByAdmin.ProtoReflect.Descriptor instead.
-func (*UpdateProfileRequestByAdmin) Descriptor() ([]byte, []int) {
+// Deprecated: Use UpdateProfileByAdminRequest.ProtoReflect.Descriptor instead.
+func (*UpdateProfileByAdminRequest) Descriptor() ([]byte, []int) {
 	return file_svc_electorcab_cab_admin_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *UpdateProfileRequestByAdmin) GetUserId() string {
+func (x *UpdateProfileByAdminRequest) GetUserId() string {
 	if x != nil {
 		return x.UserId
 	}
 	return ""
 }
 
-func (x *UpdateProfileRequestByAdmin) GetUsername() string {
+func (x *UpdateProfileByAdminRequest) GetUsername() string {
 	if x != nil && x.Username != nil {
 		return *x.Username
 	}
 	return ""
 }
 
-func (x *UpdateProfileRequestByAdmin) GetPseudonym() string {
+func (x *UpdateProfileByAdminRequest) GetPseudonym() string {
 	if x != nil && x.Pseudonym != nil {
 		return *x.Pseudonym
 	}
 	return ""
 }
 
-func (x *UpdateProfileRequestByAdmin) GetDescription() string {
+func (x *UpdateProfileByAdminRequest) GetDescription() string {
 	if x != nil && x.Description != nil {
 		return *x.Description
 	}
 	return ""
 }
 
-func (x *UpdateProfileRequestByAdmin) GetAvatar() string {
+func (x *UpdateProfileByAdminRequest) GetAvatar() string {
 	if x != nil && x.Avatar != nil {
 		return *x.Avatar
 	}
 	return ""
 }
 
-func (x *UpdateProfileRequestByAdmin) GetOfficial() bool {
+func (x *UpdateProfileByAdminRequest) GetOfficial() bool {
 	if x != nil && x.Official != nil {
 		return *x.Official
 	}
@@ -485,8 +485,8 @@ var file_svc_electorcab_cab_admin_proto_rawDesc = []byte{
 	0x41, 0x64, 0x6d, 0x69, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07,
 	0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75,
 	0x73, 0x65, 0x72, 0x49, 0x64, 0x22, 0xa2, 0x02, 0x0a, 0x1b, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x42, 0x79,
-	0x41, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64,
+	0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x42, 0x79, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x1f,
 	0x0a, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
 	0x48, 0x00, 0x52, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x88, 0x01, 0x01, 0x12,
@@ -557,8 +557,8 @@ var file_svc_electorcab_cab_admin_proto_rawDesc = []byte{
 	0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x12,
 	0x4e, 0x0a, 0x14, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65,
 	0x42, 0x79, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x24, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f,
-	0x72, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x42, 0x79, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x1a, 0x10, 0x2e,
+	0x72, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x42,
+	0x79, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x10, 0x2e,
 	0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x2e, 0x50, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x12,
 	0x4e, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x42, 0x69, 0x6f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x79, 0x42,
 	0x79, 0x41, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x23, 0x2e, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x6f, 0x72,
@@ -604,7 +604,7 @@ var file_svc_electorcab_cab_admin_proto_msgTypes = make([]protoimpl.MessageInfo,
 var file_svc_electorcab_cab_admin_proto_goTypes = []any{
 	(*GetCabinetByAdminRequest)(nil),      // 0: elector.GetCabinetByAdminRequest
 	(*GetProfileByAdminRequest)(nil),      // 1: elector.GetProfileByAdminRequest
-	(*UpdateProfileRequestByAdmin)(nil),   // 2: elector.UpdateProfileRequestByAdmin
+	(*UpdateProfileByAdminRequest)(nil),   // 2: elector.UpdateProfileByAdminRequest
 	(*GetBiographyByAdminRequest)(nil),    // 3: elector.GetBiographyByAdminRequest
 	(*UpdateBiographyByAdminRequest)(nil), // 4: elector.UpdateBiographyByAdminRequest
 	(*GetJobResumeByAdminRequest)(nil),    // 5: elector.GetJobResumeByAdminRequest
@@ -617,7 +617,7 @@ var file_svc_electorcab_cab_admin_proto_goTypes = []any{
 var file_svc_electorcab_cab_admin_proto_depIdxs = []int32{
 	0,  // 0: elector.AdminService.GetCabinetByAdmin:input_type -> elector.GetCabinetByAdminRequest
 	1,  // 1: elector.AdminService.GetProfileByAdmin:input_type -> elector.GetProfileByAdminRequest
-	2,  // 2: elector.AdminService.UpdateProfileByAdmin:input_type -> elector.UpdateProfileRequestByAdmin
+	2,  // 2: elector.AdminService.UpdateProfileByAdmin:input_type -> elector.UpdateProfileByAdminRequest
 	3,  // 3: elector.AdminService.GetBiographyByAdmin:input_type -> elector.GetBiographyByAdminRequest
 	4,  // 4: elector.AdminService.UpdateBiographyByAdmin:input_type -> elector.UpdateBiographyByAdminRequest
 	5,  // 5: elector.AdminService.GetJobResumeByAdmin:input_type -> elector.GetJobResumeByAdminRequest
@@ -668,7 +668,7 @@ func file_svc_electorcab_cab_admin_proto_init() {
 			}
 		}
 		file_svc_electorcab_cab_admin_proto_msgTypes[2].Exporter = func(v any, i int) any {
-			switch v := v.(*UpdateProfileRequestByAdmin); i {
+			switch v := v.(*UpdateProfileByAdminRequest); i {
 			case 0:
 				return &v.state
 			case 1:
