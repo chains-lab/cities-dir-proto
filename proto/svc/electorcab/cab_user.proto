@@ -7,7 +7,7 @@ import "svc/electorcab/cab_structs.proto";
 import "google/protobuf/empty.proto";
 
 service UserService {
-  rpc CreateCabinet (CreateCabinetRequest) returns (Cabinet);
+  rpc CreateOwnCabinet (CreateCabinetRequest) returns (Cabinet);
 
   rpc GetOwnCabinet   (google.protobuf.Empty) returns (Cabinet);
   rpc GetOwnProfile   (google.protobuf.Empty) returns (Profile);
