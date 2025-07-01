@@ -30,7 +30,7 @@ service UserService {
 
 // REQUESTS
 message CreateCabinetRequest {
-  optional string username = 1;
+  string username = 1;
   optional string pseudonym = 2;
   optional string description = 3;
   optional string avatar = 4;
