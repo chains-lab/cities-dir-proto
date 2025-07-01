@@ -6,28 +6,28 @@ option go_package = "github.com/chains-lab/proto-storage/gen/go/svc/electorcab;e
 import "svc/electorcab/cab_structs.proto";
 
 service AdminService {
-  rpc AdminGetCabinet (AdminGetCabinetRequest) returns (Cabinet);
+  rpc GetCabinet (GetCabinetByAdminRequestRequest) returns (Cabinet);
 
-  rpc AdminGetProfile (AdminGetProfileRequest) returns (Profile);
-  rpc AdminUpdateProfile (AdminUpdateProfileRequest) returns (Profile);
+  rpc GetProfile (GetProfileByAdminRequestRequest) returns (Profile);
+  rpc UpdateProfile (UpdateProfileByAdminRequestRequest) returns (Profile);
 
-  rpc AdminGetBiography (AdminGetBiographyRequest) returns (Biography);
-  rpc AdminUpdateBiography (AdminUpdateBiographyRequest) returns (Biography);
+  rpc GetBiography (GetBiographyByAdminRequestRequest) returns (Biography);
+  rpc UpdateBiography (UpdateBiographyByAdminRequestRequest) returns (Biography);
 
-  rpc AdminGetJobResume (AdminGetJobResumeRequest) returns (JobResume);
-  rpc AdminUpdateJobResume (AdminUpdateJobResumeRequest) returns (JobResume);
+  rpc GetJobResume (GetJobResumeByAdminRequestRequest) returns (JobResume);
+  rpc UpdateJobResume (UpdateJobResumeByAdminRequestRequest) returns (JobResume);
 }
 
 // REQUESTS
-message AdminGetCabinetRequest {
+message GetCabinetByAdminRequestRequest {
   string user_id = 1;
 }
 
-message AdminGetProfileRequest {
+message GetProfileByAdminRequestRequest {
   string user_id = 1;
 }
 
-message AdminUpdateProfileRequest {
+message UpdateProfileByAdminRequestRequest {
   string user_id = 1;
   optional string username = 2;
   optional string pseudonym = 3;
@@ -36,11 +36,11 @@ message AdminUpdateProfileRequest {
   optional bool   official = 6;
 }
 
-message AdminGetBiographyRequest {
+message GetBiographyByAdminRequestRequest {
   string user_id = 1;
 }
 
-message AdminUpdateBiographyRequest {
+message UpdateBiographyByAdminRequestRequest {
   string user_id = 1;
   optional string birthday = 2; // Format: YYYY-MM-DD
   optional string sex = 3;
@@ -52,11 +52,11 @@ message AdminUpdateBiographyRequest {
 
 }
 
-message AdminGetJobResumeRequest {
+message GetJobResumeByAdminRequestRequest {
   string user_id = 1;
 }
 
-message AdminUpdateJobResumeRequest {
+message UpdateJobResumeByAdminRequestRequest {
   string user_id = 1;
   optional string degree = 2;
   optional string industry = 3;

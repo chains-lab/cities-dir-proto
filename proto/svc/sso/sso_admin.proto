@@ -8,48 +8,27 @@ import "svc/sso/sso_structs.proto";
 
 
 service AdminService {
-  rpc AdminGetUser (AdminGetUserRequest) returns (User);
+  rpc GetUserByAdmin (GetUserByAdminRequest) returns (User);
 
-  rpc AdminUpdateUserRole (AdminUpdateUserRoleRequest) returns (User);
+  rpc CreateAdminByAdmin (CreateAdminByAdminRequest) returns (User);
 
-  rpc AdminGetUserSessions (AdminGetUserSessionsRequest) returns (SessionsList);
-  rpc AdminGetUserSession (AdminGetUserSessionRequest) returns (Session);
-  rpc AdminTerminateUserSessions (AdminTerminateUserSessionsRequest) returns (google.protobuf.Empty);
-  rpc AdminDeleteUserSession (AdminDeleteUserSessionRequest) returns (google.protobuf.Empty);
+  rpc GetUserSessionsByAdmin (GetUserSessionsByAdminRequest) returns (SessionsList);
+  rpc TerminateUserSessionsByAdmin (TerminateUserSessionsByAdminRequest) returns (google.protobuf.Empty);
 }
 
-message AdminUpdateUserRoleRequest{
-  string user_id = 1;
+message CreateAdminByAdminRequest{
+  string email = 1;
   string role = 2;
 }
 
-message AdminTerminateUserSessions {
+message GetUserByAdminRequest {
   string user_id = 1;
 }
 
-message AdminGetUserRequest {
+message GetUserSessionsByAdminRequest {
   string user_id = 1;
 }
 
-message AdminGetUserSessionsRequest {
+message TerminateUserSessionsByAdminRequest {
   string user_id = 1;
-}
-
-message AdminGetUserSessionRequest {
-  string user_id = 1;
-  string session_id = 2;
-}
-
-message AdminDeleteUserSession {
-  string user_id = 1;
-  string session_id = 2;
-}
-
-message AdminTerminateUserSessionsRequest {
-  string user_id = 1;
-}
-
-message AdminDeleteUserSessionRequest {
-  string user_id = 1;
-  string session_id = 2;
 }

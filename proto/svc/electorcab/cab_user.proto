@@ -7,7 +7,7 @@ import "svc/electorcab/cab_structs.proto";
 import "google/protobuf/empty.proto";
 
 service UserService {
-  rpc CreateCabinet (google.protobuf.Empty) returns (Cabinet);
+  rpc CreateCabinet (CreateCabinetRequest) returns (Cabinet);
 
   rpc GetOwnCabinet   (google.protobuf.Empty) returns (Cabinet);
   rpc GetOwnProfile   (google.protobuf.Empty) returns (Profile);
@@ -29,6 +29,13 @@ service UserService {
 }
 
 // REQUESTS
+message CreateCabinetRequest {
+  optional string username = 1;
+  optional string pseudonym = 2;
+  optional string description = 3;
+  optional string avatar = 4;
+}
+
 message UpdateOwnProfileRequest {
   optional string username = 1;
   optional string pseudonym = 2;

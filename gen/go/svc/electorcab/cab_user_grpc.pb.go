@@ -40,7 +40,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserServiceClient interface {
-	CreateCabinet(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Cabinet, error)
+	CreateCabinet(ctx context.Context, in *CreateCabinetRequest, opts ...grpc.CallOption) (*Cabinet, error)
 	GetOwnCabinet(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Cabinet, error)
 	GetOwnProfile(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Profile, error)
 	GetOwnBiography(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Biography, error)
@@ -67,7 +67,7 @@ func NewUserServiceClient(cc grpc.ClientConnInterface) UserServiceClient {
 	return &userServiceClient{cc}
 }
 
-func (c *userServiceClient) CreateCabinet(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Cabinet, error) {
+func (c *userServiceClient) CreateCabinet(ctx context.Context, in *CreateCabinetRequest, opts ...grpc.CallOption) (*Cabinet, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Cabinet)
 	err := c.cc.Invoke(ctx, UserService_CreateCabinet_FullMethodName, in, out, cOpts...)
@@ -211,7 +211,7 @@ func (c *userServiceClient) UpdateOwnIncome(ctx context.Context, in *UpdateOwnIn
 // All implementations must embed UnimplementedUserServiceServer
 // for forward compatibility.
 type UserServiceServer interface {
-	CreateCabinet(context.Context, *emptypb.Empty) (*Cabinet, error)
+	CreateCabinet(context.Context, *CreateCabinetRequest) (*Cabinet, error)
 	GetOwnCabinet(context.Context, *emptypb.Empty) (*Cabinet, error)
 	GetOwnProfile(context.Context, *emptypb.Empty) (*Profile, error)
 	GetOwnBiography(context.Context, *emptypb.Empty) (*Biography, error)
@@ -238,7 +238,7 @@ type UserServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedUserServiceServer struct{}
 
-func (UnimplementedUserServiceServer) CreateCabinet(context.Context, *emptypb.Empty) (*Cabinet, error) {
+func (UnimplementedUserServiceServer) CreateCabinet(context.Context, *CreateCabinetRequest) (*Cabinet, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateCabinet not implemented")
 }
 func (UnimplementedUserServiceServer) GetOwnCabinet(context.Context, *emptypb.Empty) (*Cabinet, error) {
@@ -302,7 +302,7 @@ func RegisterUserServiceServer(s grpc.ServiceRegistrar, srv UserServiceServer) {
 }
 
 func _UserService_CreateCabinet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(emptypb.Empty)
+	in := new(CreateCabinetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -314,7 +314,7 @@ func _UserService_CreateCabinet_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: UserService_CreateCabinet_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).CreateCabinet(ctx, req.(*emptypb.Empty))
+		return srv.(UserServiceServer).CreateCabinet(ctx, req.(*CreateCabinetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
