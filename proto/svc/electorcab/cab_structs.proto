@@ -45,7 +45,6 @@ message JobResume {
 
 message Cabinet {
   string user_id = 1;
-  Profile   profile = 2;
-  Biography biography = 3;
-  JobResume job_resume = 4;
+  Biography biography = 2;
+  JobResume job_resume = 3;
 }

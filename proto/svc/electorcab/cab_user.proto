@@ -11,13 +11,11 @@ service UserService {
   rpc CreateOwnCabinet (CreateCabinetRequest) returns (Cabinet);
   rpc GetOwnCabinet   (google.protobuf.Empty) returns (Cabinet);
   rpc GetOwnProfile   (google.protobuf.Empty) returns (Profile);
-  rpc GetOwnBiography (google.protobuf.Empty) returns (Biography);
-  rpc GetOwnJobResume (google.protobuf.Empty) returns (JobResume);
 
   // For other users
   rpc GetCabinet (GetCabinetRequest) returns (Cabinet);
   rpc GetProfile (GetProfileRequest) returns (Profile);
-  rpc SearchProfile (SearchProfileRequest) returns (ProfileList);
+  //TODO rpc SearchProfile (SearchProfileRequest) returns (ProfileList);
 
   // Update Cabinet
   //
@@ -57,8 +55,6 @@ message GetCabinetRequest {
     string username = 2;
   }
 }
-
-
 
 message SearchProfileRequest {
   string query = 1;
