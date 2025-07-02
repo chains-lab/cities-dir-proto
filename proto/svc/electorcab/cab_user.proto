@@ -16,6 +16,7 @@ service UserService {
 
   // Profile
   rpc UpdateOwnProfile (UpdateOwnProfileRequest) returns (Profile);
+  rpc UpdateOwnUsername (UpdateOwnUsernameRequest) returns (Profile);
   // Biography
   rpc UpdateOwnSex (UpdateOwnSexRequest) returns (Biography);
   rpc UpdateOwnBirthday (UpdateOwnBirthdayRequest) returns (Biography);
@@ -37,11 +38,15 @@ message CreateCabinetRequest {
 }
 
 message UpdateOwnProfileRequest {
-  optional string username = 1;
-  optional string pseudonym = 2;
-  optional string description = 3;
-  optional string avatar = 4;
+  optional string pseudonym = 1;
+  optional string description = 2;
+  optional string avatar = 3;
 }
+
+message UpdateOwnUsernameRequest {
+  string username = 1;
+}
+
 
 message UpdateOwnSexRequest {
   string sex = 1;

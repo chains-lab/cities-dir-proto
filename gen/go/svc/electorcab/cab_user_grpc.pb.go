@@ -26,6 +26,7 @@ const (
 	UserService_GetOwnBiography_FullMethodName          = "/elector.UserService/GetOwnBiography"
 	UserService_GetOwnJobResume_FullMethodName          = "/elector.UserService/GetOwnJobResume"
 	UserService_UpdateOwnProfile_FullMethodName         = "/elector.UserService/UpdateOwnProfile"
+	UserService_UpdateOwnUsername_FullMethodName        = "/elector.UserService/UpdateOwnUsername"
 	UserService_UpdateOwnSex_FullMethodName             = "/elector.UserService/UpdateOwnSex"
 	UserService_UpdateOwnBirthday_FullMethodName        = "/elector.UserService/UpdateOwnBirthday"
 	UserService_UpdateOwnNationality_FullMethodName     = "/elector.UserService/UpdateOwnNationality"
@@ -47,6 +48,7 @@ type UserServiceClient interface {
 	GetOwnJobResume(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*JobResume, error)
 	// Profile
 	UpdateOwnProfile(ctx context.Context, in *UpdateOwnProfileRequest, opts ...grpc.CallOption) (*Profile, error)
+	UpdateOwnUsername(ctx context.Context, in *UpdateOwnUsernameRequest, opts ...grpc.CallOption) (*Profile, error)
 	// Biography
 	UpdateOwnSex(ctx context.Context, in *UpdateOwnSexRequest, opts ...grpc.CallOption) (*Biography, error)
 	UpdateOwnBirthday(ctx context.Context, in *UpdateOwnBirthdayRequest, opts ...grpc.CallOption) (*Biography, error)
@@ -121,6 +123,16 @@ func (c *userServiceClient) UpdateOwnProfile(ctx context.Context, in *UpdateOwnP
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Profile)
 	err := c.cc.Invoke(ctx, UserService_UpdateOwnProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) UpdateOwnUsername(ctx context.Context, in *UpdateOwnUsernameRequest, opts ...grpc.CallOption) (*Profile, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Profile)
+	err := c.cc.Invoke(ctx, UserService_UpdateOwnUsername_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -218,6 +230,7 @@ type UserServiceServer interface {
 	GetOwnJobResume(context.Context, *emptypb.Empty) (*JobResume, error)
 	// Profile
 	UpdateOwnProfile(context.Context, *UpdateOwnProfileRequest) (*Profile, error)
+	UpdateOwnUsername(context.Context, *UpdateOwnUsernameRequest) (*Profile, error)
 	// Biography
 	UpdateOwnSex(context.Context, *UpdateOwnSexRequest) (*Biography, error)
 	UpdateOwnBirthday(context.Context, *UpdateOwnBirthdayRequest) (*Biography, error)
@@ -255,6 +268,9 @@ func (UnimplementedUserServiceServer) GetOwnJobResume(context.Context, *emptypb.
 }
 func (UnimplementedUserServiceServer) UpdateOwnProfile(context.Context, *UpdateOwnProfileRequest) (*Profile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnProfile not implemented")
+}
+func (UnimplementedUserServiceServer) UpdateOwnUsername(context.Context, *UpdateOwnUsernameRequest) (*Profile, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnUsername not implemented")
 }
 func (UnimplementedUserServiceServer) UpdateOwnSex(context.Context, *UpdateOwnSexRequest) (*Biography, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnSex not implemented")
@@ -405,6 +421,24 @@ func _UserService_UpdateOwnProfile_Handler(srv interface{}, ctx context.Context,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).UpdateOwnProfile(ctx, req.(*UpdateOwnProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_UpdateOwnUsername_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateOwnUsernameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).UpdateOwnUsername(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UserService_UpdateOwnUsername_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).UpdateOwnUsername(ctx, req.(*UpdateOwnUsernameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -583,6 +617,10 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateOwnProfile",
 			Handler:    _UserService_UpdateOwnProfile_Handler,
+		},
+		{
+			MethodName: "UpdateOwnUsername",
+			Handler:    _UserService_UpdateOwnUsername_Handler,
 		},
 		{
 			MethodName: "UpdateOwnSex",

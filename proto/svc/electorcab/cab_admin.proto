@@ -9,13 +9,15 @@ service AdminService {
   rpc GetCabinetByAdmin (GetCabinetByAdminRequest) returns (Cabinet);
 
   rpc GetProfileByAdmin (GetProfileByAdminRequest) returns (Profile);
-  rpc UpdateProfileByAdmin (UpdateProfileByAdminRequest) returns (Profile);
+  rpc ResetProfileByAdmin (ResetProfileByAdminRequest) returns (Profile);
+  rpc ResetUsernameByAdmin (ResetUsernameByAdminRequest) returns (Profile);
+  rpc UpdateOfficialByAdmin (ResetUsernameByAdminRequest) returns (Profile);
 
-  rpc GetBiographyByAdmin (GetBiographyByAdminRequest) returns (Biography);
-  rpc UpdateBiographyByAdmin (UpdateBiographyByAdminRequest) returns (Biography);
-
-  rpc GetJobResumeByAdmin (GetJobResumeByAdminRequest) returns (JobResume);
-  rpc UpdateJobResumeByAdmin (UpdateJobResumeByAdminRequest) returns (JobResume);
+//  rpc GetBiographyByAdmin (GetBiographyByAdminRequest) returns (Biography);
+//  rpc UpdateBiographyByAdmin (UpdateBiographyByAdminRequest) returns (Biography);
+//
+//  rpc GetJobResumeByAdmin (GetJobResumeByAdminRequest) returns (JobResume);
+//  rpc UpdateJobResumeByAdmin (UpdateJobResumeByAdminRequest) returns (JobResume);
 }
 
 // REQUESTS
@@ -27,38 +29,46 @@ message GetProfileByAdminRequest {
   string user_id = 1;
 }
 
-message UpdateProfileByAdminRequest {
+message ResetProfileByAdminRequest {
   string user_id = 1;
-  optional string username = 2;
-  optional string pseudonym = 3;
-  optional string description = 4;
-  optional string avatar = 5;
-  optional bool   official = 6;
+  optional bool   pseudonym = 2;
+  optional bool   description = 3;
+  optional bool   avatar = 4;
 }
 
-message GetBiographyByAdminRequest {
+message UpdateOfficialByAdminRequest {
   string user_id = 1;
+  bool official = 2;
 }
 
-message UpdateBiographyByAdminRequest {
+message ResetUsernameByAdminRequest {
   string user_id = 1;
-  optional string birthday = 2; // Format: YYYY-MM-DD
-  optional string sex = 3;
-  optional string city = 4;
-  optional string region = 5;
-  optional string country = 6;
-  optional string nationality = 7;
-  optional string primary_language = 8;
-
+  string username = 2;
 }
 
-message GetJobResumeByAdminRequest {
-  string user_id = 1;
-}
-
-message UpdateJobResumeByAdminRequest {
-  string user_id = 1;
-  optional string degree = 2;
-  optional string industry = 3;
-  optional string income = 4;
-}
+//message GetBiographyByAdminRequest {
+//  string user_id = 1;
+//}
+//
+//message UpdateBiographyByAdminRequest {
+//  string user_id = 1;
+//  optional string birthday = 2; // Format: YYYY-MM-DD
+//  optional string sex = 3;
+//  optional string city = 4;
+//  optional string region = 5;
+//  optional string country = 6;
+//  optional string nationality = 7;
+//  optional string primary_language = 8;
+//
+//}
+//
+//message GetJobResumeByAdminRequest {
+//  string user_id = 1;
+//}
+//
+//message UpdateJobResumeByAdminRequest {
+//  string user_id = 1;
+//  optional string degree = 2;
+//  optional string industry = 3;
+//  optional string income = 4;
+//}
