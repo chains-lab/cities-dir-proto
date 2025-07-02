@@ -6,9 +6,10 @@ option go_package = "github.com/chains-lab/proto-storage/gen/go/svc/electorcab;e
 import "svc/electorcab/cab_structs.proto";
 
 service AdminService {
-  rpc GetCabinetByAdmin (GetCabinetByAdminRequest) returns (Cabinet);
-
-  rpc GetProfileByAdmin (GetProfileByAdminRequest) returns (Profile);
+//  rpc GetCabinetByAdmin (GetCabinetByAdminRequest) returns (Cabinet);
+//
+//  rpc GetProfileByAdmin (GetProfileByAdminRequest) returns (Profile);
+  
   rpc ResetProfileByAdmin (ResetProfileByAdminRequest) returns (Profile);
   rpc ResetUsernameByAdmin (ResetUsernameByAdminRequest) returns (Profile);
   rpc UpdateOfficialByAdmin (ResetUsernameByAdminRequest) returns (Profile);

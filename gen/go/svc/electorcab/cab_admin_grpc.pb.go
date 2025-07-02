@@ -19,8 +19,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AdminService_GetCabinetByAdmin_FullMethodName     = "/elector.AdminService/GetCabinetByAdmin"
-	AdminService_GetProfileByAdmin_FullMethodName     = "/elector.AdminService/GetProfileByAdmin"
 	AdminService_ResetProfileByAdmin_FullMethodName   = "/elector.AdminService/ResetProfileByAdmin"
 	AdminService_ResetUsernameByAdmin_FullMethodName  = "/elector.AdminService/ResetUsernameByAdmin"
 	AdminService_UpdateOfficialByAdmin_FullMethodName = "/elector.AdminService/UpdateOfficialByAdmin"
@@ -30,8 +28,6 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AdminServiceClient interface {
-	GetCabinetByAdmin(ctx context.Context, in *GetCabinetByAdminRequest, opts ...grpc.CallOption) (*Cabinet, error)
-	GetProfileByAdmin(ctx context.Context, in *GetProfileByAdminRequest, opts ...grpc.CallOption) (*Profile, error)
 	ResetProfileByAdmin(ctx context.Context, in *ResetProfileByAdminRequest, opts ...grpc.CallOption) (*Profile, error)
 	ResetUsernameByAdmin(ctx context.Context, in *ResetUsernameByAdminRequest, opts ...grpc.CallOption) (*Profile, error)
 	UpdateOfficialByAdmin(ctx context.Context, in *ResetUsernameByAdminRequest, opts ...grpc.CallOption) (*Profile, error)
@@ -43,26 +39,6 @@ type adminServiceClient struct {
 
 func NewAdminServiceClient(cc grpc.ClientConnInterface) AdminServiceClient {
 	return &adminServiceClient{cc}
-}
-
-func (c *adminServiceClient) GetCabinetByAdmin(ctx context.Context, in *GetCabinetByAdminRequest, opts ...grpc.CallOption) (*Cabinet, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Cabinet)
-	err := c.cc.Invoke(ctx, AdminService_GetCabinetByAdmin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adminServiceClient) GetProfileByAdmin(ctx context.Context, in *GetProfileByAdminRequest, opts ...grpc.CallOption) (*Profile, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Profile)
-	err := c.cc.Invoke(ctx, AdminService_GetProfileByAdmin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
 }
 
 func (c *adminServiceClient) ResetProfileByAdmin(ctx context.Context, in *ResetProfileByAdminRequest, opts ...grpc.CallOption) (*Profile, error) {
@@ -99,8 +75,6 @@ func (c *adminServiceClient) UpdateOfficialByAdmin(ctx context.Context, in *Rese
 // All implementations must embed UnimplementedAdminServiceServer
 // for forward compatibility.
 type AdminServiceServer interface {
-	GetCabinetByAdmin(context.Context, *GetCabinetByAdminRequest) (*Cabinet, error)
-	GetProfileByAdmin(context.Context, *GetProfileByAdminRequest) (*Profile, error)
 	ResetProfileByAdmin(context.Context, *ResetProfileByAdminRequest) (*Profile, error)
 	ResetUsernameByAdmin(context.Context, *ResetUsernameByAdminRequest) (*Profile, error)
 	UpdateOfficialByAdmin(context.Context, *ResetUsernameByAdminRequest) (*Profile, error)
@@ -114,12 +88,6 @@ type AdminServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedAdminServiceServer struct{}
 
-func (UnimplementedAdminServiceServer) GetCabinetByAdmin(context.Context, *GetCabinetByAdminRequest) (*Cabinet, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetCabinetByAdmin not implemented")
-}
-func (UnimplementedAdminServiceServer) GetProfileByAdmin(context.Context, *GetProfileByAdminRequest) (*Profile, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetProfileByAdmin not implemented")
-}
 func (UnimplementedAdminServiceServer) ResetProfileByAdmin(context.Context, *ResetProfileByAdminRequest) (*Profile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ResetProfileByAdmin not implemented")
 }
@@ -148,42 +116,6 @@ func RegisterAdminServiceServer(s grpc.ServiceRegistrar, srv AdminServiceServer)
 		t.testEmbeddedByValue()
 	}
 	s.RegisterService(&AdminService_ServiceDesc, srv)
-}
-
-func _AdminService_GetCabinetByAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCabinetByAdminRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdminServiceServer).GetCabinetByAdmin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdminService_GetCabinetByAdmin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).GetCabinetByAdmin(ctx, req.(*GetCabinetByAdminRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdminService_GetProfileByAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProfileByAdminRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdminServiceServer).GetProfileByAdmin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdminService_GetProfileByAdmin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).GetProfileByAdmin(ctx, req.(*GetProfileByAdminRequest))
-	}
-	return interceptor(ctx, in, info, handler)
 }
 
 func _AdminService_ResetProfileByAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -247,14 +179,6 @@ var AdminService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "elector.AdminService",
 	HandlerType: (*AdminServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetCabinetByAdmin",
-			Handler:    _AdminService_GetCabinetByAdmin_Handler,
-		},
-		{
-			MethodName: "GetProfileByAdmin",
-			Handler:    _AdminService_GetProfileByAdmin_Handler,
-		},
 		{
 			MethodName: "ResetProfileByAdmin",
 			Handler:    _AdminService_ResetProfileByAdmin_Handler,

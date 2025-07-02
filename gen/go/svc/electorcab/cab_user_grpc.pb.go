@@ -25,6 +25,9 @@ const (
 	UserService_GetOwnProfile_FullMethodName            = "/elector.UserService/GetOwnProfile"
 	UserService_GetOwnBiography_FullMethodName          = "/elector.UserService/GetOwnBiography"
 	UserService_GetOwnJobResume_FullMethodName          = "/elector.UserService/GetOwnJobResume"
+	UserService_GetCabinet_FullMethodName               = "/elector.UserService/GetCabinet"
+	UserService_GetProfile_FullMethodName               = "/elector.UserService/GetProfile"
+	UserService_SearchProfile_FullMethodName            = "/elector.UserService/SearchProfile"
 	UserService_UpdateOwnProfile_FullMethodName         = "/elector.UserService/UpdateOwnProfile"
 	UserService_UpdateOwnUsername_FullMethodName        = "/elector.UserService/UpdateOwnUsername"
 	UserService_UpdateOwnSex_FullMethodName             = "/elector.UserService/UpdateOwnSex"
@@ -41,11 +44,18 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserServiceClient interface {
+	// Own section
 	CreateOwnCabinet(ctx context.Context, in *CreateCabinetRequest, opts ...grpc.CallOption) (*Cabinet, error)
 	GetOwnCabinet(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Cabinet, error)
 	GetOwnProfile(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Profile, error)
 	GetOwnBiography(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Biography, error)
 	GetOwnJobResume(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*JobResume, error)
+	// For other users
+	GetCabinet(ctx context.Context, in *GetCabinetRequest, opts ...grpc.CallOption) (*Cabinet, error)
+	GetProfile(ctx context.Context, in *GetProfileRequest, opts ...grpc.CallOption) (*Profile, error)
+	SearchProfile(ctx context.Context, in *SearchProfileRequest, opts ...grpc.CallOption) (*ProfileList, error)
+	// Update Cabinet
+	//
 	// Profile
 	UpdateOwnProfile(ctx context.Context, in *UpdateOwnProfileRequest, opts ...grpc.CallOption) (*Profile, error)
 	UpdateOwnUsername(ctx context.Context, in *UpdateOwnUsernameRequest, opts ...grpc.CallOption) (*Profile, error)
@@ -113,6 +123,36 @@ func (c *userServiceClient) GetOwnJobResume(ctx context.Context, in *emptypb.Emp
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(JobResume)
 	err := c.cc.Invoke(ctx, UserService_GetOwnJobResume_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) GetCabinet(ctx context.Context, in *GetCabinetRequest, opts ...grpc.CallOption) (*Cabinet, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Cabinet)
+	err := c.cc.Invoke(ctx, UserService_GetCabinet_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) GetProfile(ctx context.Context, in *GetProfileRequest, opts ...grpc.CallOption) (*Profile, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Profile)
+	err := c.cc.Invoke(ctx, UserService_GetProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) SearchProfile(ctx context.Context, in *SearchProfileRequest, opts ...grpc.CallOption) (*ProfileList, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ProfileList)
+	err := c.cc.Invoke(ctx, UserService_SearchProfile_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -223,11 +263,18 @@ func (c *userServiceClient) UpdateOwnIncome(ctx context.Context, in *UpdateOwnIn
 // All implementations must embed UnimplementedUserServiceServer
 // for forward compatibility.
 type UserServiceServer interface {
+	// Own section
 	CreateOwnCabinet(context.Context, *CreateCabinetRequest) (*Cabinet, error)
 	GetOwnCabinet(context.Context, *emptypb.Empty) (*Cabinet, error)
 	GetOwnProfile(context.Context, *emptypb.Empty) (*Profile, error)
 	GetOwnBiography(context.Context, *emptypb.Empty) (*Biography, error)
 	GetOwnJobResume(context.Context, *emptypb.Empty) (*JobResume, error)
+	// For other users
+	GetCabinet(context.Context, *GetCabinetRequest) (*Cabinet, error)
+	GetProfile(context.Context, *GetProfileRequest) (*Profile, error)
+	SearchProfile(context.Context, *SearchProfileRequest) (*ProfileList, error)
+	// Update Cabinet
+	//
 	// Profile
 	UpdateOwnProfile(context.Context, *UpdateOwnProfileRequest) (*Profile, error)
 	UpdateOwnUsername(context.Context, *UpdateOwnUsernameRequest) (*Profile, error)
@@ -265,6 +312,15 @@ func (UnimplementedUserServiceServer) GetOwnBiography(context.Context, *emptypb.
 }
 func (UnimplementedUserServiceServer) GetOwnJobResume(context.Context, *emptypb.Empty) (*JobResume, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOwnJobResume not implemented")
+}
+func (UnimplementedUserServiceServer) GetCabinet(context.Context, *GetCabinetRequest) (*Cabinet, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCabinet not implemented")
+}
+func (UnimplementedUserServiceServer) GetProfile(context.Context, *GetProfileRequest) (*Profile, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetProfile not implemented")
+}
+func (UnimplementedUserServiceServer) SearchProfile(context.Context, *SearchProfileRequest) (*ProfileList, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchProfile not implemented")
 }
 func (UnimplementedUserServiceServer) UpdateOwnProfile(context.Context, *UpdateOwnProfileRequest) (*Profile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnProfile not implemented")
@@ -403,6 +459,60 @@ func _UserService_GetOwnJobResume_Handler(srv interface{}, ctx context.Context, 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).GetOwnJobResume(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_GetCabinet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCabinetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).GetCabinet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UserService_GetCabinet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).GetCabinet(ctx, req.(*GetCabinetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_GetProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).GetProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UserService_GetProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).GetProfile(ctx, req.(*GetProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_SearchProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).SearchProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UserService_SearchProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).SearchProfile(ctx, req.(*SearchProfileRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -613,6 +723,18 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetOwnJobResume",
 			Handler:    _UserService_GetOwnJobResume_Handler,
+		},
+		{
+			MethodName: "GetCabinet",
+			Handler:    _UserService_GetCabinet_Handler,
+		},
+		{
+			MethodName: "GetProfile",
+			Handler:    _UserService_GetProfile_Handler,
+		},
+		{
+			MethodName: "SearchProfile",
+			Handler:    _UserService_SearchProfile_Handler,
 		},
 		{
 			MethodName: "UpdateOwnProfile",

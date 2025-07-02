@@ -7,13 +7,20 @@ import "svc/electorcab/cab_structs.proto";
 import "google/protobuf/empty.proto";
 
 service UserService {
+  // Own section
   rpc CreateOwnCabinet (CreateCabinetRequest) returns (Cabinet);
-
   rpc GetOwnCabinet   (google.protobuf.Empty) returns (Cabinet);
   rpc GetOwnProfile   (google.protobuf.Empty) returns (Profile);
   rpc GetOwnBiography (google.protobuf.Empty) returns (Biography);
   rpc GetOwnJobResume (google.protobuf.Empty) returns (JobResume);
 
+  // For other users
+  rpc GetCabinet (GetCabinetRequest) returns (Cabinet);
+  rpc GetProfile (GetProfileRequest) returns (Profile);
+  rpc SearchProfile (SearchProfileRequest) returns (ProfileList);
+
+  // Update Cabinet
+  //
   // Profile
   rpc UpdateOwnProfile (UpdateOwnProfileRequest) returns (Profile);
   rpc UpdateOwnUsername (UpdateOwnUsernameRequest) returns (Profile);
@@ -35,6 +42,28 @@ message CreateCabinetRequest {
   optional string pseudonym = 2;
   optional string description = 3;
   optional string avatar = 4;
+}
+
+message GetProfileRequest {
+  oneof identifier {
+    string user_id  = 1;
+    string username = 2;
+  }
+}
+
+message GetCabinetRequest {
+  oneof identifier {
+    string user_id  = 1;
+    string username = 2;
+  }
+}
+
+
+
+message SearchProfileRequest {
+  string query = 1;
+  int32 limit = 2;
+  int32 offset = 3;
 }
 
 message UpdateOwnProfileRequest {
