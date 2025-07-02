@@ -40,7 +40,8 @@ message JobResume {
 }
 
 message Cabinet {
-  Profile   profile = 1;
-  Biography biography = 2;
-  JobResume job_resume = 3;
+  string user_id = 1;
+  Profile   profile = 2;
+  Biography biography = 3;
+  JobResume job_resume = 4;
 }
