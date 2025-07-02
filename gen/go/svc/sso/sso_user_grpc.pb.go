@@ -20,15 +20,15 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UserService_GetOwnUser_FullMethodName               = "/sso.UserService/GetOwnUser"
-	UserService_GoogleLogin_FullMethodName              = "/sso.UserService/GoogleLogin"
-	UserService_GoogleCallback_FullMethodName           = "/sso.UserService/GoogleCallback"
-	UserService_Logout_FullMethodName                   = "/sso.UserService/Logout"
-	UserService_RefreshToken_FullMethodName             = "/sso.UserService/RefreshToken"
-	UserService_GetOwnUserSession_FullMethodName        = "/sso.UserService/GetOwnUserSession"
-	UserService_GetOwnUserSessions_FullMethodName       = "/sso.UserService/GetOwnUserSessions"
-	UserService_DeleteOwnUserSession_FullMethodName     = "/sso.UserService/DeleteOwnUserSession"
-	UserService_TerminateOwnUserSessions_FullMethodName = "/sso.UserService/TerminateOwnUserSessions"
+	UserService_GetOwnUser_FullMethodName            = "/sso.UserService/GetOwnUser"
+	UserService_GoogleLogin_FullMethodName           = "/sso.UserService/GoogleLogin"
+	UserService_GoogleCallback_FullMethodName        = "/sso.UserService/GoogleCallback"
+	UserService_Logout_FullMethodName                = "/sso.UserService/Logout"
+	UserService_RefreshToken_FullMethodName          = "/sso.UserService/RefreshToken"
+	UserService_GetOwnUserSession_FullMethodName     = "/sso.UserService/GetOwnUserSession"
+	UserService_GetOwnUserSessions_FullMethodName    = "/sso.UserService/GetOwnUserSessions"
+	UserService_DeleteOwnUserSession_FullMethodName  = "/sso.UserService/DeleteOwnUserSession"
+	UserService_DeleteOwnUserSessions_FullMethodName = "/sso.UserService/DeleteOwnUserSessions"
 )
 
 // UserServiceClient is the client API for UserService service.
@@ -44,7 +44,7 @@ type UserServiceClient interface {
 	GetOwnUserSession(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Session, error)
 	GetOwnUserSessions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*SessionsList, error)
 	DeleteOwnUserSession(ctx context.Context, in *DeleteOwnUserSessionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	TerminateOwnUserSessions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeleteOwnUserSessions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
 type userServiceClient struct {
@@ -135,10 +135,10 @@ func (c *userServiceClient) DeleteOwnUserSession(ctx context.Context, in *Delete
 	return out, nil
 }
 
-func (c *userServiceClient) TerminateOwnUserSessions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *userServiceClient) DeleteOwnUserSessions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, UserService_TerminateOwnUserSessions_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, UserService_DeleteOwnUserSessions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -158,7 +158,7 @@ type UserServiceServer interface {
 	GetOwnUserSession(context.Context, *emptypb.Empty) (*Session, error)
 	GetOwnUserSessions(context.Context, *emptypb.Empty) (*SessionsList, error)
 	DeleteOwnUserSession(context.Context, *DeleteOwnUserSessionRequest) (*emptypb.Empty, error)
-	TerminateOwnUserSessions(context.Context, *emptypb.Empty) (*emptypb.Empty, error)
+	DeleteOwnUserSessions(context.Context, *emptypb.Empty) (*emptypb.Empty, error)
 	mustEmbedUnimplementedUserServiceServer()
 }
 
@@ -193,8 +193,8 @@ func (UnimplementedUserServiceServer) GetOwnUserSessions(context.Context, *empty
 func (UnimplementedUserServiceServer) DeleteOwnUserSession(context.Context, *DeleteOwnUserSessionRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteOwnUserSession not implemented")
 }
-func (UnimplementedUserServiceServer) TerminateOwnUserSessions(context.Context, *emptypb.Empty) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method TerminateOwnUserSessions not implemented")
+func (UnimplementedUserServiceServer) DeleteOwnUserSessions(context.Context, *emptypb.Empty) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteOwnUserSessions not implemented")
 }
 func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}
 func (UnimplementedUserServiceServer) testEmbeddedByValue()                     {}
@@ -361,20 +361,20 @@ func _UserService_DeleteOwnUserSession_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserService_TerminateOwnUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserService_DeleteOwnUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserServiceServer).TerminateOwnUserSessions(ctx, in)
+		return srv.(UserServiceServer).DeleteOwnUserSessions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UserService_TerminateOwnUserSessions_FullMethodName,
+		FullMethod: UserService_DeleteOwnUserSessions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).TerminateOwnUserSessions(ctx, req.(*emptypb.Empty))
+		return srv.(UserServiceServer).DeleteOwnUserSessions(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -419,8 +419,8 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _UserService_DeleteOwnUserSession_Handler,
 		},
 		{
-			MethodName: "TerminateOwnUserSessions",
-			Handler:    _UserService_TerminateOwnUserSessions_Handler,
+			MethodName: "DeleteOwnUserSessions",
+			Handler:    _UserService_DeleteOwnUserSessions_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
