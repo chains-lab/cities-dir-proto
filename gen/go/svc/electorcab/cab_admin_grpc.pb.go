@@ -30,7 +30,7 @@ const (
 type AdminServiceClient interface {
 	ResetProfileByAdmin(ctx context.Context, in *ResetProfileByAdminRequest, opts ...grpc.CallOption) (*Profile, error)
 	ResetUsernameByAdmin(ctx context.Context, in *ResetUsernameByAdminRequest, opts ...grpc.CallOption) (*Profile, error)
-	UpdateOfficialByAdmin(ctx context.Context, in *ResetUsernameByAdminRequest, opts ...grpc.CallOption) (*Profile, error)
+	UpdateOfficialByAdmin(ctx context.Context, in *UpdateOfficialByAdminRequest, opts ...grpc.CallOption) (*Profile, error)
 }
 
 type adminServiceClient struct {
@@ -61,7 +61,7 @@ func (c *adminServiceClient) ResetUsernameByAdmin(ctx context.Context, in *Reset
 	return out, nil
 }
 
-func (c *adminServiceClient) UpdateOfficialByAdmin(ctx context.Context, in *ResetUsernameByAdminRequest, opts ...grpc.CallOption) (*Profile, error) {
+func (c *adminServiceClient) UpdateOfficialByAdmin(ctx context.Context, in *UpdateOfficialByAdminRequest, opts ...grpc.CallOption) (*Profile, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Profile)
 	err := c.cc.Invoke(ctx, AdminService_UpdateOfficialByAdmin_FullMethodName, in, out, cOpts...)
@@ -77,7 +77,7 @@ func (c *adminServiceClient) UpdateOfficialByAdmin(ctx context.Context, in *Rese
 type AdminServiceServer interface {
 	ResetProfileByAdmin(context.Context, *ResetProfileByAdminRequest) (*Profile, error)
 	ResetUsernameByAdmin(context.Context, *ResetUsernameByAdminRequest) (*Profile, error)
-	UpdateOfficialByAdmin(context.Context, *ResetUsernameByAdminRequest) (*Profile, error)
+	UpdateOfficialByAdmin(context.Context, *UpdateOfficialByAdminRequest) (*Profile, error)
 	mustEmbedUnimplementedAdminServiceServer()
 }
 
@@ -94,7 +94,7 @@ func (UnimplementedAdminServiceServer) ResetProfileByAdmin(context.Context, *Res
 func (UnimplementedAdminServiceServer) ResetUsernameByAdmin(context.Context, *ResetUsernameByAdminRequest) (*Profile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ResetUsernameByAdmin not implemented")
 }
-func (UnimplementedAdminServiceServer) UpdateOfficialByAdmin(context.Context, *ResetUsernameByAdminRequest) (*Profile, error) {
+func (UnimplementedAdminServiceServer) UpdateOfficialByAdmin(context.Context, *UpdateOfficialByAdminRequest) (*Profile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOfficialByAdmin not implemented")
 }
 func (UnimplementedAdminServiceServer) mustEmbedUnimplementedAdminServiceServer() {}
@@ -155,7 +155,7 @@ func _AdminService_ResetUsernameByAdmin_Handler(srv interface{}, ctx context.Con
 }
 
 func _AdminService_UpdateOfficialByAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResetUsernameByAdminRequest)
+	in := new(UpdateOfficialByAdminRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -167,7 +167,7 @@ func _AdminService_UpdateOfficialByAdmin_Handler(srv interface{}, ctx context.Co
 		FullMethod: AdminService_UpdateOfficialByAdmin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).UpdateOfficialByAdmin(ctx, req.(*ResetUsernameByAdminRequest))
+		return srv.(AdminServiceServer).UpdateOfficialByAdmin(ctx, req.(*UpdateOfficialByAdminRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

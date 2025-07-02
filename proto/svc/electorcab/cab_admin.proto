@@ -9,10 +9,10 @@ service AdminService {
 //  rpc GetCabinetByAdmin (GetCabinetByAdminRequest) returns (Cabinet);
 //
 //  rpc GetProfileByAdmin (GetProfileByAdminRequest) returns (Profile);
-  
+
   rpc ResetProfileByAdmin (ResetProfileByAdminRequest) returns (Profile);
   rpc ResetUsernameByAdmin (ResetUsernameByAdminRequest) returns (Profile);
-  rpc UpdateOfficialByAdmin (ResetUsernameByAdminRequest) returns (Profile);
+  rpc UpdateOfficialByAdmin (UpdateOfficialByAdminRequest) returns (Profile);
 
 //  rpc GetBiographyByAdmin (GetBiographyByAdminRequest) returns (Biography);
 //  rpc UpdateBiographyByAdmin (UpdateBiographyByAdminRequest) returns (Biography);
