@@ -13,7 +13,7 @@ service AdminService {
   rpc CreateAdminByAdmin (CreateAdminByAdminRequest) returns (User);
 
   rpc GetUserSessionsByAdmin (GetUserSessionsByAdminRequest) returns (SessionsList);
-  rpc TerminateUserSessionsByAdmin (TerminateUserSessionsByAdminRequest) returns (google.protobuf.Empty);
+  rpc DeleteUserSessionsByAdmin (DeleteUserSessionsByAdminRequest) returns (google.protobuf.Empty);
 }
 
 message CreateAdminByAdminRequest{
@@ -29,6 +29,6 @@ message GetUserSessionsByAdminRequest {
   string user_id = 1;
 }
 
-message TerminateUserSessionsByAdminRequest {
+message DeleteUserSessionsByAdminRequest {
   string user_id = 1;
 }

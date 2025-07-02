@@ -20,10 +20,10 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AdminService_GetUserByAdmin_FullMethodName               = "/sso.AdminService/GetUserByAdmin"
-	AdminService_CreateAdminByAdmin_FullMethodName           = "/sso.AdminService/CreateAdminByAdmin"
-	AdminService_GetUserSessionsByAdmin_FullMethodName       = "/sso.AdminService/GetUserSessionsByAdmin"
-	AdminService_TerminateUserSessionsByAdmin_FullMethodName = "/sso.AdminService/TerminateUserSessionsByAdmin"
+	AdminService_GetUserByAdmin_FullMethodName            = "/sso.AdminService/GetUserByAdmin"
+	AdminService_CreateAdminByAdmin_FullMethodName        = "/sso.AdminService/CreateAdminByAdmin"
+	AdminService_GetUserSessionsByAdmin_FullMethodName    = "/sso.AdminService/GetUserSessionsByAdmin"
+	AdminService_DeleteUserSessionsByAdmin_FullMethodName = "/sso.AdminService/DeleteUserSessionsByAdmin"
 )
 
 // AdminServiceClient is the client API for AdminService service.
@@ -33,7 +33,7 @@ type AdminServiceClient interface {
 	GetUserByAdmin(ctx context.Context, in *GetUserByAdminRequest, opts ...grpc.CallOption) (*User, error)
 	CreateAdminByAdmin(ctx context.Context, in *CreateAdminByAdminRequest, opts ...grpc.CallOption) (*User, error)
 	GetUserSessionsByAdmin(ctx context.Context, in *GetUserSessionsByAdminRequest, opts ...grpc.CallOption) (*SessionsList, error)
-	TerminateUserSessionsByAdmin(ctx context.Context, in *TerminateUserSessionsByAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeleteUserSessionsByAdmin(ctx context.Context, in *DeleteUserSessionsByAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
 type adminServiceClient struct {
@@ -74,10 +74,10 @@ func (c *adminServiceClient) GetUserSessionsByAdmin(ctx context.Context, in *Get
 	return out, nil
 }
 
-func (c *adminServiceClient) TerminateUserSessionsByAdmin(ctx context.Context, in *TerminateUserSessionsByAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *adminServiceClient) DeleteUserSessionsByAdmin(ctx context.Context, in *DeleteUserSessionsByAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, AdminService_TerminateUserSessionsByAdmin_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdminService_DeleteUserSessionsByAdmin_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -91,7 +91,7 @@ type AdminServiceServer interface {
 	GetUserByAdmin(context.Context, *GetUserByAdminRequest) (*User, error)
 	CreateAdminByAdmin(context.Context, *CreateAdminByAdminRequest) (*User, error)
 	GetUserSessionsByAdmin(context.Context, *GetUserSessionsByAdminRequest) (*SessionsList, error)
-	TerminateUserSessionsByAdmin(context.Context, *TerminateUserSessionsByAdminRequest) (*emptypb.Empty, error)
+	DeleteUserSessionsByAdmin(context.Context, *DeleteUserSessionsByAdminRequest) (*emptypb.Empty, error)
 	mustEmbedUnimplementedAdminServiceServer()
 }
 
@@ -111,8 +111,8 @@ func (UnimplementedAdminServiceServer) CreateAdminByAdmin(context.Context, *Crea
 func (UnimplementedAdminServiceServer) GetUserSessionsByAdmin(context.Context, *GetUserSessionsByAdminRequest) (*SessionsList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserSessionsByAdmin not implemented")
 }
-func (UnimplementedAdminServiceServer) TerminateUserSessionsByAdmin(context.Context, *TerminateUserSessionsByAdminRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method TerminateUserSessionsByAdmin not implemented")
+func (UnimplementedAdminServiceServer) DeleteUserSessionsByAdmin(context.Context, *DeleteUserSessionsByAdminRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteUserSessionsByAdmin not implemented")
 }
 func (UnimplementedAdminServiceServer) mustEmbedUnimplementedAdminServiceServer() {}
 func (UnimplementedAdminServiceServer) testEmbeddedByValue()                      {}
@@ -189,20 +189,20 @@ func _AdminService_GetUserSessionsByAdmin_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_TerminateUserSessionsByAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TerminateUserSessionsByAdminRequest)
+func _AdminService_DeleteUserSessionsByAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteUserSessionsByAdminRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).TerminateUserSessionsByAdmin(ctx, in)
+		return srv.(AdminServiceServer).DeleteUserSessionsByAdmin(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdminService_TerminateUserSessionsByAdmin_FullMethodName,
+		FullMethod: AdminService_DeleteUserSessionsByAdmin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).TerminateUserSessionsByAdmin(ctx, req.(*TerminateUserSessionsByAdminRequest))
+		return srv.(AdminServiceServer).DeleteUserSessionsByAdmin(ctx, req.(*DeleteUserSessionsByAdminRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -227,8 +227,8 @@ var AdminService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _AdminService_GetUserSessionsByAdmin_Handler,
 		},
 		{
-			MethodName: "TerminateUserSessionsByAdmin",
-			Handler:    _AdminService_TerminateUserSessionsByAdmin_Handler,
+			MethodName: "DeleteUserSessionsByAdmin",
+			Handler:    _AdminService_DeleteUserSessionsByAdmin_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
