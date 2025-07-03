@@ -8,9 +8,9 @@ import "google/protobuf/empty.proto";
 
 service UserService {
   // Own section
-  rpc CreateOwnCabinet (CreateCabinetRequest) returns (Cabinet);
-  rpc GetOwnCabinet   (google.protobuf.Empty) returns (Cabinet);
+  rpc CreateOwnProfile (CreateCabinetRequest) returns (Profile);
   rpc GetOwnProfile   (google.protobuf.Empty) returns (Profile);
+  rpc GetOwnCabinet   (google.protobuf.Empty) returns (Cabinet);
 
   // For other users
   rpc GetCabinet (GetCabinetRequest) returns (Cabinet);
