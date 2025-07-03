@@ -8,7 +8,7 @@ import "google/protobuf/empty.proto";
 
 service UserService {
   // Own section
-  rpc CreateOwnProfile (CreateCabinetRequest) returns (Profile);
+  rpc CreateOwnProfile (CreateProfilrRequest) returns (Profile);
   rpc GetOwnProfile   (google.protobuf.Empty) returns (Profile);
   rpc GetOwnCabinet   (google.protobuf.Empty) returns (Cabinet);
 
@@ -35,7 +35,7 @@ service UserService {
 }
 
 // REQUESTS
-message CreateCabinetRequest {
+message CreateProfilrRequest {
   string username = 1;
   optional string pseudonym = 2;
   optional string description = 3;

@@ -42,7 +42,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserServiceClient interface {
 	// Own section
-	CreateOwnProfile(ctx context.Context, in *CreateCabinetRequest, opts ...grpc.CallOption) (*Profile, error)
+	CreateOwnProfile(ctx context.Context, in *CreateProfilrRequest, opts ...grpc.CallOption) (*Profile, error)
 	GetOwnProfile(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Profile, error)
 	GetOwnCabinet(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Cabinet, error)
 	// For other users
@@ -73,7 +73,7 @@ func NewUserServiceClient(cc grpc.ClientConnInterface) UserServiceClient {
 	return &userServiceClient{cc}
 }
 
-func (c *userServiceClient) CreateOwnProfile(ctx context.Context, in *CreateCabinetRequest, opts ...grpc.CallOption) (*Profile, error) {
+func (c *userServiceClient) CreateOwnProfile(ctx context.Context, in *CreateProfilrRequest, opts ...grpc.CallOption) (*Profile, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Profile)
 	err := c.cc.Invoke(ctx, UserService_CreateOwnProfile_FullMethodName, in, out, cOpts...)
@@ -228,7 +228,7 @@ func (c *userServiceClient) UpdateOwnIncome(ctx context.Context, in *UpdateOwnIn
 // for forward compatibility.
 type UserServiceServer interface {
 	// Own section
-	CreateOwnProfile(context.Context, *CreateCabinetRequest) (*Profile, error)
+	CreateOwnProfile(context.Context, *CreateProfilrRequest) (*Profile, error)
 	GetOwnProfile(context.Context, *emptypb.Empty) (*Profile, error)
 	GetOwnCabinet(context.Context, *emptypb.Empty) (*Cabinet, error)
 	// For other users
@@ -259,7 +259,7 @@ type UserServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedUserServiceServer struct{}
 
-func (UnimplementedUserServiceServer) CreateOwnProfile(context.Context, *CreateCabinetRequest) (*Profile, error) {
+func (UnimplementedUserServiceServer) CreateOwnProfile(context.Context, *CreateProfilrRequest) (*Profile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateOwnProfile not implemented")
 }
 func (UnimplementedUserServiceServer) GetOwnProfile(context.Context, *emptypb.Empty) (*Profile, error) {
@@ -326,7 +326,7 @@ func RegisterUserServiceServer(s grpc.ServiceRegistrar, srv UserServiceServer) {
 }
 
 func _UserService_CreateOwnProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCabinetRequest)
+	in := new(CreateProfilrRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -338,7 +338,7 @@ func _UserService_CreateOwnProfile_Handler(srv interface{}, ctx context.Context,
 		FullMethod: UserService_CreateOwnProfile_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).CreateOwnProfile(ctx, req.(*CreateCabinetRequest))
+		return srv.(UserServiceServer).CreateOwnProfile(ctx, req.(*CreateProfilrRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
