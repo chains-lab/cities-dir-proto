@@ -43,7 +43,7 @@ type UserServiceClient interface {
 	RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*TokensPair, error)
 	GetOwnUserSession(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Session, error)
 	GetOwnUserSessions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*SessionsList, error)
-	DeleteOwnUserSession(ctx context.Context, in *DeleteOwnUserSessionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeleteOwnUserSession(ctx context.Context, in *DeleteOwnUserSessionRequest, opts ...grpc.CallOption) (*SessionsList, error)
 	DeleteOwnUserSessions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
@@ -125,9 +125,9 @@ func (c *userServiceClient) GetOwnUserSessions(ctx context.Context, in *emptypb.
 	return out, nil
 }
 
-func (c *userServiceClient) DeleteOwnUserSession(ctx context.Context, in *DeleteOwnUserSessionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *userServiceClient) DeleteOwnUserSession(ctx context.Context, in *DeleteOwnUserSessionRequest, opts ...grpc.CallOption) (*SessionsList, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
+	out := new(SessionsList)
 	err := c.cc.Invoke(ctx, UserService_DeleteOwnUserSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -157,7 +157,7 @@ type UserServiceServer interface {
 	RefreshToken(context.Context, *RefreshTokenRequest) (*TokensPair, error)
 	GetOwnUserSession(context.Context, *emptypb.Empty) (*Session, error)
 	GetOwnUserSessions(context.Context, *emptypb.Empty) (*SessionsList, error)
-	DeleteOwnUserSession(context.Context, *DeleteOwnUserSessionRequest) (*emptypb.Empty, error)
+	DeleteOwnUserSession(context.Context, *DeleteOwnUserSessionRequest) (*SessionsList, error)
 	DeleteOwnUserSessions(context.Context, *emptypb.Empty) (*emptypb.Empty, error)
 	mustEmbedUnimplementedUserServiceServer()
 }
@@ -190,7 +190,7 @@ func (UnimplementedUserServiceServer) GetOwnUserSession(context.Context, *emptyp
 func (UnimplementedUserServiceServer) GetOwnUserSessions(context.Context, *emptypb.Empty) (*SessionsList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOwnUserSessions not implemented")
 }
-func (UnimplementedUserServiceServer) DeleteOwnUserSession(context.Context, *DeleteOwnUserSessionRequest) (*emptypb.Empty, error) {
+func (UnimplementedUserServiceServer) DeleteOwnUserSession(context.Context, *DeleteOwnUserSessionRequest) (*SessionsList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteOwnUserSession not implemented")
 }
 func (UnimplementedUserServiceServer) DeleteOwnUserSessions(context.Context, *emptypb.Empty) (*emptypb.Empty, error) {

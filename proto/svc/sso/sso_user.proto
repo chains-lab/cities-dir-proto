@@ -19,7 +19,7 @@ service UserService {
 
   rpc GetOwnUserSession (google.protobuf.Empty) returns (Session);
   rpc GetOwnUserSessions (google.protobuf.Empty) returns (SessionsList);
-  rpc DeleteOwnUserSession (DeleteOwnUserSessionRequest) returns (google.protobuf.Empty);
+  rpc DeleteOwnUserSession (DeleteOwnUserSessionRequest) returns (SessionsList);
   rpc DeleteOwnUserSessions (google.protobuf.Empty) returns (google.protobuf.Empty);
 }
 
