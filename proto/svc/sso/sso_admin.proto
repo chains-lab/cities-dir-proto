@@ -10,13 +10,13 @@ import "svc/sso/sso_structs.proto";
 service AdminService {
   rpc GetUserByAdmin (GetUserByAdminRequest) returns (User);
 
-  rpc CreateAdminByAdmin (CreateAdminByAdminRequest) returns (User);
+  rpc CreateUserByAdmin (CreateUserByAdminRequest) returns (User);
 
   rpc GetUserSessionsByAdmin (GetUserSessionsByAdminRequest) returns (SessionsList);
   rpc DeleteUserSessionsByAdmin (DeleteUserSessionsByAdminRequest) returns (google.protobuf.Empty);
 }
 
-message CreateAdminByAdminRequest{
+message CreateUserByAdminRequest{
   string email = 1;
   string role = 2;
 }
