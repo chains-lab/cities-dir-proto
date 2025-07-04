@@ -51,11 +51,11 @@ type UserServiceClient interface {
 	// Cabinet block
 	//
 	// Biography
-	UpdateOwnSex(ctx context.Context, in *UpdateOwnSexRequest, opts ...grpc.CallOption) (*Biography, error)
-	UpdateOwnBirthday(ctx context.Context, in *UpdateOwnBirthdayRequest, opts ...grpc.CallOption) (*Biography, error)
-	UpdateOwnNationality(ctx context.Context, in *UpdateOwnNationalityRequest, opts ...grpc.CallOption) (*Biography, error)
-	UpdateOwnPrimaryLanguage(ctx context.Context, in *UpdateOwnPrimaryLanguageRequest, opts ...grpc.CallOption) (*Biography, error)
-	UpdateOwnResidence(ctx context.Context, in *UpdateOwnResidenceRequest, opts ...grpc.CallOption) (*Biography, error)
+	UpdateOwnSex(ctx context.Context, in *UpdateOwnSexRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	UpdateOwnBirthday(ctx context.Context, in *UpdateOwnBirthdayRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	UpdateOwnNationality(ctx context.Context, in *UpdateOwnNationalityRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	UpdateOwnPrimaryLanguage(ctx context.Context, in *UpdateOwnPrimaryLanguageRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	UpdateOwnResidence(ctx context.Context, in *UpdateOwnResidenceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
 type userServiceClient struct {
@@ -136,9 +136,9 @@ func (c *userServiceClient) UpdateOwnUsername(ctx context.Context, in *UpdateOwn
 	return out, nil
 }
 
-func (c *userServiceClient) UpdateOwnSex(ctx context.Context, in *UpdateOwnSexRequest, opts ...grpc.CallOption) (*Biography, error) {
+func (c *userServiceClient) UpdateOwnSex(ctx context.Context, in *UpdateOwnSexRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Biography)
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, UserService_UpdateOwnSex_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -146,9 +146,9 @@ func (c *userServiceClient) UpdateOwnSex(ctx context.Context, in *UpdateOwnSexRe
 	return out, nil
 }
 
-func (c *userServiceClient) UpdateOwnBirthday(ctx context.Context, in *UpdateOwnBirthdayRequest, opts ...grpc.CallOption) (*Biography, error) {
+func (c *userServiceClient) UpdateOwnBirthday(ctx context.Context, in *UpdateOwnBirthdayRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Biography)
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, UserService_UpdateOwnBirthday_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -156,9 +156,9 @@ func (c *userServiceClient) UpdateOwnBirthday(ctx context.Context, in *UpdateOwn
 	return out, nil
 }
 
-func (c *userServiceClient) UpdateOwnNationality(ctx context.Context, in *UpdateOwnNationalityRequest, opts ...grpc.CallOption) (*Biography, error) {
+func (c *userServiceClient) UpdateOwnNationality(ctx context.Context, in *UpdateOwnNationalityRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Biography)
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, UserService_UpdateOwnNationality_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -166,9 +166,9 @@ func (c *userServiceClient) UpdateOwnNationality(ctx context.Context, in *Update
 	return out, nil
 }
 
-func (c *userServiceClient) UpdateOwnPrimaryLanguage(ctx context.Context, in *UpdateOwnPrimaryLanguageRequest, opts ...grpc.CallOption) (*Biography, error) {
+func (c *userServiceClient) UpdateOwnPrimaryLanguage(ctx context.Context, in *UpdateOwnPrimaryLanguageRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Biography)
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, UserService_UpdateOwnPrimaryLanguage_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -176,9 +176,9 @@ func (c *userServiceClient) UpdateOwnPrimaryLanguage(ctx context.Context, in *Up
 	return out, nil
 }
 
-func (c *userServiceClient) UpdateOwnResidence(ctx context.Context, in *UpdateOwnResidenceRequest, opts ...grpc.CallOption) (*Biography, error) {
+func (c *userServiceClient) UpdateOwnResidence(ctx context.Context, in *UpdateOwnResidenceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Biography)
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, UserService_UpdateOwnResidence_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -203,11 +203,11 @@ type UserServiceServer interface {
 	// Cabinet block
 	//
 	// Biography
-	UpdateOwnSex(context.Context, *UpdateOwnSexRequest) (*Biography, error)
-	UpdateOwnBirthday(context.Context, *UpdateOwnBirthdayRequest) (*Biography, error)
-	UpdateOwnNationality(context.Context, *UpdateOwnNationalityRequest) (*Biography, error)
-	UpdateOwnPrimaryLanguage(context.Context, *UpdateOwnPrimaryLanguageRequest) (*Biography, error)
-	UpdateOwnResidence(context.Context, *UpdateOwnResidenceRequest) (*Biography, error)
+	UpdateOwnSex(context.Context, *UpdateOwnSexRequest) (*emptypb.Empty, error)
+	UpdateOwnBirthday(context.Context, *UpdateOwnBirthdayRequest) (*emptypb.Empty, error)
+	UpdateOwnNationality(context.Context, *UpdateOwnNationalityRequest) (*emptypb.Empty, error)
+	UpdateOwnPrimaryLanguage(context.Context, *UpdateOwnPrimaryLanguageRequest) (*emptypb.Empty, error)
+	UpdateOwnResidence(context.Context, *UpdateOwnResidenceRequest) (*emptypb.Empty, error)
 	mustEmbedUnimplementedUserServiceServer()
 }
 
@@ -239,19 +239,19 @@ func (UnimplementedUserServiceServer) UpdateOwnProfile(context.Context, *UpdateO
 func (UnimplementedUserServiceServer) UpdateOwnUsername(context.Context, *UpdateOwnUsernameRequest) (*Profile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnUsername not implemented")
 }
-func (UnimplementedUserServiceServer) UpdateOwnSex(context.Context, *UpdateOwnSexRequest) (*Biography, error) {
+func (UnimplementedUserServiceServer) UpdateOwnSex(context.Context, *UpdateOwnSexRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnSex not implemented")
 }
-func (UnimplementedUserServiceServer) UpdateOwnBirthday(context.Context, *UpdateOwnBirthdayRequest) (*Biography, error) {
+func (UnimplementedUserServiceServer) UpdateOwnBirthday(context.Context, *UpdateOwnBirthdayRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnBirthday not implemented")
 }
-func (UnimplementedUserServiceServer) UpdateOwnNationality(context.Context, *UpdateOwnNationalityRequest) (*Biography, error) {
+func (UnimplementedUserServiceServer) UpdateOwnNationality(context.Context, *UpdateOwnNationalityRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnNationality not implemented")
 }
-func (UnimplementedUserServiceServer) UpdateOwnPrimaryLanguage(context.Context, *UpdateOwnPrimaryLanguageRequest) (*Biography, error) {
+func (UnimplementedUserServiceServer) UpdateOwnPrimaryLanguage(context.Context, *UpdateOwnPrimaryLanguageRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnPrimaryLanguage not implemented")
 }
-func (UnimplementedUserServiceServer) UpdateOwnResidence(context.Context, *UpdateOwnResidenceRequest) (*Biography, error) {
+func (UnimplementedUserServiceServer) UpdateOwnResidence(context.Context, *UpdateOwnResidenceRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnResidence not implemented")
 }
 func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}

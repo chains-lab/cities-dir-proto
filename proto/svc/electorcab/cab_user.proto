@@ -24,11 +24,11 @@ service UserService {
   // Cabinet block
   //
   // Biography
-  rpc UpdateOwnSex (UpdateOwnSexRequest) returns (Biography);
-  rpc UpdateOwnBirthday (UpdateOwnBirthdayRequest) returns (Biography);
-  rpc UpdateOwnNationality (UpdateOwnNationalityRequest) returns (Biography);
-  rpc UpdateOwnPrimaryLanguage (UpdateOwnPrimaryLanguageRequest) returns (Biography);
-  rpc UpdateOwnResidence (UpdateOwnResidenceRequest) returns (Biography);
+  rpc UpdateOwnSex (UpdateOwnSexRequest) returns (google.protobuf.Empty);
+  rpc UpdateOwnBirthday (UpdateOwnBirthdayRequest) returns (google.protobuf.Empty);
+  rpc UpdateOwnNationality (UpdateOwnNationalityRequest) returns (google.protobuf.Empty);
+  rpc UpdateOwnPrimaryLanguage (UpdateOwnPrimaryLanguageRequest) returns (google.protobuf.Empty);
+  rpc UpdateOwnResidence (UpdateOwnResidenceRequest) returns (google.protobuf.Empty);
 }
 
 // REQUESTS
