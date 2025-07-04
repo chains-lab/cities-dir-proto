@@ -32,9 +32,6 @@ const (
 	UserService_UpdateOwnNationality_FullMethodName     = "/elector.UserService/UpdateOwnNationality"
 	UserService_UpdateOwnPrimaryLanguage_FullMethodName = "/elector.UserService/UpdateOwnPrimaryLanguage"
 	UserService_UpdateOwnResidence_FullMethodName       = "/elector.UserService/UpdateOwnResidence"
-	UserService_UpdateOwnDegree_FullMethodName          = "/elector.UserService/UpdateOwnDegree"
-	UserService_UpdateOwnIndustry_FullMethodName        = "/elector.UserService/UpdateOwnIndustry"
-	UserService_UpdateOwnIncome_FullMethodName          = "/elector.UserService/UpdateOwnIncome"
 )
 
 // UserServiceClient is the client API for UserService service.
@@ -48,21 +45,17 @@ type UserServiceClient interface {
 	// For other users
 	GetCabinet(ctx context.Context, in *GetCabinetRequest, opts ...grpc.CallOption) (*Cabinet, error)
 	GetProfile(ctx context.Context, in *GetProfileRequest, opts ...grpc.CallOption) (*Profile, error)
-	// Update Cabinet
-	//
 	// Profile
 	UpdateOwnProfile(ctx context.Context, in *UpdateOwnProfileRequest, opts ...grpc.CallOption) (*Profile, error)
 	UpdateOwnUsername(ctx context.Context, in *UpdateOwnUsernameRequest, opts ...grpc.CallOption) (*Profile, error)
+	// Cabinet block
+	//
 	// Biography
 	UpdateOwnSex(ctx context.Context, in *UpdateOwnSexRequest, opts ...grpc.CallOption) (*Biography, error)
 	UpdateOwnBirthday(ctx context.Context, in *UpdateOwnBirthdayRequest, opts ...grpc.CallOption) (*Biography, error)
 	UpdateOwnNationality(ctx context.Context, in *UpdateOwnNationalityRequest, opts ...grpc.CallOption) (*Biography, error)
 	UpdateOwnPrimaryLanguage(ctx context.Context, in *UpdateOwnPrimaryLanguageRequest, opts ...grpc.CallOption) (*Biography, error)
 	UpdateOwnResidence(ctx context.Context, in *UpdateOwnResidenceRequest, opts ...grpc.CallOption) (*Biography, error)
-	// Job
-	UpdateOwnDegree(ctx context.Context, in *UpdateOwnDegreeRequest, opts ...grpc.CallOption) (*JobResume, error)
-	UpdateOwnIndustry(ctx context.Context, in *UpdateOwnIndustryRequest, opts ...grpc.CallOption) (*JobResume, error)
-	UpdateOwnIncome(ctx context.Context, in *UpdateOwnIncomeRequest, opts ...grpc.CallOption) (*JobResume, error)
 }
 
 type userServiceClient struct {
@@ -193,36 +186,6 @@ func (c *userServiceClient) UpdateOwnResidence(ctx context.Context, in *UpdateOw
 	return out, nil
 }
 
-func (c *userServiceClient) UpdateOwnDegree(ctx context.Context, in *UpdateOwnDegreeRequest, opts ...grpc.CallOption) (*JobResume, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(JobResume)
-	err := c.cc.Invoke(ctx, UserService_UpdateOwnDegree_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *userServiceClient) UpdateOwnIndustry(ctx context.Context, in *UpdateOwnIndustryRequest, opts ...grpc.CallOption) (*JobResume, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(JobResume)
-	err := c.cc.Invoke(ctx, UserService_UpdateOwnIndustry_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *userServiceClient) UpdateOwnIncome(ctx context.Context, in *UpdateOwnIncomeRequest, opts ...grpc.CallOption) (*JobResume, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(JobResume)
-	err := c.cc.Invoke(ctx, UserService_UpdateOwnIncome_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // UserServiceServer is the server API for UserService service.
 // All implementations must embed UnimplementedUserServiceServer
 // for forward compatibility.
@@ -234,21 +197,17 @@ type UserServiceServer interface {
 	// For other users
 	GetCabinet(context.Context, *GetCabinetRequest) (*Cabinet, error)
 	GetProfile(context.Context, *GetProfileRequest) (*Profile, error)
-	// Update Cabinet
-	//
 	// Profile
 	UpdateOwnProfile(context.Context, *UpdateOwnProfileRequest) (*Profile, error)
 	UpdateOwnUsername(context.Context, *UpdateOwnUsernameRequest) (*Profile, error)
+	// Cabinet block
+	//
 	// Biography
 	UpdateOwnSex(context.Context, *UpdateOwnSexRequest) (*Biography, error)
 	UpdateOwnBirthday(context.Context, *UpdateOwnBirthdayRequest) (*Biography, error)
 	UpdateOwnNationality(context.Context, *UpdateOwnNationalityRequest) (*Biography, error)
 	UpdateOwnPrimaryLanguage(context.Context, *UpdateOwnPrimaryLanguageRequest) (*Biography, error)
 	UpdateOwnResidence(context.Context, *UpdateOwnResidenceRequest) (*Biography, error)
-	// Job
-	UpdateOwnDegree(context.Context, *UpdateOwnDegreeRequest) (*JobResume, error)
-	UpdateOwnIndustry(context.Context, *UpdateOwnIndustryRequest) (*JobResume, error)
-	UpdateOwnIncome(context.Context, *UpdateOwnIncomeRequest) (*JobResume, error)
 	mustEmbedUnimplementedUserServiceServer()
 }
 
@@ -294,15 +253,6 @@ func (UnimplementedUserServiceServer) UpdateOwnPrimaryLanguage(context.Context, 
 }
 func (UnimplementedUserServiceServer) UpdateOwnResidence(context.Context, *UpdateOwnResidenceRequest) (*Biography, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnResidence not implemented")
-}
-func (UnimplementedUserServiceServer) UpdateOwnDegree(context.Context, *UpdateOwnDegreeRequest) (*JobResume, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnDegree not implemented")
-}
-func (UnimplementedUserServiceServer) UpdateOwnIndustry(context.Context, *UpdateOwnIndustryRequest) (*JobResume, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnIndustry not implemented")
-}
-func (UnimplementedUserServiceServer) UpdateOwnIncome(context.Context, *UpdateOwnIncomeRequest) (*JobResume, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateOwnIncome not implemented")
 }
 func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}
 func (UnimplementedUserServiceServer) testEmbeddedByValue()                     {}
@@ -541,60 +491,6 @@ func _UserService_UpdateOwnResidence_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserService_UpdateOwnDegree_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateOwnDegreeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UserServiceServer).UpdateOwnDegree(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UserService_UpdateOwnDegree_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).UpdateOwnDegree(ctx, req.(*UpdateOwnDegreeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UserService_UpdateOwnIndustry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateOwnIndustryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UserServiceServer).UpdateOwnIndustry(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UserService_UpdateOwnIndustry_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).UpdateOwnIndustry(ctx, req.(*UpdateOwnIndustryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UserService_UpdateOwnIncome_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateOwnIncomeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UserServiceServer).UpdateOwnIncome(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UserService_UpdateOwnIncome_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).UpdateOwnIncome(ctx, req.(*UpdateOwnIncomeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // UserService_ServiceDesc is the grpc.ServiceDesc for UserService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -649,18 +545,6 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateOwnResidence",
 			Handler:    _UserService_UpdateOwnResidence_Handler,
-		},
-		{
-			MethodName: "UpdateOwnDegree",
-			Handler:    _UserService_UpdateOwnDegree_Handler,
-		},
-		{
-			MethodName: "UpdateOwnIndustry",
-			Handler:    _UserService_UpdateOwnIndustry_Handler,
-		},
-		{
-			MethodName: "UpdateOwnIncome",
-			Handler:    _UserService_UpdateOwnIncome_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

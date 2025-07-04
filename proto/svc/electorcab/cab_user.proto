@@ -17,21 +17,18 @@ service UserService {
   rpc GetProfile (GetProfileRequest) returns (Profile);
   //TODO rpc SearchProfile (SearchProfileRequest) returns (ProfileList);
 
-  // Update Cabinet
-  //
   // Profile
   rpc UpdateOwnProfile (UpdateOwnProfileRequest) returns (Profile);
   rpc UpdateOwnUsername (UpdateOwnUsernameRequest) returns (Profile);
+
+  // Cabinet block
+  //
   // Biography
   rpc UpdateOwnSex (UpdateOwnSexRequest) returns (Biography);
   rpc UpdateOwnBirthday (UpdateOwnBirthdayRequest) returns (Biography);
   rpc UpdateOwnNationality (UpdateOwnNationalityRequest) returns (Biography);
   rpc UpdateOwnPrimaryLanguage (UpdateOwnPrimaryLanguageRequest) returns (Biography);
   rpc UpdateOwnResidence (UpdateOwnResidenceRequest) returns (Biography);
-  // Job
-  rpc UpdateOwnDegree (UpdateOwnDegreeRequest) returns (JobResume);
-  rpc UpdateOwnIndustry (UpdateOwnIndustryRequest) returns (JobResume);
-  rpc UpdateOwnIncome (UpdateOwnIncomeRequest) returns (JobResume);
 }
 
 // REQUESTS
@@ -72,7 +69,6 @@ message UpdateOwnUsernameRequest {
   string username = 1;
 }
 
-
 message UpdateOwnSexRequest {
   string sex = 1;
 }
@@ -87,18 +83,6 @@ message UpdateOwnNationalityRequest {
 
 message UpdateOwnPrimaryLanguageRequest {
   string primary_language = 1;
-}
-
-message UpdateOwnDegreeRequest {
-  string degree = 1;
-}
-
-message UpdateOwnIndustryRequest {
-  string industry = 1;
-}
-
-message UpdateOwnIncomeRequest {
-  string income = 1;
 }
 
 message UpdateOwnResidenceRequest {

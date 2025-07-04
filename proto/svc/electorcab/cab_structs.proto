@@ -33,18 +33,7 @@ message Biography {
   optional string residence_updated_at = 12;
 }
 
-message JobResume {
-  string user_id = 1;
-  optional string degree = 2;
-  optional string industry = 3;
-  optional string income = 4;
-  optional string degree_updated_at = 5;
-  optional string industry_updated_at = 6;
-  optional string income_updated_at = 7;
-}
-
 message Cabinet {
   string user_id = 1;
   Biography biography = 2;
-  JobResume job_resume = 3;
 }
