@@ -12,11 +12,10 @@ message User {
   string id = 1;
   string email = 2;
   string role = 3;
-  string subscription = 4;
-  bool   verified = 5;
-  bool   suspended = 6;
-  string created_at = 7;
-  string updated_at = 8;
+  bool   verified = 4;
+  bool   suspended = 5;
+  string created_at = 6;
+  string updated_at = 7;
 }
 
 message Session {
