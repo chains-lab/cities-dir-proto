@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: svc/electorcab/cab_admin.proto
+// source: svc/citizencab/cab_admin.proto
 
-package electorcab
+package citizencab
 
 import (
 	context "context"
@@ -19,9 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AdminService_ResetProfileByAdmin_FullMethodName   = "/elector.AdminService/ResetProfileByAdmin"
-	AdminService_ResetUsernameByAdmin_FullMethodName  = "/elector.AdminService/ResetUsernameByAdmin"
-	AdminService_UpdateOfficialByAdmin_FullMethodName = "/elector.AdminService/UpdateOfficialByAdmin"
+	AdminService_ResetProfileByAdmin_FullMethodName   = "/citizencab.AdminService/ResetProfileByAdmin"
+	AdminService_ResetUsernameByAdmin_FullMethodName  = "/citizencab.AdminService/ResetUsernameByAdmin"
+	AdminService_UpdateOfficialByAdmin_FullMethodName = "/citizencab.AdminService/UpdateOfficialByAdmin"
 )
 
 // AdminServiceClient is the client API for AdminService service.
@@ -176,7 +176,7 @@ func _AdminService_UpdateOfficialByAdmin_Handler(srv interface{}, ctx context.Co
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var AdminService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "elector.AdminService",
+	ServiceName: "citizencab.AdminService",
 	HandlerType: (*AdminServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -193,5 +193,5 @@ var AdminService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "svc/electorcab/cab_admin.proto",
+	Metadata: "svc/citizencab/cab_admin.proto",
 }

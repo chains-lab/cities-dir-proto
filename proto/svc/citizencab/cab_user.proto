@@ -1,0 +1,66 @@
+syntax = "proto3";
+package citizencab;
+
+option go_package = "github.com/chains-lab/proto-storage/gen/go/svc/citizencab;citizencab";
+
+import "svc/citizencab/cab_structs.proto";
+import "google/protobuf/empty.proto";
+
+service UserService {
+  // Own section
+  rpc CreateOwnProfile (CreateProfilrRequest) returns (Profile);
+  rpc GetOwnProfile   (google.protobuf.Empty) returns (Profile);
+
+  // For other users
+  // rpc GetCabinet (GetCabinetRequest) returns (Cabinet);
+   rpc GetProfile (GetProfileRequest) returns (Profile);
+  // rpc SearchProfile (SearchProfileRequest) returns (ProfileList);
+
+  // Profile
+  rpc UpdateOwnProfile (UpdateOwnProfileRequest) returns (Profile);
+  rpc UpdateOwnUsername (UpdateOwnUsernameRequest) returns (Profile);
+
+  // Cabinet block
+  //
+  // Biography
+//  rpc UpdateOwnSex (UpdateOwnSexRequest) returns (google.protobuf.Empty);
+//  rpc UpdateOwnBirthday (UpdateOwnBirthdayRequest) returns (google.protobuf.Empty);
+//  rpc UpdateOwnNationality (UpdateOwnNationalityRequest) returns (google.protobuf.Empty);
+//  rpc UpdateOwnPrimaryLanguage (UpdateOwnPrimaryLanguageRequest) returns (google.protobuf.Empty);
+//  rpc UpdateOwnResidence (UpdateOwnResidenceRequest) returns (google.protobuf.Empty);
+}
+
+// REQUESTS
+message CreateProfilrRequest {
+  string username = 1;
+  optional string pseudonym = 2;
+  optional string description = 3;
+  optional string avatar = 4;
+  optional string sex = 5;
+  optional string birth_date = 6; // Format: YYYY-MM-DD
+}
+
+message GetProfileRequest {
+  oneof identifier {
+    string user_id  = 1;
+    string username = 2;
+  }
+}
+
+message SearchProfileRequest {
+  string query = 1;
+  int32 limit = 2;
+  int32 offset = 3;
+}
+
+message UpdateOwnProfileRequest {
+  optional string pseudonym = 1;
+  optional string description = 2;
+  optional string avatar = 3;
+  optional string sex = 4;
+  optional string birth_date = 5; // Format: YYYY-MM-DD
+}
+
+message UpdateOwnUsernameRequest {
+  string username = 1;
+}
