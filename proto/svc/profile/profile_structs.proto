@@ -1,7 +1,7 @@
 syntax = "proto3";
-package citizencab;
+package profile;
 
-option go_package = "github.com/chains-lab/proto-storage/gen/go/svc/citizencab;citizencab";
+option go_package = "github.com/chains-lab/proto-storage/gen/go/svc/profile;profile";
 
 message Profile {
   string user_id = 1;
@@ -9,7 +9,7 @@ message Profile {
   optional string pseudonym = 3;
   optional string description = 4;
   optional string avatar = 5;
-  bool   official = 6;
+  bool official = 6;
   optional string sex = 7;
   optional string birth_date = 8; // Format: YYYY-MM-DD
   string updated_at = 9;

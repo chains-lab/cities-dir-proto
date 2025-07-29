@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: svc/citizencab/cab_admin.proto
+// source: svc/profile/profile_admin.proto
 
-package citizencab
+package profile
 
 import (
 	context "context"
@@ -19,9 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AdminService_ResetProfileByAdmin_FullMethodName   = "/citizencab.AdminService/ResetProfileByAdmin"
-	AdminService_ResetUsernameByAdmin_FullMethodName  = "/citizencab.AdminService/ResetUsernameByAdmin"
-	AdminService_UpdateOfficialByAdmin_FullMethodName = "/citizencab.AdminService/UpdateOfficialByAdmin"
+	AdminService_ResetProfileByAdmin_FullMethodName   = "/profile.AdminService/ResetProfileByAdmin"
+	AdminService_ResetUsernameByAdmin_FullMethodName  = "/profile.AdminService/ResetUsernameByAdmin"
+	AdminService_UpdateOfficialByAdmin_FullMethodName = "/profile.AdminService/UpdateOfficialByAdmin"
 )
 
 // AdminServiceClient is the client API for AdminService service.
@@ -176,7 +176,7 @@ func _AdminService_UpdateOfficialByAdmin_Handler(srv interface{}, ctx context.Co
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var AdminService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "citizencab.AdminService",
+	ServiceName: "profile.AdminService",
 	HandlerType: (*AdminServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -193,5 +193,5 @@ var AdminService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "svc/citizencab/cab_admin.proto",
+	Metadata: "svc/profile/profile_admin.proto",
 }

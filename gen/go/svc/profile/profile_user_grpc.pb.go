@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: svc/citizencab/cab_user.proto
+// source: svc/profile/profile_user.proto
 
-package citizencab
+package profile
 
 import (
 	context "context"
@@ -20,11 +20,11 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UserService_CreateOwnProfile_FullMethodName  = "/citizencab.UserService/CreateOwnProfile"
-	UserService_GetOwnProfile_FullMethodName     = "/citizencab.UserService/GetOwnProfile"
-	UserService_GetProfile_FullMethodName        = "/citizencab.UserService/GetProfile"
-	UserService_UpdateOwnProfile_FullMethodName  = "/citizencab.UserService/UpdateOwnProfile"
-	UserService_UpdateOwnUsername_FullMethodName = "/citizencab.UserService/UpdateOwnUsername"
+	UserService_CreateOwnProfile_FullMethodName  = "/profile.UserService/CreateOwnProfile"
+	UserService_GetOwnProfile_FullMethodName     = "/profile.UserService/GetOwnProfile"
+	UserService_GetProfile_FullMethodName        = "/profile.UserService/GetProfile"
+	UserService_UpdateOwnProfile_FullMethodName  = "/profile.UserService/UpdateOwnProfile"
+	UserService_UpdateOwnUsername_FullMethodName = "/profile.UserService/UpdateOwnUsername"
 )
 
 // UserServiceClient is the client API for UserService service.
@@ -253,7 +253,7 @@ func _UserService_UpdateOwnUsername_Handler(srv interface{}, ctx context.Context
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var UserService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "citizencab.UserService",
+	ServiceName: "profile.UserService",
 	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -278,5 +278,5 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "svc/citizencab/cab_user.proto",
+	Metadata: "svc/profile/profile_user.proto",
 }

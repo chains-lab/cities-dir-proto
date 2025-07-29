@@ -1,9 +1,9 @@
 syntax = "proto3";
-package citizencab;
+package profile;
 
-option go_package = "github.com/chains-lab/proto-storage/gen/go/svc/citizencab;citizencab";
+option go_package = "github.com/chains-lab/proto-storage/gen/go/svc/profile;profile";
 
-import "svc/citizencab/cab_structs.proto";
+import "svc/profile/profile_structs.proto";
 import "google/protobuf/empty.proto";
 
 service UserService {
