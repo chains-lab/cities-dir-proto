@@ -483,8 +483,8 @@ const file_countries_proto_rawDesc = "" +
 	"\tcountries\x18\x01 \x03(\v2\x12.citiesdir.CountryR\tcountries\x12=\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x1d.citiesdir.PaginationResponseR\n" +
-	"pagination2\x82\x04\n" +
-	"\x10CountriesService\x12R\n" +
+	"pagination2\xfb\x03\n" +
+	"\tCountries\x12R\n" +
 	"\x14CreateCountryByAdmin\x12&.citiesdir.CreateCountryByAdminRequest\x1a\x12.citiesdir.Country\x12R\n" +
 	"\x14UpdateCountryByAdmin\x12&.citiesdir.UpdateCountryByAdminRequest\x1a\x12.citiesdir.Country\x12V\n" +
 	"\x14DeleteCountryByAdmin\x12&.citiesdir.DeleteCountryByAdminRequest\x1a\x16.google.protobuf.Empty\x12F\n" +
@@ -523,18 +523,18 @@ var file_countries_proto_depIdxs = []int32{
 	8,  // 1: citiesdir.GetListCountriesRequest.pagination:type_name -> citiesdir.PaginationRequest
 	6,  // 2: citiesdir.ListCountries.countries:type_name -> citiesdir.Country
 	9,  // 3: citiesdir.ListCountries.pagination:type_name -> citiesdir.PaginationResponse
-	0,  // 4: citiesdir.CountriesService.CreateCountryByAdmin:input_type -> citiesdir.CreateCountryByAdminRequest
-	1,  // 5: citiesdir.CountriesService.UpdateCountryByAdmin:input_type -> citiesdir.UpdateCountryByAdminRequest
-	2,  // 6: citiesdir.CountriesService.DeleteCountryByAdmin:input_type -> citiesdir.DeleteCountryByAdminRequest
-	3,  // 7: citiesdir.CountriesService.GetCountryById:input_type -> citiesdir.GetCountryByIdRequest
-	4,  // 8: citiesdir.CountriesService.SearchCountriesByName:input_type -> citiesdir.SearchCountriesByNameRequest
-	5,  // 9: citiesdir.CountriesService.GetListCountries:input_type -> citiesdir.GetListCountriesRequest
-	6,  // 10: citiesdir.CountriesService.CreateCountryByAdmin:output_type -> citiesdir.Country
-	6,  // 11: citiesdir.CountriesService.UpdateCountryByAdmin:output_type -> citiesdir.Country
-	10, // 12: citiesdir.CountriesService.DeleteCountryByAdmin:output_type -> google.protobuf.Empty
-	6,  // 13: citiesdir.CountriesService.GetCountryById:output_type -> citiesdir.Country
-	6,  // 14: citiesdir.CountriesService.SearchCountriesByName:output_type -> citiesdir.Country
-	7,  // 15: citiesdir.CountriesService.GetListCountries:output_type -> citiesdir.ListCountries
+	0,  // 4: citiesdir.Countries.CreateCountryByAdmin:input_type -> citiesdir.CreateCountryByAdminRequest
+	1,  // 5: citiesdir.Countries.UpdateCountryByAdmin:input_type -> citiesdir.UpdateCountryByAdminRequest
+	2,  // 6: citiesdir.Countries.DeleteCountryByAdmin:input_type -> citiesdir.DeleteCountryByAdminRequest
+	3,  // 7: citiesdir.Countries.GetCountryById:input_type -> citiesdir.GetCountryByIdRequest
+	4,  // 8: citiesdir.Countries.SearchCountriesByName:input_type -> citiesdir.SearchCountriesByNameRequest
+	5,  // 9: citiesdir.Countries.GetListCountries:input_type -> citiesdir.GetListCountriesRequest
+	6,  // 10: citiesdir.Countries.CreateCountryByAdmin:output_type -> citiesdir.Country
+	6,  // 11: citiesdir.Countries.UpdateCountryByAdmin:output_type -> citiesdir.Country
+	10, // 12: citiesdir.Countries.DeleteCountryByAdmin:output_type -> google.protobuf.Empty
+	6,  // 13: citiesdir.Countries.GetCountryById:output_type -> citiesdir.Country
+	6,  // 14: citiesdir.Countries.SearchCountriesByName:output_type -> citiesdir.Country
+	7,  // 15: citiesdir.Countries.GetListCountries:output_type -> citiesdir.ListCountries
 	10, // [10:16] is the sub-list for method output_type
 	4,  // [4:10] is the sub-list for method input_type
 	4,  // [4:4] is the sub-list for extension type_name

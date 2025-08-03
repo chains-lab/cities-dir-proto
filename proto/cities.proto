@@ -6,7 +6,7 @@ option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc;svc";
 import "google/protobuf/empty.proto";
 import "common.proto";
 
-service CitiesService {
+service Cities {
   rpc CreateCity (CreateCityByAdminRequest) returns (City);
   rpc UpdateCity (UpdateCityByAdminRequest) returns (City);
   rpc DeleteCity (DeleteCityByAdminRequest) returns (google.protobuf.Empty);

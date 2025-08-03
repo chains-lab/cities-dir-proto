@@ -443,8 +443,8 @@ const file_cities_admins_proto_rawDesc = "" +
 	"cityAdmins\x12=\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x1d.citiesdir.PaginationResponseR\n" +
-	"pagination2\x9e\x03\n" +
-	"\x13CitiesAdminsService\x12J\n" +
+	"pagination2\x97\x03\n" +
+	"\fCitiesAdmins\x12J\n" +
 	"\x0fCreateCityAdmin\x12!.citiesdir.CreateCityAdminRequest\x1a\x14.citiesdir.CityAdmin\x12J\n" +
 	"\x0fUpdateCityAdmin\x12!.citiesdir.UpdateCityAdminRequest\x1a\x14.citiesdir.CityAdmin\x12L\n" +
 	"\x0fDeleteCityAdmin\x12!.citiesdir.DeleteCityAdminRequest\x1a\x16.google.protobuf.Empty\x12D\n" +
@@ -480,16 +480,16 @@ var file_cities_admins_proto_depIdxs = []int32{
 	7, // 0: citiesdir.ListCityAdminsForCityRequest.pagination:type_name -> citiesdir.PaginationRequest
 	5, // 1: citiesdir.ListCityAdmins.city_admins:type_name -> citiesdir.CityAdmin
 	8, // 2: citiesdir.ListCityAdmins.pagination:type_name -> citiesdir.PaginationResponse
-	0, // 3: citiesdir.CitiesAdminsService.CreateCityAdmin:input_type -> citiesdir.CreateCityAdminRequest
-	1, // 4: citiesdir.CitiesAdminsService.UpdateCityAdmin:input_type -> citiesdir.UpdateCityAdminRequest
-	2, // 5: citiesdir.CitiesAdminsService.DeleteCityAdmin:input_type -> citiesdir.DeleteCityAdminRequest
-	3, // 6: citiesdir.CitiesAdminsService.GetCityAdmin:input_type -> citiesdir.GetCityAdminRequest
-	4, // 7: citiesdir.CitiesAdminsService.ListCityAdminsForCity:input_type -> citiesdir.ListCityAdminsForCityRequest
-	5, // 8: citiesdir.CitiesAdminsService.CreateCityAdmin:output_type -> citiesdir.CityAdmin
-	5, // 9: citiesdir.CitiesAdminsService.UpdateCityAdmin:output_type -> citiesdir.CityAdmin
-	9, // 10: citiesdir.CitiesAdminsService.DeleteCityAdmin:output_type -> google.protobuf.Empty
-	5, // 11: citiesdir.CitiesAdminsService.GetCityAdmin:output_type -> citiesdir.CityAdmin
-	6, // 12: citiesdir.CitiesAdminsService.ListCityAdminsForCity:output_type -> citiesdir.ListCityAdmins
+	0, // 3: citiesdir.CitiesAdmins.CreateCityAdmin:input_type -> citiesdir.CreateCityAdminRequest
+	1, // 4: citiesdir.CitiesAdmins.UpdateCityAdmin:input_type -> citiesdir.UpdateCityAdminRequest
+	2, // 5: citiesdir.CitiesAdmins.DeleteCityAdmin:input_type -> citiesdir.DeleteCityAdminRequest
+	3, // 6: citiesdir.CitiesAdmins.GetCityAdmin:input_type -> citiesdir.GetCityAdminRequest
+	4, // 7: citiesdir.CitiesAdmins.ListCityAdminsForCity:input_type -> citiesdir.ListCityAdminsForCityRequest
+	5, // 8: citiesdir.CitiesAdmins.CreateCityAdmin:output_type -> citiesdir.CityAdmin
+	5, // 9: citiesdir.CitiesAdmins.UpdateCityAdmin:output_type -> citiesdir.CityAdmin
+	9, // 10: citiesdir.CitiesAdmins.DeleteCityAdmin:output_type -> google.protobuf.Empty
+	5, // 11: citiesdir.CitiesAdmins.GetCityAdmin:output_type -> citiesdir.CityAdmin
+	6, // 12: citiesdir.CitiesAdmins.ListCityAdminsForCity:output_type -> citiesdir.ListCityAdmins
 	8, // [8:13] is the sub-list for method output_type
 	3, // [3:8] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name

@@ -560,8 +560,8 @@ const file_cities_proto_rawDesc = "" +
 	"\x06cities\x18\x01 \x03(\v2\x0f.citiesdir.CityR\x06cities\x12=\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x1d.citiesdir.PaginationResponseR\n" +
-	"pagination2\xa7\x04\n" +
-	"\rCitiesService\x12B\n" +
+	"pagination2\xa0\x04\n" +
+	"\x06Cities\x12B\n" +
 	"\n" +
 	"CreateCity\x12#.citiesdir.CreateCityByAdminRequest\x1a\x0f.citiesdir.City\x12B\n" +
 	"\n" +
@@ -605,20 +605,20 @@ var file_cities_proto_depIdxs = []int32{
 	9,  // 1: citiesdir.SearchCitiesByNameInCountryRequest.pagination:type_name -> citiesdir.PaginationRequest
 	7,  // 2: citiesdir.ListCities.cities:type_name -> citiesdir.City
 	10, // 3: citiesdir.ListCities.pagination:type_name -> citiesdir.PaginationResponse
-	0,  // 4: citiesdir.CitiesService.CreateCity:input_type -> citiesdir.CreateCityByAdminRequest
-	1,  // 5: citiesdir.CitiesService.UpdateCity:input_type -> citiesdir.UpdateCityByAdminRequest
-	2,  // 6: citiesdir.CitiesService.DeleteCity:input_type -> citiesdir.DeleteCityByAdminRequest
-	3,  // 7: citiesdir.CitiesService.GetCityById:input_type -> citiesdir.GetCityByIdRequest
-	4,  // 8: citiesdir.CitiesService.GetCountryCities:input_type -> citiesdir.GetCountryCitiesRequest
-	5,  // 9: citiesdir.CitiesService.SearchCitiesByName:input_type -> citiesdir.SearchCitiesByNameRequest
-	6,  // 10: citiesdir.CitiesService.SearchCitiesBNameInCountry:input_type -> citiesdir.SearchCitiesByNameInCountryRequest
-	7,  // 11: citiesdir.CitiesService.CreateCity:output_type -> citiesdir.City
-	7,  // 12: citiesdir.CitiesService.UpdateCity:output_type -> citiesdir.City
-	11, // 13: citiesdir.CitiesService.DeleteCity:output_type -> google.protobuf.Empty
-	7,  // 14: citiesdir.CitiesService.GetCityById:output_type -> citiesdir.City
-	8,  // 15: citiesdir.CitiesService.GetCountryCities:output_type -> citiesdir.ListCities
-	8,  // 16: citiesdir.CitiesService.SearchCitiesByName:output_type -> citiesdir.ListCities
-	8,  // 17: citiesdir.CitiesService.SearchCitiesBNameInCountry:output_type -> citiesdir.ListCities
+	0,  // 4: citiesdir.Cities.CreateCity:input_type -> citiesdir.CreateCityByAdminRequest
+	1,  // 5: citiesdir.Cities.UpdateCity:input_type -> citiesdir.UpdateCityByAdminRequest
+	2,  // 6: citiesdir.Cities.DeleteCity:input_type -> citiesdir.DeleteCityByAdminRequest
+	3,  // 7: citiesdir.Cities.GetCityById:input_type -> citiesdir.GetCityByIdRequest
+	4,  // 8: citiesdir.Cities.GetCountryCities:input_type -> citiesdir.GetCountryCitiesRequest
+	5,  // 9: citiesdir.Cities.SearchCitiesByName:input_type -> citiesdir.SearchCitiesByNameRequest
+	6,  // 10: citiesdir.Cities.SearchCitiesBNameInCountry:input_type -> citiesdir.SearchCitiesByNameInCountryRequest
+	7,  // 11: citiesdir.Cities.CreateCity:output_type -> citiesdir.City
+	7,  // 12: citiesdir.Cities.UpdateCity:output_type -> citiesdir.City
+	11, // 13: citiesdir.Cities.DeleteCity:output_type -> google.protobuf.Empty
+	7,  // 14: citiesdir.Cities.GetCityById:output_type -> citiesdir.City
+	8,  // 15: citiesdir.Cities.GetCountryCities:output_type -> citiesdir.ListCities
+	8,  // 16: citiesdir.Cities.SearchCitiesByName:output_type -> citiesdir.ListCities
+	8,  // 17: citiesdir.Cities.SearchCitiesBNameInCountry:output_type -> citiesdir.ListCities
 	11, // [11:18] is the sub-list for method output_type
 	4,  // [4:11] is the sub-list for method input_type
 	4,  // [4:4] is the sub-list for extension type_name
