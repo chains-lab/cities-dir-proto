@@ -1,0 +1,58 @@
+syntax = "proto3";
+package citiesdir;
+
+option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc;svc";
+
+import "google/protobuf/empty.proto";
+import "common.proto";
+
+service CitiesAdminsService {
+  rpc CreateCityAdmin (CreateCityAdminRequest) returns (CityAdmin);
+  rpc UpdateCityAdmin (UpdateCityAdminRequest) returns (CityAdmin);
+  rpc DeleteCityAdmin (DeleteCityAdminRequest) returns (google.protobuf.Empty);
+
+  rpc GetCityAdmin(GetCityAdminRequest) returns (CityAdmin);
+  rpc ListCityAdminsForCity(ListCityAdminsForCityRequest) returns (ListCityAdmins);
+}
+
+// REQUESTS
+
+message CreateCityAdminRequest {
+  string city_id = 1;
+  string user_id = 2;
+  string role = 3;
+}
+
+message UpdateCityAdminRequest {
+  string city_id = 1;
+  string user_id = 2;
+  string role = 3;
+}
+
+message DeleteCityAdminRequest {
+  string city_id = 1;
+  string user_id = 2;
+}
+
+message GetCityAdminRequest {
+  string city_id = 1;
+  string user_id = 2;
+}
+
+message ListCityAdminsForCityRequest {
+  string city_id = 1;
+  PaginationRequest pagination = 2;
+}
+
+// RESPONSES
+
+message CityAdmin {
+  string city_id = 1;
+  string user_id = 2;
+  string role = 3;
+}
+
+message ListCityAdmins {
+  repeated CityAdmin city_admins = 1;
+  PaginationResponse pagination = 2;
+}

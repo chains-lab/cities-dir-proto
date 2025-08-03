@@ -1,0 +1,62 @@
+syntax = "proto3";
+package citiesdir;
+
+option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc;svc";
+
+import "google/protobuf/empty.proto";
+import "common.proto";
+
+service CountriesService {
+  rpc CreateCountryByAdmin (CreateCountryByAdminRequest) returns (Country);
+  rpc UpdateCountryByAdmin (UpdateCountryByAdminRequest) returns (Country);
+  rpc DeleteCountryByAdmin (DeleteCountryByAdminRequest) returns (google.protobuf.Empty);
+
+  rpc GetCountryById(GetCountryByIdRequest) returns (Country);
+  rpc SearchCountriesByName(SearchCountriesByNameRequest) returns (Country);
+  rpc GetListCountries(GetListCountriesRequest) returns (ListCountries);
+}
+
+// REQUESTS
+
+message CreateCountryByAdminRequest {
+  string name = 1;
+  string status = 2;
+}
+
+message UpdateCountryByAdminRequest {
+  string id = 1;
+  string name = 2;
+  string status = 3;
+}
+
+message DeleteCountryByAdminRequest {
+  string id = 1;
+}
+
+message GetCountryByIdRequest {
+  string id = 1;
+}
+
+message SearchCountriesByNameRequest {
+  string prompt = 1;
+  PaginationRequest pagination = 2;
+}
+
+message GetListCountriesRequest {
+  optional string name = 1;
+  optional string status = 2;
+  PaginationRequest pagination = 3;
+}
+
+//RESPONSES
+
+message Country {
+  string id = 1;
+  string name = 2;
+  string status = 3;
+}
+
+message   ListCountries {
+  repeated Country countries = 1;
+  PaginationResponse pagination = 2;
+}

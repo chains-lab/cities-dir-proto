@@ -1,5 +1,0 @@
-syntax = "proto3";
-package common;
-
-option go_package = "github.com/chains-lab/proto-storage/gen/go/common;common";
-

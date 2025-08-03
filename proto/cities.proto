@@ -1,0 +1,71 @@
+syntax = "proto3";
+package citiesdir;
+
+option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc;svc";
+
+import "google/protobuf/empty.proto";
+import "common.proto";
+
+service CitiesService {
+  rpc CreateCity (CreateCityByAdminRequest) returns (City);
+  rpc UpdateCity (UpdateCityByAdminRequest) returns (City);
+  rpc DeleteCity (DeleteCityByAdminRequest) returns (google.protobuf.Empty);
+
+  rpc GetCityById(GetCityByIdRequest) returns (City);
+  rpc GetCountryCities(GetCountryCitiesRequest) returns (ListCities);
+  rpc SearchCitiesByName(SearchCitiesByNameRequest) returns (ListCities);
+  rpc SearchCitiesBNameInCountry(SearchCitiesByNameInCountryRequest) returns (ListCities);
+}
+
+// REQUESTS
+
+message CreateCityByAdminRequest {
+  string name = 1;
+  string country_id = 2;
+  string status = 3;
+}
+
+message UpdateCityByAdminRequest {
+  string id = 1;
+  string name = 2;
+  string country_id = 3;
+  string status = 4;
+}
+
+message DeleteCityByAdminRequest {
+  string id = 1;
+}
+
+message GetCityByIdRequest {
+  string id = 1;
+}
+
+message GetCountryCitiesRequest {
+  string country_id = 1;
+
+}
+
+message SearchCitiesByNameRequest {
+  string prompt = 1;
+  PaginationRequest pagination = 2;
+}
+
+message SearchCitiesByNameInCountryRequest {
+  string prompt = 1;
+  string country_id = 2;
+  PaginationRequest pagination = 3;
+}
+
+// RESPONSES
+
+message City {
+  string id = 1;
+  string name = 2;
+  string country_id = 3;
+  string status = 4;
+}
+
+message ListCities {
+  repeated City cities = 1;
+  PaginationResponse pagination = 2;
+}
