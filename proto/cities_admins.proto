@@ -7,6 +7,9 @@ import "google/protobuf/empty.proto";
 import "common.proto";
 
 service CitiesAdmins {
+  // System admin can use this method to create a city admin for any city.
+  rpc CreateCityOwnerBySysAdmin (CreateCityOwnerBySysAdminRequest) returns (CityAdmin);
+
   rpc CreateCityAdmin (CreateCityAdminRequest) returns (CityAdmin);
   rpc UpdateCityAdmin (UpdateCityAdminRequest) returns (CityAdmin);
   rpc DeleteCityAdmin (DeleteCityAdminRequest) returns (google.protobuf.Empty);
@@ -16,6 +19,11 @@ service CitiesAdmins {
 }
 
 // REQUESTS
+
+message CreateCityOwnerBySysAdminRequest {
+  string city_id = 1;
+  string user_id = 2;
+}
 
 message CreateCityAdminRequest {
   string city_id = 1;

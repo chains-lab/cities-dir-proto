@@ -7,14 +7,15 @@ import "google/protobuf/empty.proto";
 import "common.proto";
 
 service Cities {
-  rpc CreateCity (CreateCityByAdminRequest) returns (City);
-  rpc UpdateCity (UpdateCityByAdminRequest) returns (City);
-  rpc DeleteCity (DeleteCityByAdminRequest) returns (google.protobuf.Empty);
+  rpc CreateCityByAdmin (CreateCityByAdminRequest) returns (City);
+  rpc UpdateCityByAdmin (UpdateCityByAdminRequest) returns (City);
+  rpc DeleteCityByAdmin (DeleteCityByAdminRequest) returns (google.protobuf.Empty);
 
   rpc GetCityById(GetCityByIdRequest) returns (City);
   rpc GetCountryCities(GetCountryCitiesRequest) returns (ListCities);
-  rpc SearchCitiesByName(SearchCitiesByNameRequest) returns (ListCities);
-  rpc SearchCitiesBNameInCountry(SearchCitiesByNameInCountryRequest) returns (ListCities);
+  rpc SearchCitiesByNameInCountry(SearchCitiesByNameInCountryRequest) returns (ListCities);
+
+  rpc UpdateCityStatus (UpdateCityStatusRequest) returns (google.protobuf.Empty);
 }
 
 // REQUESTS
@@ -29,7 +30,6 @@ message UpdateCityByAdminRequest {
   string id = 1;
   string name = 2;
   string country_id = 3;
-  string status = 4;
 }
 
 message DeleteCityByAdminRequest {
@@ -45,15 +45,15 @@ message GetCountryCitiesRequest {
 
 }
 
-message SearchCitiesByNameRequest {
-  string prompt = 1;
-  PaginationRequest pagination = 2;
-}
-
 message SearchCitiesByNameInCountryRequest {
   string prompt = 1;
   string country_id = 2;
   PaginationRequest pagination = 3;
+}
+
+message UpdateCityStatusRequest {
+  string id = 1;
+  string status = 2;
 }
 
 // RESPONSES
