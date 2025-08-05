@@ -3,57 +3,53 @@ package citiesdir;
 
 option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc;svc";
 
-import "google/protobuf/empty.proto";
+//import "google/protobuf/empty.proto";
 import "common.proto";
 
 service Cities {
-  rpc CreateCityByAdmin (CreateCityByAdminRequest) returns (City);
-  rpc UpdateCityByAdmin (UpdateCityByAdminRequest) returns (City);
-  rpc DeleteCityByAdmin (DeleteCityByAdminRequest) returns (google.protobuf.Empty);
+  rpc CreateCityByAdmin (CreateCityByAdminRequestMessage) returns (City);
 
-  rpc GetCityById(GetCityByIdRequest) returns (City);
-  rpc GetCountryCities(GetCountryCitiesRequest) returns (ListCities);
-  rpc SearchCitiesByNameInCountry(SearchCitiesByNameInCountryRequest) returns (ListCities);
+  rpc GetCityById(GetCityByIdRequestMessage) returns (City);
 
-  rpc UpdateCityStatus (UpdateCityStatusRequest) returns (google.protobuf.Empty);
+  rpc SearchCities(SearchCitiesRequestMessage) returns (ListCities);
+
+  rpc UpdateCityStatus (UpdateCityStatusRequestMessage) returns (City);
+  rpc UpdateCityName (UpdateCityNameRequestMessage) returns (City);
+
+  rpc UpdateCityStatusBySysAdmin (UpdateCityStatusRequestMessage) returns (City);
 }
 
 // REQUESTS
 
-message CreateCityByAdminRequest {
+message CreateCityByAdminRequestMessage {
   string name = 1;
   string country_id = 2;
   string status = 3;
 }
 
-message UpdateCityByAdminRequest {
-  string id = 1;
-  string name = 2;
-  string country_id = 3;
-}
-
-message DeleteCityByAdminRequest {
+message DeleteCityByAdminRequestMessage {
   string id = 1;
 }
 
-message GetCityByIdRequest {
+message GetCityByIdRequestMessage {
   string id = 1;
 }
 
-message GetCountryCitiesRequest {
-  string country_id = 1;
-
+message SearchCitiesRequestMessage {
+  optional string name_like = 1;
+  optional string country_id = 2;
+  optional string status = 3;
+  PaginationRequest pagination = 4;
 }
 
-message SearchCitiesByNameInCountryRequest {
-  string prompt = 1;
-  string country_id = 2;
-  PaginationRequest pagination = 3;
-}
-
-message UpdateCityStatusRequest {
+message UpdateCityStatusRequestMessage {
   string id = 1;
   string status = 2;
+}
+
+message UpdateCityNameRequestMessage {
+  string id = 1;
+  string name = 2;
 }
 
 // RESPONSES

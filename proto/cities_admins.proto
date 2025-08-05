@@ -8,46 +8,51 @@ import "common.proto";
 
 service CitiesAdmins {
   // System admin can use this method to create a city admin for any city.
-  rpc CreateCityOwnerBySysAdmin (CreateCityOwnerBySysAdminRequest) returns (CityAdmin);
+  rpc CreateCityOwnerBySysAdmin (CreateCityOwnerBySysAdminRequestMessage) returns (CityAdmin);
+  rpc TransferCityOwnership (TransferCityOwnershipRequestMessage) returns (CityAdmin);
 
-  rpc CreateCityAdmin (CreateCityAdminRequest) returns (CityAdmin);
-  rpc UpdateCityAdmin (UpdateCityAdminRequest) returns (CityAdmin);
-  rpc DeleteCityAdmin (DeleteCityAdminRequest) returns (google.protobuf.Empty);
+  rpc CreateCityAdmin (CreateCityAdminRequestMessage) returns (CityAdmin);
+  rpc UpdateCityAdmin (UpdateCityAdminRequestMessage) returns (CityAdmin);
+  rpc DeleteCityAdmin (DeleteCityAdminRequestMessage) returns (google.protobuf.Empty);
+  rpc RefuseCityAdmin (google.protobuf.Empty) returns (google.protobuf.Empty);
 
-  rpc GetCityAdmin(GetCityAdminRequest) returns (CityAdmin);
-  rpc ListCityAdminsForCity(ListCityAdminsForCityRequest) returns (ListCityAdmins);
+  rpc GetCityAdmin(GetCityAdminRequestMessage) returns (CityAdmin);
+  rpc ListCityAdminsForCity(ListCityAdminsForCityRequestMessage) returns (ListCityAdmins);
 }
 
 // REQUESTS
 
-message CreateCityOwnerBySysAdminRequest {
+message CreateCityOwnerBySysAdminRequestMessage {
   string city_id = 1;
   string user_id = 2;
 }
 
-message CreateCityAdminRequest {
+message TransferCityOwnershipRequestMessage {
+  string city_id = 1;
+  string new_owner_user_id = 2;
+}
+
+message CreateCityAdminRequestMessage {
   string city_id = 1;
   string user_id = 2;
   string role = 3;
 }
 
-message UpdateCityAdminRequest {
-  string city_id = 1;
-  string user_id = 2;
-  string role = 3;
+message UpdateCityAdminRequestMessage {
+  string user_id = 1;
+  string role = 2;
 }
 
-message DeleteCityAdminRequest {
+message DeleteCityAdminRequestMessage{
+  string user_id = 1;
+}
+
+message GetCityAdminRequestMessage {
   string city_id = 1;
   string user_id = 2;
 }
 
-message GetCityAdminRequest {
-  string city_id = 1;
-  string user_id = 2;
-}
-
-message ListCityAdminsForCityRequest {
+message ListCityAdminsForCityRequestMessage {
   string city_id = 1;
   PaginationRequest pagination = 2;
 }

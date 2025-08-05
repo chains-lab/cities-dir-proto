@@ -7,42 +7,48 @@ import "google/protobuf/empty.proto";
 import "common.proto";
 
 service Countries {
-  rpc CreateCountryByAdmin (CreateCountryByAdminRequest) returns (Country);
-  rpc UpdateCountryByAdmin (UpdateCountryByAdminRequest) returns (Country);
-  rpc DeleteCountryByAdmin (DeleteCountryByAdminRequest) returns (google.protobuf.Empty);
+  rpc CreateCountryBySyAdmin (CreateCountryBySysAdminRequestMessage) returns (Country);
+  rpc UpdateCountryBySyAdmin (UpdateCountryBySysAdminRequestMessage) returns (Country);
+  rpc DeleteCountryBySyAdmin (DeleteCountryBySysAdminRequestMessage) returns (google.protobuf.Empty);
 
-  rpc GetCountryById(GetCountryByIdRequest) returns (Country);
-  rpc SearchCountriesByName(SearchCountriesByNameRequest) returns (Country);
-  rpc GetListCountries(GetListCountriesRequest) returns (ListCountries);
+  rpc GetCountryById(GetCountryByIdRequestMessage) returns (Country);
+  rpc UpdateCountryStatus(UpdateCountryStatusBySysAdminRequestMessage) returns (Country);
+
+  rpc SearchCountries(SearchCountriesRequestMessage) returns (ListCountries);
 }
 
 // REQUESTS
 
-message CreateCountryByAdminRequest {
+message CreateCountryBySysAdminRequestMessage {
   string name = 1;
   string status = 2;
 }
 
-message UpdateCountryByAdminRequest {
+message UpdateCountryBySysAdminRequestMessage {
   string id = 1;
   string name = 2;
-  string status = 3;
 }
 
-message DeleteCountryByAdminRequest {
+message DeleteCountryBySysAdminRequestMessage {
   string id = 1;
 }
 
-message GetCountryByIdRequest {
+message GetCountryByIdRequestMessage {
   string id = 1;
 }
 
-message SearchCountriesByNameRequest {
-  string prompt = 1;
-  PaginationRequest pagination = 2;
+message UpdateCountryStatusBySysAdminRequestMessage {
+  string id = 1;
+  string status = 2;
 }
 
-message GetListCountriesRequest {
+message SearchCountriesRequestMessage {
+  optional string name_like = 1;
+  optional string status = 2;
+  PaginationRequest pagination = 3;
+}
+
+message GetListCountriesRequestMessage {
   optional string name = 1;
   optional string status = 2;
   PaginationRequest pagination = 3;

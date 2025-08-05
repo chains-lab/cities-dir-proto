@@ -11,7 +11,6 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -20,26 +19,24 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Cities_CreateCity_FullMethodName                 = "/citiesdir.Cities/CreateCity"
-	Cities_UpdateCity_FullMethodName                 = "/citiesdir.Cities/UpdateCity"
-	Cities_DeleteCity_FullMethodName                 = "/citiesdir.Cities/DeleteCity"
+	Cities_CreateCityByAdmin_FullMethodName          = "/citiesdir.Cities/CreateCityByAdmin"
 	Cities_GetCityById_FullMethodName                = "/citiesdir.Cities/GetCityById"
-	Cities_GetCountryCities_FullMethodName           = "/citiesdir.Cities/GetCountryCities"
-	Cities_SearchCitiesByName_FullMethodName         = "/citiesdir.Cities/SearchCitiesByName"
-	Cities_SearchCitiesBNameInCountry_FullMethodName = "/citiesdir.Cities/SearchCitiesBNameInCountry"
+	Cities_SearchCities_FullMethodName               = "/citiesdir.Cities/SearchCities"
+	Cities_UpdateCityStatus_FullMethodName           = "/citiesdir.Cities/UpdateCityStatus"
+	Cities_UpdateCityName_FullMethodName             = "/citiesdir.Cities/UpdateCityName"
+	Cities_UpdateCityStatusBySysAdmin_FullMethodName = "/citiesdir.Cities/UpdateCityStatusBySysAdmin"
 )
 
 // CitiesClient is the client API for Cities service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CitiesClient interface {
-	CreateCity(ctx context.Context, in *CreateCityByAdminRequest, opts ...grpc.CallOption) (*City, error)
-	UpdateCity(ctx context.Context, in *UpdateCityByAdminRequest, opts ...grpc.CallOption) (*City, error)
-	DeleteCity(ctx context.Context, in *DeleteCityByAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	GetCityById(ctx context.Context, in *GetCityByIdRequest, opts ...grpc.CallOption) (*City, error)
-	GetCountryCities(ctx context.Context, in *GetCountryCitiesRequest, opts ...grpc.CallOption) (*ListCities, error)
-	SearchCitiesByName(ctx context.Context, in *SearchCitiesByNameRequest, opts ...grpc.CallOption) (*ListCities, error)
-	SearchCitiesBNameInCountry(ctx context.Context, in *SearchCitiesByNameInCountryRequest, opts ...grpc.CallOption) (*ListCities, error)
+	CreateCityByAdmin(ctx context.Context, in *CreateCityByAdminRequestMessage, opts ...grpc.CallOption) (*City, error)
+	GetCityById(ctx context.Context, in *GetCityByIdRequestMessage, opts ...grpc.CallOption) (*City, error)
+	SearchCities(ctx context.Context, in *SearchCitiesRequestMessage, opts ...grpc.CallOption) (*ListCities, error)
+	UpdateCityStatus(ctx context.Context, in *UpdateCityStatusRequestMessage, opts ...grpc.CallOption) (*City, error)
+	UpdateCityName(ctx context.Context, in *UpdateCityNameRequestMessage, opts ...grpc.CallOption) (*City, error)
+	UpdateCityStatusBySysAdmin(ctx context.Context, in *UpdateCityStatusRequestMessage, opts ...grpc.CallOption) (*City, error)
 }
 
 type citiesClient struct {
@@ -50,37 +47,17 @@ func NewCitiesClient(cc grpc.ClientConnInterface) CitiesClient {
 	return &citiesClient{cc}
 }
 
-func (c *citiesClient) CreateCity(ctx context.Context, in *CreateCityByAdminRequest, opts ...grpc.CallOption) (*City, error) {
+func (c *citiesClient) CreateCityByAdmin(ctx context.Context, in *CreateCityByAdminRequestMessage, opts ...grpc.CallOption) (*City, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(City)
-	err := c.cc.Invoke(ctx, Cities_CreateCity_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Cities_CreateCityByAdmin_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *citiesClient) UpdateCity(ctx context.Context, in *UpdateCityByAdminRequest, opts ...grpc.CallOption) (*City, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(City)
-	err := c.cc.Invoke(ctx, Cities_UpdateCity_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *citiesClient) DeleteCity(ctx context.Context, in *DeleteCityByAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, Cities_DeleteCity_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *citiesClient) GetCityById(ctx context.Context, in *GetCityByIdRequest, opts ...grpc.CallOption) (*City, error) {
+func (c *citiesClient) GetCityById(ctx context.Context, in *GetCityByIdRequestMessage, opts ...grpc.CallOption) (*City, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(City)
 	err := c.cc.Invoke(ctx, Cities_GetCityById_FullMethodName, in, out, cOpts...)
@@ -90,30 +67,40 @@ func (c *citiesClient) GetCityById(ctx context.Context, in *GetCityByIdRequest, 
 	return out, nil
 }
 
-func (c *citiesClient) GetCountryCities(ctx context.Context, in *GetCountryCitiesRequest, opts ...grpc.CallOption) (*ListCities, error) {
+func (c *citiesClient) SearchCities(ctx context.Context, in *SearchCitiesRequestMessage, opts ...grpc.CallOption) (*ListCities, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListCities)
-	err := c.cc.Invoke(ctx, Cities_GetCountryCities_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Cities_SearchCities_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *citiesClient) SearchCitiesByName(ctx context.Context, in *SearchCitiesByNameRequest, opts ...grpc.CallOption) (*ListCities, error) {
+func (c *citiesClient) UpdateCityStatus(ctx context.Context, in *UpdateCityStatusRequestMessage, opts ...grpc.CallOption) (*City, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListCities)
-	err := c.cc.Invoke(ctx, Cities_SearchCitiesByName_FullMethodName, in, out, cOpts...)
+	out := new(City)
+	err := c.cc.Invoke(ctx, Cities_UpdateCityStatus_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *citiesClient) SearchCitiesBNameInCountry(ctx context.Context, in *SearchCitiesByNameInCountryRequest, opts ...grpc.CallOption) (*ListCities, error) {
+func (c *citiesClient) UpdateCityName(ctx context.Context, in *UpdateCityNameRequestMessage, opts ...grpc.CallOption) (*City, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListCities)
-	err := c.cc.Invoke(ctx, Cities_SearchCitiesBNameInCountry_FullMethodName, in, out, cOpts...)
+	out := new(City)
+	err := c.cc.Invoke(ctx, Cities_UpdateCityName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *citiesClient) UpdateCityStatusBySysAdmin(ctx context.Context, in *UpdateCityStatusRequestMessage, opts ...grpc.CallOption) (*City, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(City)
+	err := c.cc.Invoke(ctx, Cities_UpdateCityStatusBySysAdmin_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -124,13 +111,12 @@ func (c *citiesClient) SearchCitiesBNameInCountry(ctx context.Context, in *Searc
 // All implementations must embed UnimplementedCitiesServer
 // for forward compatibility.
 type CitiesServer interface {
-	CreateCity(context.Context, *CreateCityByAdminRequest) (*City, error)
-	UpdateCity(context.Context, *UpdateCityByAdminRequest) (*City, error)
-	DeleteCity(context.Context, *DeleteCityByAdminRequest) (*emptypb.Empty, error)
-	GetCityById(context.Context, *GetCityByIdRequest) (*City, error)
-	GetCountryCities(context.Context, *GetCountryCitiesRequest) (*ListCities, error)
-	SearchCitiesByName(context.Context, *SearchCitiesByNameRequest) (*ListCities, error)
-	SearchCitiesBNameInCountry(context.Context, *SearchCitiesByNameInCountryRequest) (*ListCities, error)
+	CreateCityByAdmin(context.Context, *CreateCityByAdminRequestMessage) (*City, error)
+	GetCityById(context.Context, *GetCityByIdRequestMessage) (*City, error)
+	SearchCities(context.Context, *SearchCitiesRequestMessage) (*ListCities, error)
+	UpdateCityStatus(context.Context, *UpdateCityStatusRequestMessage) (*City, error)
+	UpdateCityName(context.Context, *UpdateCityNameRequestMessage) (*City, error)
+	UpdateCityStatusBySysAdmin(context.Context, *UpdateCityStatusRequestMessage) (*City, error)
 	mustEmbedUnimplementedCitiesServer()
 }
 
@@ -141,26 +127,23 @@ type CitiesServer interface {
 // pointer dereference when methods are called.
 type UnimplementedCitiesServer struct{}
 
-func (UnimplementedCitiesServer) CreateCity(context.Context, *CreateCityByAdminRequest) (*City, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateCity not implemented")
+func (UnimplementedCitiesServer) CreateCityByAdmin(context.Context, *CreateCityByAdminRequestMessage) (*City, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCityByAdmin not implemented")
 }
-func (UnimplementedCitiesServer) UpdateCity(context.Context, *UpdateCityByAdminRequest) (*City, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateCity not implemented")
-}
-func (UnimplementedCitiesServer) DeleteCity(context.Context, *DeleteCityByAdminRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteCity not implemented")
-}
-func (UnimplementedCitiesServer) GetCityById(context.Context, *GetCityByIdRequest) (*City, error) {
+func (UnimplementedCitiesServer) GetCityById(context.Context, *GetCityByIdRequestMessage) (*City, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCityById not implemented")
 }
-func (UnimplementedCitiesServer) GetCountryCities(context.Context, *GetCountryCitiesRequest) (*ListCities, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetCountryCities not implemented")
+func (UnimplementedCitiesServer) SearchCities(context.Context, *SearchCitiesRequestMessage) (*ListCities, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchCities not implemented")
 }
-func (UnimplementedCitiesServer) SearchCitiesByName(context.Context, *SearchCitiesByNameRequest) (*ListCities, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SearchCitiesByName not implemented")
+func (UnimplementedCitiesServer) UpdateCityStatus(context.Context, *UpdateCityStatusRequestMessage) (*City, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityStatus not implemented")
 }
-func (UnimplementedCitiesServer) SearchCitiesBNameInCountry(context.Context, *SearchCitiesByNameInCountryRequest) (*ListCities, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SearchCitiesBNameInCountry not implemented")
+func (UnimplementedCitiesServer) UpdateCityName(context.Context, *UpdateCityNameRequestMessage) (*City, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityName not implemented")
+}
+func (UnimplementedCitiesServer) UpdateCityStatusBySysAdmin(context.Context, *UpdateCityStatusRequestMessage) (*City, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityStatusBySysAdmin not implemented")
 }
 func (UnimplementedCitiesServer) mustEmbedUnimplementedCitiesServer() {}
 func (UnimplementedCitiesServer) testEmbeddedByValue()                {}
@@ -183,62 +166,26 @@ func RegisterCitiesServer(s grpc.ServiceRegistrar, srv CitiesServer) {
 	s.RegisterService(&Cities_ServiceDesc, srv)
 }
 
-func _Cities_CreateCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCityByAdminRequest)
+func _Cities_CreateCityByAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCityByAdminRequestMessage)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CitiesServer).CreateCity(ctx, in)
+		return srv.(CitiesServer).CreateCityByAdmin(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Cities_CreateCity_FullMethodName,
+		FullMethod: Cities_CreateCityByAdmin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesServer).CreateCity(ctx, req.(*CreateCityByAdminRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Cities_UpdateCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateCityByAdminRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CitiesServer).UpdateCity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Cities_UpdateCity_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesServer).UpdateCity(ctx, req.(*UpdateCityByAdminRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Cities_DeleteCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteCityByAdminRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CitiesServer).DeleteCity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Cities_DeleteCity_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesServer).DeleteCity(ctx, req.(*DeleteCityByAdminRequest))
+		return srv.(CitiesServer).CreateCityByAdmin(ctx, req.(*CreateCityByAdminRequestMessage))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Cities_GetCityById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCityByIdRequest)
+	in := new(GetCityByIdRequestMessage)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -250,61 +197,79 @@ func _Cities_GetCityById_Handler(srv interface{}, ctx context.Context, dec func(
 		FullMethod: Cities_GetCityById_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesServer).GetCityById(ctx, req.(*GetCityByIdRequest))
+		return srv.(CitiesServer).GetCityById(ctx, req.(*GetCityByIdRequestMessage))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Cities_GetCountryCities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCountryCitiesRequest)
+func _Cities_SearchCities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchCitiesRequestMessage)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CitiesServer).GetCountryCities(ctx, in)
+		return srv.(CitiesServer).SearchCities(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Cities_GetCountryCities_FullMethodName,
+		FullMethod: Cities_SearchCities_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesServer).GetCountryCities(ctx, req.(*GetCountryCitiesRequest))
+		return srv.(CitiesServer).SearchCities(ctx, req.(*SearchCitiesRequestMessage))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Cities_SearchCitiesByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SearchCitiesByNameRequest)
+func _Cities_UpdateCityStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCityStatusRequestMessage)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CitiesServer).SearchCitiesByName(ctx, in)
+		return srv.(CitiesServer).UpdateCityStatus(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Cities_SearchCitiesByName_FullMethodName,
+		FullMethod: Cities_UpdateCityStatus_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesServer).SearchCitiesByName(ctx, req.(*SearchCitiesByNameRequest))
+		return srv.(CitiesServer).UpdateCityStatus(ctx, req.(*UpdateCityStatusRequestMessage))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Cities_SearchCitiesBNameInCountry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SearchCitiesByNameInCountryRequest)
+func _Cities_UpdateCityName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCityNameRequestMessage)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CitiesServer).SearchCitiesBNameInCountry(ctx, in)
+		return srv.(CitiesServer).UpdateCityName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Cities_SearchCitiesBNameInCountry_FullMethodName,
+		FullMethod: Cities_UpdateCityName_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesServer).SearchCitiesBNameInCountry(ctx, req.(*SearchCitiesByNameInCountryRequest))
+		return srv.(CitiesServer).UpdateCityName(ctx, req.(*UpdateCityNameRequestMessage))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Cities_UpdateCityStatusBySysAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCityStatusRequestMessage)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CitiesServer).UpdateCityStatusBySysAdmin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Cities_UpdateCityStatusBySysAdmin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CitiesServer).UpdateCityStatusBySysAdmin(ctx, req.(*UpdateCityStatusRequestMessage))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -317,32 +282,28 @@ var Cities_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*CitiesServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CreateCity",
-			Handler:    _Cities_CreateCity_Handler,
-		},
-		{
-			MethodName: "UpdateCity",
-			Handler:    _Cities_UpdateCity_Handler,
-		},
-		{
-			MethodName: "DeleteCity",
-			Handler:    _Cities_DeleteCity_Handler,
+			MethodName: "CreateCityByAdmin",
+			Handler:    _Cities_CreateCityByAdmin_Handler,
 		},
 		{
 			MethodName: "GetCityById",
 			Handler:    _Cities_GetCityById_Handler,
 		},
 		{
-			MethodName: "GetCountryCities",
-			Handler:    _Cities_GetCountryCities_Handler,
+			MethodName: "SearchCities",
+			Handler:    _Cities_SearchCities_Handler,
 		},
 		{
-			MethodName: "SearchCitiesByName",
-			Handler:    _Cities_SearchCitiesByName_Handler,
+			MethodName: "UpdateCityStatus",
+			Handler:    _Cities_UpdateCityStatus_Handler,
 		},
 		{
-			MethodName: "SearchCitiesBNameInCountry",
-			Handler:    _Cities_SearchCitiesBNameInCountry_Handler,
+			MethodName: "UpdateCityName",
+			Handler:    _Cities_UpdateCityName_Handler,
+		},
+		{
+			MethodName: "UpdateCityStatusBySysAdmin",
+			Handler:    _Cities_UpdateCityStatusBySysAdmin_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
