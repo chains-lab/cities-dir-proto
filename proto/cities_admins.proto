@@ -8,7 +8,7 @@ import "common.proto";
 
 service CitiesAdmins {
   // System admin can use this method to create a city admin for any city.
-  rpc CreateCityOwnerBySysAdmin (CreateCityOwnerBySysAdminRequestMessage) returns (CityAdmin);
+  rpc CreateCityOwnerAdmin (CreateCityOwnerAdminRequestMessage) returns (CityAdmin);
   rpc TransferCityOwnership (TransferCityOwnershipRequestMessage) returns (CityAdmin);
 
   rpc CreateCityAdmin (CreateCityAdminRequestMessage) returns (CityAdmin);
@@ -22,7 +22,7 @@ service CitiesAdmins {
 
 // REQUESTS
 
-message CreateCityOwnerBySysAdminRequestMessage {
+message CreateCityOwnerAdminRequestMessage {
   string city_id = 1;
   string user_id = 2;
 }

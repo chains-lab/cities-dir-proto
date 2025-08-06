@@ -7,9 +7,9 @@ import "google/protobuf/empty.proto";
 import "common.proto";
 
 service Countries {
-  rpc CreateCountryBySyAdmin (CreateCountryBySysAdminRequestMessage) returns (Country);
-  rpc UpdateCountryBySyAdmin (UpdateCountryBySysAdminRequestMessage) returns (Country);
-  rpc DeleteCountryBySyAdmin (DeleteCountryBySysAdminRequestMessage) returns (google.protobuf.Empty);
+  rpc CreateCountry (CreateCountryBySysAdminRequestMessage) returns (Country);
+  rpc UpdateCountry (UpdateCountryBySysAdminRequestMessage) returns (Country);
+  rpc DeleteCountry (DeleteCountryBySysAdminRequestMessage) returns (google.protobuf.Empty);
 
   rpc GetCountryById(GetCountryByIdRequestMessage) returns (Country);
   rpc UpdateCountryStatus(UpdateCountryStatusBySysAdminRequestMessage) returns (Country);

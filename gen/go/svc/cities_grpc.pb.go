@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Cities_CreateCityByAdmin_FullMethodName          = "/citiesdir.Cities/CreateCityByAdmin"
+	Cities_CreateCity_FullMethodName                 = "/citiesdir.Cities/CreateCity"
 	Cities_GetCityById_FullMethodName                = "/citiesdir.Cities/GetCityById"
 	Cities_SearchCities_FullMethodName               = "/citiesdir.Cities/SearchCities"
 	Cities_UpdateCityStatus_FullMethodName           = "/citiesdir.Cities/UpdateCityStatus"
@@ -31,7 +31,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CitiesClient interface {
-	CreateCityByAdmin(ctx context.Context, in *CreateCityByAdminRequestMessage, opts ...grpc.CallOption) (*City, error)
+	CreateCity(ctx context.Context, in *CreateCityRequestMessage, opts ...grpc.CallOption) (*City, error)
 	GetCityById(ctx context.Context, in *GetCityByIdRequestMessage, opts ...grpc.CallOption) (*City, error)
 	SearchCities(ctx context.Context, in *SearchCitiesRequestMessage, opts ...grpc.CallOption) (*ListCities, error)
 	UpdateCityStatus(ctx context.Context, in *UpdateCityStatusRequestMessage, opts ...grpc.CallOption) (*City, error)
@@ -47,10 +47,10 @@ func NewCitiesClient(cc grpc.ClientConnInterface) CitiesClient {
 	return &citiesClient{cc}
 }
 
-func (c *citiesClient) CreateCityByAdmin(ctx context.Context, in *CreateCityByAdminRequestMessage, opts ...grpc.CallOption) (*City, error) {
+func (c *citiesClient) CreateCity(ctx context.Context, in *CreateCityRequestMessage, opts ...grpc.CallOption) (*City, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(City)
-	err := c.cc.Invoke(ctx, Cities_CreateCityByAdmin_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, Cities_CreateCity_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -111,7 +111,7 @@ func (c *citiesClient) UpdateCityStatusBySysAdmin(ctx context.Context, in *Updat
 // All implementations must embed UnimplementedCitiesServer
 // for forward compatibility.
 type CitiesServer interface {
-	CreateCityByAdmin(context.Context, *CreateCityByAdminRequestMessage) (*City, error)
+	CreateCity(context.Context, *CreateCityRequestMessage) (*City, error)
 	GetCityById(context.Context, *GetCityByIdRequestMessage) (*City, error)
 	SearchCities(context.Context, *SearchCitiesRequestMessage) (*ListCities, error)
 	UpdateCityStatus(context.Context, *UpdateCityStatusRequestMessage) (*City, error)
@@ -127,8 +127,8 @@ type CitiesServer interface {
 // pointer dereference when methods are called.
 type UnimplementedCitiesServer struct{}
 
-func (UnimplementedCitiesServer) CreateCityByAdmin(context.Context, *CreateCityByAdminRequestMessage) (*City, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateCityByAdmin not implemented")
+func (UnimplementedCitiesServer) CreateCity(context.Context, *CreateCityRequestMessage) (*City, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCity not implemented")
 }
 func (UnimplementedCitiesServer) GetCityById(context.Context, *GetCityByIdRequestMessage) (*City, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCityById not implemented")
@@ -166,20 +166,20 @@ func RegisterCitiesServer(s grpc.ServiceRegistrar, srv CitiesServer) {
 	s.RegisterService(&Cities_ServiceDesc, srv)
 }
 
-func _Cities_CreateCityByAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCityByAdminRequestMessage)
+func _Cities_CreateCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCityRequestMessage)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CitiesServer).CreateCityByAdmin(ctx, in)
+		return srv.(CitiesServer).CreateCity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Cities_CreateCityByAdmin_FullMethodName,
+		FullMethod: Cities_CreateCity_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesServer).CreateCityByAdmin(ctx, req.(*CreateCityByAdminRequestMessage))
+		return srv.(CitiesServer).CreateCity(ctx, req.(*CreateCityRequestMessage))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -282,8 +282,8 @@ var Cities_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*CitiesServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CreateCityByAdmin",
-			Handler:    _Cities_CreateCityByAdmin_Handler,
+			MethodName: "CreateCity",
+			Handler:    _Cities_CreateCity_Handler,
 		},
 		{
 			MethodName: "GetCityById",

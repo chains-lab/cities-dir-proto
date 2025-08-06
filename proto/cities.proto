@@ -7,7 +7,7 @@ option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc;svc";
 import "common.proto";
 
 service Cities {
-  rpc CreateCityByAdmin (CreateCityByAdminRequestMessage) returns (City);
+  rpc CreateCity (CreateCityRequestMessage) returns (City);
 
   rpc GetCityById(GetCityByIdRequestMessage) returns (City);
 
@@ -21,13 +21,13 @@ service Cities {
 
 // REQUESTS
 
-message CreateCityByAdminRequestMessage {
+message CreateCityRequestMessage {
   string name = 1;
   string country_id = 2;
   string status = 3;
 }
 
-message DeleteCityByAdminRequestMessage {
+message DeleteCityRequestMessage {
   string id = 1;
 }
 
