@@ -10,5 +10,6 @@ message Request {
 
 message Response {
   uint64 page = 1;
-  uint64 total = 2;
+  uint64 limit = 2;
+  uint64 total = 3;
 }

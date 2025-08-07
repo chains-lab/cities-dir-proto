@@ -76,7 +76,8 @@ func (x *Request) GetLimit() uint64 {
 type Response struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Page          uint64                 `protobuf:"varint,1,opt,name=page,proto3" json:"page,omitempty"`
-	Total         uint64                 `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
+	Limit         uint64                 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	Total         uint64                 `protobuf:"varint,3,opt,name=total,proto3" json:"total,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -118,6 +119,13 @@ func (x *Response) GetPage() uint64 {
 	return 0
 }
 
+func (x *Response) GetLimit() uint64 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
 func (x *Response) GetTotal() uint64 {
 	if x != nil {
 		return x.Total
@@ -133,10 +141,11 @@ const file_common_pagination_pagination_proto_rawDesc = "" +
 	"pagination\"3\n" +
 	"\aRequest\x12\x12\n" +
 	"\x04page\x18\x01 \x01(\x04R\x04page\x12\x14\n" +
-	"\x05limit\x18\x02 \x01(\x04R\x05limit\"4\n" +
+	"\x05limit\x18\x02 \x01(\x04R\x05limit\"J\n" +
 	"\bResponse\x12\x12\n" +
 	"\x04page\x18\x01 \x01(\x04R\x04page\x12\x14\n" +
-	"\x05total\x18\x02 \x01(\x04R\x05totalBLZJgithub.com/chains-lab/cities-dir-proto/gen/go/common/pagination;paginationb\x06proto3"
+	"\x05limit\x18\x02 \x01(\x04R\x05limit\x12\x14\n" +
+	"\x05total\x18\x03 \x01(\x04R\x05totalBLZJgithub.com/chains-lab/cities-dir-proto/gen/go/common/pagination;paginationb\x06proto3"
 
 var (
 	file_common_pagination_pagination_proto_rawDescOnce sync.Once
