@@ -1,10 +1,11 @@
 syntax = "proto3";
-package citiesdir;
+package countries;
 
-option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc;svc";
+option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/countries;countries";
 
 import "google/protobuf/empty.proto";
-import "common.proto";
+import "common/userdata/userdata.proto";;
+import "common/pagination/pagination.proto";
 
 service CountryService {
   rpc CreateCountry    (CreateCountryRequest)          returns (Country);
@@ -16,22 +17,23 @@ service CountryService {
   rpc SearchCountries     (SearchCountriesRequest)        returns (CountriesList);
 }
 
-// --------------------
-// ---- REQUESTS -----
-// --------------------
+// REQUESTS
 
 message CreateCountryRequest {
-  string name   = 1;
-  string status = 2;
+  userdata.UserData initiator = 1;
+  string name   = 2;
+  string status = 3;
 }
 
 message UpdateCountryRequest {
-  string id     = 1;
-  string name   = 2;
+  userdata.UserData initiator = 1;
+  string id     = 2;
+  string name   = 3;
 }
 
 message DeleteCountryRequest {
-  string id = 1;
+  userdata.UserData initiator = 1;
+  string id = 2;
 }
 
 message GetCountryByIdRequest {
@@ -39,19 +41,18 @@ message GetCountryByIdRequest {
 }
 
 message UpdateCountryStatusRequest {
-  string id     = 1;
-  string status = 2;
+  userdata.UserData initiator = 1;
+  string id     = 2;
+  string status = 3;
 }
 
 message SearchCountriesRequest {
   string name_like = 1;
   string status    = 2;
-  PaginationRequest pagination = 3;
+  pagination.Request pagination = 3;
 }
 
-// --------------------
-// ---- RESPONSES ----
-// --------------------
+// RESPONSES
 
 message Country {
   string id     = 1;
@@ -61,5 +62,5 @@ message Country {
 
 message CountriesList {
   repeated Country countries   = 1;
-  PaginationResponse pagination = 2;
+  pagination.Response pagination = 2;
 }

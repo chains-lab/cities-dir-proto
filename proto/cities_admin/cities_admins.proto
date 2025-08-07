@@ -1,10 +1,11 @@
 syntax = "proto3";
-package citiesdir;
+package cities_admin;
 
-option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc;svc";
+option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/citiesadmin;citiesadmin";
 
 import "google/protobuf/empty.proto";
-import "common.proto";
+import "common/userdata/userdata.proto";;
+import "common/pagination/pagination.proto";
 
 service CityAdminService {
   rpc CreateCityOwner (CreateCityOwnerRequest) returns (CityAdmin);
@@ -24,35 +25,41 @@ service CityAdminService {
 // --------------------
 
 message CreateCityOwnerRequest {
-  string city_id = 1;
-  string user_id = 2;
+  optional userdata.UserData initiator = 1;
+  string city_id = 2;
+  string user_id = 3;
 }
 
 message TransferOwnershipRequest {
-  string city_id        = 1;
-  string new_owner_id   = 2;
+  optional userdata.UserData initiator = 1;
+  string city_id        = 2;
+  string new_owner_id   = 3;
 }
 
 message CreateAdminRequest {
-  string city_id = 1;
-  string user_id = 2;
-  string role    = 3;
+  optional userdata.UserData initiator = 1;
+  string city_id = 2;
+  string user_id = 3;
+  string role    = 4;
 }
 
 message UpdateAdminRequest {
-  string city_id = 1;
-  string user_id = 2;
-  string role    = 3;
+  optional userdata.UserData initiator = 1;
+  string city_id = 2;
+  string user_id = 3;
+  string role    = 4;
 }
 
 message DeleteAdminRequest {
-  string city_id = 1;
-  string user_id = 2;
+  optional userdata.UserData initiator = 1;
+  string city_id = 2;
+  string user_id = 3;
 }
 
 message ResignAdminRequest {
-  string city_id = 1;
-  string user_id = 2;
+  optional userdata.UserData initiator = 1;
+  string city_id = 2;
+  string user_id = 3;
 }
 
 message GetAdminRequest {
@@ -62,7 +69,7 @@ message GetAdminRequest {
 
 message ListAdminsRequest {
   string city_id = 1;
-  PaginationRequest pagination = 2;
+  pagination.Request pagination = 2;
 }
 
 // --------------------
@@ -77,5 +84,5 @@ message CityAdmin {
 
 message ListCitiesAdmins {
   repeated CityAdmin admins     = 1;
-  PaginationResponse pagination = 2;
+  pagination.Response pagination = 2;
 }

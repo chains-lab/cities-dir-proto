@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: cities.proto
+// source: cities/cities.proto
 
-package svc
+package cities
 
 import (
 	context "context"
@@ -20,13 +20,13 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CityService_CreateCity_FullMethodName               = "/citiesdir.CityService/CreateCity"
-	CityService_GetCity_FullMethodName                  = "/citiesdir.CityService/GetCity"
-	CityService_SearchCities_FullMethodName             = "/citiesdir.CityService/SearchCities"
-	CityService_UpdateCityStatus_FullMethodName         = "/citiesdir.CityService/UpdateCityStatus"
-	CityService_UpdateCityName_FullMethodName           = "/citiesdir.CityService/UpdateCityName"
-	CityService_SysAdminUpdateCityStatus_FullMethodName = "/citiesdir.CityService/SysAdminUpdateCityStatus"
-	CityService_DeleteCity_FullMethodName               = "/citiesdir.CityService/DeleteCity"
+	CityService_CreateCity_FullMethodName               = "/cities.CityService/CreateCity"
+	CityService_GetCity_FullMethodName                  = "/cities.CityService/GetCity"
+	CityService_SearchCities_FullMethodName             = "/cities.CityService/SearchCities"
+	CityService_UpdateCityStatus_FullMethodName         = "/cities.CityService/UpdateCityStatus"
+	CityService_UpdateCityName_FullMethodName           = "/cities.CityService/UpdateCityName"
+	CityService_SysAdminUpdateCityStatus_FullMethodName = "/cities.CityService/SysAdminUpdateCityStatus"
+	CityService_DeleteCity_FullMethodName               = "/cities.CityService/DeleteCity"
 )
 
 // CityServiceClient is the client API for CityService service.
@@ -313,7 +313,7 @@ func _CityService_DeleteCity_Handler(srv interface{}, ctx context.Context, dec f
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var CityService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "citiesdir.CityService",
+	ServiceName: "cities.CityService",
 	HandlerType: (*CityServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -346,5 +346,5 @@ var CityService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "cities.proto",
+	Metadata: "cities/cities.proto",
 }

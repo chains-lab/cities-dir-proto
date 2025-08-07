@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: cities_admins.proto
+// source: cities_admin/cities_admins.proto
 
-package svc
+package citiesadmin
 
 import (
 	context "context"
@@ -20,14 +20,14 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CityAdminService_CreateCityOwner_FullMethodName   = "/citiesdir.CityAdminService/CreateCityOwner"
-	CityAdminService_TransferOwnership_FullMethodName = "/citiesdir.CityAdminService/TransferOwnership"
-	CityAdminService_CreateAdmin_FullMethodName       = "/citiesdir.CityAdminService/CreateAdmin"
-	CityAdminService_UpdateAdmin_FullMethodName       = "/citiesdir.CityAdminService/UpdateAdmin"
-	CityAdminService_DeleteAdmin_FullMethodName       = "/citiesdir.CityAdminService/DeleteAdmin"
-	CityAdminService_ResignAdmin_FullMethodName       = "/citiesdir.CityAdminService/ResignAdmin"
-	CityAdminService_GetAdmin_FullMethodName          = "/citiesdir.CityAdminService/GetAdmin"
-	CityAdminService_ListAdmins_FullMethodName        = "/citiesdir.CityAdminService/ListAdmins"
+	CityAdminService_CreateCityOwner_FullMethodName   = "/cities_admin.CityAdminService/CreateCityOwner"
+	CityAdminService_TransferOwnership_FullMethodName = "/cities_admin.CityAdminService/TransferOwnership"
+	CityAdminService_CreateAdmin_FullMethodName       = "/cities_admin.CityAdminService/CreateAdmin"
+	CityAdminService_UpdateAdmin_FullMethodName       = "/cities_admin.CityAdminService/UpdateAdmin"
+	CityAdminService_DeleteAdmin_FullMethodName       = "/cities_admin.CityAdminService/DeleteAdmin"
+	CityAdminService_ResignAdmin_FullMethodName       = "/cities_admin.CityAdminService/ResignAdmin"
+	CityAdminService_GetAdmin_FullMethodName          = "/cities_admin.CityAdminService/GetAdmin"
+	CityAdminService_ListAdmins_FullMethodName        = "/cities_admin.CityAdminService/ListAdmins"
 )
 
 // CityAdminServiceClient is the client API for CityAdminService service.
@@ -347,7 +347,7 @@ func _CityAdminService_ListAdmins_Handler(srv interface{}, ctx context.Context, 
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var CityAdminService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "citiesdir.CityAdminService",
+	ServiceName: "cities_admin.CityAdminService",
 	HandlerType: (*CityAdminServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -384,5 +384,5 @@ var CityAdminService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "cities_admins.proto",
+	Metadata: "cities_admin/cities_admins.proto",
 }

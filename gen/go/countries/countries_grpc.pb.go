@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: countries.proto
+// source: countries/countries.proto
 
-package svc
+package countries
 
 import (
 	context "context"
@@ -20,12 +20,12 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CountryService_CreateCountry_FullMethodName       = "/citiesdir.CountryService/CreateCountry"
-	CountryService_UpdateCountry_FullMethodName       = "/citiesdir.CountryService/UpdateCountry"
-	CountryService_DeleteCountry_FullMethodName       = "/citiesdir.CountryService/DeleteCountry"
-	CountryService_GetCountryById_FullMethodName      = "/citiesdir.CountryService/GetCountryById"
-	CountryService_UpdateCountryStatus_FullMethodName = "/citiesdir.CountryService/UpdateCountryStatus"
-	CountryService_SearchCountries_FullMethodName     = "/citiesdir.CountryService/SearchCountries"
+	CountryService_CreateCountry_FullMethodName       = "/countries.CountryService/CreateCountry"
+	CountryService_UpdateCountry_FullMethodName       = "/countries.CountryService/UpdateCountry"
+	CountryService_DeleteCountry_FullMethodName       = "/countries.CountryService/DeleteCountry"
+	CountryService_GetCountryById_FullMethodName      = "/countries.CountryService/GetCountryById"
+	CountryService_UpdateCountryStatus_FullMethodName = "/countries.CountryService/UpdateCountryStatus"
+	CountryService_SearchCountries_FullMethodName     = "/countries.CountryService/SearchCountries"
 )
 
 // CountryServiceClient is the client API for CountryService service.
@@ -279,7 +279,7 @@ func _CountryService_SearchCountries_Handler(srv interface{}, ctx context.Contex
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var CountryService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "citiesdir.CountryService",
+	ServiceName: "countries.CountryService",
 	HandlerType: (*CountryServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -308,5 +308,5 @@ var CountryService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "countries.proto",
+	Metadata: "countries/countries.proto",
 }

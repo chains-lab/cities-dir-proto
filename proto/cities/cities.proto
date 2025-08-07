@@ -1,10 +1,11 @@
 syntax = "proto3";
-package citiesdir;
+package cities;
 
-option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc;svc";
+option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/cities;cities";
 
 import "google/protobuf/empty.proto";
-import "common.proto";
+import "common/userdata/userdata.proto";
+import "common/pagination/pagination.proto";
 
 service CityService {
   rpc CreateCity(CreateCityRequest)    returns (City);
@@ -17,19 +18,17 @@ service CityService {
 
   rpc DeleteCity(DeleteCityRequest)    returns (google.protobuf.Empty);
 }
+
 // REQUESTS
 
 message CreateCityRequest {
-  string name       = 1;
-  string country_id = 2;
-  string status     = 3;
+  optional userdata.UserData initiator = 1;
+  string name       = 2;
+  string country_id = 3;
+  string status     = 4;
 }
 
 message GetCityRequest {
-  string id = 1;
-}
-
-message DeleteCityRequest {
   string id = 1;
 }
 
@@ -37,18 +36,27 @@ message SearchCitiesRequest {
   string name_like  = 1;
   string country_id = 2;
   string status     = 3;
-  PaginationRequest pagination = 4;
+  pagination.Request pagination = 4;
+}
+
+message DeleteCityRequest {
+  userdata.UserData initiator = 1;
+  string id = 2;
 }
 
 message UpdateCityStatusRequest {
-  string id     = 1;
-  string status = 2;
+  userdata.UserData initiator = 1;
+  string id     = 2;
+  string status = 3;
 }
 
 message UpdateCityNameRequest {
-  string id   = 1;
-  string name = 2;
+  userdata.UserData initiator = 1;
+  string id   = 2;
+  string name = 3;
 }
+
+// RESPONSES
 
 message City {
   string id         = 1;
@@ -59,5 +67,5 @@ message City {
 
 message CitiesList {
   repeated City cities     = 1;
-  PaginationResponse pagination = 2;
+  pagination.Response pagination = 2;
 }
