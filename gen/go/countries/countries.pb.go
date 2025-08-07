@@ -87,7 +87,7 @@ func (x *CreateCountryRequest) GetStatus() string {
 type UpdateCountryNameRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
-	Id            string                 `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	CountryId     string                 `protobuf:"bytes,2,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
 	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -130,9 +130,9 @@ func (x *UpdateCountryNameRequest) GetInitiator() *userdata.UserData {
 	return nil
 }
 
-func (x *UpdateCountryNameRequest) GetId() string {
+func (x *UpdateCountryNameRequest) GetCountryId() string {
 	if x != nil {
-		return x.Id
+		return x.CountryId
 	}
 	return ""
 }
@@ -147,7 +147,7 @@ func (x *UpdateCountryNameRequest) GetName() string {
 type DeleteCountryRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
-	Id            string                 `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	CountryId     string                 `protobuf:"bytes,2,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -189,16 +189,16 @@ func (x *DeleteCountryRequest) GetInitiator() *userdata.UserData {
 	return nil
 }
 
-func (x *DeleteCountryRequest) GetId() string {
+func (x *DeleteCountryRequest) GetCountryId() string {
 	if x != nil {
-		return x.Id
+		return x.CountryId
 	}
 	return ""
 }
 
 type GetCountryByIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	CountryId     string                 `protobuf:"bytes,1,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -233,9 +233,9 @@ func (*GetCountryByIdRequest) Descriptor() ([]byte, []int) {
 	return file_countries_countries_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetCountryByIdRequest) GetId() string {
+func (x *GetCountryByIdRequest) GetCountryId() string {
 	if x != nil {
-		return x.Id
+		return x.CountryId
 	}
 	return ""
 }
@@ -243,7 +243,7 @@ func (x *GetCountryByIdRequest) GetId() string {
 type UpdateCountryStatusRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
-	Id            string                 `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	CountryId     string                 `protobuf:"bytes,2,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
 	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -286,9 +286,9 @@ func (x *UpdateCountryStatusRequest) GetInitiator() *userdata.UserData {
 	return nil
 }
 
-func (x *UpdateCountryStatusRequest) GetId() string {
+func (x *UpdateCountryStatusRequest) GetCountryId() string {
 	if x != nil {
-		return x.Id
+		return x.CountryId
 	}
 	return ""
 }
@@ -480,19 +480,23 @@ const file_countries_countries_proto_rawDesc = "" +
 	"\x14CreateCountryRequest\x120\n" +
 	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x16\n" +
-	"\x06status\x18\x03 \x01(\tR\x06status\"p\n" +
+	"\x06status\x18\x03 \x01(\tR\x06status\"\x7f\n" +
 	"\x18UpdateCountryNameRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x0e\n" +
-	"\x02id\x18\x02 \x01(\tR\x02id\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\"X\n" +
+	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x1d\n" +
+	"\n" +
+	"country_id\x18\x02 \x01(\tR\tcountryId\x12\x12\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\"g\n" +
 	"\x14DeleteCountryRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x0e\n" +
-	"\x02id\x18\x02 \x01(\tR\x02id\"'\n" +
-	"\x15GetCountryByIdRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"v\n" +
+	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x1d\n" +
+	"\n" +
+	"country_id\x18\x02 \x01(\tR\tcountryId\"6\n" +
+	"\x15GetCountryByIdRequest\x12\x1d\n" +
+	"\n" +
+	"country_id\x18\x01 \x01(\tR\tcountryId\"\x85\x01\n" +
 	"\x1aUpdateCountryStatusRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x0e\n" +
-	"\x02id\x18\x02 \x01(\tR\x02id\x12\x16\n" +
+	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x1d\n" +
+	"\n" +
+	"country_id\x18\x02 \x01(\tR\tcountryId\x12\x16\n" +
 	"\x06status\x18\x03 \x01(\tR\x06status\"\x82\x01\n" +
 	"\x16SearchCountriesRequest\x12\x1b\n" +
 	"\tname_like\x18\x01 \x01(\tR\bnameLike\x12\x16\n" +

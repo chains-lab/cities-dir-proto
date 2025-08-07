@@ -94,7 +94,7 @@ func (x *CreateCityRequest) GetStatus() string {
 
 type GetCityRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -129,9 +129,9 @@ func (*GetCityRequest) Descriptor() ([]byte, []int) {
 	return file_cities_cities_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetCityRequest) GetId() string {
+func (x *GetCityRequest) GetCityId() string {
 	if x != nil {
-		return x.Id
+		return x.CityId
 	}
 	return ""
 }
@@ -207,7 +207,7 @@ func (x *SearchCitiesRequest) GetPagination() *pagination.Request {
 type DeleteCityRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
-	Id            string                 `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -249,9 +249,9 @@ func (x *DeleteCityRequest) GetInitiator() *userdata.UserData {
 	return nil
 }
 
-func (x *DeleteCityRequest) GetId() string {
+func (x *DeleteCityRequest) GetCityId() string {
 	if x != nil {
-		return x.Id
+		return x.CityId
 	}
 	return ""
 }
@@ -259,7 +259,7 @@ func (x *DeleteCityRequest) GetId() string {
 type UpdateCityStatusRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
-	Id            string                 `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -302,9 +302,9 @@ func (x *UpdateCityStatusRequest) GetInitiator() *userdata.UserData {
 	return nil
 }
 
-func (x *UpdateCityStatusRequest) GetId() string {
+func (x *UpdateCityStatusRequest) GetCityId() string {
 	if x != nil {
-		return x.Id
+		return x.CityId
 	}
 	return ""
 }
@@ -319,7 +319,7 @@ func (x *UpdateCityStatusRequest) GetStatus() string {
 type UpdateCityNameRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
-	Id            string                 `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -362,9 +362,9 @@ func (x *UpdateCityNameRequest) GetInitiator() *userdata.UserData {
 	return nil
 }
 
-func (x *UpdateCityNameRequest) GetId() string {
+func (x *UpdateCityNameRequest) GetCityId() string {
 	if x != nil {
-		return x.Id
+		return x.CityId
 	}
 	return ""
 }
@@ -508,9 +508,9 @@ const file_cities_cities_proto_rawDesc = "" +
 	"country_id\x18\x03 \x01(\tR\tcountryId\x12\x16\n" +
 	"\x06status\x18\x04 \x01(\tR\x06statusB\f\n" +
 	"\n" +
-	"_initiator\" \n" +
-	"\x0eGetCityRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"\x9e\x01\n" +
+	"_initiator\")\n" +
+	"\x0eGetCityRequest\x12\x17\n" +
+	"\acity_id\x18\x01 \x01(\tR\x06cityId\"\x9e\x01\n" +
 	"\x13SearchCitiesRequest\x12\x1b\n" +
 	"\tname_like\x18\x01 \x01(\tR\bnameLike\x12\x1d\n" +
 	"\n" +
@@ -518,17 +518,17 @@ const file_cities_cities_proto_rawDesc = "" +
 	"\x06status\x18\x03 \x01(\tR\x06status\x123\n" +
 	"\n" +
 	"pagination\x18\x04 \x01(\v2\x13.pagination.RequestR\n" +
-	"pagination\"U\n" +
+	"pagination\"^\n" +
 	"\x11DeleteCityRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x0e\n" +
-	"\x02id\x18\x02 \x01(\tR\x02id\"s\n" +
+	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
+	"\acity_id\x18\x02 \x01(\tR\x06cityId\"|\n" +
 	"\x17UpdateCityStatusRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x0e\n" +
-	"\x02id\x18\x02 \x01(\tR\x02id\x12\x16\n" +
-	"\x06status\x18\x03 \x01(\tR\x06status\"m\n" +
+	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
+	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x16\n" +
+	"\x06status\x18\x03 \x01(\tR\x06status\"v\n" +
 	"\x15UpdateCityNameRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x0e\n" +
-	"\x02id\x18\x02 \x01(\tR\x02id\x12\x12\n" +
+	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
+	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x12\n" +
 	"\x04name\x18\x03 \x01(\tR\x04name\"a\n" +
 	"\x04City\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +

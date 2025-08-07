@@ -29,7 +29,7 @@ message CreateCityRequest {
 }
 
 message GetCityRequest {
-  string id = 1;
+  string city_id = 1;
 }
 
 message SearchCitiesRequest {
@@ -41,19 +41,19 @@ message SearchCitiesRequest {
 
 message DeleteCityRequest {
   userdata.UserData initiator = 1;
-  string id = 2;
+  string city_id = 2;
 }
 
 message UpdateCityStatusRequest {
   userdata.UserData initiator = 1;
-  string id     = 2;
-  string status = 3;
+  string city_id = 2;
+  string status  = 3;
 }
 
 message UpdateCityNameRequest {
   userdata.UserData initiator = 1;
-  string id   = 2;
-  string name = 3;
+  string city_id = 2;
+  string name    = 3;
 }
 
 // RESPONSES

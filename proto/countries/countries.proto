@@ -28,23 +28,23 @@ message CreateCountryRequest {
 
 message UpdateCountryNameRequest {
   userdata.UserData initiator = 1;
-  string id     = 2;
-  string name   = 3;
+  string country_id = 2;
+  string name       = 3;
 }
 
 message DeleteCountryRequest {
   userdata.UserData initiator = 1;
-  string id = 2;
+  string country_id = 2;
 }
 
 message GetCountryByIdRequest {
-  string id = 1;
+  string country_id = 1;
 }
 
 message UpdateCountryStatusRequest {
   userdata.UserData initiator = 1;
-  string id     = 2;
-  string status = 3;
+  string country_id = 2;
+  string status     = 3;
 }
 
 message SearchCountriesRequest {
