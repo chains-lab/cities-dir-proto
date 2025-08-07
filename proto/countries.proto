@@ -6,63 +6,60 @@ option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc;svc";
 import "google/protobuf/empty.proto";
 import "common.proto";
 
-service Countries {
-  rpc CreateCountry (CreateCountryBySysAdminRequestMessage) returns (Country);
-  rpc UpdateCountry (UpdateCountryBySysAdminRequestMessage) returns (Country);
-  rpc DeleteCountry (DeleteCountryBySysAdminRequestMessage) returns (google.protobuf.Empty);
+service CountryService {
+  rpc CreateCountry    (CreateCountryRequest)          returns (Country);
+  rpc UpdateCountry    (UpdateCountryRequest)          returns (Country);
+  rpc DeleteCountry    (DeleteCountryRequest)          returns (google.protobuf.Empty);
 
-  rpc GetCountryById(GetCountryByIdRequestMessage) returns (Country);
-  rpc UpdateCountryStatus(UpdateCountryStatusBySysAdminRequestMessage) returns (Country);
-
-  rpc SearchCountries(SearchCountriesRequestMessage) returns (ListCountries);
+  rpc GetCountry       (GetCountryRequest)             returns (Country);
+  rpc UpdateStatus     (UpdateCountryStatusRequest)    returns (Country);
+  rpc SearchCountries  (SearchCountriesRequest)        returns (CountriesList);
 }
 
-// REQUESTS
+// --------------------
+// ---- REQUESTS -----
+// --------------------
 
-message CreateCountryBySysAdminRequestMessage {
-  string name = 1;
+message CreateCountryRequest {
+  string name   = 1;
   string status = 2;
 }
 
-message UpdateCountryBySysAdminRequestMessage {
-  string id = 1;
-  string name = 2;
+message UpdateCountryRequest {
+  string id     = 1;
+  string name   = 2;
 }
 
-message DeleteCountryBySysAdminRequestMessage {
-  string id = 1;
-}
-
-message GetCountryByIdRequestMessage {
+message DeleteCountryRequest {
   string id = 1;
 }
 
-message UpdateCountryStatusBySysAdminRequestMessage {
+message GetCountryRequest {
   string id = 1;
+}
+
+message UpdateCountryStatusRequest {
+  string id     = 1;
   string status = 2;
 }
 
-message SearchCountriesRequestMessage {
-  optional string name_like = 1;
-  optional string status = 2;
+message SearchCountriesRequest {
+  string name_like = 1;
+  string status    = 2;
   PaginationRequest pagination = 3;
 }
 
-message GetListCountriesRequestMessage {
-  optional string name = 1;
-  optional string status = 2;
-  PaginationRequest pagination = 3;
-}
-
-//RESPONSES
+// --------------------
+// ---- RESPONSES ----
+// --------------------
 
 message Country {
-  string id = 1;
-  string name = 2;
+  string id     = 1;
+  string name   = 2;
   string status = 3;
 }
 
-message   ListCountries {
-  repeated Country countries = 1;
+message CountriesList {
+  repeated Country countries   = 1;
   PaginationResponse pagination = 2;
 }

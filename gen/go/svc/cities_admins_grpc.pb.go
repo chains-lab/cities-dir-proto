@@ -20,369 +20,367 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CitiesAdmins_CreateCityOwnerAdmin_FullMethodName  = "/citiesdir.CitiesAdmins/CreateCityOwnerAdmin"
-	CitiesAdmins_TransferCityOwnership_FullMethodName = "/citiesdir.CitiesAdmins/TransferCityOwnership"
-	CitiesAdmins_CreateCityAdmin_FullMethodName       = "/citiesdir.CitiesAdmins/CreateCityAdmin"
-	CitiesAdmins_UpdateCityAdmin_FullMethodName       = "/citiesdir.CitiesAdmins/UpdateCityAdmin"
-	CitiesAdmins_DeleteCityAdmin_FullMethodName       = "/citiesdir.CitiesAdmins/DeleteCityAdmin"
-	CitiesAdmins_RefuseCityAdmin_FullMethodName       = "/citiesdir.CitiesAdmins/RefuseCityAdmin"
-	CitiesAdmins_GetCityAdmin_FullMethodName          = "/citiesdir.CitiesAdmins/GetCityAdmin"
-	CitiesAdmins_ListCityAdminsForCity_FullMethodName = "/citiesdir.CitiesAdmins/ListCityAdminsForCity"
+	CityAdminService_CreateCityOwner_FullMethodName   = "/citiesdir.CityAdminService/CreateCityOwner"
+	CityAdminService_TransferOwnership_FullMethodName = "/citiesdir.CityAdminService/TransferOwnership"
+	CityAdminService_CreateAdmin_FullMethodName       = "/citiesdir.CityAdminService/CreateAdmin"
+	CityAdminService_UpdateAdmin_FullMethodName       = "/citiesdir.CityAdminService/UpdateAdmin"
+	CityAdminService_DeleteAdmin_FullMethodName       = "/citiesdir.CityAdminService/DeleteAdmin"
+	CityAdminService_ResignAdmin_FullMethodName       = "/citiesdir.CityAdminService/ResignAdmin"
+	CityAdminService_GetAdmin_FullMethodName          = "/citiesdir.CityAdminService/GetAdmin"
+	CityAdminService_ListAdmins_FullMethodName        = "/citiesdir.CityAdminService/ListAdmins"
 )
 
-// CitiesAdminsClient is the client API for CitiesAdmins service.
+// CityAdminServiceClient is the client API for CityAdminService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CitiesAdminsClient interface {
-	// System admin can use this method to create a city admin for any city.
-	CreateCityOwnerAdmin(ctx context.Context, in *CreateCityOwnerAdminRequestMessage, opts ...grpc.CallOption) (*CityAdmin, error)
-	TransferCityOwnership(ctx context.Context, in *TransferCityOwnershipRequestMessage, opts ...grpc.CallOption) (*CityAdmin, error)
-	CreateCityAdmin(ctx context.Context, in *CreateCityAdminRequestMessage, opts ...grpc.CallOption) (*CityAdmin, error)
-	UpdateCityAdmin(ctx context.Context, in *UpdateCityAdminRequestMessage, opts ...grpc.CallOption) (*CityAdmin, error)
-	DeleteCityAdmin(ctx context.Context, in *DeleteCityAdminRequestMessage, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	RefuseCityAdmin(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	GetCityAdmin(ctx context.Context, in *GetCityAdminRequestMessage, opts ...grpc.CallOption) (*CityAdmin, error)
-	ListCityAdminsForCity(ctx context.Context, in *ListCityAdminsForCityRequestMessage, opts ...grpc.CallOption) (*ListCityAdmins, error)
+type CityAdminServiceClient interface {
+	CreateCityOwner(ctx context.Context, in *CreateCityOwnerRequest, opts ...grpc.CallOption) (*CityAdmin, error)
+	TransferOwnership(ctx context.Context, in *TransferOwnershipRequest, opts ...grpc.CallOption) (*CityAdmin, error)
+	CreateAdmin(ctx context.Context, in *CreateAdminRequest, opts ...grpc.CallOption) (*CityAdmin, error)
+	UpdateAdmin(ctx context.Context, in *UpdateAdminRequest, opts ...grpc.CallOption) (*CityAdmin, error)
+	DeleteAdmin(ctx context.Context, in *DeleteAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ResignAdmin(ctx context.Context, in *ResignAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	GetAdmin(ctx context.Context, in *GetAdminRequest, opts ...grpc.CallOption) (*CityAdmin, error)
+	ListAdmins(ctx context.Context, in *ListAdminsRequest, opts ...grpc.CallOption) (*ListCitiesAdmins, error)
 }
 
-type citiesAdminsClient struct {
+type cityAdminServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCitiesAdminsClient(cc grpc.ClientConnInterface) CitiesAdminsClient {
-	return &citiesAdminsClient{cc}
+func NewCityAdminServiceClient(cc grpc.ClientConnInterface) CityAdminServiceClient {
+	return &cityAdminServiceClient{cc}
 }
 
-func (c *citiesAdminsClient) CreateCityOwnerAdmin(ctx context.Context, in *CreateCityOwnerAdminRequestMessage, opts ...grpc.CallOption) (*CityAdmin, error) {
+func (c *cityAdminServiceClient) CreateCityOwner(ctx context.Context, in *CreateCityOwnerRequest, opts ...grpc.CallOption) (*CityAdmin, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CityAdmin)
-	err := c.cc.Invoke(ctx, CitiesAdmins_CreateCityOwnerAdmin_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CityAdminService_CreateCityOwner_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *citiesAdminsClient) TransferCityOwnership(ctx context.Context, in *TransferCityOwnershipRequestMessage, opts ...grpc.CallOption) (*CityAdmin, error) {
+func (c *cityAdminServiceClient) TransferOwnership(ctx context.Context, in *TransferOwnershipRequest, opts ...grpc.CallOption) (*CityAdmin, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CityAdmin)
-	err := c.cc.Invoke(ctx, CitiesAdmins_TransferCityOwnership_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CityAdminService_TransferOwnership_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *citiesAdminsClient) CreateCityAdmin(ctx context.Context, in *CreateCityAdminRequestMessage, opts ...grpc.CallOption) (*CityAdmin, error) {
+func (c *cityAdminServiceClient) CreateAdmin(ctx context.Context, in *CreateAdminRequest, opts ...grpc.CallOption) (*CityAdmin, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CityAdmin)
-	err := c.cc.Invoke(ctx, CitiesAdmins_CreateCityAdmin_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CityAdminService_CreateAdmin_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *citiesAdminsClient) UpdateCityAdmin(ctx context.Context, in *UpdateCityAdminRequestMessage, opts ...grpc.CallOption) (*CityAdmin, error) {
+func (c *cityAdminServiceClient) UpdateAdmin(ctx context.Context, in *UpdateAdminRequest, opts ...grpc.CallOption) (*CityAdmin, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CityAdmin)
-	err := c.cc.Invoke(ctx, CitiesAdmins_UpdateCityAdmin_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CityAdminService_UpdateAdmin_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *citiesAdminsClient) DeleteCityAdmin(ctx context.Context, in *DeleteCityAdminRequestMessage, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *cityAdminServiceClient) DeleteAdmin(ctx context.Context, in *DeleteAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, CitiesAdmins_DeleteCityAdmin_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CityAdminService_DeleteAdmin_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *citiesAdminsClient) RefuseCityAdmin(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *cityAdminServiceClient) ResignAdmin(ctx context.Context, in *ResignAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, CitiesAdmins_RefuseCityAdmin_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CityAdminService_ResignAdmin_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *citiesAdminsClient) GetCityAdmin(ctx context.Context, in *GetCityAdminRequestMessage, opts ...grpc.CallOption) (*CityAdmin, error) {
+func (c *cityAdminServiceClient) GetAdmin(ctx context.Context, in *GetAdminRequest, opts ...grpc.CallOption) (*CityAdmin, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CityAdmin)
-	err := c.cc.Invoke(ctx, CitiesAdmins_GetCityAdmin_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CityAdminService_GetAdmin_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *citiesAdminsClient) ListCityAdminsForCity(ctx context.Context, in *ListCityAdminsForCityRequestMessage, opts ...grpc.CallOption) (*ListCityAdmins, error) {
+func (c *cityAdminServiceClient) ListAdmins(ctx context.Context, in *ListAdminsRequest, opts ...grpc.CallOption) (*ListCitiesAdmins, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListCityAdmins)
-	err := c.cc.Invoke(ctx, CitiesAdmins_ListCityAdminsForCity_FullMethodName, in, out, cOpts...)
+	out := new(ListCitiesAdmins)
+	err := c.cc.Invoke(ctx, CityAdminService_ListAdmins_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CitiesAdminsServer is the server API for CitiesAdmins service.
-// All implementations must embed UnimplementedCitiesAdminsServer
+// CityAdminServiceServer is the server API for CityAdminService service.
+// All implementations must embed UnimplementedCityAdminServiceServer
 // for forward compatibility.
-type CitiesAdminsServer interface {
-	// System admin can use this method to create a city admin for any city.
-	CreateCityOwnerAdmin(context.Context, *CreateCityOwnerAdminRequestMessage) (*CityAdmin, error)
-	TransferCityOwnership(context.Context, *TransferCityOwnershipRequestMessage) (*CityAdmin, error)
-	CreateCityAdmin(context.Context, *CreateCityAdminRequestMessage) (*CityAdmin, error)
-	UpdateCityAdmin(context.Context, *UpdateCityAdminRequestMessage) (*CityAdmin, error)
-	DeleteCityAdmin(context.Context, *DeleteCityAdminRequestMessage) (*emptypb.Empty, error)
-	RefuseCityAdmin(context.Context, *emptypb.Empty) (*emptypb.Empty, error)
-	GetCityAdmin(context.Context, *GetCityAdminRequestMessage) (*CityAdmin, error)
-	ListCityAdminsForCity(context.Context, *ListCityAdminsForCityRequestMessage) (*ListCityAdmins, error)
-	mustEmbedUnimplementedCitiesAdminsServer()
+type CityAdminServiceServer interface {
+	CreateCityOwner(context.Context, *CreateCityOwnerRequest) (*CityAdmin, error)
+	TransferOwnership(context.Context, *TransferOwnershipRequest) (*CityAdmin, error)
+	CreateAdmin(context.Context, *CreateAdminRequest) (*CityAdmin, error)
+	UpdateAdmin(context.Context, *UpdateAdminRequest) (*CityAdmin, error)
+	DeleteAdmin(context.Context, *DeleteAdminRequest) (*emptypb.Empty, error)
+	ResignAdmin(context.Context, *ResignAdminRequest) (*emptypb.Empty, error)
+	GetAdmin(context.Context, *GetAdminRequest) (*CityAdmin, error)
+	ListAdmins(context.Context, *ListAdminsRequest) (*ListCitiesAdmins, error)
+	mustEmbedUnimplementedCityAdminServiceServer()
 }
 
-// UnimplementedCitiesAdminsServer must be embedded to have
+// UnimplementedCityAdminServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedCitiesAdminsServer struct{}
+type UnimplementedCityAdminServiceServer struct{}
 
-func (UnimplementedCitiesAdminsServer) CreateCityOwnerAdmin(context.Context, *CreateCityOwnerAdminRequestMessage) (*CityAdmin, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateCityOwnerAdmin not implemented")
+func (UnimplementedCityAdminServiceServer) CreateCityOwner(context.Context, *CreateCityOwnerRequest) (*CityAdmin, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCityOwner not implemented")
 }
-func (UnimplementedCitiesAdminsServer) TransferCityOwnership(context.Context, *TransferCityOwnershipRequestMessage) (*CityAdmin, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method TransferCityOwnership not implemented")
+func (UnimplementedCityAdminServiceServer) TransferOwnership(context.Context, *TransferOwnershipRequest) (*CityAdmin, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TransferOwnership not implemented")
 }
-func (UnimplementedCitiesAdminsServer) CreateCityAdmin(context.Context, *CreateCityAdminRequestMessage) (*CityAdmin, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateCityAdmin not implemented")
+func (UnimplementedCityAdminServiceServer) CreateAdmin(context.Context, *CreateAdminRequest) (*CityAdmin, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateAdmin not implemented")
 }
-func (UnimplementedCitiesAdminsServer) UpdateCityAdmin(context.Context, *UpdateCityAdminRequestMessage) (*CityAdmin, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityAdmin not implemented")
+func (UnimplementedCityAdminServiceServer) UpdateAdmin(context.Context, *UpdateAdminRequest) (*CityAdmin, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateAdmin not implemented")
 }
-func (UnimplementedCitiesAdminsServer) DeleteCityAdmin(context.Context, *DeleteCityAdminRequestMessage) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteCityAdmin not implemented")
+func (UnimplementedCityAdminServiceServer) DeleteAdmin(context.Context, *DeleteAdminRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteAdmin not implemented")
 }
-func (UnimplementedCitiesAdminsServer) RefuseCityAdmin(context.Context, *emptypb.Empty) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RefuseCityAdmin not implemented")
+func (UnimplementedCityAdminServiceServer) ResignAdmin(context.Context, *ResignAdminRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ResignAdmin not implemented")
 }
-func (UnimplementedCitiesAdminsServer) GetCityAdmin(context.Context, *GetCityAdminRequestMessage) (*CityAdmin, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetCityAdmin not implemented")
+func (UnimplementedCityAdminServiceServer) GetAdmin(context.Context, *GetAdminRequest) (*CityAdmin, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAdmin not implemented")
 }
-func (UnimplementedCitiesAdminsServer) ListCityAdminsForCity(context.Context, *ListCityAdminsForCityRequestMessage) (*ListCityAdmins, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListCityAdminsForCity not implemented")
+func (UnimplementedCityAdminServiceServer) ListAdmins(context.Context, *ListAdminsRequest) (*ListCitiesAdmins, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListAdmins not implemented")
 }
-func (UnimplementedCitiesAdminsServer) mustEmbedUnimplementedCitiesAdminsServer() {}
-func (UnimplementedCitiesAdminsServer) testEmbeddedByValue()                      {}
+func (UnimplementedCityAdminServiceServer) mustEmbedUnimplementedCityAdminServiceServer() {}
+func (UnimplementedCityAdminServiceServer) testEmbeddedByValue()                          {}
 
-// UnsafeCitiesAdminsServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CitiesAdminsServer will
+// UnsafeCityAdminServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CityAdminServiceServer will
 // result in compilation errors.
-type UnsafeCitiesAdminsServer interface {
-	mustEmbedUnimplementedCitiesAdminsServer()
+type UnsafeCityAdminServiceServer interface {
+	mustEmbedUnimplementedCityAdminServiceServer()
 }
 
-func RegisterCitiesAdminsServer(s grpc.ServiceRegistrar, srv CitiesAdminsServer) {
-	// If the following call pancis, it indicates UnimplementedCitiesAdminsServer was
+func RegisterCityAdminServiceServer(s grpc.ServiceRegistrar, srv CityAdminServiceServer) {
+	// If the following call pancis, it indicates UnimplementedCityAdminServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&CitiesAdmins_ServiceDesc, srv)
+	s.RegisterService(&CityAdminService_ServiceDesc, srv)
 }
 
-func _CitiesAdmins_CreateCityOwnerAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCityOwnerAdminRequestMessage)
+func _CityAdminService_CreateCityOwner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCityOwnerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CitiesAdminsServer).CreateCityOwnerAdmin(ctx, in)
+		return srv.(CityAdminServiceServer).CreateCityOwner(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CitiesAdmins_CreateCityOwnerAdmin_FullMethodName,
+		FullMethod: CityAdminService_CreateCityOwner_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesAdminsServer).CreateCityOwnerAdmin(ctx, req.(*CreateCityOwnerAdminRequestMessage))
+		return srv.(CityAdminServiceServer).CreateCityOwner(ctx, req.(*CreateCityOwnerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CitiesAdmins_TransferCityOwnership_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransferCityOwnershipRequestMessage)
+func _CityAdminService_TransferOwnership_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TransferOwnershipRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CitiesAdminsServer).TransferCityOwnership(ctx, in)
+		return srv.(CityAdminServiceServer).TransferOwnership(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CitiesAdmins_TransferCityOwnership_FullMethodName,
+		FullMethod: CityAdminService_TransferOwnership_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesAdminsServer).TransferCityOwnership(ctx, req.(*TransferCityOwnershipRequestMessage))
+		return srv.(CityAdminServiceServer).TransferOwnership(ctx, req.(*TransferOwnershipRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CitiesAdmins_CreateCityAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCityAdminRequestMessage)
+func _CityAdminService_CreateAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateAdminRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CitiesAdminsServer).CreateCityAdmin(ctx, in)
+		return srv.(CityAdminServiceServer).CreateAdmin(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CitiesAdmins_CreateCityAdmin_FullMethodName,
+		FullMethod: CityAdminService_CreateAdmin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesAdminsServer).CreateCityAdmin(ctx, req.(*CreateCityAdminRequestMessage))
+		return srv.(CityAdminServiceServer).CreateAdmin(ctx, req.(*CreateAdminRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CitiesAdmins_UpdateCityAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateCityAdminRequestMessage)
+func _CityAdminService_UpdateAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAdminRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CitiesAdminsServer).UpdateCityAdmin(ctx, in)
+		return srv.(CityAdminServiceServer).UpdateAdmin(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CitiesAdmins_UpdateCityAdmin_FullMethodName,
+		FullMethod: CityAdminService_UpdateAdmin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesAdminsServer).UpdateCityAdmin(ctx, req.(*UpdateCityAdminRequestMessage))
+		return srv.(CityAdminServiceServer).UpdateAdmin(ctx, req.(*UpdateAdminRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CitiesAdmins_DeleteCityAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteCityAdminRequestMessage)
+func _CityAdminService_DeleteAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteAdminRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CitiesAdminsServer).DeleteCityAdmin(ctx, in)
+		return srv.(CityAdminServiceServer).DeleteAdmin(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CitiesAdmins_DeleteCityAdmin_FullMethodName,
+		FullMethod: CityAdminService_DeleteAdmin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesAdminsServer).DeleteCityAdmin(ctx, req.(*DeleteCityAdminRequestMessage))
+		return srv.(CityAdminServiceServer).DeleteAdmin(ctx, req.(*DeleteAdminRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CitiesAdmins_RefuseCityAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(emptypb.Empty)
+func _CityAdminService_ResignAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResignAdminRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CitiesAdminsServer).RefuseCityAdmin(ctx, in)
+		return srv.(CityAdminServiceServer).ResignAdmin(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CitiesAdmins_RefuseCityAdmin_FullMethodName,
+		FullMethod: CityAdminService_ResignAdmin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesAdminsServer).RefuseCityAdmin(ctx, req.(*emptypb.Empty))
+		return srv.(CityAdminServiceServer).ResignAdmin(ctx, req.(*ResignAdminRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CitiesAdmins_GetCityAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCityAdminRequestMessage)
+func _CityAdminService_GetAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdminRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CitiesAdminsServer).GetCityAdmin(ctx, in)
+		return srv.(CityAdminServiceServer).GetAdmin(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CitiesAdmins_GetCityAdmin_FullMethodName,
+		FullMethod: CityAdminService_GetAdmin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesAdminsServer).GetCityAdmin(ctx, req.(*GetCityAdminRequestMessage))
+		return srv.(CityAdminServiceServer).GetAdmin(ctx, req.(*GetAdminRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CitiesAdmins_ListCityAdminsForCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListCityAdminsForCityRequestMessage)
+func _CityAdminService_ListAdmins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListAdminsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CitiesAdminsServer).ListCityAdminsForCity(ctx, in)
+		return srv.(CityAdminServiceServer).ListAdmins(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CitiesAdmins_ListCityAdminsForCity_FullMethodName,
+		FullMethod: CityAdminService_ListAdmins_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CitiesAdminsServer).ListCityAdminsForCity(ctx, req.(*ListCityAdminsForCityRequestMessage))
+		return srv.(CityAdminServiceServer).ListAdmins(ctx, req.(*ListAdminsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// CitiesAdmins_ServiceDesc is the grpc.ServiceDesc for CitiesAdmins service.
+// CityAdminService_ServiceDesc is the grpc.ServiceDesc for CityAdminService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CitiesAdmins_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "citiesdir.CitiesAdmins",
-	HandlerType: (*CitiesAdminsServer)(nil),
+var CityAdminService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "citiesdir.CityAdminService",
+	HandlerType: (*CityAdminServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CreateCityOwnerAdmin",
-			Handler:    _CitiesAdmins_CreateCityOwnerAdmin_Handler,
+			MethodName: "CreateCityOwner",
+			Handler:    _CityAdminService_CreateCityOwner_Handler,
 		},
 		{
-			MethodName: "TransferCityOwnership",
-			Handler:    _CitiesAdmins_TransferCityOwnership_Handler,
+			MethodName: "TransferOwnership",
+			Handler:    _CityAdminService_TransferOwnership_Handler,
 		},
 		{
-			MethodName: "CreateCityAdmin",
-			Handler:    _CitiesAdmins_CreateCityAdmin_Handler,
+			MethodName: "CreateAdmin",
+			Handler:    _CityAdminService_CreateAdmin_Handler,
 		},
 		{
-			MethodName: "UpdateCityAdmin",
-			Handler:    _CitiesAdmins_UpdateCityAdmin_Handler,
+			MethodName: "UpdateAdmin",
+			Handler:    _CityAdminService_UpdateAdmin_Handler,
 		},
 		{
-			MethodName: "DeleteCityAdmin",
-			Handler:    _CitiesAdmins_DeleteCityAdmin_Handler,
+			MethodName: "DeleteAdmin",
+			Handler:    _CityAdminService_DeleteAdmin_Handler,
 		},
 		{
-			MethodName: "RefuseCityAdmin",
-			Handler:    _CitiesAdmins_RefuseCityAdmin_Handler,
+			MethodName: "ResignAdmin",
+			Handler:    _CityAdminService_ResignAdmin_Handler,
 		},
 		{
-			MethodName: "GetCityAdmin",
-			Handler:    _CitiesAdmins_GetCityAdmin_Handler,
+			MethodName: "GetAdmin",
+			Handler:    _CityAdminService_GetAdmin_Handler,
 		},
 		{
-			MethodName: "ListCityAdminsForCity",
-			Handler:    _CitiesAdmins_ListCityAdminsForCity_Handler,
+			MethodName: "ListAdmins",
+			Handler:    _CityAdminService_ListAdmins_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

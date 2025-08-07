@@ -9,6 +9,7 @@ package svc
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -21,7 +22,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type CreateCityRequestMessage struct {
+type CreateCityRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	CountryId     string                 `protobuf:"bytes,2,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
@@ -30,20 +31,20 @@ type CreateCityRequestMessage struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CreateCityRequestMessage) Reset() {
-	*x = CreateCityRequestMessage{}
+func (x *CreateCityRequest) Reset() {
+	*x = CreateCityRequest{}
 	mi := &file_cities_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CreateCityRequestMessage) String() string {
+func (x *CreateCityRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CreateCityRequestMessage) ProtoMessage() {}
+func (*CreateCityRequest) ProtoMessage() {}
 
-func (x *CreateCityRequestMessage) ProtoReflect() protoreflect.Message {
+func (x *CreateCityRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_cities_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -55,53 +56,53 @@ func (x *CreateCityRequestMessage) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CreateCityRequestMessage.ProtoReflect.Descriptor instead.
-func (*CreateCityRequestMessage) Descriptor() ([]byte, []int) {
+// Deprecated: Use CreateCityRequest.ProtoReflect.Descriptor instead.
+func (*CreateCityRequest) Descriptor() ([]byte, []int) {
 	return file_cities_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CreateCityRequestMessage) GetName() string {
+func (x *CreateCityRequest) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-func (x *CreateCityRequestMessage) GetCountryId() string {
+func (x *CreateCityRequest) GetCountryId() string {
 	if x != nil {
 		return x.CountryId
 	}
 	return ""
 }
 
-func (x *CreateCityRequestMessage) GetStatus() string {
+func (x *CreateCityRequest) GetStatus() string {
 	if x != nil {
 		return x.Status
 	}
 	return ""
 }
 
-type DeleteCityRequestMessage struct {
+type GetCityRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *DeleteCityRequestMessage) Reset() {
-	*x = DeleteCityRequestMessage{}
+func (x *GetCityRequest) Reset() {
+	*x = GetCityRequest{}
 	mi := &file_cities_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *DeleteCityRequestMessage) String() string {
+func (x *GetCityRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DeleteCityRequestMessage) ProtoMessage() {}
+func (*GetCityRequest) ProtoMessage() {}
 
-func (x *DeleteCityRequestMessage) ProtoReflect() protoreflect.Message {
+func (x *GetCityRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_cities_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -113,39 +114,39 @@ func (x *DeleteCityRequestMessage) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DeleteCityRequestMessage.ProtoReflect.Descriptor instead.
-func (*DeleteCityRequestMessage) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetCityRequest.ProtoReflect.Descriptor instead.
+func (*GetCityRequest) Descriptor() ([]byte, []int) {
 	return file_cities_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *DeleteCityRequestMessage) GetId() string {
+func (x *GetCityRequest) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-type GetCityByIdRequestMessage struct {
+type DeleteCityRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetCityByIdRequestMessage) Reset() {
-	*x = GetCityByIdRequestMessage{}
+func (x *DeleteCityRequest) Reset() {
+	*x = DeleteCityRequest{}
 	mi := &file_cities_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetCityByIdRequestMessage) String() string {
+func (x *DeleteCityRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCityByIdRequestMessage) ProtoMessage() {}
+func (*DeleteCityRequest) ProtoMessage() {}
 
-func (x *GetCityByIdRequestMessage) ProtoReflect() protoreflect.Message {
+func (x *DeleteCityRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_cities_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -157,42 +158,42 @@ func (x *GetCityByIdRequestMessage) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCityByIdRequestMessage.ProtoReflect.Descriptor instead.
-func (*GetCityByIdRequestMessage) Descriptor() ([]byte, []int) {
+// Deprecated: Use DeleteCityRequest.ProtoReflect.Descriptor instead.
+func (*DeleteCityRequest) Descriptor() ([]byte, []int) {
 	return file_cities_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *GetCityByIdRequestMessage) GetId() string {
+func (x *DeleteCityRequest) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-type SearchCitiesRequestMessage struct {
+type SearchCitiesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	NameLike      *string                `protobuf:"bytes,1,opt,name=name_like,json=nameLike,proto3,oneof" json:"name_like,omitempty"`
-	CountryId     *string                `protobuf:"bytes,2,opt,name=country_id,json=countryId,proto3,oneof" json:"country_id,omitempty"`
-	Status        *string                `protobuf:"bytes,3,opt,name=status,proto3,oneof" json:"status,omitempty"`
+	NameLike      string                 `protobuf:"bytes,1,opt,name=name_like,json=nameLike,proto3" json:"name_like,omitempty"`
+	CountryId     string                 `protobuf:"bytes,2,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
+	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
 	Pagination    *PaginationRequest     `protobuf:"bytes,4,opt,name=pagination,proto3" json:"pagination,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SearchCitiesRequestMessage) Reset() {
-	*x = SearchCitiesRequestMessage{}
+func (x *SearchCitiesRequest) Reset() {
+	*x = SearchCitiesRequest{}
 	mi := &file_cities_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SearchCitiesRequestMessage) String() string {
+func (x *SearchCitiesRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SearchCitiesRequestMessage) ProtoMessage() {}
+func (*SearchCitiesRequest) ProtoMessage() {}
 
-func (x *SearchCitiesRequestMessage) ProtoReflect() protoreflect.Message {
+func (x *SearchCitiesRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_cities_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -204,40 +205,40 @@ func (x *SearchCitiesRequestMessage) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SearchCitiesRequestMessage.ProtoReflect.Descriptor instead.
-func (*SearchCitiesRequestMessage) Descriptor() ([]byte, []int) {
+// Deprecated: Use SearchCitiesRequest.ProtoReflect.Descriptor instead.
+func (*SearchCitiesRequest) Descriptor() ([]byte, []int) {
 	return file_cities_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *SearchCitiesRequestMessage) GetNameLike() string {
-	if x != nil && x.NameLike != nil {
-		return *x.NameLike
+func (x *SearchCitiesRequest) GetNameLike() string {
+	if x != nil {
+		return x.NameLike
 	}
 	return ""
 }
 
-func (x *SearchCitiesRequestMessage) GetCountryId() string {
-	if x != nil && x.CountryId != nil {
-		return *x.CountryId
+func (x *SearchCitiesRequest) GetCountryId() string {
+	if x != nil {
+		return x.CountryId
 	}
 	return ""
 }
 
-func (x *SearchCitiesRequestMessage) GetStatus() string {
-	if x != nil && x.Status != nil {
-		return *x.Status
+func (x *SearchCitiesRequest) GetStatus() string {
+	if x != nil {
+		return x.Status
 	}
 	return ""
 }
 
-func (x *SearchCitiesRequestMessage) GetPagination() *PaginationRequest {
+func (x *SearchCitiesRequest) GetPagination() *PaginationRequest {
 	if x != nil {
 		return x.Pagination
 	}
 	return nil
 }
 
-type UpdateCityStatusRequestMessage struct {
+type UpdateCityStatusRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Status        string                 `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
@@ -245,20 +246,20 @@ type UpdateCityStatusRequestMessage struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UpdateCityStatusRequestMessage) Reset() {
-	*x = UpdateCityStatusRequestMessage{}
+func (x *UpdateCityStatusRequest) Reset() {
+	*x = UpdateCityStatusRequest{}
 	mi := &file_cities_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UpdateCityStatusRequestMessage) String() string {
+func (x *UpdateCityStatusRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UpdateCityStatusRequestMessage) ProtoMessage() {}
+func (*UpdateCityStatusRequest) ProtoMessage() {}
 
-func (x *UpdateCityStatusRequestMessage) ProtoReflect() protoreflect.Message {
+func (x *UpdateCityStatusRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_cities_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -270,26 +271,26 @@ func (x *UpdateCityStatusRequestMessage) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UpdateCityStatusRequestMessage.ProtoReflect.Descriptor instead.
-func (*UpdateCityStatusRequestMessage) Descriptor() ([]byte, []int) {
+// Deprecated: Use UpdateCityStatusRequest.ProtoReflect.Descriptor instead.
+func (*UpdateCityStatusRequest) Descriptor() ([]byte, []int) {
 	return file_cities_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *UpdateCityStatusRequestMessage) GetId() string {
+func (x *UpdateCityStatusRequest) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-func (x *UpdateCityStatusRequestMessage) GetStatus() string {
+func (x *UpdateCityStatusRequest) GetStatus() string {
 	if x != nil {
 		return x.Status
 	}
 	return ""
 }
 
-type UpdateCityNameRequestMessage struct {
+type UpdateCityNameRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
@@ -297,20 +298,20 @@ type UpdateCityNameRequestMessage struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UpdateCityNameRequestMessage) Reset() {
-	*x = UpdateCityNameRequestMessage{}
+func (x *UpdateCityNameRequest) Reset() {
+	*x = UpdateCityNameRequest{}
 	mi := &file_cities_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UpdateCityNameRequestMessage) String() string {
+func (x *UpdateCityNameRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UpdateCityNameRequestMessage) ProtoMessage() {}
+func (*UpdateCityNameRequest) ProtoMessage() {}
 
-func (x *UpdateCityNameRequestMessage) ProtoReflect() protoreflect.Message {
+func (x *UpdateCityNameRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_cities_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -322,19 +323,19 @@ func (x *UpdateCityNameRequestMessage) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UpdateCityNameRequestMessage.ProtoReflect.Descriptor instead.
-func (*UpdateCityNameRequestMessage) Descriptor() ([]byte, []int) {
+// Deprecated: Use UpdateCityNameRequest.ProtoReflect.Descriptor instead.
+func (*UpdateCityNameRequest) Descriptor() ([]byte, []int) {
 	return file_cities_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *UpdateCityNameRequestMessage) GetId() string {
+func (x *UpdateCityNameRequest) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-func (x *UpdateCityNameRequestMessage) GetName() string {
+func (x *UpdateCityNameRequest) GetName() string {
 	if x != nil {
 		return x.Name
 	}
@@ -409,7 +410,7 @@ func (x *City) GetStatus() string {
 	return ""
 }
 
-type ListCities struct {
+type CitiesList struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Cities        []*City                `protobuf:"bytes,1,rep,name=cities,proto3" json:"cities,omitempty"`
 	Pagination    *PaginationResponse    `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
@@ -417,20 +418,20 @@ type ListCities struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ListCities) Reset() {
-	*x = ListCities{}
+func (x *CitiesList) Reset() {
+	*x = CitiesList{}
 	mi := &file_cities_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ListCities) String() string {
+func (x *CitiesList) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ListCities) ProtoMessage() {}
+func (*CitiesList) ProtoMessage() {}
 
-func (x *ListCities) ProtoReflect() protoreflect.Message {
+func (x *CitiesList) ProtoReflect() protoreflect.Message {
 	mi := &file_cities_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -442,19 +443,19 @@ func (x *ListCities) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ListCities.ProtoReflect.Descriptor instead.
-func (*ListCities) Descriptor() ([]byte, []int) {
+// Deprecated: Use CitiesList.ProtoReflect.Descriptor instead.
+func (*CitiesList) Descriptor() ([]byte, []int) {
 	return file_cities_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *ListCities) GetCities() []*City {
+func (x *CitiesList) GetCities() []*City {
 	if x != nil {
 		return x.Cities
 	}
 	return nil
 }
 
-func (x *ListCities) GetPagination() *PaginationResponse {
+func (x *CitiesList) GetPagination() *PaginationResponse {
 	if x != nil {
 		return x.Pagination
 	}
@@ -465,32 +466,28 @@ var File_cities_proto protoreflect.FileDescriptor
 
 const file_cities_proto_rawDesc = "" +
 	"\n" +
-	"\fcities.proto\x12\tcitiesdir\x1a\fcommon.proto\"e\n" +
-	"\x18CreateCityRequestMessage\x12\x12\n" +
+	"\fcities.proto\x12\tcitiesdir\x1a\x1bgoogle/protobuf/empty.proto\x1a\fcommon.proto\"^\n" +
+	"\x11CreateCityRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n" +
 	"\n" +
 	"country_id\x18\x02 \x01(\tR\tcountryId\x12\x16\n" +
-	"\x06status\x18\x03 \x01(\tR\x06status\"*\n" +
-	"\x18DeleteCityRequestMessage\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"+\n" +
-	"\x19GetCityByIdRequestMessage\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"\xe5\x01\n" +
-	"\x1aSearchCitiesRequestMessage\x12 \n" +
-	"\tname_like\x18\x01 \x01(\tH\x00R\bnameLike\x88\x01\x01\x12\"\n" +
+	"\x06status\x18\x03 \x01(\tR\x06status\" \n" +
+	"\x0eGetCityRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"#\n" +
+	"\x11DeleteCityRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"\xa7\x01\n" +
+	"\x13SearchCitiesRequest\x12\x1b\n" +
+	"\tname_like\x18\x01 \x01(\tR\bnameLike\x12\x1d\n" +
 	"\n" +
-	"country_id\x18\x02 \x01(\tH\x01R\tcountryId\x88\x01\x01\x12\x1b\n" +
-	"\x06status\x18\x03 \x01(\tH\x02R\x06status\x88\x01\x01\x12<\n" +
+	"country_id\x18\x02 \x01(\tR\tcountryId\x12\x16\n" +
+	"\x06status\x18\x03 \x01(\tR\x06status\x12<\n" +
 	"\n" +
 	"pagination\x18\x04 \x01(\v2\x1c.citiesdir.PaginationRequestR\n" +
-	"paginationB\f\n" +
-	"\n" +
-	"_name_likeB\r\n" +
-	"\v_country_idB\t\n" +
-	"\a_status\"H\n" +
-	"\x1eUpdateCityStatusRequestMessage\x12\x0e\n" +
+	"pagination\"A\n" +
+	"\x17UpdateCityStatusRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x16\n" +
-	"\x06status\x18\x02 \x01(\tR\x06status\"B\n" +
-	"\x1cUpdateCityNameRequestMessage\x12\x0e\n" +
+	"\x06status\x18\x02 \x01(\tR\x06status\";\n" +
+	"\x15UpdateCityNameRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\"a\n" +
 	"\x04City\x12\x0e\n" +
@@ -500,19 +497,21 @@ const file_cities_proto_rawDesc = "" +
 	"country_id\x18\x03 \x01(\tR\tcountryId\x12\x16\n" +
 	"\x06status\x18\x04 \x01(\tR\x06status\"t\n" +
 	"\n" +
-	"ListCities\x12'\n" +
+	"CitiesList\x12'\n" +
 	"\x06cities\x18\x01 \x03(\v2\x0f.citiesdir.CityR\x06cities\x12=\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x1d.citiesdir.PaginationResponseR\n" +
-	"pagination2\xd6\x03\n" +
-	"\x06Cities\x12B\n" +
+	"pagination2\xeb\x03\n" +
+	"\vCityService\x12;\n" +
 	"\n" +
-	"CreateCity\x12#.citiesdir.CreateCityRequestMessage\x1a\x0f.citiesdir.City\x12D\n" +
-	"\vGetCityById\x12$.citiesdir.GetCityByIdRequestMessage\x1a\x0f.citiesdir.City\x12L\n" +
-	"\fSearchCities\x12%.citiesdir.SearchCitiesRequestMessage\x1a\x15.citiesdir.ListCities\x12N\n" +
-	"\x10UpdateCityStatus\x12).citiesdir.UpdateCityStatusRequestMessage\x1a\x0f.citiesdir.City\x12J\n" +
-	"\x0eUpdateCityName\x12'.citiesdir.UpdateCityNameRequestMessage\x1a\x0f.citiesdir.City\x12X\n" +
-	"\x1aUpdateCityStatusBySysAdmin\x12).citiesdir.UpdateCityStatusRequestMessage\x1a\x0f.citiesdir.CityB7Z5github.com/chains-lab/cities-dir-proto/gen/go/svc;svcb\x06proto3"
+	"CreateCity\x12\x1c.citiesdir.CreateCityRequest\x1a\x0f.citiesdir.City\x125\n" +
+	"\aGetCity\x12\x19.citiesdir.GetCityRequest\x1a\x0f.citiesdir.City\x12E\n" +
+	"\fSearchCities\x12\x1e.citiesdir.SearchCitiesRequest\x1a\x15.citiesdir.CitiesList\x12G\n" +
+	"\x10UpdateCityStatus\x12\".citiesdir.UpdateCityStatusRequest\x1a\x0f.citiesdir.City\x12C\n" +
+	"\x0eUpdateCityName\x12 .citiesdir.UpdateCityNameRequest\x1a\x0f.citiesdir.City\x12O\n" +
+	"\x18SysAdminUpdateCityStatus\x12\".citiesdir.UpdateCityStatusRequest\x1a\x0f.citiesdir.City\x12B\n" +
+	"\n" +
+	"DeleteCity\x12\x1c.citiesdir.DeleteCityRequest\x1a\x16.google.protobuf.EmptyB7Z5github.com/chains-lab/cities-dir-proto/gen/go/svc;svcb\x06proto3"
 
 var (
 	file_cities_proto_rawDescOnce sync.Once
@@ -528,38 +527,41 @@ func file_cities_proto_rawDescGZIP() []byte {
 
 var file_cities_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_cities_proto_goTypes = []any{
-	(*CreateCityRequestMessage)(nil),       // 0: citiesdir.CreateCityRequestMessage
-	(*DeleteCityRequestMessage)(nil),       // 1: citiesdir.DeleteCityRequestMessage
-	(*GetCityByIdRequestMessage)(nil),      // 2: citiesdir.GetCityByIdRequestMessage
-	(*SearchCitiesRequestMessage)(nil),     // 3: citiesdir.SearchCitiesRequestMessage
-	(*UpdateCityStatusRequestMessage)(nil), // 4: citiesdir.UpdateCityStatusRequestMessage
-	(*UpdateCityNameRequestMessage)(nil),   // 5: citiesdir.UpdateCityNameRequestMessage
-	(*City)(nil),                           // 6: citiesdir.City
-	(*ListCities)(nil),                     // 7: citiesdir.ListCities
-	(*PaginationRequest)(nil),              // 8: citiesdir.PaginationRequest
-	(*PaginationResponse)(nil),             // 9: citiesdir.PaginationResponse
+	(*CreateCityRequest)(nil),       // 0: citiesdir.CreateCityRequest
+	(*GetCityRequest)(nil),          // 1: citiesdir.GetCityRequest
+	(*DeleteCityRequest)(nil),       // 2: citiesdir.DeleteCityRequest
+	(*SearchCitiesRequest)(nil),     // 3: citiesdir.SearchCitiesRequest
+	(*UpdateCityStatusRequest)(nil), // 4: citiesdir.UpdateCityStatusRequest
+	(*UpdateCityNameRequest)(nil),   // 5: citiesdir.UpdateCityNameRequest
+	(*City)(nil),                    // 6: citiesdir.City
+	(*CitiesList)(nil),              // 7: citiesdir.CitiesList
+	(*PaginationRequest)(nil),       // 8: citiesdir.PaginationRequest
+	(*PaginationResponse)(nil),      // 9: citiesdir.PaginationResponse
+	(*emptypb.Empty)(nil),           // 10: google.protobuf.Empty
 }
 var file_cities_proto_depIdxs = []int32{
-	8, // 0: citiesdir.SearchCitiesRequestMessage.pagination:type_name -> citiesdir.PaginationRequest
-	6, // 1: citiesdir.ListCities.cities:type_name -> citiesdir.City
-	9, // 2: citiesdir.ListCities.pagination:type_name -> citiesdir.PaginationResponse
-	0, // 3: citiesdir.Cities.CreateCity:input_type -> citiesdir.CreateCityRequestMessage
-	2, // 4: citiesdir.Cities.GetCityById:input_type -> citiesdir.GetCityByIdRequestMessage
-	3, // 5: citiesdir.Cities.SearchCities:input_type -> citiesdir.SearchCitiesRequestMessage
-	4, // 6: citiesdir.Cities.UpdateCityStatus:input_type -> citiesdir.UpdateCityStatusRequestMessage
-	5, // 7: citiesdir.Cities.UpdateCityName:input_type -> citiesdir.UpdateCityNameRequestMessage
-	4, // 8: citiesdir.Cities.UpdateCityStatusBySysAdmin:input_type -> citiesdir.UpdateCityStatusRequestMessage
-	6, // 9: citiesdir.Cities.CreateCity:output_type -> citiesdir.City
-	6, // 10: citiesdir.Cities.GetCityById:output_type -> citiesdir.City
-	7, // 11: citiesdir.Cities.SearchCities:output_type -> citiesdir.ListCities
-	6, // 12: citiesdir.Cities.UpdateCityStatus:output_type -> citiesdir.City
-	6, // 13: citiesdir.Cities.UpdateCityName:output_type -> citiesdir.City
-	6, // 14: citiesdir.Cities.UpdateCityStatusBySysAdmin:output_type -> citiesdir.City
-	9, // [9:15] is the sub-list for method output_type
-	3, // [3:9] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	8,  // 0: citiesdir.SearchCitiesRequest.pagination:type_name -> citiesdir.PaginationRequest
+	6,  // 1: citiesdir.CitiesList.cities:type_name -> citiesdir.City
+	9,  // 2: citiesdir.CitiesList.pagination:type_name -> citiesdir.PaginationResponse
+	0,  // 3: citiesdir.CityService.CreateCity:input_type -> citiesdir.CreateCityRequest
+	1,  // 4: citiesdir.CityService.GetCity:input_type -> citiesdir.GetCityRequest
+	3,  // 5: citiesdir.CityService.SearchCities:input_type -> citiesdir.SearchCitiesRequest
+	4,  // 6: citiesdir.CityService.UpdateCityStatus:input_type -> citiesdir.UpdateCityStatusRequest
+	5,  // 7: citiesdir.CityService.UpdateCityName:input_type -> citiesdir.UpdateCityNameRequest
+	4,  // 8: citiesdir.CityService.SysAdminUpdateCityStatus:input_type -> citiesdir.UpdateCityStatusRequest
+	2,  // 9: citiesdir.CityService.DeleteCity:input_type -> citiesdir.DeleteCityRequest
+	6,  // 10: citiesdir.CityService.CreateCity:output_type -> citiesdir.City
+	6,  // 11: citiesdir.CityService.GetCity:output_type -> citiesdir.City
+	7,  // 12: citiesdir.CityService.SearchCities:output_type -> citiesdir.CitiesList
+	6,  // 13: citiesdir.CityService.UpdateCityStatus:output_type -> citiesdir.City
+	6,  // 14: citiesdir.CityService.UpdateCityName:output_type -> citiesdir.City
+	6,  // 15: citiesdir.CityService.SysAdminUpdateCityStatus:output_type -> citiesdir.City
+	10, // 16: citiesdir.CityService.DeleteCity:output_type -> google.protobuf.Empty
+	10, // [10:17] is the sub-list for method output_type
+	3,  // [3:10] is the sub-list for method input_type
+	3,  // [3:3] is the sub-list for extension type_name
+	3,  // [3:3] is the sub-list for extension extendee
+	0,  // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_cities_proto_init() }
@@ -568,7 +570,6 @@ func file_cities_proto_init() {
 		return
 	}
 	file_common_proto_init()
-	file_cities_proto_msgTypes[3].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

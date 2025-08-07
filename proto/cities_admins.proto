@@ -6,66 +6,76 @@ option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc;svc";
 import "google/protobuf/empty.proto";
 import "common.proto";
 
-service CitiesAdmins {
-  // System admin can use this method to create a city admin for any city.
-  rpc CreateCityOwnerAdmin (CreateCityOwnerAdminRequestMessage) returns (CityAdmin);
-  rpc TransferCityOwnership (TransferCityOwnershipRequestMessage) returns (CityAdmin);
+service CityAdminService {
+  rpc CreateCityOwner (CreateCityOwnerRequest) returns (CityAdmin);
+  rpc TransferOwnership (TransferOwnershipRequest) returns (CityAdmin);
 
-  rpc CreateCityAdmin (CreateCityAdminRequestMessage) returns (CityAdmin);
-  rpc UpdateCityAdmin (UpdateCityAdminRequestMessage) returns (CityAdmin);
-  rpc DeleteCityAdmin (DeleteCityAdminRequestMessage) returns (google.protobuf.Empty);
-  rpc RefuseCityAdmin (google.protobuf.Empty) returns (google.protobuf.Empty);
+  rpc CreateAdmin (CreateAdminRequest)     returns (CityAdmin);
+  rpc UpdateAdmin (UpdateAdminRequest)     returns (CityAdmin);
+  rpc DeleteAdmin (DeleteAdminRequest)     returns (google.protobuf.Empty);
+  rpc ResignAdmin (ResignAdminRequest)     returns (google.protobuf.Empty);
 
-  rpc GetCityAdmin(GetCityAdminRequestMessage) returns (CityAdmin);
-  rpc ListCityAdminsForCity(ListCityAdminsForCityRequestMessage) returns (ListCityAdmins);
+  rpc GetAdmin     (GetAdminRequest)        returns (CityAdmin);
+  rpc ListAdmins   (ListAdminsRequest)      returns (ListCitiesAdmins);
 }
 
-// REQUESTS
+// --------------------
+// ---- REQUESTS -----
+// --------------------
 
-message CreateCityOwnerAdminRequestMessage {
+message CreateCityOwnerRequest {
   string city_id = 1;
   string user_id = 2;
 }
 
-message TransferCityOwnershipRequestMessage {
-  string city_id = 1;
-  string new_owner_user_id = 2;
+message TransferOwnershipRequest {
+  string city_id        = 1;
+  string new_owner_id   = 2;
 }
 
-message CreateCityAdminRequestMessage {
+message CreateAdminRequest {
   string city_id = 1;
   string user_id = 2;
-  string role = 3;
+  string role    = 3;
 }
 
-message UpdateCityAdminRequestMessage {
-  string user_id = 1;
-  string role = 2;
+message UpdateAdminRequest {
+  string city_id = 1;
+  string user_id = 2;
+  string role    = 3;
 }
 
-message DeleteCityAdminRequestMessage{
-  string user_id = 1;
-}
-
-message GetCityAdminRequestMessage {
+message DeleteAdminRequest {
   string city_id = 1;
   string user_id = 2;
 }
 
-message ListCityAdminsForCityRequestMessage {
+message ResignAdminRequest {
+  string city_id = 1;
+  string user_id = 2;
+}
+
+message GetAdminRequest {
+  string city_id = 1;
+  string user_id = 2;
+}
+
+message ListAdminsRequest {
   string city_id = 1;
   PaginationRequest pagination = 2;
 }
 
-// RESPONSES
+// --------------------
+// ---- RESPONSES ----
+// --------------------
 
 message CityAdmin {
   string city_id = 1;
   string user_id = 2;
-  string role = 3;
+  string role    = 3;
 }
 
-message ListCityAdmins {
-  repeated CityAdmin city_admins = 1;
+message ListCitiesAdmins {
+  repeated CityAdmin admins     = 1;
   PaginationResponse pagination = 2;
 }

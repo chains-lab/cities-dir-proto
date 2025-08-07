@@ -3,65 +3,61 @@ package citiesdir;
 
 option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc;svc";
 
-//import "google/protobuf/empty.proto";
+import "google/protobuf/empty.proto";
 import "common.proto";
 
-service Cities {
-  rpc CreateCity (CreateCityRequestMessage) returns (City);
+service CityService {
+  rpc CreateCity(CreateCityRequest)    returns (City);
+  rpc GetCity(GetCityRequest)          returns (City);
+  rpc SearchCities(SearchCitiesRequest) returns (CitiesList);
+  rpc UpdateCityStatus(UpdateCityStatusRequest) returns (City);
+  rpc UpdateCityName(UpdateCityNameRequest)     returns (City);
 
-  rpc GetCityById(GetCityByIdRequestMessage) returns (City);
+  rpc SysAdminUpdateCityStatus(UpdateCityStatusRequest) returns (City);
 
-  rpc SearchCities(SearchCitiesRequestMessage) returns (ListCities);
-
-  rpc UpdateCityStatus (UpdateCityStatusRequestMessage) returns (City);
-  rpc UpdateCityName (UpdateCityNameRequestMessage) returns (City);
-
-  rpc UpdateCityStatusBySysAdmin (UpdateCityStatusRequestMessage) returns (City);
+  rpc DeleteCity(DeleteCityRequest)    returns (google.protobuf.Empty);
 }
-
 // REQUESTS
 
-message CreateCityRequestMessage {
-  string name = 1;
+message CreateCityRequest {
+  string name       = 1;
   string country_id = 2;
-  string status = 3;
+  string status     = 3;
 }
 
-message DeleteCityRequestMessage {
+message GetCityRequest {
   string id = 1;
 }
 
-message GetCityByIdRequestMessage {
+message DeleteCityRequest {
   string id = 1;
 }
 
-message SearchCitiesRequestMessage {
-  optional string name_like = 1;
-  optional string country_id = 2;
-  optional string status = 3;
+message SearchCitiesRequest {
+  string name_like  = 1;
+  string country_id = 2;
+  string status     = 3;
   PaginationRequest pagination = 4;
 }
 
-message UpdateCityStatusRequestMessage {
-  string id = 1;
+message UpdateCityStatusRequest {
+  string id     = 1;
   string status = 2;
 }
 
-message UpdateCityNameRequestMessage {
-  string id = 1;
+message UpdateCityNameRequest {
+  string id   = 1;
   string name = 2;
 }
-
-// RESPONSES
 
 message City {
-  string id = 1;
-  string name = 2;
+  string id         = 1;
+  string name       = 2;
   string country_id = 3;
-  string status = 4;
+  string status     = 4;
 }
 
-message ListCities {
-  repeated City cities = 1;
+message CitiesList {
+  repeated City cities     = 1;
   PaginationResponse pagination = 2;
 }

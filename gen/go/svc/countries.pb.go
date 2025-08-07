@@ -22,7 +22,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type CreateCountryBySysAdminRequestMessage struct {
+type CreateCountryRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	Status        string                 `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
@@ -30,20 +30,20 @@ type CreateCountryBySysAdminRequestMessage struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CreateCountryBySysAdminRequestMessage) Reset() {
-	*x = CreateCountryBySysAdminRequestMessage{}
+func (x *CreateCountryRequest) Reset() {
+	*x = CreateCountryRequest{}
 	mi := &file_countries_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CreateCountryBySysAdminRequestMessage) String() string {
+func (x *CreateCountryRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CreateCountryBySysAdminRequestMessage) ProtoMessage() {}
+func (*CreateCountryRequest) ProtoMessage() {}
 
-func (x *CreateCountryBySysAdminRequestMessage) ProtoReflect() protoreflect.Message {
+func (x *CreateCountryRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_countries_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -55,26 +55,26 @@ func (x *CreateCountryBySysAdminRequestMessage) ProtoReflect() protoreflect.Mess
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CreateCountryBySysAdminRequestMessage.ProtoReflect.Descriptor instead.
-func (*CreateCountryBySysAdminRequestMessage) Descriptor() ([]byte, []int) {
+// Deprecated: Use CreateCountryRequest.ProtoReflect.Descriptor instead.
+func (*CreateCountryRequest) Descriptor() ([]byte, []int) {
 	return file_countries_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CreateCountryBySysAdminRequestMessage) GetName() string {
+func (x *CreateCountryRequest) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-func (x *CreateCountryBySysAdminRequestMessage) GetStatus() string {
+func (x *CreateCountryRequest) GetStatus() string {
 	if x != nil {
 		return x.Status
 	}
 	return ""
 }
 
-type UpdateCountryBySysAdminRequestMessage struct {
+type UpdateCountryRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
@@ -82,20 +82,20 @@ type UpdateCountryBySysAdminRequestMessage struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UpdateCountryBySysAdminRequestMessage) Reset() {
-	*x = UpdateCountryBySysAdminRequestMessage{}
+func (x *UpdateCountryRequest) Reset() {
+	*x = UpdateCountryRequest{}
 	mi := &file_countries_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UpdateCountryBySysAdminRequestMessage) String() string {
+func (x *UpdateCountryRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UpdateCountryBySysAdminRequestMessage) ProtoMessage() {}
+func (*UpdateCountryRequest) ProtoMessage() {}
 
-func (x *UpdateCountryBySysAdminRequestMessage) ProtoReflect() protoreflect.Message {
+func (x *UpdateCountryRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_countries_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -107,46 +107,46 @@ func (x *UpdateCountryBySysAdminRequestMessage) ProtoReflect() protoreflect.Mess
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UpdateCountryBySysAdminRequestMessage.ProtoReflect.Descriptor instead.
-func (*UpdateCountryBySysAdminRequestMessage) Descriptor() ([]byte, []int) {
+// Deprecated: Use UpdateCountryRequest.ProtoReflect.Descriptor instead.
+func (*UpdateCountryRequest) Descriptor() ([]byte, []int) {
 	return file_countries_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *UpdateCountryBySysAdminRequestMessage) GetId() string {
+func (x *UpdateCountryRequest) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-func (x *UpdateCountryBySysAdminRequestMessage) GetName() string {
+func (x *UpdateCountryRequest) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-type DeleteCountryBySysAdminRequestMessage struct {
+type DeleteCountryRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *DeleteCountryBySysAdminRequestMessage) Reset() {
-	*x = DeleteCountryBySysAdminRequestMessage{}
+func (x *DeleteCountryRequest) Reset() {
+	*x = DeleteCountryRequest{}
 	mi := &file_countries_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *DeleteCountryBySysAdminRequestMessage) String() string {
+func (x *DeleteCountryRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DeleteCountryBySysAdminRequestMessage) ProtoMessage() {}
+func (*DeleteCountryRequest) ProtoMessage() {}
 
-func (x *DeleteCountryBySysAdminRequestMessage) ProtoReflect() protoreflect.Message {
+func (x *DeleteCountryRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_countries_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -158,39 +158,39 @@ func (x *DeleteCountryBySysAdminRequestMessage) ProtoReflect() protoreflect.Mess
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DeleteCountryBySysAdminRequestMessage.ProtoReflect.Descriptor instead.
-func (*DeleteCountryBySysAdminRequestMessage) Descriptor() ([]byte, []int) {
+// Deprecated: Use DeleteCountryRequest.ProtoReflect.Descriptor instead.
+func (*DeleteCountryRequest) Descriptor() ([]byte, []int) {
 	return file_countries_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *DeleteCountryBySysAdminRequestMessage) GetId() string {
+func (x *DeleteCountryRequest) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-type GetCountryByIdRequestMessage struct {
+type GetCountryRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetCountryByIdRequestMessage) Reset() {
-	*x = GetCountryByIdRequestMessage{}
+func (x *GetCountryRequest) Reset() {
+	*x = GetCountryRequest{}
 	mi := &file_countries_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetCountryByIdRequestMessage) String() string {
+func (x *GetCountryRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCountryByIdRequestMessage) ProtoMessage() {}
+func (*GetCountryRequest) ProtoMessage() {}
 
-func (x *GetCountryByIdRequestMessage) ProtoReflect() protoreflect.Message {
+func (x *GetCountryRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_countries_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -202,19 +202,19 @@ func (x *GetCountryByIdRequestMessage) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCountryByIdRequestMessage.ProtoReflect.Descriptor instead.
-func (*GetCountryByIdRequestMessage) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetCountryRequest.ProtoReflect.Descriptor instead.
+func (*GetCountryRequest) Descriptor() ([]byte, []int) {
 	return file_countries_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetCountryByIdRequestMessage) GetId() string {
+func (x *GetCountryRequest) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-type UpdateCountryStatusBySysAdminRequestMessage struct {
+type UpdateCountryStatusRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Status        string                 `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
@@ -222,20 +222,20 @@ type UpdateCountryStatusBySysAdminRequestMessage struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UpdateCountryStatusBySysAdminRequestMessage) Reset() {
-	*x = UpdateCountryStatusBySysAdminRequestMessage{}
+func (x *UpdateCountryStatusRequest) Reset() {
+	*x = UpdateCountryStatusRequest{}
 	mi := &file_countries_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UpdateCountryStatusBySysAdminRequestMessage) String() string {
+func (x *UpdateCountryStatusRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UpdateCountryStatusBySysAdminRequestMessage) ProtoMessage() {}
+func (*UpdateCountryStatusRequest) ProtoMessage() {}
 
-func (x *UpdateCountryStatusBySysAdminRequestMessage) ProtoReflect() protoreflect.Message {
+func (x *UpdateCountryStatusRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_countries_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -247,48 +247,48 @@ func (x *UpdateCountryStatusBySysAdminRequestMessage) ProtoReflect() protoreflec
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UpdateCountryStatusBySysAdminRequestMessage.ProtoReflect.Descriptor instead.
-func (*UpdateCountryStatusBySysAdminRequestMessage) Descriptor() ([]byte, []int) {
+// Deprecated: Use UpdateCountryStatusRequest.ProtoReflect.Descriptor instead.
+func (*UpdateCountryStatusRequest) Descriptor() ([]byte, []int) {
 	return file_countries_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *UpdateCountryStatusBySysAdminRequestMessage) GetId() string {
+func (x *UpdateCountryStatusRequest) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-func (x *UpdateCountryStatusBySysAdminRequestMessage) GetStatus() string {
+func (x *UpdateCountryStatusRequest) GetStatus() string {
 	if x != nil {
 		return x.Status
 	}
 	return ""
 }
 
-type SearchCountriesRequestMessage struct {
+type SearchCountriesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	NameLike      *string                `protobuf:"bytes,1,opt,name=name_like,json=nameLike,proto3,oneof" json:"name_like,omitempty"`
-	Status        *string                `protobuf:"bytes,2,opt,name=status,proto3,oneof" json:"status,omitempty"`
+	NameLike      string                 `protobuf:"bytes,1,opt,name=name_like,json=nameLike,proto3" json:"name_like,omitempty"`
+	Status        string                 `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
 	Pagination    *PaginationRequest     `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SearchCountriesRequestMessage) Reset() {
-	*x = SearchCountriesRequestMessage{}
+func (x *SearchCountriesRequest) Reset() {
+	*x = SearchCountriesRequest{}
 	mi := &file_countries_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SearchCountriesRequestMessage) String() string {
+func (x *SearchCountriesRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SearchCountriesRequestMessage) ProtoMessage() {}
+func (*SearchCountriesRequest) ProtoMessage() {}
 
-func (x *SearchCountriesRequestMessage) ProtoReflect() protoreflect.Message {
+func (x *SearchCountriesRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_countries_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -300,86 +300,26 @@ func (x *SearchCountriesRequestMessage) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SearchCountriesRequestMessage.ProtoReflect.Descriptor instead.
-func (*SearchCountriesRequestMessage) Descriptor() ([]byte, []int) {
+// Deprecated: Use SearchCountriesRequest.ProtoReflect.Descriptor instead.
+func (*SearchCountriesRequest) Descriptor() ([]byte, []int) {
 	return file_countries_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *SearchCountriesRequestMessage) GetNameLike() string {
-	if x != nil && x.NameLike != nil {
-		return *x.NameLike
-	}
-	return ""
-}
-
-func (x *SearchCountriesRequestMessage) GetStatus() string {
-	if x != nil && x.Status != nil {
-		return *x.Status
-	}
-	return ""
-}
-
-func (x *SearchCountriesRequestMessage) GetPagination() *PaginationRequest {
+func (x *SearchCountriesRequest) GetNameLike() string {
 	if x != nil {
-		return x.Pagination
+		return x.NameLike
 	}
-	return nil
+	return ""
 }
 
-type GetListCountriesRequestMessage struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          *string                `protobuf:"bytes,1,opt,name=name,proto3,oneof" json:"name,omitempty"`
-	Status        *string                `protobuf:"bytes,2,opt,name=status,proto3,oneof" json:"status,omitempty"`
-	Pagination    *PaginationRequest     `protobuf:"bytes,3,opt,name=pagination,proto3" json:"pagination,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetListCountriesRequestMessage) Reset() {
-	*x = GetListCountriesRequestMessage{}
-	mi := &file_countries_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetListCountriesRequestMessage) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetListCountriesRequestMessage) ProtoMessage() {}
-
-func (x *GetListCountriesRequestMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_countries_proto_msgTypes[6]
+func (x *SearchCountriesRequest) GetStatus() string {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetListCountriesRequestMessage.ProtoReflect.Descriptor instead.
-func (*GetListCountriesRequestMessage) Descriptor() ([]byte, []int) {
-	return file_countries_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *GetListCountriesRequestMessage) GetName() string {
-	if x != nil && x.Name != nil {
-		return *x.Name
+		return x.Status
 	}
 	return ""
 }
 
-func (x *GetListCountriesRequestMessage) GetStatus() string {
-	if x != nil && x.Status != nil {
-		return *x.Status
-	}
-	return ""
-}
-
-func (x *GetListCountriesRequestMessage) GetPagination() *PaginationRequest {
+func (x *SearchCountriesRequest) GetPagination() *PaginationRequest {
 	if x != nil {
 		return x.Pagination
 	}
@@ -397,7 +337,7 @@ type Country struct {
 
 func (x *Country) Reset() {
 	*x = Country{}
-	mi := &file_countries_proto_msgTypes[7]
+	mi := &file_countries_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -409,7 +349,7 @@ func (x *Country) String() string {
 func (*Country) ProtoMessage() {}
 
 func (x *Country) ProtoReflect() protoreflect.Message {
-	mi := &file_countries_proto_msgTypes[7]
+	mi := &file_countries_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -422,7 +362,7 @@ func (x *Country) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Country.ProtoReflect.Descriptor instead.
 func (*Country) Descriptor() ([]byte, []int) {
-	return file_countries_proto_rawDescGZIP(), []int{7}
+	return file_countries_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Country) GetId() string {
@@ -446,7 +386,7 @@ func (x *Country) GetStatus() string {
 	return ""
 }
 
-type ListCountries struct {
+type CountriesList struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Countries     []*Country             `protobuf:"bytes,1,rep,name=countries,proto3" json:"countries,omitempty"`
 	Pagination    *PaginationResponse    `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
@@ -454,21 +394,21 @@ type ListCountries struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ListCountries) Reset() {
-	*x = ListCountries{}
-	mi := &file_countries_proto_msgTypes[8]
+func (x *CountriesList) Reset() {
+	*x = CountriesList{}
+	mi := &file_countries_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ListCountries) String() string {
+func (x *CountriesList) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ListCountries) ProtoMessage() {}
+func (*CountriesList) ProtoMessage() {}
 
-func (x *ListCountries) ProtoReflect() protoreflect.Message {
-	mi := &file_countries_proto_msgTypes[8]
+func (x *CountriesList) ProtoReflect() protoreflect.Message {
+	mi := &file_countries_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -479,19 +419,19 @@ func (x *ListCountries) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ListCountries.ProtoReflect.Descriptor instead.
-func (*ListCountries) Descriptor() ([]byte, []int) {
-	return file_countries_proto_rawDescGZIP(), []int{8}
+// Deprecated: Use CountriesList.ProtoReflect.Descriptor instead.
+func (*CountriesList) Descriptor() ([]byte, []int) {
+	return file_countries_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *ListCountries) GetCountries() []*Country {
+func (x *CountriesList) GetCountries() []*Country {
 	if x != nil {
 		return x.Countries
 	}
 	return nil
 }
 
-func (x *ListCountries) GetPagination() *PaginationResponse {
+func (x *CountriesList) GetPagination() *PaginationResponse {
 	if x != nil {
 		return x.Pagination
 	}
@@ -502,53 +442,43 @@ var File_countries_proto protoreflect.FileDescriptor
 
 const file_countries_proto_rawDesc = "" +
 	"\n" +
-	"\x0fcountries.proto\x12\tcitiesdir\x1a\x1bgoogle/protobuf/empty.proto\x1a\fcommon.proto\"S\n" +
-	"%CreateCountryBySysAdminRequestMessage\x12\x12\n" +
+	"\x0fcountries.proto\x12\tcitiesdir\x1a\x1bgoogle/protobuf/empty.proto\x1a\fcommon.proto\"B\n" +
+	"\x14CreateCountryRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x16\n" +
-	"\x06status\x18\x02 \x01(\tR\x06status\"K\n" +
-	"%UpdateCountryBySysAdminRequestMessage\x12\x0e\n" +
+	"\x06status\x18\x02 \x01(\tR\x06status\":\n" +
+	"\x14UpdateCountryRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\"7\n" +
-	"%DeleteCountryBySysAdminRequestMessage\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\".\n" +
-	"\x1cGetCountryByIdRequestMessage\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"U\n" +
-	"+UpdateCountryStatusBySysAdminRequestMessage\x12\x0e\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\"&\n" +
+	"\x14DeleteCountryRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"#\n" +
+	"\x11GetCountryRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"D\n" +
+	"\x1aUpdateCountryStatusRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x16\n" +
-	"\x06status\x18\x02 \x01(\tR\x06status\"\xb5\x01\n" +
-	"\x1dSearchCountriesRequestMessage\x12 \n" +
-	"\tname_like\x18\x01 \x01(\tH\x00R\bnameLike\x88\x01\x01\x12\x1b\n" +
-	"\x06status\x18\x02 \x01(\tH\x01R\x06status\x88\x01\x01\x12<\n" +
+	"\x06status\x18\x02 \x01(\tR\x06status\"\x8b\x01\n" +
+	"\x16SearchCountriesRequest\x12\x1b\n" +
+	"\tname_like\x18\x01 \x01(\tR\bnameLike\x12\x16\n" +
+	"\x06status\x18\x02 \x01(\tR\x06status\x12<\n" +
 	"\n" +
 	"pagination\x18\x03 \x01(\v2\x1c.citiesdir.PaginationRequestR\n" +
-	"paginationB\f\n" +
-	"\n" +
-	"_name_likeB\t\n" +
-	"\a_status\"\xa8\x01\n" +
-	"\x1eGetListCountriesRequestMessage\x12\x17\n" +
-	"\x04name\x18\x01 \x01(\tH\x00R\x04name\x88\x01\x01\x12\x1b\n" +
-	"\x06status\x18\x02 \x01(\tH\x01R\x06status\x88\x01\x01\x12<\n" +
-	"\n" +
-	"pagination\x18\x03 \x01(\v2\x1c.citiesdir.PaginationRequestR\n" +
-	"paginationB\a\n" +
-	"\x05_nameB\t\n" +
-	"\a_status\"E\n" +
+	"pagination\"E\n" +
 	"\aCountry\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x16\n" +
 	"\x06status\x18\x03 \x01(\tR\x06status\"\x80\x01\n" +
-	"\rListCountries\x120\n" +
+	"\rCountriesList\x120\n" +
 	"\tcountries\x18\x01 \x03(\v2\x12.citiesdir.CountryR\tcountries\x12=\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x1d.citiesdir.PaginationResponseR\n" +
-	"pagination2\x9d\x04\n" +
-	"\tCountries\x12U\n" +
-	"\rCreateCountry\x120.citiesdir.CreateCountryBySysAdminRequestMessage\x1a\x12.citiesdir.Country\x12U\n" +
-	"\rUpdateCountry\x120.citiesdir.UpdateCountryBySysAdminRequestMessage\x1a\x12.citiesdir.Country\x12Y\n" +
-	"\rDeleteCountry\x120.citiesdir.DeleteCountryBySysAdminRequestMessage\x1a\x16.google.protobuf.Empty\x12M\n" +
-	"\x0eGetCountryById\x12'.citiesdir.GetCountryByIdRequestMessage\x1a\x12.citiesdir.Country\x12a\n" +
-	"\x13UpdateCountryStatus\x126.citiesdir.UpdateCountryStatusBySysAdminRequestMessage\x1a\x12.citiesdir.Country\x12U\n" +
-	"\x0fSearchCountries\x12(.citiesdir.SearchCountriesRequestMessage\x1a\x18.citiesdir.ListCountriesB7Z5github.com/chains-lab/cities-dir-proto/gen/go/svc;svcb\x06proto3"
+	"pagination2\xc1\x03\n" +
+	"\x0eCountryService\x12D\n" +
+	"\rCreateCountry\x12\x1f.citiesdir.CreateCountryRequest\x1a\x12.citiesdir.Country\x12D\n" +
+	"\rUpdateCountry\x12\x1f.citiesdir.UpdateCountryRequest\x1a\x12.citiesdir.Country\x12H\n" +
+	"\rDeleteCountry\x12\x1f.citiesdir.DeleteCountryRequest\x1a\x16.google.protobuf.Empty\x12>\n" +
+	"\n" +
+	"GetCountry\x12\x1c.citiesdir.GetCountryRequest\x1a\x12.citiesdir.Country\x12I\n" +
+	"\fUpdateStatus\x12%.citiesdir.UpdateCountryStatusRequest\x1a\x12.citiesdir.Country\x12N\n" +
+	"\x0fSearchCountries\x12!.citiesdir.SearchCountriesRequest\x1a\x18.citiesdir.CountriesListB7Z5github.com/chains-lab/cities-dir-proto/gen/go/svc;svcb\x06proto3"
 
 var (
 	file_countries_proto_rawDescOnce sync.Once
@@ -562,43 +492,41 @@ func file_countries_proto_rawDescGZIP() []byte {
 	return file_countries_proto_rawDescData
 }
 
-var file_countries_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_countries_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_countries_proto_goTypes = []any{
-	(*CreateCountryBySysAdminRequestMessage)(nil),       // 0: citiesdir.CreateCountryBySysAdminRequestMessage
-	(*UpdateCountryBySysAdminRequestMessage)(nil),       // 1: citiesdir.UpdateCountryBySysAdminRequestMessage
-	(*DeleteCountryBySysAdminRequestMessage)(nil),       // 2: citiesdir.DeleteCountryBySysAdminRequestMessage
-	(*GetCountryByIdRequestMessage)(nil),                // 3: citiesdir.GetCountryByIdRequestMessage
-	(*UpdateCountryStatusBySysAdminRequestMessage)(nil), // 4: citiesdir.UpdateCountryStatusBySysAdminRequestMessage
-	(*SearchCountriesRequestMessage)(nil),               // 5: citiesdir.SearchCountriesRequestMessage
-	(*GetListCountriesRequestMessage)(nil),              // 6: citiesdir.GetListCountriesRequestMessage
-	(*Country)(nil),                                     // 7: citiesdir.Country
-	(*ListCountries)(nil),                               // 8: citiesdir.ListCountries
-	(*PaginationRequest)(nil),                           // 9: citiesdir.PaginationRequest
-	(*PaginationResponse)(nil),                          // 10: citiesdir.PaginationResponse
-	(*emptypb.Empty)(nil),                               // 11: google.protobuf.Empty
+	(*CreateCountryRequest)(nil),       // 0: citiesdir.CreateCountryRequest
+	(*UpdateCountryRequest)(nil),       // 1: citiesdir.UpdateCountryRequest
+	(*DeleteCountryRequest)(nil),       // 2: citiesdir.DeleteCountryRequest
+	(*GetCountryRequest)(nil),          // 3: citiesdir.GetCountryRequest
+	(*UpdateCountryStatusRequest)(nil), // 4: citiesdir.UpdateCountryStatusRequest
+	(*SearchCountriesRequest)(nil),     // 5: citiesdir.SearchCountriesRequest
+	(*Country)(nil),                    // 6: citiesdir.Country
+	(*CountriesList)(nil),              // 7: citiesdir.CountriesList
+	(*PaginationRequest)(nil),          // 8: citiesdir.PaginationRequest
+	(*PaginationResponse)(nil),         // 9: citiesdir.PaginationResponse
+	(*emptypb.Empty)(nil),              // 10: google.protobuf.Empty
 }
 var file_countries_proto_depIdxs = []int32{
-	9,  // 0: citiesdir.SearchCountriesRequestMessage.pagination:type_name -> citiesdir.PaginationRequest
-	9,  // 1: citiesdir.GetListCountriesRequestMessage.pagination:type_name -> citiesdir.PaginationRequest
-	7,  // 2: citiesdir.ListCountries.countries:type_name -> citiesdir.Country
-	10, // 3: citiesdir.ListCountries.pagination:type_name -> citiesdir.PaginationResponse
-	0,  // 4: citiesdir.Countries.CreateCountry:input_type -> citiesdir.CreateCountryBySysAdminRequestMessage
-	1,  // 5: citiesdir.Countries.UpdateCountry:input_type -> citiesdir.UpdateCountryBySysAdminRequestMessage
-	2,  // 6: citiesdir.Countries.DeleteCountry:input_type -> citiesdir.DeleteCountryBySysAdminRequestMessage
-	3,  // 7: citiesdir.Countries.GetCountryById:input_type -> citiesdir.GetCountryByIdRequestMessage
-	4,  // 8: citiesdir.Countries.UpdateCountryStatus:input_type -> citiesdir.UpdateCountryStatusBySysAdminRequestMessage
-	5,  // 9: citiesdir.Countries.SearchCountries:input_type -> citiesdir.SearchCountriesRequestMessage
-	7,  // 10: citiesdir.Countries.CreateCountry:output_type -> citiesdir.Country
-	7,  // 11: citiesdir.Countries.UpdateCountry:output_type -> citiesdir.Country
-	11, // 12: citiesdir.Countries.DeleteCountry:output_type -> google.protobuf.Empty
-	7,  // 13: citiesdir.Countries.GetCountryById:output_type -> citiesdir.Country
-	7,  // 14: citiesdir.Countries.UpdateCountryStatus:output_type -> citiesdir.Country
-	8,  // 15: citiesdir.Countries.SearchCountries:output_type -> citiesdir.ListCountries
-	10, // [10:16] is the sub-list for method output_type
-	4,  // [4:10] is the sub-list for method input_type
-	4,  // [4:4] is the sub-list for extension type_name
-	4,  // [4:4] is the sub-list for extension extendee
-	0,  // [0:4] is the sub-list for field type_name
+	8,  // 0: citiesdir.SearchCountriesRequest.pagination:type_name -> citiesdir.PaginationRequest
+	6,  // 1: citiesdir.CountriesList.countries:type_name -> citiesdir.Country
+	9,  // 2: citiesdir.CountriesList.pagination:type_name -> citiesdir.PaginationResponse
+	0,  // 3: citiesdir.CountryService.CreateCountry:input_type -> citiesdir.CreateCountryRequest
+	1,  // 4: citiesdir.CountryService.UpdateCountry:input_type -> citiesdir.UpdateCountryRequest
+	2,  // 5: citiesdir.CountryService.DeleteCountry:input_type -> citiesdir.DeleteCountryRequest
+	3,  // 6: citiesdir.CountryService.GetCountry:input_type -> citiesdir.GetCountryRequest
+	4,  // 7: citiesdir.CountryService.UpdateStatus:input_type -> citiesdir.UpdateCountryStatusRequest
+	5,  // 8: citiesdir.CountryService.SearchCountries:input_type -> citiesdir.SearchCountriesRequest
+	6,  // 9: citiesdir.CountryService.CreateCountry:output_type -> citiesdir.Country
+	6,  // 10: citiesdir.CountryService.UpdateCountry:output_type -> citiesdir.Country
+	10, // 11: citiesdir.CountryService.DeleteCountry:output_type -> google.protobuf.Empty
+	6,  // 12: citiesdir.CountryService.GetCountry:output_type -> citiesdir.Country
+	6,  // 13: citiesdir.CountryService.UpdateStatus:output_type -> citiesdir.Country
+	7,  // 14: citiesdir.CountryService.SearchCountries:output_type -> citiesdir.CountriesList
+	9,  // [9:15] is the sub-list for method output_type
+	3,  // [3:9] is the sub-list for method input_type
+	3,  // [3:3] is the sub-list for extension type_name
+	3,  // [3:3] is the sub-list for extension extendee
+	0,  // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_countries_proto_init() }
@@ -607,15 +535,13 @@ func file_countries_proto_init() {
 		return
 	}
 	file_common_proto_init()
-	file_countries_proto_msgTypes[5].OneofWrappers = []any{}
-	file_countries_proto_msgTypes[6].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_countries_proto_rawDesc), len(file_countries_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
