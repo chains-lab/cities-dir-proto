@@ -170,27 +170,27 @@ func (x *DeleteCountryRequest) GetId() string {
 	return ""
 }
 
-type GetCountryRequest struct {
+type GetCountryByIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetCountryRequest) Reset() {
-	*x = GetCountryRequest{}
+func (x *GetCountryByIdRequest) Reset() {
+	*x = GetCountryByIdRequest{}
 	mi := &file_countries_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetCountryRequest) String() string {
+func (x *GetCountryByIdRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCountryRequest) ProtoMessage() {}
+func (*GetCountryByIdRequest) ProtoMessage() {}
 
-func (x *GetCountryRequest) ProtoReflect() protoreflect.Message {
+func (x *GetCountryByIdRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_countries_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -202,12 +202,12 @@ func (x *GetCountryRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCountryRequest.ProtoReflect.Descriptor instead.
-func (*GetCountryRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetCountryByIdRequest.ProtoReflect.Descriptor instead.
+func (*GetCountryByIdRequest) Descriptor() ([]byte, []int) {
 	return file_countries_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetCountryRequest) GetId() string {
+func (x *GetCountryByIdRequest) GetId() string {
 	if x != nil {
 		return x.Id
 	}
@@ -450,8 +450,8 @@ const file_countries_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\"&\n" +
 	"\x14DeleteCountryRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"#\n" +
-	"\x11GetCountryRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"'\n" +
+	"\x15GetCountryByIdRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"D\n" +
 	"\x1aUpdateCountryStatusRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x16\n" +
@@ -470,14 +470,13 @@ const file_countries_proto_rawDesc = "" +
 	"\tcountries\x18\x01 \x03(\v2\x12.citiesdir.CountryR\tcountries\x12=\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x1d.citiesdir.PaginationResponseR\n" +
-	"pagination2\xc1\x03\n" +
+	"pagination2\xd0\x03\n" +
 	"\x0eCountryService\x12D\n" +
 	"\rCreateCountry\x12\x1f.citiesdir.CreateCountryRequest\x1a\x12.citiesdir.Country\x12D\n" +
 	"\rUpdateCountry\x12\x1f.citiesdir.UpdateCountryRequest\x1a\x12.citiesdir.Country\x12H\n" +
-	"\rDeleteCountry\x12\x1f.citiesdir.DeleteCountryRequest\x1a\x16.google.protobuf.Empty\x12>\n" +
-	"\n" +
-	"GetCountry\x12\x1c.citiesdir.GetCountryRequest\x1a\x12.citiesdir.Country\x12I\n" +
-	"\fUpdateStatus\x12%.citiesdir.UpdateCountryStatusRequest\x1a\x12.citiesdir.Country\x12N\n" +
+	"\rDeleteCountry\x12\x1f.citiesdir.DeleteCountryRequest\x1a\x16.google.protobuf.Empty\x12F\n" +
+	"\x0eGetCountryById\x12 .citiesdir.GetCountryByIdRequest\x1a\x12.citiesdir.Country\x12P\n" +
+	"\x13UpdateCountryStatus\x12%.citiesdir.UpdateCountryStatusRequest\x1a\x12.citiesdir.Country\x12N\n" +
 	"\x0fSearchCountries\x12!.citiesdir.SearchCountriesRequest\x1a\x18.citiesdir.CountriesListB7Z5github.com/chains-lab/cities-dir-proto/gen/go/svc;svcb\x06proto3"
 
 var (
@@ -497,7 +496,7 @@ var file_countries_proto_goTypes = []any{
 	(*CreateCountryRequest)(nil),       // 0: citiesdir.CreateCountryRequest
 	(*UpdateCountryRequest)(nil),       // 1: citiesdir.UpdateCountryRequest
 	(*DeleteCountryRequest)(nil),       // 2: citiesdir.DeleteCountryRequest
-	(*GetCountryRequest)(nil),          // 3: citiesdir.GetCountryRequest
+	(*GetCountryByIdRequest)(nil),      // 3: citiesdir.GetCountryByIdRequest
 	(*UpdateCountryStatusRequest)(nil), // 4: citiesdir.UpdateCountryStatusRequest
 	(*SearchCountriesRequest)(nil),     // 5: citiesdir.SearchCountriesRequest
 	(*Country)(nil),                    // 6: citiesdir.Country
@@ -513,14 +512,14 @@ var file_countries_proto_depIdxs = []int32{
 	0,  // 3: citiesdir.CountryService.CreateCountry:input_type -> citiesdir.CreateCountryRequest
 	1,  // 4: citiesdir.CountryService.UpdateCountry:input_type -> citiesdir.UpdateCountryRequest
 	2,  // 5: citiesdir.CountryService.DeleteCountry:input_type -> citiesdir.DeleteCountryRequest
-	3,  // 6: citiesdir.CountryService.GetCountry:input_type -> citiesdir.GetCountryRequest
-	4,  // 7: citiesdir.CountryService.UpdateStatus:input_type -> citiesdir.UpdateCountryStatusRequest
+	3,  // 6: citiesdir.CountryService.GetCountryById:input_type -> citiesdir.GetCountryByIdRequest
+	4,  // 7: citiesdir.CountryService.UpdateCountryStatus:input_type -> citiesdir.UpdateCountryStatusRequest
 	5,  // 8: citiesdir.CountryService.SearchCountries:input_type -> citiesdir.SearchCountriesRequest
 	6,  // 9: citiesdir.CountryService.CreateCountry:output_type -> citiesdir.Country
 	6,  // 10: citiesdir.CountryService.UpdateCountry:output_type -> citiesdir.Country
 	10, // 11: citiesdir.CountryService.DeleteCountry:output_type -> google.protobuf.Empty
-	6,  // 12: citiesdir.CountryService.GetCountry:output_type -> citiesdir.Country
-	6,  // 13: citiesdir.CountryService.UpdateStatus:output_type -> citiesdir.Country
+	6,  // 12: citiesdir.CountryService.GetCountryById:output_type -> citiesdir.Country
+	6,  // 13: citiesdir.CountryService.UpdateCountryStatus:output_type -> citiesdir.Country
 	7,  // 14: citiesdir.CountryService.SearchCountries:output_type -> citiesdir.CountriesList
 	9,  // [9:15] is the sub-list for method output_type
 	3,  // [3:9] is the sub-list for method input_type

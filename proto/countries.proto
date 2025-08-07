@@ -11,9 +11,9 @@ service CountryService {
   rpc UpdateCountry    (UpdateCountryRequest)          returns (Country);
   rpc DeleteCountry    (DeleteCountryRequest)          returns (google.protobuf.Empty);
 
-  rpc GetCountry       (GetCountryRequest)             returns (Country);
-  rpc UpdateStatus     (UpdateCountryStatusRequest)    returns (Country);
-  rpc SearchCountries  (SearchCountriesRequest)        returns (CountriesList);
+  rpc GetCountryById      (GetCountryByIdRequest)         returns (Country);
+  rpc UpdateCountryStatus (UpdateCountryStatusRequest)    returns (Country);
+  rpc SearchCountries     (SearchCountriesRequest)        returns (CountriesList);
 }
 
 // --------------------
@@ -34,7 +34,7 @@ message DeleteCountryRequest {
   string id = 1;
 }
 
-message GetCountryRequest {
+message GetCountryByIdRequest {
   string id = 1;
 }
 
