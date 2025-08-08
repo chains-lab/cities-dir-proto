@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: cities/cities.proto
+// source: city/city.proto
 
-package cities
+package city
 
 import (
 	context "context"
@@ -19,12 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CityService_CreateCity_FullMethodName                 = "/cities.CityService/CreateCity"
-	CityService_GetCityById_FullMethodName                = "/cities.CityService/GetCityById"
-	CityService_UpdateCityStatus_FullMethodName           = "/cities.CityService/UpdateCityStatus"
-	CityService_UpdateCityName_FullMethodName             = "/cities.CityService/UpdateCityName"
-	CityService_SearchCities_FullMethodName               = "/cities.CityService/SearchCities"
-	CityService_UpdateCityStatusBySysAdmin_FullMethodName = "/cities.CityService/UpdateCityStatusBySysAdmin"
+	CityService_CreateCity_FullMethodName                 = "/city.CityService/CreateCity"
+	CityService_GetCityById_FullMethodName                = "/city.CityService/GetCityById"
+	CityService_UpdateCityStatus_FullMethodName           = "/city.CityService/UpdateCityStatus"
+	CityService_UpdateCityName_FullMethodName             = "/city.CityService/UpdateCityName"
+	CityService_SearchCities_FullMethodName               = "/city.CityService/SearchCities"
+	CityService_UpdateCityStatusBySysAdmin_FullMethodName = "/city.CityService/UpdateCityStatusBySysAdmin"
 )
 
 // CityServiceClient is the client API for CityService service.
@@ -278,7 +278,7 @@ func _CityService_UpdateCityStatusBySysAdmin_Handler(srv interface{}, ctx contex
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var CityService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "cities.CityService",
+	ServiceName: "city.CityService",
 	HandlerType: (*CityServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -307,5 +307,5 @@ var CityService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "cities/cities.proto",
+	Metadata: "city/city.proto",
 }

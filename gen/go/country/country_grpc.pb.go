@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: countries/countries.proto
+// source: country/country.proto
 
-package countries
+package country
 
 import (
 	context "context"
@@ -19,11 +19,11 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CountryService_CreateCountry_FullMethodName       = "/countries.CountryService/CreateCountry"
-	CountryService_GetCountryById_FullMethodName      = "/countries.CountryService/GetCountryById"
-	CountryService_UpdateCountryName_FullMethodName   = "/countries.CountryService/UpdateCountryName"
-	CountryService_UpdateCountryStatus_FullMethodName = "/countries.CountryService/UpdateCountryStatus"
-	CountryService_SearchCountries_FullMethodName     = "/countries.CountryService/SearchCountries"
+	CountryService_CreateCountry_FullMethodName       = "/country.CountryService/CreateCountry"
+	CountryService_GetCountryById_FullMethodName      = "/country.CountryService/GetCountryById"
+	CountryService_UpdateCountryName_FullMethodName   = "/country.CountryService/UpdateCountryName"
+	CountryService_UpdateCountryStatus_FullMethodName = "/country.CountryService/UpdateCountryStatus"
+	CountryService_SearchCountries_FullMethodName     = "/country.CountryService/SearchCountries"
 )
 
 // CountryServiceClient is the client API for CountryService service.
@@ -244,7 +244,7 @@ func _CountryService_SearchCountries_Handler(srv interface{}, ctx context.Contex
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var CountryService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "countries.CountryService",
+	ServiceName: "country.CountryService",
 	HandlerType: (*CountryServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -269,5 +269,5 @@ var CountryService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "countries/countries.proto",
+	Metadata: "country/country.proto",
 }

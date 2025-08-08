@@ -1,7 +1,7 @@
 syntax = "proto3";
-package cities;
+package city;
 
-option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/cities;cities";
+option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/city;city";
 
 import "google/protobuf/empty.proto";
 import "common/userdata/userdata.proto";
@@ -10,6 +10,7 @@ import "common/pagination/pagination.proto";
 service CityService {
   rpc CreateCity(CreateCityRequest)             returns (City);
   rpc GetCityById(GetCityByIdRequest)           returns (City);
+
   rpc UpdateCityStatus(UpdateCityStatusRequest) returns (City);
   rpc UpdateCityName(UpdateCityNameRequest)     returns (City);
 

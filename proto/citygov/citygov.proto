@@ -1,31 +1,37 @@
 syntax = "proto3";
-package cities_admins;
+package citygov;
 
-option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/citiesadmins;citiesadmins";
+option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/citygov;citygov";
 
 import "google/protobuf/empty.proto";
 import "common/userdata/userdata.proto";;
 import "common/pagination/pagination.proto";
 
-service CityAdminService {
+service CityGovService {
   rpc CreateCityOwner (CreateCityOwnerRequest) returns (CityAdmin);
+  rpc DeleteCityOwner (DeleteCityOwnerRequest) returns (google.protobuf.Empty);
+
   rpc TransferOwnership (TransferOwnershipRequest) returns (CityAdmin);
 
   rpc CreateCityAdmin (CreateCityAdminRequest)     returns (CityAdmin);
   rpc UpdateCityAdmin (UpdateCityAdminRequest)     returns (CityAdmin);
   rpc DeleteCityAdmin (DeleteCityAdminRequest)     returns (google.protobuf.Empty);
-  
+
   rpc RefuseCityAdminRight (RefuseCityAdminRightRequest)     returns (google.protobuf.Empty);
 
   rpc GetCityAdmin     (GetCityAdminRequest)        returns (CityAdmin);
   rpc ListCityAdmins   (ListCityAdminsRequest)      returns (ListCitiesAdmins);
 }
 
-// --------------------
-// ---- REQUESTS -----
-// --------------------
+// REQUESTS
 
 message CreateCityOwnerRequest {
+  optional userdata.UserData initiator = 1;
+  string city_id = 2;
+  string user_id = 3;
+}
+
+message DeleteCityOwnerRequest {
   optional userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;

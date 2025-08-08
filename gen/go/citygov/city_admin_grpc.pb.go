@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: citiesadmins/cities_admins.proto
+// source: citygov/city_admin.proto
 
 package citiesadmins
 
@@ -384,5 +384,5 @@ var CityAdminService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "citiesadmins/cities_admins.proto",
+	Metadata: "citygov/city_admin.proto",
 }
