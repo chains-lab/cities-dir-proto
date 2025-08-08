@@ -24,7 +24,7 @@ const (
 type Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Page          uint64                 `protobuf:"varint,1,opt,name=page,proto3" json:"page,omitempty"`
-	Limit         uint64                 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	Size          uint64                 `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -66,9 +66,9 @@ func (x *Request) GetPage() uint64 {
 	return 0
 }
 
-func (x *Request) GetLimit() uint64 {
+func (x *Request) GetSize() uint64 {
 	if x != nil {
-		return x.Limit
+		return x.Size
 	}
 	return 0
 }
@@ -76,7 +76,8 @@ func (x *Request) GetLimit() uint64 {
 type Response struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Page          uint64                 `protobuf:"varint,1,opt,name=page,proto3" json:"page,omitempty"`
-	Limit         uint64                 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	Size          uint64                 `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
+	Total         uint64                 `protobuf:"varint,3,opt,name=total,proto3" json:"total,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -118,9 +119,16 @@ func (x *Response) GetPage() uint64 {
 	return 0
 }
 
-func (x *Response) GetLimit() uint64 {
+func (x *Response) GetSize() uint64 {
 	if x != nil {
-		return x.Limit
+		return x.Size
+	}
+	return 0
+}
+
+func (x *Response) GetTotal() uint64 {
+	if x != nil {
+		return x.Total
 	}
 	return 0
 }
@@ -130,13 +138,14 @@ var File_common_pagination_pagination_proto protoreflect.FileDescriptor
 const file_common_pagination_pagination_proto_rawDesc = "" +
 	"\n" +
 	"\"common/pagination/pagination.proto\x12\n" +
-	"pagination\"3\n" +
+	"pagination\"1\n" +
 	"\aRequest\x12\x12\n" +
-	"\x04page\x18\x01 \x01(\x04R\x04page\x12\x14\n" +
-	"\x05limit\x18\x02 \x01(\x04R\x05limit\"4\n" +
+	"\x04page\x18\x01 \x01(\x04R\x04page\x12\x12\n" +
+	"\x04size\x18\x02 \x01(\x04R\x04size\"H\n" +
 	"\bResponse\x12\x12\n" +
-	"\x04page\x18\x01 \x01(\x04R\x04page\x12\x14\n" +
-	"\x05limit\x18\x02 \x01(\x04R\x05limitBLZJgithub.com/chains-lab/cities-dir-proto/gen/go/common/pagination;paginationb\x06proto3"
+	"\x04page\x18\x01 \x01(\x04R\x04page\x12\x12\n" +
+	"\x04size\x18\x02 \x01(\x04R\x04size\x12\x14\n" +
+	"\x05total\x18\x03 \x01(\x04R\x05totalBLZJgithub.com/chains-lab/cities-dir-proto/gen/go/common/pagination;paginationb\x06proto3"
 
 var (
 	file_common_pagination_pagination_proto_rawDescOnce sync.Once

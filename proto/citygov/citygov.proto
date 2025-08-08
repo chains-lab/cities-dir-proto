@@ -22,13 +22,14 @@ service CityGovService {
   rpc GetCityAdmin     (GetCityAdminRequest)        returns (CityAdmin);
   rpc ListCityAdmins   (ListCityAdminsRequest)      returns (ListCitiesAdmins);
 
-  rpc GetUserCitiesAdmins (GetUserCitiesAdminsRequest) returns (ListCitiesAdmins);
+  rpc ListUserCitiesAdmins (ListUserCitiesAdminsRequest) returns (ListCitiesAdmins);
 }
 
 // REQUESTS
 
-message GetUserCitiesAdminsRequest {
-  optional string user_id = 1;
+message ListUserCitiesAdminsRequest {
+  string user_id = 1;
+  pagination.Request pagination = 2;
 }
 
 message CreateCityOwnerRequest {

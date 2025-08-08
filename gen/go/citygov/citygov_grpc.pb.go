@@ -29,7 +29,7 @@ const (
 	CityGovService_RefuseCityAdminRight_FullMethodName = "/citygov.CityGovService/RefuseCityAdminRight"
 	CityGovService_GetCityAdmin_FullMethodName         = "/citygov.CityGovService/GetCityAdmin"
 	CityGovService_ListCityAdmins_FullMethodName       = "/citygov.CityGovService/ListCityAdmins"
-	CityGovService_GetUserCitiesAdmins_FullMethodName  = "/citygov.CityGovService/GetUserCitiesAdmins"
+	CityGovService_ListUserCitiesAdmins_FullMethodName = "/citygov.CityGovService/ListUserCitiesAdmins"
 )
 
 // CityGovServiceClient is the client API for CityGovService service.
@@ -45,7 +45,7 @@ type CityGovServiceClient interface {
 	RefuseCityAdminRight(ctx context.Context, in *RefuseCityAdminRightRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetCityAdmin(ctx context.Context, in *GetCityAdminRequest, opts ...grpc.CallOption) (*CityAdmin, error)
 	ListCityAdmins(ctx context.Context, in *ListCityAdminsRequest, opts ...grpc.CallOption) (*ListCitiesAdmins, error)
-	GetUserCitiesAdmins(ctx context.Context, in *GetUserCitiesAdminsRequest, opts ...grpc.CallOption) (*ListCitiesAdmins, error)
+	ListUserCitiesAdmins(ctx context.Context, in *ListUserCitiesAdminsRequest, opts ...grpc.CallOption) (*ListCitiesAdmins, error)
 }
 
 type cityGovServiceClient struct {
@@ -146,10 +146,10 @@ func (c *cityGovServiceClient) ListCityAdmins(ctx context.Context, in *ListCityA
 	return out, nil
 }
 
-func (c *cityGovServiceClient) GetUserCitiesAdmins(ctx context.Context, in *GetUserCitiesAdminsRequest, opts ...grpc.CallOption) (*ListCitiesAdmins, error) {
+func (c *cityGovServiceClient) ListUserCitiesAdmins(ctx context.Context, in *ListUserCitiesAdminsRequest, opts ...grpc.CallOption) (*ListCitiesAdmins, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListCitiesAdmins)
-	err := c.cc.Invoke(ctx, CityGovService_GetUserCitiesAdmins_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CityGovService_ListUserCitiesAdmins_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -169,7 +169,7 @@ type CityGovServiceServer interface {
 	RefuseCityAdminRight(context.Context, *RefuseCityAdminRightRequest) (*emptypb.Empty, error)
 	GetCityAdmin(context.Context, *GetCityAdminRequest) (*CityAdmin, error)
 	ListCityAdmins(context.Context, *ListCityAdminsRequest) (*ListCitiesAdmins, error)
-	GetUserCitiesAdmins(context.Context, *GetUserCitiesAdminsRequest) (*ListCitiesAdmins, error)
+	ListUserCitiesAdmins(context.Context, *ListUserCitiesAdminsRequest) (*ListCitiesAdmins, error)
 	mustEmbedUnimplementedCityGovServiceServer()
 }
 
@@ -207,8 +207,8 @@ func (UnimplementedCityGovServiceServer) GetCityAdmin(context.Context, *GetCityA
 func (UnimplementedCityGovServiceServer) ListCityAdmins(context.Context, *ListCityAdminsRequest) (*ListCitiesAdmins, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListCityAdmins not implemented")
 }
-func (UnimplementedCityGovServiceServer) GetUserCitiesAdmins(context.Context, *GetUserCitiesAdminsRequest) (*ListCitiesAdmins, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUserCitiesAdmins not implemented")
+func (UnimplementedCityGovServiceServer) ListUserCitiesAdmins(context.Context, *ListUserCitiesAdminsRequest) (*ListCitiesAdmins, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListUserCitiesAdmins not implemented")
 }
 func (UnimplementedCityGovServiceServer) mustEmbedUnimplementedCityGovServiceServer() {}
 func (UnimplementedCityGovServiceServer) testEmbeddedByValue()                        {}
@@ -393,20 +393,20 @@ func _CityGovService_ListCityAdmins_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CityGovService_GetUserCitiesAdmins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUserCitiesAdminsRequest)
+func _CityGovService_ListUserCitiesAdmins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListUserCitiesAdminsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CityGovServiceServer).GetUserCitiesAdmins(ctx, in)
+		return srv.(CityGovServiceServer).ListUserCitiesAdmins(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CityGovService_GetUserCitiesAdmins_FullMethodName,
+		FullMethod: CityGovService_ListUserCitiesAdmins_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityGovServiceServer).GetUserCitiesAdmins(ctx, req.(*GetUserCitiesAdminsRequest))
+		return srv.(CityGovServiceServer).ListUserCitiesAdmins(ctx, req.(*ListUserCitiesAdminsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -455,8 +455,8 @@ var CityGovService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CityGovService_ListCityAdmins_Handler,
 		},
 		{
-			MethodName: "GetUserCitiesAdmins",
-			Handler:    _CityGovService_GetUserCitiesAdmins_Handler,
+			MethodName: "ListUserCitiesAdmins",
+			Handler:    _CityGovService_ListUserCitiesAdmins_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
