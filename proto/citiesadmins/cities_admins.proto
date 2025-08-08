@@ -1,7 +1,7 @@
 syntax = "proto3";
-package cities_admin;
+package cities_admins;
 
-option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/citiesadmin;citiesadmin";
+option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/citiesadmins;citiesadmins";
 
 import "google/protobuf/empty.proto";
 import "common/userdata/userdata.proto";;

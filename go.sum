@@ -1,5 +1,3 @@
-buf.build/gen/go/chains-lab/proto-lib/grpc/go v1.5.1-20250807183239-706f0a859f1d.2 h1:dlFejMvQA/7iL4ZbXMzhmP6YmsZcP6PDC8+SGrewsQ0=
-buf.build/gen/go/chains-lab/proto-lib/grpc/go v1.5.1-20250807183239-706f0a859f1d.2/go.mod h1:Z8/0U+C2u/esapd/WWOzdOFUcC/FzBlwyI9Bl1q36rY=
 github.com/go-logr/logr v1.4.3 h1:CjnDlHq8ikf6E492q6eKboGOC0T8CDaOvkHCIg8idEI=
 github.com/go-logr/logr v1.4.3/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
 github.com/go-logr/stdr v1.2.2 h1:hSWxHoqTgW2S2qGc0LTAI563KZ5YKYRhT3MFKZMbjag=

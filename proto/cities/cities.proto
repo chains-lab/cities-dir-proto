@@ -8,13 +8,14 @@ import "common/userdata/userdata.proto";
 import "common/pagination/pagination.proto";
 
 service CityService {
-  rpc CreateCity(CreateCityRequest)    returns (City);
-  rpc GetCity(GetCityRequest)          returns (City);
-  rpc SearchCities(SearchCitiesRequest) returns (CitiesList);
+  rpc CreateCity(CreateCityRequest)             returns (City);
+  rpc GetCityById(GetCityByIdRequest)           returns (City);
   rpc UpdateCityStatus(UpdateCityStatusRequest) returns (City);
   rpc UpdateCityName(UpdateCityNameRequest)     returns (City);
 
-  rpc SysAdminUpdateCityStatus(UpdateCityStatusRequest) returns (City);
+  rpc SearchCities(SearchCitiesRequest) returns (CitiesList);
+
+  rpc UpdateCityStatusBySysAdmin(UpdateCityStatusSysAdminRequest) returns (City);
 
   rpc DeleteCity(DeleteCityRequest)    returns (google.protobuf.Empty);
 }
@@ -28,7 +29,7 @@ message CreateCityRequest {
   string status     = 4;
 }
 
-message GetCityRequest {
+message GetCityByIdRequest {
   string city_id = 1;
 }
 
@@ -45,6 +46,12 @@ message DeleteCityRequest {
 }
 
 message UpdateCityStatusRequest {
+  userdata.UserData initiator = 1;
+  string city_id = 2;
+  string status  = 3;
+}
+
+message UpdateCityStatusSysAdminRequest {
   userdata.UserData initiator = 1;
   string city_id = 2;
   string status  = 3;
