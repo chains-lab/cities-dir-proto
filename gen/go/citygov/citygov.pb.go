@@ -790,7 +790,7 @@ const file_citygov_citygov_proto_rawDesc = "" +
 	"\x06admins\x18\x01 \x03(\v2\x12.citygov.CityAdminR\x06admins\x124\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x14.pagination.ResponseR\n" +
-	"pagination2\xf7\x05\n" +
+	"pagination2\x88\x06\n" +
 	"\x0eCityGovService\x12F\n" +
 	"\x0fCreateCityOwner\x12\x1f.citygov.CreateCityOwnerRequest\x1a\x12.citygov.CityAdmin\x12J\n" +
 	"\x0fDeleteCityOwner\x12\x1f.citygov.DeleteCityOwnerRequest\x1a\x16.google.protobuf.Empty\x12J\n" +
@@ -800,8 +800,8 @@ const file_citygov_citygov_proto_rawDesc = "" +
 	"\x0fDeleteCityAdmin\x12\x1f.citygov.DeleteCityAdminRequest\x1a\x16.google.protobuf.Empty\x12T\n" +
 	"\x14RefuseCityAdminRight\x12$.citygov.RefuseCityAdminRightRequest\x1a\x16.google.protobuf.Empty\x12@\n" +
 	"\fGetCityAdmin\x12\x1c.citygov.GetCityAdminRequest\x1a\x12.citygov.CityAdmin\x12K\n" +
-	"\x0eListCityAdmins\x12\x1e.citygov.ListCityAdminsRequest\x1a\x19.citygov.ListCitiesAdmins\x12D\n" +
-	"\x13GetUserCitiesAdmins\x12\x12.userdata.UserData\x1a\x19.citygov.ListCitiesAdminsB?Z=github.com/chains-lab/cities-dir-proto/gen/go/citygov;citygovb\x06proto3"
+	"\x0eListCityAdmins\x12\x1e.citygov.ListCityAdminsRequest\x1a\x19.citygov.ListCitiesAdmins\x12U\n" +
+	"\x13GetUserCitiesAdmins\x12#.citygov.GetUserCitiesAdminsRequest\x1a\x19.citygov.ListCitiesAdminsB?Z=github.com/chains-lab/cities-dir-proto/gen/go/citygov;citygovb\x06proto3"
 
 var (
 	file_citygov_citygov_proto_rawDescOnce sync.Once
@@ -854,7 +854,7 @@ var file_citygov_citygov_proto_depIdxs = []int32{
 	7,  // 16: citygov.CityGovService.RefuseCityAdminRight:input_type -> citygov.RefuseCityAdminRightRequest
 	8,  // 17: citygov.CityGovService.GetCityAdmin:input_type -> citygov.GetCityAdminRequest
 	9,  // 18: citygov.CityGovService.ListCityAdmins:input_type -> citygov.ListCityAdminsRequest
-	12, // 19: citygov.CityGovService.GetUserCitiesAdmins:input_type -> userdata.UserData
+	0,  // 19: citygov.CityGovService.GetUserCitiesAdmins:input_type -> citygov.GetUserCitiesAdminsRequest
 	10, // 20: citygov.CityGovService.CreateCityOwner:output_type -> citygov.CityAdmin
 	15, // 21: citygov.CityGovService.DeleteCityOwner:output_type -> google.protobuf.Empty
 	10, // 22: citygov.CityGovService.TransferOwnership:output_type -> citygov.CityAdmin

@@ -22,7 +22,7 @@ service CityGovService {
   rpc GetCityAdmin     (GetCityAdminRequest)        returns (CityAdmin);
   rpc ListCityAdmins   (ListCityAdminsRequest)      returns (ListCitiesAdmins);
 
-  rpc GetUserCitiesAdmins (userdata.UserData) returns (ListCitiesAdmins);
+  rpc GetUserCitiesAdmins (GetUserCitiesAdminsRequest) returns (ListCitiesAdmins);
 }
 
 // REQUESTS

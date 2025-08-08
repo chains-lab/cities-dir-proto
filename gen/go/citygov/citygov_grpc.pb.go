@@ -8,7 +8,6 @@ package citygov
 
 import (
 	context "context"
-	userdata "github.com/chains-lab/cities-dir-proto/gen/go/common/userdata"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -46,7 +45,7 @@ type CityGovServiceClient interface {
 	RefuseCityAdminRight(ctx context.Context, in *RefuseCityAdminRightRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetCityAdmin(ctx context.Context, in *GetCityAdminRequest, opts ...grpc.CallOption) (*CityAdmin, error)
 	ListCityAdmins(ctx context.Context, in *ListCityAdminsRequest, opts ...grpc.CallOption) (*ListCitiesAdmins, error)
-	GetUserCitiesAdmins(ctx context.Context, in *userdata.UserData, opts ...grpc.CallOption) (*ListCitiesAdmins, error)
+	GetUserCitiesAdmins(ctx context.Context, in *GetUserCitiesAdminsRequest, opts ...grpc.CallOption) (*ListCitiesAdmins, error)
 }
 
 type cityGovServiceClient struct {
@@ -147,7 +146,7 @@ func (c *cityGovServiceClient) ListCityAdmins(ctx context.Context, in *ListCityA
 	return out, nil
 }
 
-func (c *cityGovServiceClient) GetUserCitiesAdmins(ctx context.Context, in *userdata.UserData, opts ...grpc.CallOption) (*ListCitiesAdmins, error) {
+func (c *cityGovServiceClient) GetUserCitiesAdmins(ctx context.Context, in *GetUserCitiesAdminsRequest, opts ...grpc.CallOption) (*ListCitiesAdmins, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListCitiesAdmins)
 	err := c.cc.Invoke(ctx, CityGovService_GetUserCitiesAdmins_FullMethodName, in, out, cOpts...)
@@ -170,7 +169,7 @@ type CityGovServiceServer interface {
 	RefuseCityAdminRight(context.Context, *RefuseCityAdminRightRequest) (*emptypb.Empty, error)
 	GetCityAdmin(context.Context, *GetCityAdminRequest) (*CityAdmin, error)
 	ListCityAdmins(context.Context, *ListCityAdminsRequest) (*ListCitiesAdmins, error)
-	GetUserCitiesAdmins(context.Context, *userdata.UserData) (*ListCitiesAdmins, error)
+	GetUserCitiesAdmins(context.Context, *GetUserCitiesAdminsRequest) (*ListCitiesAdmins, error)
 	mustEmbedUnimplementedCityGovServiceServer()
 }
 
@@ -208,7 +207,7 @@ func (UnimplementedCityGovServiceServer) GetCityAdmin(context.Context, *GetCityA
 func (UnimplementedCityGovServiceServer) ListCityAdmins(context.Context, *ListCityAdminsRequest) (*ListCitiesAdmins, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListCityAdmins not implemented")
 }
-func (UnimplementedCityGovServiceServer) GetUserCitiesAdmins(context.Context, *userdata.UserData) (*ListCitiesAdmins, error) {
+func (UnimplementedCityGovServiceServer) GetUserCitiesAdmins(context.Context, *GetUserCitiesAdminsRequest) (*ListCitiesAdmins, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserCitiesAdmins not implemented")
 }
 func (UnimplementedCityGovServiceServer) mustEmbedUnimplementedCityGovServiceServer() {}
@@ -395,7 +394,7 @@ func _CityGovService_ListCityAdmins_Handler(srv interface{}, ctx context.Context
 }
 
 func _CityGovService_GetUserCitiesAdmins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(userdata.UserData)
+	in := new(GetUserCitiesAdminsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -407,7 +406,7 @@ func _CityGovService_GetUserCitiesAdmins_Handler(srv interface{}, ctx context.Co
 		FullMethod: CityGovService_GetUserCitiesAdmins_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityGovServiceServer).GetUserCitiesAdmins(ctx, req.(*userdata.UserData))
+		return srv.(CityGovServiceServer).GetUserCitiesAdmins(ctx, req.(*GetUserCitiesAdminsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
