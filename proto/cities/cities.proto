@@ -16,8 +16,6 @@ service CityService {
   rpc SearchCities(SearchCitiesRequest) returns (CitiesList);
 
   rpc UpdateCityStatusBySysAdmin(UpdateCityStatusSysAdminRequest) returns (City);
-
-  rpc DeleteCity(DeleteCityRequest)    returns (google.protobuf.Empty);
 }
 
 // REQUESTS
@@ -38,11 +36,6 @@ message SearchCitiesRequest {
   string country_id = 2;
   string status     = 3;
   pagination.Request pagination = 4;
-}
-
-message DeleteCityRequest {
-  userdata.UserData initiator = 1;
-  string city_id = 2;
 }
 
 message UpdateCityStatusRequest {
