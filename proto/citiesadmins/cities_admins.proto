@@ -14,7 +14,8 @@ service CityAdminService {
   rpc CreateCityAdmin (CreateCityAdminRequest)     returns (CityAdmin);
   rpc UpdateCityAdmin (UpdateCityAdminRequest)     returns (CityAdmin);
   rpc DeleteCityAdmin (DeleteCityAdminRequest)     returns (google.protobuf.Empty);
-  rpc ResignCityAdmin (ResignCityAdminRequest)     returns (google.protobuf.Empty);
+  
+  rpc RefuseCityAdminRight (RefuseCityAdminRightRequest)     returns (google.protobuf.Empty);
 
   rpc GetCityAdmin     (GetCityAdminRequest)        returns (CityAdmin);
   rpc ListCityAdmins   (ListCityAdminsRequest)      returns (ListCitiesAdmins);
@@ -56,7 +57,7 @@ message DeleteCityAdminRequest {
   string user_id = 3;
 }
 
-message ResignCityAdminRequest {
+message RefuseCityAdminRightRequest {
   optional userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;

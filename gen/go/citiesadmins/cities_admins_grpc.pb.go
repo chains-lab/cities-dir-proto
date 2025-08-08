@@ -20,14 +20,14 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CityAdminService_CreateCityOwner_FullMethodName   = "/cities_admins.CityAdminService/CreateCityOwner"
-	CityAdminService_TransferOwnership_FullMethodName = "/cities_admins.CityAdminService/TransferOwnership"
-	CityAdminService_CreateCityAdmin_FullMethodName   = "/cities_admins.CityAdminService/CreateCityAdmin"
-	CityAdminService_UpdateCityAdmin_FullMethodName   = "/cities_admins.CityAdminService/UpdateCityAdmin"
-	CityAdminService_DeleteCityAdmin_FullMethodName   = "/cities_admins.CityAdminService/DeleteCityAdmin"
-	CityAdminService_ResignCityAdmin_FullMethodName   = "/cities_admins.CityAdminService/ResignCityAdmin"
-	CityAdminService_GetCityAdmin_FullMethodName      = "/cities_admins.CityAdminService/GetCityAdmin"
-	CityAdminService_ListCityAdmins_FullMethodName    = "/cities_admins.CityAdminService/ListCityAdmins"
+	CityAdminService_CreateCityOwner_FullMethodName      = "/cities_admins.CityAdminService/CreateCityOwner"
+	CityAdminService_TransferOwnership_FullMethodName    = "/cities_admins.CityAdminService/TransferOwnership"
+	CityAdminService_CreateCityAdmin_FullMethodName      = "/cities_admins.CityAdminService/CreateCityAdmin"
+	CityAdminService_UpdateCityAdmin_FullMethodName      = "/cities_admins.CityAdminService/UpdateCityAdmin"
+	CityAdminService_DeleteCityAdmin_FullMethodName      = "/cities_admins.CityAdminService/DeleteCityAdmin"
+	CityAdminService_RefuseCityAdminRight_FullMethodName = "/cities_admins.CityAdminService/RefuseCityAdminRight"
+	CityAdminService_GetCityAdmin_FullMethodName         = "/cities_admins.CityAdminService/GetCityAdmin"
+	CityAdminService_ListCityAdmins_FullMethodName       = "/cities_admins.CityAdminService/ListCityAdmins"
 )
 
 // CityAdminServiceClient is the client API for CityAdminService service.
@@ -39,7 +39,7 @@ type CityAdminServiceClient interface {
 	CreateCityAdmin(ctx context.Context, in *CreateCityAdminRequest, opts ...grpc.CallOption) (*CityAdmin, error)
 	UpdateCityAdmin(ctx context.Context, in *UpdateCityAdminRequest, opts ...grpc.CallOption) (*CityAdmin, error)
 	DeleteCityAdmin(ctx context.Context, in *DeleteCityAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	ResignCityAdmin(ctx context.Context, in *ResignCityAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	RefuseCityAdminRight(ctx context.Context, in *RefuseCityAdminRightRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetCityAdmin(ctx context.Context, in *GetCityAdminRequest, opts ...grpc.CallOption) (*CityAdmin, error)
 	ListCityAdmins(ctx context.Context, in *ListCityAdminsRequest, opts ...grpc.CallOption) (*ListCitiesAdmins, error)
 }
@@ -102,10 +102,10 @@ func (c *cityAdminServiceClient) DeleteCityAdmin(ctx context.Context, in *Delete
 	return out, nil
 }
 
-func (c *cityAdminServiceClient) ResignCityAdmin(ctx context.Context, in *ResignCityAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *cityAdminServiceClient) RefuseCityAdminRight(ctx context.Context, in *RefuseCityAdminRightRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, CityAdminService_ResignCityAdmin_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CityAdminService_RefuseCityAdminRight_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -141,7 +141,7 @@ type CityAdminServiceServer interface {
 	CreateCityAdmin(context.Context, *CreateCityAdminRequest) (*CityAdmin, error)
 	UpdateCityAdmin(context.Context, *UpdateCityAdminRequest) (*CityAdmin, error)
 	DeleteCityAdmin(context.Context, *DeleteCityAdminRequest) (*emptypb.Empty, error)
-	ResignCityAdmin(context.Context, *ResignCityAdminRequest) (*emptypb.Empty, error)
+	RefuseCityAdminRight(context.Context, *RefuseCityAdminRightRequest) (*emptypb.Empty, error)
 	GetCityAdmin(context.Context, *GetCityAdminRequest) (*CityAdmin, error)
 	ListCityAdmins(context.Context, *ListCityAdminsRequest) (*ListCitiesAdmins, error)
 	mustEmbedUnimplementedCityAdminServiceServer()
@@ -169,8 +169,8 @@ func (UnimplementedCityAdminServiceServer) UpdateCityAdmin(context.Context, *Upd
 func (UnimplementedCityAdminServiceServer) DeleteCityAdmin(context.Context, *DeleteCityAdminRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteCityAdmin not implemented")
 }
-func (UnimplementedCityAdminServiceServer) ResignCityAdmin(context.Context, *ResignCityAdminRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ResignCityAdmin not implemented")
+func (UnimplementedCityAdminServiceServer) RefuseCityAdminRight(context.Context, *RefuseCityAdminRightRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RefuseCityAdminRight not implemented")
 }
 func (UnimplementedCityAdminServiceServer) GetCityAdmin(context.Context, *GetCityAdminRequest) (*CityAdmin, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCityAdmin not implemented")
@@ -289,20 +289,20 @@ func _CityAdminService_DeleteCityAdmin_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CityAdminService_ResignCityAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResignCityAdminRequest)
+func _CityAdminService_RefuseCityAdminRight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RefuseCityAdminRightRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CityAdminServiceServer).ResignCityAdmin(ctx, in)
+		return srv.(CityAdminServiceServer).RefuseCityAdminRight(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CityAdminService_ResignCityAdmin_FullMethodName,
+		FullMethod: CityAdminService_RefuseCityAdminRight_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityAdminServiceServer).ResignCityAdmin(ctx, req.(*ResignCityAdminRequest))
+		return srv.(CityAdminServiceServer).RefuseCityAdminRight(ctx, req.(*RefuseCityAdminRightRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -371,8 +371,8 @@ var CityAdminService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CityAdminService_DeleteCityAdmin_Handler,
 		},
 		{
-			MethodName: "ResignCityAdmin",
-			Handler:    _CityAdminService_ResignCityAdmin_Handler,
+			MethodName: "RefuseCityAdminRight",
+			Handler:    _CityAdminService_RefuseCityAdminRight_Handler,
 		},
 		{
 			MethodName: "GetCityAdmin",

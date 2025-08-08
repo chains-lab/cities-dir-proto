@@ -340,7 +340,7 @@ func (x *DeleteCityAdminRequest) GetUserId() string {
 	return ""
 }
 
-type ResignCityAdminRequest struct {
+type RefuseCityAdminRightRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3,oneof" json:"initiator,omitempty"`
 	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
@@ -349,20 +349,20 @@ type ResignCityAdminRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ResignCityAdminRequest) Reset() {
-	*x = ResignCityAdminRequest{}
+func (x *RefuseCityAdminRightRequest) Reset() {
+	*x = RefuseCityAdminRightRequest{}
 	mi := &file_citiesadmins_cities_admins_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ResignCityAdminRequest) String() string {
+func (x *RefuseCityAdminRightRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ResignCityAdminRequest) ProtoMessage() {}
+func (*RefuseCityAdminRightRequest) ProtoMessage() {}
 
-func (x *ResignCityAdminRequest) ProtoReflect() protoreflect.Message {
+func (x *RefuseCityAdminRightRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_citiesadmins_cities_admins_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -374,26 +374,26 @@ func (x *ResignCityAdminRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ResignCityAdminRequest.ProtoReflect.Descriptor instead.
-func (*ResignCityAdminRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use RefuseCityAdminRightRequest.ProtoReflect.Descriptor instead.
+func (*RefuseCityAdminRightRequest) Descriptor() ([]byte, []int) {
 	return file_citiesadmins_cities_admins_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *ResignCityAdminRequest) GetInitiator() *userdata.UserData {
+func (x *RefuseCityAdminRightRequest) GetInitiator() *userdata.UserData {
 	if x != nil {
 		return x.Initiator
 	}
 	return nil
 }
 
-func (x *ResignCityAdminRequest) GetCityId() string {
+func (x *RefuseCityAdminRightRequest) GetCityId() string {
 	if x != nil {
 		return x.CityId
 	}
 	return ""
 }
 
-func (x *ResignCityAdminRequest) GetUserId() string {
+func (x *RefuseCityAdminRightRequest) GetUserId() string {
 	if x != nil {
 		return x.UserId
 	}
@@ -653,8 +653,8 @@ const file_citiesadmins_cities_admins_proto_rawDesc = "" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x17\n" +
 	"\auser_id\x18\x03 \x01(\tR\x06userIdB\f\n" +
 	"\n" +
-	"_initiator\"\x8f\x01\n" +
-	"\x16ResignCityAdminRequest\x125\n" +
+	"_initiator\"\x94\x01\n" +
+	"\x1bRefuseCityAdminRightRequest\x125\n" +
 	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataH\x00R\tinitiator\x88\x01\x01\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x17\n" +
 	"\auser_id\x18\x03 \x01(\tR\x06userIdB\f\n" +
@@ -676,14 +676,14 @@ const file_citiesadmins_cities_admins_proto_rawDesc = "" +
 	"\x06admins\x18\x01 \x03(\v2\x18.cities_admins.CityAdminR\x06admins\x124\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x14.pagination.ResponseR\n" +
-	"pagination2\xb1\x05\n" +
+	"pagination2\xbb\x05\n" +
 	"\x10CityAdminService\x12R\n" +
 	"\x0fCreateCityOwner\x12%.cities_admins.CreateCityOwnerRequest\x1a\x18.cities_admins.CityAdmin\x12V\n" +
 	"\x11TransferOwnership\x12'.cities_admins.TransferOwnershipRequest\x1a\x18.cities_admins.CityAdmin\x12R\n" +
 	"\x0fCreateCityAdmin\x12%.cities_admins.CreateCityAdminRequest\x1a\x18.cities_admins.CityAdmin\x12R\n" +
 	"\x0fUpdateCityAdmin\x12%.cities_admins.UpdateCityAdminRequest\x1a\x18.cities_admins.CityAdmin\x12P\n" +
-	"\x0fDeleteCityAdmin\x12%.cities_admins.DeleteCityAdminRequest\x1a\x16.google.protobuf.Empty\x12P\n" +
-	"\x0fResignCityAdmin\x12%.cities_admins.ResignCityAdminRequest\x1a\x16.google.protobuf.Empty\x12L\n" +
+	"\x0fDeleteCityAdmin\x12%.cities_admins.DeleteCityAdminRequest\x1a\x16.google.protobuf.Empty\x12Z\n" +
+	"\x14RefuseCityAdminRight\x12*.cities_admins.RefuseCityAdminRightRequest\x1a\x16.google.protobuf.Empty\x12L\n" +
 	"\fGetCityAdmin\x12\".cities_admins.GetCityAdminRequest\x1a\x18.cities_admins.CityAdmin\x12W\n" +
 	"\x0eListCityAdmins\x12$.cities_admins.ListCityAdminsRequest\x1a\x1f.cities_admins.ListCitiesAdminsBIZGgithub.com/chains-lab/cities-dir-proto/gen/go/citiesadmins;citiesadminsb\x06proto3"
 
@@ -701,20 +701,20 @@ func file_citiesadmins_cities_admins_proto_rawDescGZIP() []byte {
 
 var file_citiesadmins_cities_admins_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_citiesadmins_cities_admins_proto_goTypes = []any{
-	(*CreateCityOwnerRequest)(nil),   // 0: cities_admins.CreateCityOwnerRequest
-	(*TransferOwnershipRequest)(nil), // 1: cities_admins.TransferOwnershipRequest
-	(*CreateCityAdminRequest)(nil),   // 2: cities_admins.CreateCityAdminRequest
-	(*UpdateCityAdminRequest)(nil),   // 3: cities_admins.UpdateCityAdminRequest
-	(*DeleteCityAdminRequest)(nil),   // 4: cities_admins.DeleteCityAdminRequest
-	(*ResignCityAdminRequest)(nil),   // 5: cities_admins.ResignCityAdminRequest
-	(*GetCityAdminRequest)(nil),      // 6: cities_admins.GetCityAdminRequest
-	(*ListCityAdminsRequest)(nil),    // 7: cities_admins.ListCityAdminsRequest
-	(*CityAdmin)(nil),                // 8: cities_admins.CityAdmin
-	(*ListCitiesAdmins)(nil),         // 9: cities_admins.ListCitiesAdmins
-	(*userdata.UserData)(nil),        // 10: userdata.UserData
-	(*pagination.Request)(nil),       // 11: pagination.Request
-	(*pagination.Response)(nil),      // 12: pagination.Response
-	(*emptypb.Empty)(nil),            // 13: google.protobuf.Empty
+	(*CreateCityOwnerRequest)(nil),      // 0: cities_admins.CreateCityOwnerRequest
+	(*TransferOwnershipRequest)(nil),    // 1: cities_admins.TransferOwnershipRequest
+	(*CreateCityAdminRequest)(nil),      // 2: cities_admins.CreateCityAdminRequest
+	(*UpdateCityAdminRequest)(nil),      // 3: cities_admins.UpdateCityAdminRequest
+	(*DeleteCityAdminRequest)(nil),      // 4: cities_admins.DeleteCityAdminRequest
+	(*RefuseCityAdminRightRequest)(nil), // 5: cities_admins.RefuseCityAdminRightRequest
+	(*GetCityAdminRequest)(nil),         // 6: cities_admins.GetCityAdminRequest
+	(*ListCityAdminsRequest)(nil),       // 7: cities_admins.ListCityAdminsRequest
+	(*CityAdmin)(nil),                   // 8: cities_admins.CityAdmin
+	(*ListCitiesAdmins)(nil),            // 9: cities_admins.ListCitiesAdmins
+	(*userdata.UserData)(nil),           // 10: userdata.UserData
+	(*pagination.Request)(nil),          // 11: pagination.Request
+	(*pagination.Response)(nil),         // 12: pagination.Response
+	(*emptypb.Empty)(nil),               // 13: google.protobuf.Empty
 }
 var file_citiesadmins_cities_admins_proto_depIdxs = []int32{
 	10, // 0: cities_admins.CreateCityOwnerRequest.initiator:type_name -> userdata.UserData
@@ -722,7 +722,7 @@ var file_citiesadmins_cities_admins_proto_depIdxs = []int32{
 	10, // 2: cities_admins.CreateCityAdminRequest.initiator:type_name -> userdata.UserData
 	10, // 3: cities_admins.UpdateCityAdminRequest.initiator:type_name -> userdata.UserData
 	10, // 4: cities_admins.DeleteCityAdminRequest.initiator:type_name -> userdata.UserData
-	10, // 5: cities_admins.ResignCityAdminRequest.initiator:type_name -> userdata.UserData
+	10, // 5: cities_admins.RefuseCityAdminRightRequest.initiator:type_name -> userdata.UserData
 	11, // 6: cities_admins.ListCityAdminsRequest.pagination:type_name -> pagination.Request
 	8,  // 7: cities_admins.ListCitiesAdmins.admins:type_name -> cities_admins.CityAdmin
 	12, // 8: cities_admins.ListCitiesAdmins.pagination:type_name -> pagination.Response
@@ -731,7 +731,7 @@ var file_citiesadmins_cities_admins_proto_depIdxs = []int32{
 	2,  // 11: cities_admins.CityAdminService.CreateCityAdmin:input_type -> cities_admins.CreateCityAdminRequest
 	3,  // 12: cities_admins.CityAdminService.UpdateCityAdmin:input_type -> cities_admins.UpdateCityAdminRequest
 	4,  // 13: cities_admins.CityAdminService.DeleteCityAdmin:input_type -> cities_admins.DeleteCityAdminRequest
-	5,  // 14: cities_admins.CityAdminService.ResignCityAdmin:input_type -> cities_admins.ResignCityAdminRequest
+	5,  // 14: cities_admins.CityAdminService.RefuseCityAdminRight:input_type -> cities_admins.RefuseCityAdminRightRequest
 	6,  // 15: cities_admins.CityAdminService.GetCityAdmin:input_type -> cities_admins.GetCityAdminRequest
 	7,  // 16: cities_admins.CityAdminService.ListCityAdmins:input_type -> cities_admins.ListCityAdminsRequest
 	8,  // 17: cities_admins.CityAdminService.CreateCityOwner:output_type -> cities_admins.CityAdmin
@@ -739,7 +739,7 @@ var file_citiesadmins_cities_admins_proto_depIdxs = []int32{
 	8,  // 19: cities_admins.CityAdminService.CreateCityAdmin:output_type -> cities_admins.CityAdmin
 	8,  // 20: cities_admins.CityAdminService.UpdateCityAdmin:output_type -> cities_admins.CityAdmin
 	13, // 21: cities_admins.CityAdminService.DeleteCityAdmin:output_type -> google.protobuf.Empty
-	13, // 22: cities_admins.CityAdminService.ResignCityAdmin:output_type -> google.protobuf.Empty
+	13, // 22: cities_admins.CityAdminService.RefuseCityAdminRight:output_type -> google.protobuf.Empty
 	8,  // 23: cities_admins.CityAdminService.GetCityAdmin:output_type -> cities_admins.CityAdmin
 	9,  // 24: cities_admins.CityAdminService.ListCityAdmins:output_type -> cities_admins.ListCitiesAdmins
 	17, // [17:25] is the sub-list for method output_type
