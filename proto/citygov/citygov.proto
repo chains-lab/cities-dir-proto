@@ -21,9 +21,15 @@ service CityGovService {
 
   rpc GetCityAdmin     (GetCityAdminRequest)        returns (CityAdmin);
   rpc ListCityAdmins   (ListCityAdminsRequest)      returns (ListCitiesAdmins);
+
+  rpc GetUserCitiesAdmins (userdata.UserData) returns (ListCitiesAdmins);
 }
 
 // REQUESTS
+
+message GetUserCitiesAdminsRequest {
+  optional string user_id = 1;
+}
 
 message CreateCityOwnerRequest {
   optional userdata.UserData initiator = 1;
