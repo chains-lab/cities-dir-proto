@@ -11,7 +11,6 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -26,7 +25,6 @@ const (
 	CityService_UpdateCityName_FullMethodName             = "/cities.CityService/UpdateCityName"
 	CityService_SearchCities_FullMethodName               = "/cities.CityService/SearchCities"
 	CityService_UpdateCityStatusBySysAdmin_FullMethodName = "/cities.CityService/UpdateCityStatusBySysAdmin"
-	CityService_DeleteCity_FullMethodName                 = "/cities.CityService/DeleteCity"
 )
 
 // CityServiceClient is the client API for CityService service.
@@ -39,7 +37,6 @@ type CityServiceClient interface {
 	UpdateCityName(ctx context.Context, in *UpdateCityNameRequest, opts ...grpc.CallOption) (*City, error)
 	SearchCities(ctx context.Context, in *SearchCitiesRequest, opts ...grpc.CallOption) (*CitiesList, error)
 	UpdateCityStatusBySysAdmin(ctx context.Context, in *UpdateCityStatusSysAdminRequest, opts ...grpc.CallOption) (*City, error)
-	DeleteCity(ctx context.Context, in *DeleteCityRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
 type cityServiceClient struct {
@@ -110,16 +107,6 @@ func (c *cityServiceClient) UpdateCityStatusBySysAdmin(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *cityServiceClient) DeleteCity(ctx context.Context, in *DeleteCityRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, CityService_DeleteCity_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // CityServiceServer is the server API for CityService service.
 // All implementations must embed UnimplementedCityServiceServer
 // for forward compatibility.
@@ -130,7 +117,6 @@ type CityServiceServer interface {
 	UpdateCityName(context.Context, *UpdateCityNameRequest) (*City, error)
 	SearchCities(context.Context, *SearchCitiesRequest) (*CitiesList, error)
 	UpdateCityStatusBySysAdmin(context.Context, *UpdateCityStatusSysAdminRequest) (*City, error)
-	DeleteCity(context.Context, *DeleteCityRequest) (*emptypb.Empty, error)
 	mustEmbedUnimplementedCityServiceServer()
 }
 
@@ -158,9 +144,6 @@ func (UnimplementedCityServiceServer) SearchCities(context.Context, *SearchCitie
 }
 func (UnimplementedCityServiceServer) UpdateCityStatusBySysAdmin(context.Context, *UpdateCityStatusSysAdminRequest) (*City, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityStatusBySysAdmin not implemented")
-}
-func (UnimplementedCityServiceServer) DeleteCity(context.Context, *DeleteCityRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteCity not implemented")
 }
 func (UnimplementedCityServiceServer) mustEmbedUnimplementedCityServiceServer() {}
 func (UnimplementedCityServiceServer) testEmbeddedByValue()                     {}
@@ -291,24 +274,6 @@ func _CityService_UpdateCityStatusBySysAdmin_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CityService_DeleteCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteCityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CityServiceServer).DeleteCity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CityService_DeleteCity_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityServiceServer).DeleteCity(ctx, req.(*DeleteCityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // CityService_ServiceDesc is the grpc.ServiceDesc for CityService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -339,10 +304,6 @@ var CityService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateCityStatusBySysAdmin",
 			Handler:    _CityService_UpdateCityStatusBySysAdmin_Handler,
-		},
-		{
-			MethodName: "DeleteCity",
-			Handler:    _CityService_DeleteCity_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
