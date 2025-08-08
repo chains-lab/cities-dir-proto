@@ -11,13 +11,13 @@ service CityAdminService {
   rpc CreateCityOwner (CreateCityOwnerRequest) returns (CityAdmin);
   rpc TransferOwnership (TransferOwnershipRequest) returns (CityAdmin);
 
-  rpc CreateAdmin (CreateAdminRequest)     returns (CityAdmin);
-  rpc UpdateAdmin (UpdateAdminRequest)     returns (CityAdmin);
-  rpc DeleteAdmin (DeleteAdminRequest)     returns (google.protobuf.Empty);
-  rpc ResignAdmin (ResignAdminRequest)     returns (google.protobuf.Empty);
+  rpc CreateCityAdmin (CreateCityAdminRequest)     returns (CityAdmin);
+  rpc UpdateCityAdmin (UpdateCityAdminRequest)     returns (CityAdmin);
+  rpc DeleteCityAdmin (DeleteCityAdminRequest)     returns (google.protobuf.Empty);
+  rpc ResignCityAdmin (ResignCityAdminRequest)     returns (google.protobuf.Empty);
 
-  rpc GetAdmin     (GetAdminRequest)        returns (CityAdmin);
-  rpc ListAdmins   (ListAdminsRequest)      returns (ListCitiesAdmins);
+  rpc GetCityAdmin     (GetCityAdminRequest)        returns (CityAdmin);
+  rpc ListCityAdmins   (ListCityAdminsRequest)      returns (ListCitiesAdmins);
 }
 
 // --------------------
@@ -36,38 +36,38 @@ message TransferOwnershipRequest {
   string new_owner_id   = 3;
 }
 
-message CreateAdminRequest {
+message CreateCityAdminRequest {
   optional userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
   string role    = 4;
 }
 
-message UpdateAdminRequest {
+message UpdateCityAdminRequest {
   optional userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
   string role    = 4;
 }
 
-message DeleteAdminRequest {
+message DeleteCityAdminRequest {
   optional userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
 }
 
-message ResignAdminRequest {
+message ResignCityAdminRequest {
   optional userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
 }
 
-message GetAdminRequest {
+message GetCityAdminRequest {
   string city_id = 1;
   string user_id = 2;
 }
 
-message ListAdminsRequest {
+message ListCityAdminsRequest {
   string city_id = 1;
   pagination.Request pagination = 2;
 }
