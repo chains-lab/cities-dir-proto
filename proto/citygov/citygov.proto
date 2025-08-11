@@ -33,45 +33,45 @@ message ListUserCitiesAdminsRequest {
 }
 
 message CreateCityOwnerRequest {
-  optional userdata.UserData initiator = 1;
+  userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
 }
 
 message DeleteCityOwnerRequest {
-  optional userdata.UserData initiator = 1;
+  userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
 }
 
 message TransferOwnershipRequest {
-  optional userdata.UserData initiator = 1;
+  userdata.UserData initiator = 1;
   string city_id        = 2;
   string new_owner_id   = 3;
 }
 
 message CreateCityAdminRequest {
-  optional userdata.UserData initiator = 1;
+  userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
   string role    = 4;
 }
 
 message UpdateCityAdminRequest {
-  optional userdata.UserData initiator = 1;
+  userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
   string role    = 4;
 }
 
 message DeleteCityAdminRequest {
-  optional userdata.UserData initiator = 1;
+  userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
 }
 
 message RefuseCityAdminRightRequest {
-  optional userdata.UserData initiator = 1;
+  userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
 }
