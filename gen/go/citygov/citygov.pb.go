@@ -78,7 +78,7 @@ func (x *ListUserCitiesAdminsRequest) GetPagination() *pagination.Request {
 
 type CreateCityOwnerRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3,oneof" json:"initiator,omitempty"`
+	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
 	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	UserId        string                 `protobuf:"bytes,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -138,7 +138,7 @@ func (x *CreateCityOwnerRequest) GetUserId() string {
 
 type DeleteCityOwnerRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3,oneof" json:"initiator,omitempty"`
+	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
 	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	UserId        string                 `protobuf:"bytes,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -198,7 +198,7 @@ func (x *DeleteCityOwnerRequest) GetUserId() string {
 
 type TransferOwnershipRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3,oneof" json:"initiator,omitempty"`
+	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
 	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	NewOwnerId    string                 `protobuf:"bytes,3,opt,name=new_owner_id,json=newOwnerId,proto3" json:"new_owner_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -258,7 +258,7 @@ func (x *TransferOwnershipRequest) GetNewOwnerId() string {
 
 type CreateCityAdminRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3,oneof" json:"initiator,omitempty"`
+	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
 	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	UserId        string                 `protobuf:"bytes,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Role          string                 `protobuf:"bytes,4,opt,name=role,proto3" json:"role,omitempty"`
@@ -326,7 +326,7 @@ func (x *CreateCityAdminRequest) GetRole() string {
 
 type UpdateCityAdminRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3,oneof" json:"initiator,omitempty"`
+	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
 	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	UserId        string                 `protobuf:"bytes,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Role          string                 `protobuf:"bytes,4,opt,name=role,proto3" json:"role,omitempty"`
@@ -394,7 +394,7 @@ func (x *UpdateCityAdminRequest) GetRole() string {
 
 type DeleteCityAdminRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3,oneof" json:"initiator,omitempty"`
+	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
 	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	UserId        string                 `protobuf:"bytes,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -454,7 +454,7 @@ func (x *DeleteCityAdminRequest) GetUserId() string {
 
 type RefuseCityAdminRightRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3,oneof" json:"initiator,omitempty"`
+	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
 	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	UserId        string                 `protobuf:"bytes,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -737,52 +737,38 @@ const file_citygov_citygov_proto_rawDesc = "" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x123\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x13.pagination.RequestR\n" +
-	"pagination\"\x8f\x01\n" +
-	"\x16CreateCityOwnerRequest\x125\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataH\x00R\tinitiator\x88\x01\x01\x12\x17\n" +
+	"pagination\"|\n" +
+	"\x16CreateCityOwnerRequest\x120\n" +
+	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\tR\x06userIdB\f\n" +
-	"\n" +
-	"_initiator\"\x8f\x01\n" +
-	"\x16DeleteCityOwnerRequest\x125\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataH\x00R\tinitiator\x88\x01\x01\x12\x17\n" +
+	"\auser_id\x18\x03 \x01(\tR\x06userId\"|\n" +
+	"\x16DeleteCityOwnerRequest\x120\n" +
+	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\tR\x06userIdB\f\n" +
-	"\n" +
-	"_initiator\"\x9a\x01\n" +
-	"\x18TransferOwnershipRequest\x125\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataH\x00R\tinitiator\x88\x01\x01\x12\x17\n" +
+	"\auser_id\x18\x03 \x01(\tR\x06userId\"\x87\x01\n" +
+	"\x18TransferOwnershipRequest\x120\n" +
+	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12 \n" +
 	"\fnew_owner_id\x18\x03 \x01(\tR\n" +
-	"newOwnerIdB\f\n" +
-	"\n" +
-	"_initiator\"\xa3\x01\n" +
-	"\x16CreateCityAdminRequest\x125\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataH\x00R\tinitiator\x88\x01\x01\x12\x17\n" +
+	"newOwnerId\"\x90\x01\n" +
+	"\x16CreateCityAdminRequest\x120\n" +
+	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x17\n" +
 	"\auser_id\x18\x03 \x01(\tR\x06userId\x12\x12\n" +
-	"\x04role\x18\x04 \x01(\tR\x04roleB\f\n" +
-	"\n" +
-	"_initiator\"\xa3\x01\n" +
-	"\x16UpdateCityAdminRequest\x125\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataH\x00R\tinitiator\x88\x01\x01\x12\x17\n" +
+	"\x04role\x18\x04 \x01(\tR\x04role\"\x90\x01\n" +
+	"\x16UpdateCityAdminRequest\x120\n" +
+	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x17\n" +
 	"\auser_id\x18\x03 \x01(\tR\x06userId\x12\x12\n" +
-	"\x04role\x18\x04 \x01(\tR\x04roleB\f\n" +
-	"\n" +
-	"_initiator\"\x8f\x01\n" +
-	"\x16DeleteCityAdminRequest\x125\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataH\x00R\tinitiator\x88\x01\x01\x12\x17\n" +
+	"\x04role\x18\x04 \x01(\tR\x04role\"|\n" +
+	"\x16DeleteCityAdminRequest\x120\n" +
+	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\tR\x06userIdB\f\n" +
-	"\n" +
-	"_initiator\"\x94\x01\n" +
-	"\x1bRefuseCityAdminRightRequest\x125\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataH\x00R\tinitiator\x88\x01\x01\x12\x17\n" +
+	"\auser_id\x18\x03 \x01(\tR\x06userId\"\x81\x01\n" +
+	"\x1bRefuseCityAdminRightRequest\x120\n" +
+	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\tR\x06userIdB\f\n" +
-	"\n" +
-	"_initiator\"G\n" +
+	"\auser_id\x18\x03 \x01(\tR\x06userId\"G\n" +
 	"\x13GetCityAdminRequest\x12\x17\n" +
 	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\"e\n" +
@@ -887,13 +873,6 @@ func file_citygov_citygov_proto_init() {
 	if File_citygov_citygov_proto != nil {
 		return
 	}
-	file_citygov_citygov_proto_msgTypes[1].OneofWrappers = []any{}
-	file_citygov_citygov_proto_msgTypes[2].OneofWrappers = []any{}
-	file_citygov_citygov_proto_msgTypes[3].OneofWrappers = []any{}
-	file_citygov_citygov_proto_msgTypes[4].OneofWrappers = []any{}
-	file_citygov_citygov_proto_msgTypes[5].OneofWrappers = []any{}
-	file_citygov_citygov_proto_msgTypes[6].OneofWrappers = []any{}
-	file_citygov_citygov_proto_msgTypes[7].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
