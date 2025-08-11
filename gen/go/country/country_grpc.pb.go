@@ -19,21 +19,15 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CountryService_CreateCountry_FullMethodName       = "/country.CountryService/CreateCountry"
-	CountryService_GetCountryById_FullMethodName      = "/country.CountryService/GetCountryById"
-	CountryService_UpdateCountryName_FullMethodName   = "/country.CountryService/UpdateCountryName"
-	CountryService_UpdateCountryStatus_FullMethodName = "/country.CountryService/UpdateCountryStatus"
-	CountryService_SearchCountries_FullMethodName     = "/country.CountryService/SearchCountries"
+	CountryService_GetCountryById_FullMethodName  = "/country.CountryService/GetCountryById"
+	CountryService_SearchCountries_FullMethodName = "/country.CountryService/SearchCountries"
 )
 
 // CountryServiceClient is the client API for CountryService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CountryServiceClient interface {
-	CreateCountry(ctx context.Context, in *CreateCountryRequest, opts ...grpc.CallOption) (*Country, error)
 	GetCountryById(ctx context.Context, in *GetCountryByIdRequest, opts ...grpc.CallOption) (*Country, error)
-	UpdateCountryName(ctx context.Context, in *UpdateCountryNameRequest, opts ...grpc.CallOption) (*Country, error)
-	UpdateCountryStatus(ctx context.Context, in *UpdateCountryStatusRequest, opts ...grpc.CallOption) (*Country, error)
 	SearchCountries(ctx context.Context, in *SearchCountriesRequest, opts ...grpc.CallOption) (*CountriesList, error)
 }
 
@@ -45,40 +39,10 @@ func NewCountryServiceClient(cc grpc.ClientConnInterface) CountryServiceClient {
 	return &countryServiceClient{cc}
 }
 
-func (c *countryServiceClient) CreateCountry(ctx context.Context, in *CreateCountryRequest, opts ...grpc.CallOption) (*Country, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Country)
-	err := c.cc.Invoke(ctx, CountryService_CreateCountry_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *countryServiceClient) GetCountryById(ctx context.Context, in *GetCountryByIdRequest, opts ...grpc.CallOption) (*Country, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Country)
 	err := c.cc.Invoke(ctx, CountryService_GetCountryById_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *countryServiceClient) UpdateCountryName(ctx context.Context, in *UpdateCountryNameRequest, opts ...grpc.CallOption) (*Country, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Country)
-	err := c.cc.Invoke(ctx, CountryService_UpdateCountryName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *countryServiceClient) UpdateCountryStatus(ctx context.Context, in *UpdateCountryStatusRequest, opts ...grpc.CallOption) (*Country, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Country)
-	err := c.cc.Invoke(ctx, CountryService_UpdateCountryStatus_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,10 +63,7 @@ func (c *countryServiceClient) SearchCountries(ctx context.Context, in *SearchCo
 // All implementations must embed UnimplementedCountryServiceServer
 // for forward compatibility.
 type CountryServiceServer interface {
-	CreateCountry(context.Context, *CreateCountryRequest) (*Country, error)
 	GetCountryById(context.Context, *GetCountryByIdRequest) (*Country, error)
-	UpdateCountryName(context.Context, *UpdateCountryNameRequest) (*Country, error)
-	UpdateCountryStatus(context.Context, *UpdateCountryStatusRequest) (*Country, error)
 	SearchCountries(context.Context, *SearchCountriesRequest) (*CountriesList, error)
 	mustEmbedUnimplementedCountryServiceServer()
 }
@@ -114,17 +75,8 @@ type CountryServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedCountryServiceServer struct{}
 
-func (UnimplementedCountryServiceServer) CreateCountry(context.Context, *CreateCountryRequest) (*Country, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateCountry not implemented")
-}
 func (UnimplementedCountryServiceServer) GetCountryById(context.Context, *GetCountryByIdRequest) (*Country, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCountryById not implemented")
-}
-func (UnimplementedCountryServiceServer) UpdateCountryName(context.Context, *UpdateCountryNameRequest) (*Country, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateCountryName not implemented")
-}
-func (UnimplementedCountryServiceServer) UpdateCountryStatus(context.Context, *UpdateCountryStatusRequest) (*Country, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateCountryStatus not implemented")
 }
 func (UnimplementedCountryServiceServer) SearchCountries(context.Context, *SearchCountriesRequest) (*CountriesList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchCountries not implemented")
@@ -150,24 +102,6 @@ func RegisterCountryServiceServer(s grpc.ServiceRegistrar, srv CountryServiceSer
 	s.RegisterService(&CountryService_ServiceDesc, srv)
 }
 
-func _CountryService_CreateCountry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCountryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CountryServiceServer).CreateCountry(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CountryService_CreateCountry_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CountryServiceServer).CreateCountry(ctx, req.(*CreateCountryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _CountryService_GetCountryById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCountryByIdRequest)
 	if err := dec(in); err != nil {
@@ -182,42 +116,6 @@ func _CountryService_GetCountryById_Handler(srv interface{}, ctx context.Context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CountryServiceServer).GetCountryById(ctx, req.(*GetCountryByIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CountryService_UpdateCountryName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateCountryNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CountryServiceServer).UpdateCountryName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CountryService_UpdateCountryName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CountryServiceServer).UpdateCountryName(ctx, req.(*UpdateCountryNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CountryService_UpdateCountryStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateCountryStatusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CountryServiceServer).UpdateCountryStatus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CountryService_UpdateCountryStatus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CountryServiceServer).UpdateCountryStatus(ctx, req.(*UpdateCountryStatusRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -248,20 +146,8 @@ var CountryService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*CountryServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CreateCountry",
-			Handler:    _CountryService_CreateCountry_Handler,
-		},
-		{
 			MethodName: "GetCountryById",
 			Handler:    _CountryService_GetCountryById_Handler,
-		},
-		{
-			MethodName: "UpdateCountryName",
-			Handler:    _CountryService_UpdateCountryName_Handler,
-		},
-		{
-			MethodName: "UpdateCountryStatus",
-			Handler:    _CountryService_UpdateCountryStatus_Handler,
 		},
 		{
 			MethodName: "SearchCountries",

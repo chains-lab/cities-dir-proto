@@ -4,45 +4,23 @@ package citygov;
 option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/citygov;citygov";
 
 import "google/protobuf/empty.proto";
-import "common/userdata/userdata.proto";;
+import "common/userdata/userdata.proto";
 import "common/pagination/pagination.proto";
 
 service CityGovService {
-  rpc CreateCityOwner (CreateCityOwnerRequest) returns (CityAdmin);
-  rpc DeleteCityOwner (DeleteCityOwnerRequest) returns (google.protobuf.Empty);
+  rpc CreateCityGov (CreateCityGovRequest)     returns (CityGov);
+  rpc UpdateCityGov (UpdateCityGovRequest)     returns (CityGov);
+  rpc DeleteCityGov (DeleteCityGovRequest)     returns (google.protobuf.Empty);
 
-  rpc TransferOwnership (TransferOwnershipRequest) returns (CityAdmin);
+  rpc RefuseCityGovRight (RefuseCityGovRightRequest)  returns (google.protobuf.Empty);
 
-  rpc CreateCityAdmin (CreateCityAdminRequest)     returns (CityAdmin);
-  rpc UpdateCityAdmin (UpdateCityAdminRequest)     returns (CityAdmin);
-  rpc DeleteCityAdmin (DeleteCityAdminRequest)     returns (google.protobuf.Empty);
+  rpc TransferOwnership (TransferOwnershipRequest)   returns (google.protobuf.Empty);
 
-  rpc RefuseCityAdminRight (RefuseCityAdminRightRequest)     returns (google.protobuf.Empty);
-
-  rpc GetCityAdmin     (GetCityAdminRequest)        returns (CityAdmin);
-  rpc ListCityAdmins   (ListCityAdminsRequest)      returns (ListCitiesAdmins);
-
-  rpc ListUserCitiesAdmins (ListUserCitiesAdminsRequest) returns (ListCitiesAdmins);
+  rpc GetCityGov        (GetCityGovRequest)        returns (CityGov);
+  rpc GetListCityGovs   (ListCityGovsRequest)      returns (ListCityGovs);
 }
 
 // REQUESTS
-
-message ListUserCitiesAdminsRequest {
-  string user_id = 1;
-  pagination.Request pagination = 2;
-}
-
-message CreateCityOwnerRequest {
-  userdata.UserData initiator = 1;
-  string city_id = 2;
-  string user_id = 3;
-}
-
-message DeleteCityOwnerRequest {
-  userdata.UserData initiator = 1;
-  string city_id = 2;
-  string user_id = 3;
-}
 
 message TransferOwnershipRequest {
   userdata.UserData initiator = 1;
@@ -50,38 +28,38 @@ message TransferOwnershipRequest {
   string new_owner_id   = 3;
 }
 
-message CreateCityAdminRequest {
+message CreateCityGovRequest {
   userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
   string role    = 4;
 }
 
-message UpdateCityAdminRequest {
+message UpdateCityGovRequest {
   userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
   string role    = 4;
 }
 
-message DeleteCityAdminRequest {
+message DeleteCityGovRequest {
   userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
 }
 
-message RefuseCityAdminRightRequest {
+message RefuseCityGovRightRequest {
   userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
 }
 
-message GetCityAdminRequest {
+message GetCityGovRequest {
   string city_id = 1;
   string user_id = 2;
 }
 
-message ListCityAdminsRequest {
+message ListCityGovsRequest {
   string city_id = 1;
   pagination.Request pagination = 2;
 }
@@ -90,13 +68,13 @@ message ListCityAdminsRequest {
 // ---- RESPONSES ----
 // --------------------
 
-message CityAdmin {
+message CityGov {
   string city_id = 1;
   string user_id = 2;
   string role    = 3;
 }
 
-message ListCitiesAdmins {
-  repeated CityAdmin admins     = 1;
+message ListCityGovs {
+  repeated CityGov government    = 1;
   pagination.Response pagination = 2;
 }

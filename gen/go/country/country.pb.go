@@ -8,10 +8,8 @@ package country
 
 import (
 	pagination "github.com/chains-lab/cities-dir-proto/gen/go/common/pagination"
-	userdata "github.com/chains-lab/cities-dir-proto/gen/go/common/userdata"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -24,126 +22,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type CreateCountryRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
-	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateCountryRequest) Reset() {
-	*x = CreateCountryRequest{}
-	mi := &file_country_country_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateCountryRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateCountryRequest) ProtoMessage() {}
-
-func (x *CreateCountryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_country_country_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateCountryRequest.ProtoReflect.Descriptor instead.
-func (*CreateCountryRequest) Descriptor() ([]byte, []int) {
-	return file_country_country_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *CreateCountryRequest) GetInitiator() *userdata.UserData {
-	if x != nil {
-		return x.Initiator
-	}
-	return nil
-}
-
-func (x *CreateCountryRequest) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *CreateCountryRequest) GetStatus() string {
-	if x != nil {
-		return x.Status
-	}
-	return ""
-}
-
-type UpdateCountryNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
-	CountryId     string                 `protobuf:"bytes,2,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
-	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UpdateCountryNameRequest) Reset() {
-	*x = UpdateCountryNameRequest{}
-	mi := &file_country_country_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UpdateCountryNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateCountryNameRequest) ProtoMessage() {}
-
-func (x *UpdateCountryNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_country_country_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateCountryNameRequest.ProtoReflect.Descriptor instead.
-func (*UpdateCountryNameRequest) Descriptor() ([]byte, []int) {
-	return file_country_country_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *UpdateCountryNameRequest) GetInitiator() *userdata.UserData {
-	if x != nil {
-		return x.Initiator
-	}
-	return nil
-}
-
-func (x *UpdateCountryNameRequest) GetCountryId() string {
-	if x != nil {
-		return x.CountryId
-	}
-	return ""
-}
-
-func (x *UpdateCountryNameRequest) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
 type GetCountryByIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	CountryId     string                 `protobuf:"bytes,1,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
@@ -153,7 +31,7 @@ type GetCountryByIdRequest struct {
 
 func (x *GetCountryByIdRequest) Reset() {
 	*x = GetCountryByIdRequest{}
-	mi := &file_country_country_proto_msgTypes[2]
+	mi := &file_country_country_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -165,7 +43,7 @@ func (x *GetCountryByIdRequest) String() string {
 func (*GetCountryByIdRequest) ProtoMessage() {}
 
 func (x *GetCountryByIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_country_country_proto_msgTypes[2]
+	mi := &file_country_country_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -178,72 +56,12 @@ func (x *GetCountryByIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCountryByIdRequest.ProtoReflect.Descriptor instead.
 func (*GetCountryByIdRequest) Descriptor() ([]byte, []int) {
-	return file_country_country_proto_rawDescGZIP(), []int{2}
+	return file_country_country_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *GetCountryByIdRequest) GetCountryId() string {
 	if x != nil {
 		return x.CountryId
-	}
-	return ""
-}
-
-type UpdateCountryStatusRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
-	CountryId     string                 `protobuf:"bytes,2,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
-	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UpdateCountryStatusRequest) Reset() {
-	*x = UpdateCountryStatusRequest{}
-	mi := &file_country_country_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UpdateCountryStatusRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateCountryStatusRequest) ProtoMessage() {}
-
-func (x *UpdateCountryStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_country_country_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateCountryStatusRequest.ProtoReflect.Descriptor instead.
-func (*UpdateCountryStatusRequest) Descriptor() ([]byte, []int) {
-	return file_country_country_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *UpdateCountryStatusRequest) GetInitiator() *userdata.UserData {
-	if x != nil {
-		return x.Initiator
-	}
-	return nil
-}
-
-func (x *UpdateCountryStatusRequest) GetCountryId() string {
-	if x != nil {
-		return x.CountryId
-	}
-	return ""
-}
-
-func (x *UpdateCountryStatusRequest) GetStatus() string {
-	if x != nil {
-		return x.Status
 	}
 	return ""
 }
@@ -259,7 +77,7 @@ type SearchCountriesRequest struct {
 
 func (x *SearchCountriesRequest) Reset() {
 	*x = SearchCountriesRequest{}
-	mi := &file_country_country_proto_msgTypes[4]
+	mi := &file_country_country_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -271,7 +89,7 @@ func (x *SearchCountriesRequest) String() string {
 func (*SearchCountriesRequest) ProtoMessage() {}
 
 func (x *SearchCountriesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_country_country_proto_msgTypes[4]
+	mi := &file_country_country_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -284,7 +102,7 @@ func (x *SearchCountriesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchCountriesRequest.ProtoReflect.Descriptor instead.
 func (*SearchCountriesRequest) Descriptor() ([]byte, []int) {
-	return file_country_country_proto_rawDescGZIP(), []int{4}
+	return file_country_country_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *SearchCountriesRequest) GetNameLike() string {
@@ -319,7 +137,7 @@ type Country struct {
 
 func (x *Country) Reset() {
 	*x = Country{}
-	mi := &file_country_country_proto_msgTypes[5]
+	mi := &file_country_country_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -331,7 +149,7 @@ func (x *Country) String() string {
 func (*Country) ProtoMessage() {}
 
 func (x *Country) ProtoReflect() protoreflect.Message {
-	mi := &file_country_country_proto_msgTypes[5]
+	mi := &file_country_country_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -344,7 +162,7 @@ func (x *Country) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Country.ProtoReflect.Descriptor instead.
 func (*Country) Descriptor() ([]byte, []int) {
-	return file_country_country_proto_rawDescGZIP(), []int{5}
+	return file_country_country_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Country) GetId() string {
@@ -378,7 +196,7 @@ type CountriesList struct {
 
 func (x *CountriesList) Reset() {
 	*x = CountriesList{}
-	mi := &file_country_country_proto_msgTypes[6]
+	mi := &file_country_country_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -390,7 +208,7 @@ func (x *CountriesList) String() string {
 func (*CountriesList) ProtoMessage() {}
 
 func (x *CountriesList) ProtoReflect() protoreflect.Message {
-	mi := &file_country_country_proto_msgTypes[6]
+	mi := &file_country_country_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -403,7 +221,7 @@ func (x *CountriesList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CountriesList.ProtoReflect.Descriptor instead.
 func (*CountriesList) Descriptor() ([]byte, []int) {
-	return file_country_country_proto_rawDescGZIP(), []int{6}
+	return file_country_country_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CountriesList) GetCountries() []*Country {
@@ -424,24 +242,10 @@ var File_country_country_proto protoreflect.FileDescriptor
 
 const file_country_country_proto_rawDesc = "" +
 	"\n" +
-	"\x15country/country.proto\x12\acountry\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1ecommon/userdata/userdata.proto\x1a\"common/pagination/pagination.proto\"t\n" +
-	"\x14CreateCountryRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\x16\n" +
-	"\x06status\x18\x03 \x01(\tR\x06status\"\x7f\n" +
-	"\x18UpdateCountryNameRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x1d\n" +
-	"\n" +
-	"country_id\x18\x02 \x01(\tR\tcountryId\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\"6\n" +
+	"\x15country/country.proto\x12\acountry\x1a\"common/pagination/pagination.proto\"6\n" +
 	"\x15GetCountryByIdRequest\x12\x1d\n" +
 	"\n" +
-	"country_id\x18\x01 \x01(\tR\tcountryId\"\x85\x01\n" +
-	"\x1aUpdateCountryStatusRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x1d\n" +
-	"\n" +
-	"country_id\x18\x02 \x01(\tR\tcountryId\x12\x16\n" +
-	"\x06status\x18\x03 \x01(\tR\x06status\"\x82\x01\n" +
+	"country_id\x18\x01 \x01(\tR\tcountryId\"\x82\x01\n" +
 	"\x16SearchCountriesRequest\x12\x1b\n" +
 	"\tname_like\x18\x01 \x01(\tR\bnameLike\x12\x16\n" +
 	"\x06status\x18\x02 \x01(\tR\x06status\x123\n" +
@@ -456,12 +260,9 @@ const file_country_country_proto_rawDesc = "" +
 	"\tcountries\x18\x01 \x03(\v2\x10.country.CountryR\tcountries\x124\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x14.pagination.ResponseR\n" +
-	"pagination2\xfa\x02\n" +
-	"\x0eCountryService\x12@\n" +
-	"\rCreateCountry\x12\x1d.country.CreateCountryRequest\x1a\x10.country.Country\x12B\n" +
-	"\x0eGetCountryById\x12\x1e.country.GetCountryByIdRequest\x1a\x10.country.Country\x12H\n" +
-	"\x11UpdateCountryName\x12!.country.UpdateCountryNameRequest\x1a\x10.country.Country\x12L\n" +
-	"\x13UpdateCountryStatus\x12#.country.UpdateCountryStatusRequest\x1a\x10.country.Country\x12J\n" +
+	"pagination2\xa0\x01\n" +
+	"\x0eCountryService\x12B\n" +
+	"\x0eGetCountryById\x12\x1e.country.GetCountryByIdRequest\x1a\x10.country.Country\x12J\n" +
 	"\x0fSearchCountries\x12\x1f.country.SearchCountriesRequest\x1a\x16.country.CountriesListB?Z=github.com/chains-lab/cities-dir-proto/gen/go/country;countryb\x06proto3"
 
 var (
@@ -476,41 +277,28 @@ func file_country_country_proto_rawDescGZIP() []byte {
 	return file_country_country_proto_rawDescData
 }
 
-var file_country_country_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_country_country_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_country_country_proto_goTypes = []any{
-	(*CreateCountryRequest)(nil),       // 0: country.CreateCountryRequest
-	(*UpdateCountryNameRequest)(nil),   // 1: country.UpdateCountryNameRequest
-	(*GetCountryByIdRequest)(nil),      // 2: country.GetCountryByIdRequest
-	(*UpdateCountryStatusRequest)(nil), // 3: country.UpdateCountryStatusRequest
-	(*SearchCountriesRequest)(nil),     // 4: country.SearchCountriesRequest
-	(*Country)(nil),                    // 5: country.Country
-	(*CountriesList)(nil),              // 6: country.CountriesList
-	(*userdata.UserData)(nil),          // 7: userdata.UserData
-	(*pagination.Request)(nil),         // 8: pagination.Request
-	(*pagination.Response)(nil),        // 9: pagination.Response
+	(*GetCountryByIdRequest)(nil),  // 0: country.GetCountryByIdRequest
+	(*SearchCountriesRequest)(nil), // 1: country.SearchCountriesRequest
+	(*Country)(nil),                // 2: country.Country
+	(*CountriesList)(nil),          // 3: country.CountriesList
+	(*pagination.Request)(nil),     // 4: pagination.Request
+	(*pagination.Response)(nil),    // 5: pagination.Response
 }
 var file_country_country_proto_depIdxs = []int32{
-	7,  // 0: country.CreateCountryRequest.initiator:type_name -> userdata.UserData
-	7,  // 1: country.UpdateCountryNameRequest.initiator:type_name -> userdata.UserData
-	7,  // 2: country.UpdateCountryStatusRequest.initiator:type_name -> userdata.UserData
-	8,  // 3: country.SearchCountriesRequest.pagination:type_name -> pagination.Request
-	5,  // 4: country.CountriesList.countries:type_name -> country.Country
-	9,  // 5: country.CountriesList.pagination:type_name -> pagination.Response
-	0,  // 6: country.CountryService.CreateCountry:input_type -> country.CreateCountryRequest
-	2,  // 7: country.CountryService.GetCountryById:input_type -> country.GetCountryByIdRequest
-	1,  // 8: country.CountryService.UpdateCountryName:input_type -> country.UpdateCountryNameRequest
-	3,  // 9: country.CountryService.UpdateCountryStatus:input_type -> country.UpdateCountryStatusRequest
-	4,  // 10: country.CountryService.SearchCountries:input_type -> country.SearchCountriesRequest
-	5,  // 11: country.CountryService.CreateCountry:output_type -> country.Country
-	5,  // 12: country.CountryService.GetCountryById:output_type -> country.Country
-	5,  // 13: country.CountryService.UpdateCountryName:output_type -> country.Country
-	5,  // 14: country.CountryService.UpdateCountryStatus:output_type -> country.Country
-	6,  // 15: country.CountryService.SearchCountries:output_type -> country.CountriesList
-	11, // [11:16] is the sub-list for method output_type
-	6,  // [6:11] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+	4, // 0: country.SearchCountriesRequest.pagination:type_name -> pagination.Request
+	2, // 1: country.CountriesList.countries:type_name -> country.Country
+	5, // 2: country.CountriesList.pagination:type_name -> pagination.Response
+	0, // 3: country.CountryService.GetCountryById:input_type -> country.GetCountryByIdRequest
+	1, // 4: country.CountryService.SearchCountries:input_type -> country.SearchCountriesRequest
+	2, // 5: country.CountryService.GetCountryById:output_type -> country.Country
+	3, // 6: country.CountryService.SearchCountries:output_type -> country.CountriesList
+	5, // [5:7] is the sub-list for method output_type
+	3, // [3:5] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_country_country_proto_init() }
@@ -524,7 +312,7 @@ func file_country_country_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_country_country_proto_rawDesc), len(file_country_country_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

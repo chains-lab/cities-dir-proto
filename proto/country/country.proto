@@ -3,42 +3,20 @@ package country;
 
 option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/country;country";
 
-import "google/protobuf/empty.proto";
-import "common/userdata/userdata.proto";;
+//import "google/protobuf/empty.proto";
+//import "common/userdata/userdata.proto";
 import "common/pagination/pagination.proto";
 
 service CountryService {
-  rpc CreateCountry  (CreateCountryRequest)          returns (Country);
-  rpc GetCountryById (GetCountryByIdRequest)         returns (Country);
-
-  rpc UpdateCountryName   (UpdateCountryNameRequest)   returns (Country);
-  rpc UpdateCountryStatus (UpdateCountryStatusRequest) returns (Country);
+  rpc GetCountryById (GetCountryByIdRequest)    returns (Country);
 
   rpc SearchCountries (SearchCountriesRequest)  returns (CountriesList);
 }
 
 // REQUESTS
 
-message CreateCountryRequest {
-  userdata.UserData initiator = 1;
-  string name   = 2;
-  string status = 3;
-}
-
-message UpdateCountryNameRequest {
-  userdata.UserData initiator = 1;
-  string country_id = 2;
-  string name       = 3;
-}
-
 message GetCountryByIdRequest {
   string country_id = 1;
-}
-
-message UpdateCountryStatusRequest {
-  userdata.UserData initiator = 1;
-  string country_id = 2;
-  string status     = 3;
 }
 
 message SearchCountriesRequest {
