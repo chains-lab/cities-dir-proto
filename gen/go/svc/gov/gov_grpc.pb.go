@@ -20,18 +20,18 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CityGovService_CreateCityGov_FullMethodName      = "/gov.CityGovService/CreateCityGov"
-	CityGovService_DeleteCityGov_FullMethodName      = "/gov.CityGovService/DeleteCityGov"
-	CityGovService_RefuseCityGovRight_FullMethodName = "/gov.CityGovService/RefuseCityGovRight"
-	CityGovService_TransferAdminRight_FullMethodName = "/gov.CityGovService/TransferAdminRight"
-	CityGovService_GetCityGov_FullMethodName         = "/gov.CityGovService/GetCityGov"
-	CityGovService_GetListCityGovs_FullMethodName    = "/gov.CityGovService/GetListCityGovs"
+	GovService_CreateCityGov_FullMethodName      = "/gov.GovService/CreateCityGov"
+	GovService_DeleteCityGov_FullMethodName      = "/gov.GovService/DeleteCityGov"
+	GovService_RefuseCityGovRight_FullMethodName = "/gov.GovService/RefuseCityGovRight"
+	GovService_TransferAdminRight_FullMethodName = "/gov.GovService/TransferAdminRight"
+	GovService_GetCityGov_FullMethodName         = "/gov.GovService/GetCityGov"
+	GovService_GetListCityGovs_FullMethodName    = "/gov.GovService/GetListCityGovs"
 )
 
-// CityGovServiceClient is the client API for CityGovService service.
+// GovServiceClient is the client API for GovService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CityGovServiceClient interface {
+type GovServiceClient interface {
 	CreateCityGov(ctx context.Context, in *CreateCityGovRequest, opts ...grpc.CallOption) (*CityGov, error)
 	DeleteCityGov(ctx context.Context, in *DeleteCityGovRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	RefuseCityGovRight(ctx context.Context, in *RefuseCityGovRightRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -40,271 +40,271 @@ type CityGovServiceClient interface {
 	GetListCityGovs(ctx context.Context, in *ListCityGovsRequest, opts ...grpc.CallOption) (*ListCityGovs, error)
 }
 
-type cityGovServiceClient struct {
+type govServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCityGovServiceClient(cc grpc.ClientConnInterface) CityGovServiceClient {
-	return &cityGovServiceClient{cc}
+func NewGovServiceClient(cc grpc.ClientConnInterface) GovServiceClient {
+	return &govServiceClient{cc}
 }
 
-func (c *cityGovServiceClient) CreateCityGov(ctx context.Context, in *CreateCityGovRequest, opts ...grpc.CallOption) (*CityGov, error) {
+func (c *govServiceClient) CreateCityGov(ctx context.Context, in *CreateCityGovRequest, opts ...grpc.CallOption) (*CityGov, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CityGov)
-	err := c.cc.Invoke(ctx, CityGovService_CreateCityGov_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, GovService_CreateCityGov_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cityGovServiceClient) DeleteCityGov(ctx context.Context, in *DeleteCityGovRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *govServiceClient) DeleteCityGov(ctx context.Context, in *DeleteCityGovRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, CityGovService_DeleteCityGov_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, GovService_DeleteCityGov_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cityGovServiceClient) RefuseCityGovRight(ctx context.Context, in *RefuseCityGovRightRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *govServiceClient) RefuseCityGovRight(ctx context.Context, in *RefuseCityGovRightRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, CityGovService_RefuseCityGovRight_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, GovService_RefuseCityGovRight_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cityGovServiceClient) TransferAdminRight(ctx context.Context, in *TransferAdminRightRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *govServiceClient) TransferAdminRight(ctx context.Context, in *TransferAdminRightRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, CityGovService_TransferAdminRight_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, GovService_TransferAdminRight_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cityGovServiceClient) GetCityGov(ctx context.Context, in *GetCityGovRequest, opts ...grpc.CallOption) (*CityGov, error) {
+func (c *govServiceClient) GetCityGov(ctx context.Context, in *GetCityGovRequest, opts ...grpc.CallOption) (*CityGov, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CityGov)
-	err := c.cc.Invoke(ctx, CityGovService_GetCityGov_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, GovService_GetCityGov_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cityGovServiceClient) GetListCityGovs(ctx context.Context, in *ListCityGovsRequest, opts ...grpc.CallOption) (*ListCityGovs, error) {
+func (c *govServiceClient) GetListCityGovs(ctx context.Context, in *ListCityGovsRequest, opts ...grpc.CallOption) (*ListCityGovs, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListCityGovs)
-	err := c.cc.Invoke(ctx, CityGovService_GetListCityGovs_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, GovService_GetListCityGovs_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CityGovServiceServer is the server API for CityGovService service.
-// All implementations must embed UnimplementedCityGovServiceServer
+// GovServiceServer is the server API for GovService service.
+// All implementations must embed UnimplementedGovServiceServer
 // for forward compatibility.
-type CityGovServiceServer interface {
+type GovServiceServer interface {
 	CreateCityGov(context.Context, *CreateCityGovRequest) (*CityGov, error)
 	DeleteCityGov(context.Context, *DeleteCityGovRequest) (*emptypb.Empty, error)
 	RefuseCityGovRight(context.Context, *RefuseCityGovRightRequest) (*emptypb.Empty, error)
 	TransferAdminRight(context.Context, *TransferAdminRightRequest) (*emptypb.Empty, error)
 	GetCityGov(context.Context, *GetCityGovRequest) (*CityGov, error)
 	GetListCityGovs(context.Context, *ListCityGovsRequest) (*ListCityGovs, error)
-	mustEmbedUnimplementedCityGovServiceServer()
+	mustEmbedUnimplementedGovServiceServer()
 }
 
-// UnimplementedCityGovServiceServer must be embedded to have
+// UnimplementedGovServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedCityGovServiceServer struct{}
+type UnimplementedGovServiceServer struct{}
 
-func (UnimplementedCityGovServiceServer) CreateCityGov(context.Context, *CreateCityGovRequest) (*CityGov, error) {
+func (UnimplementedGovServiceServer) CreateCityGov(context.Context, *CreateCityGovRequest) (*CityGov, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateCityGov not implemented")
 }
-func (UnimplementedCityGovServiceServer) DeleteCityGov(context.Context, *DeleteCityGovRequest) (*emptypb.Empty, error) {
+func (UnimplementedGovServiceServer) DeleteCityGov(context.Context, *DeleteCityGovRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteCityGov not implemented")
 }
-func (UnimplementedCityGovServiceServer) RefuseCityGovRight(context.Context, *RefuseCityGovRightRequest) (*emptypb.Empty, error) {
+func (UnimplementedGovServiceServer) RefuseCityGovRight(context.Context, *RefuseCityGovRightRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RefuseCityGovRight not implemented")
 }
-func (UnimplementedCityGovServiceServer) TransferAdminRight(context.Context, *TransferAdminRightRequest) (*emptypb.Empty, error) {
+func (UnimplementedGovServiceServer) TransferAdminRight(context.Context, *TransferAdminRightRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TransferAdminRight not implemented")
 }
-func (UnimplementedCityGovServiceServer) GetCityGov(context.Context, *GetCityGovRequest) (*CityGov, error) {
+func (UnimplementedGovServiceServer) GetCityGov(context.Context, *GetCityGovRequest) (*CityGov, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCityGov not implemented")
 }
-func (UnimplementedCityGovServiceServer) GetListCityGovs(context.Context, *ListCityGovsRequest) (*ListCityGovs, error) {
+func (UnimplementedGovServiceServer) GetListCityGovs(context.Context, *ListCityGovsRequest) (*ListCityGovs, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetListCityGovs not implemented")
 }
-func (UnimplementedCityGovServiceServer) mustEmbedUnimplementedCityGovServiceServer() {}
-func (UnimplementedCityGovServiceServer) testEmbeddedByValue()                        {}
+func (UnimplementedGovServiceServer) mustEmbedUnimplementedGovServiceServer() {}
+func (UnimplementedGovServiceServer) testEmbeddedByValue()                    {}
 
-// UnsafeCityGovServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CityGovServiceServer will
+// UnsafeGovServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GovServiceServer will
 // result in compilation errors.
-type UnsafeCityGovServiceServer interface {
-	mustEmbedUnimplementedCityGovServiceServer()
+type UnsafeGovServiceServer interface {
+	mustEmbedUnimplementedGovServiceServer()
 }
 
-func RegisterCityGovServiceServer(s grpc.ServiceRegistrar, srv CityGovServiceServer) {
-	// If the following call pancis, it indicates UnimplementedCityGovServiceServer was
+func RegisterGovServiceServer(s grpc.ServiceRegistrar, srv GovServiceServer) {
+	// If the following call pancis, it indicates UnimplementedGovServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&CityGovService_ServiceDesc, srv)
+	s.RegisterService(&GovService_ServiceDesc, srv)
 }
 
-func _CityGovService_CreateCityGov_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _GovService_CreateCityGov_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateCityGovRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CityGovServiceServer).CreateCityGov(ctx, in)
+		return srv.(GovServiceServer).CreateCityGov(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CityGovService_CreateCityGov_FullMethodName,
+		FullMethod: GovService_CreateCityGov_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityGovServiceServer).CreateCityGov(ctx, req.(*CreateCityGovRequest))
+		return srv.(GovServiceServer).CreateCityGov(ctx, req.(*CreateCityGovRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CityGovService_DeleteCityGov_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _GovService_DeleteCityGov_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteCityGovRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CityGovServiceServer).DeleteCityGov(ctx, in)
+		return srv.(GovServiceServer).DeleteCityGov(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CityGovService_DeleteCityGov_FullMethodName,
+		FullMethod: GovService_DeleteCityGov_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityGovServiceServer).DeleteCityGov(ctx, req.(*DeleteCityGovRequest))
+		return srv.(GovServiceServer).DeleteCityGov(ctx, req.(*DeleteCityGovRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CityGovService_RefuseCityGovRight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _GovService_RefuseCityGovRight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RefuseCityGovRightRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CityGovServiceServer).RefuseCityGovRight(ctx, in)
+		return srv.(GovServiceServer).RefuseCityGovRight(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CityGovService_RefuseCityGovRight_FullMethodName,
+		FullMethod: GovService_RefuseCityGovRight_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityGovServiceServer).RefuseCityGovRight(ctx, req.(*RefuseCityGovRightRequest))
+		return srv.(GovServiceServer).RefuseCityGovRight(ctx, req.(*RefuseCityGovRightRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CityGovService_TransferAdminRight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _GovService_TransferAdminRight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TransferAdminRightRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CityGovServiceServer).TransferAdminRight(ctx, in)
+		return srv.(GovServiceServer).TransferAdminRight(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CityGovService_TransferAdminRight_FullMethodName,
+		FullMethod: GovService_TransferAdminRight_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityGovServiceServer).TransferAdminRight(ctx, req.(*TransferAdminRightRequest))
+		return srv.(GovServiceServer).TransferAdminRight(ctx, req.(*TransferAdminRightRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CityGovService_GetCityGov_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _GovService_GetCityGov_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCityGovRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CityGovServiceServer).GetCityGov(ctx, in)
+		return srv.(GovServiceServer).GetCityGov(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CityGovService_GetCityGov_FullMethodName,
+		FullMethod: GovService_GetCityGov_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityGovServiceServer).GetCityGov(ctx, req.(*GetCityGovRequest))
+		return srv.(GovServiceServer).GetCityGov(ctx, req.(*GetCityGovRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CityGovService_GetListCityGovs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _GovService_GetListCityGovs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListCityGovsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CityGovServiceServer).GetListCityGovs(ctx, in)
+		return srv.(GovServiceServer).GetListCityGovs(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CityGovService_GetListCityGovs_FullMethodName,
+		FullMethod: GovService_GetListCityGovs_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityGovServiceServer).GetListCityGovs(ctx, req.(*ListCityGovsRequest))
+		return srv.(GovServiceServer).GetListCityGovs(ctx, req.(*ListCityGovsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// CityGovService_ServiceDesc is the grpc.ServiceDesc for CityGovService service.
+// GovService_ServiceDesc is the grpc.ServiceDesc for GovService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CityGovService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "gov.CityGovService",
-	HandlerType: (*CityGovServiceServer)(nil),
+var GovService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "gov.GovService",
+	HandlerType: (*GovServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "CreateCityGov",
-			Handler:    _CityGovService_CreateCityGov_Handler,
+			Handler:    _GovService_CreateCityGov_Handler,
 		},
 		{
 			MethodName: "DeleteCityGov",
-			Handler:    _CityGovService_DeleteCityGov_Handler,
+			Handler:    _GovService_DeleteCityGov_Handler,
 		},
 		{
 			MethodName: "RefuseCityGovRight",
-			Handler:    _CityGovService_RefuseCityGovRight_Handler,
+			Handler:    _GovService_RefuseCityGovRight_Handler,
 		},
 		{
 			MethodName: "TransferAdminRight",
-			Handler:    _CityGovService_TransferAdminRight_Handler,
+			Handler:    _GovService_TransferAdminRight_Handler,
 		},
 		{
 			MethodName: "GetCityGov",
-			Handler:    _CityGovService_GetCityGov_Handler,
+			Handler:    _GovService_GetCityGov_Handler,
 		},
 		{
 			MethodName: "GetListCityGovs",
-			Handler:    _CityGovService_GetListCityGovs_Handler,
+			Handler:    _GovService_GetListCityGovs_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -221,8 +221,8 @@ const file_svc_countryadmin_countryadmin_proto_rawDesc = "" +
 	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x1d\n" +
 	"\n" +
 	"country_id\x18\x02 \x01(\tR\tcountryId\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name2\xf9\x01\n" +
-	"\x0eCountryService\x12E\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name2\xfe\x01\n" +
+	"\x13CountryAdminService\x12E\n" +
 	"\rCreateCountry\x12\".countryadmin.CreateCountryRequest\x1a\x10.country.Country\x12Q\n" +
 	"\x13UpdateCountryStatus\x12(.countryadmin.UpdateCountryStatusRequest\x1a\x10.country.Country\x12M\n" +
 	"\x11UpdateCountryName\x12&.countryadmin.UpdateCountryNameRequest\x1a\x10.country.CountryBMZKgithub.com/chains-lab/cities-dir-proto/gen/go/svc/countryadmin;countryadminb\x06proto3"
@@ -251,12 +251,12 @@ var file_svc_countryadmin_countryadmin_proto_depIdxs = []int32{
 	3, // 0: countryadmin.CreateCountryRequest.initiator:type_name -> userdata.UserData
 	3, // 1: countryadmin.UpdateCountryStatusRequest.initiator:type_name -> userdata.UserData
 	3, // 2: countryadmin.UpdateCountryNameRequest.initiator:type_name -> userdata.UserData
-	0, // 3: countryadmin.CountryService.CreateCountry:input_type -> countryadmin.CreateCountryRequest
-	1, // 4: countryadmin.CountryService.UpdateCountryStatus:input_type -> countryadmin.UpdateCountryStatusRequest
-	2, // 5: countryadmin.CountryService.UpdateCountryName:input_type -> countryadmin.UpdateCountryNameRequest
-	4, // 6: countryadmin.CountryService.CreateCountry:output_type -> country.Country
-	4, // 7: countryadmin.CountryService.UpdateCountryStatus:output_type -> country.Country
-	4, // 8: countryadmin.CountryService.UpdateCountryName:output_type -> country.Country
+	0, // 3: countryadmin.CountryAdminService.CreateCountry:input_type -> countryadmin.CreateCountryRequest
+	1, // 4: countryadmin.CountryAdminService.UpdateCountryStatus:input_type -> countryadmin.UpdateCountryStatusRequest
+	2, // 5: countryadmin.CountryAdminService.UpdateCountryName:input_type -> countryadmin.UpdateCountryNameRequest
+	4, // 6: countryadmin.CountryAdminService.CreateCountry:output_type -> country.Country
+	4, // 7: countryadmin.CountryAdminService.UpdateCountryStatus:output_type -> country.Country
+	4, // 8: countryadmin.CountryAdminService.UpdateCountryName:output_type -> country.Country
 	6, // [6:9] is the sub-list for method output_type
 	3, // [3:6] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name

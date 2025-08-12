@@ -520,8 +520,9 @@ const file_svc_gov_gov_proto_rawDesc = "" +
 	"government\x124\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x14.pagination.ResponseR\n" +
-	"pagination2\x9e\x03\n" +
-	"\x0eCityGovService\x128\n" +
+	"pagination2\x9a\x03\n" +
+	"\n" +
+	"GovService\x128\n" +
 	"\rCreateCityGov\x12\x19.gov.CreateCityGovRequest\x1a\f.gov.CityGov\x12B\n" +
 	"\rDeleteCityGov\x12\x19.gov.DeleteCityGovRequest\x1a\x16.google.protobuf.Empty\x12L\n" +
 	"\x12RefuseCityGovRight\x12\x1e.gov.RefuseCityGovRightRequest\x1a\x16.google.protobuf.Empty\x12L\n" +
@@ -565,18 +566,18 @@ var file_svc_gov_gov_proto_depIdxs = []int32{
 	9,  // 4: gov.ListCityGovsRequest.pagination:type_name -> pagination.Request
 	6,  // 5: gov.ListCityGovs.government:type_name -> gov.CityGov
 	10, // 6: gov.ListCityGovs.pagination:type_name -> pagination.Response
-	0,  // 7: gov.CityGovService.CreateCityGov:input_type -> gov.CreateCityGovRequest
-	1,  // 8: gov.CityGovService.DeleteCityGov:input_type -> gov.DeleteCityGovRequest
-	3,  // 9: gov.CityGovService.RefuseCityGovRight:input_type -> gov.RefuseCityGovRightRequest
-	2,  // 10: gov.CityGovService.TransferAdminRight:input_type -> gov.TransferAdminRightRequest
-	4,  // 11: gov.CityGovService.GetCityGov:input_type -> gov.GetCityGovRequest
-	5,  // 12: gov.CityGovService.GetListCityGovs:input_type -> gov.ListCityGovsRequest
-	6,  // 13: gov.CityGovService.CreateCityGov:output_type -> gov.CityGov
-	11, // 14: gov.CityGovService.DeleteCityGov:output_type -> google.protobuf.Empty
-	11, // 15: gov.CityGovService.RefuseCityGovRight:output_type -> google.protobuf.Empty
-	11, // 16: gov.CityGovService.TransferAdminRight:output_type -> google.protobuf.Empty
-	6,  // 17: gov.CityGovService.GetCityGov:output_type -> gov.CityGov
-	7,  // 18: gov.CityGovService.GetListCityGovs:output_type -> gov.ListCityGovs
+	0,  // 7: gov.GovService.CreateCityGov:input_type -> gov.CreateCityGovRequest
+	1,  // 8: gov.GovService.DeleteCityGov:input_type -> gov.DeleteCityGovRequest
+	3,  // 9: gov.GovService.RefuseCityGovRight:input_type -> gov.RefuseCityGovRightRequest
+	2,  // 10: gov.GovService.TransferAdminRight:input_type -> gov.TransferAdminRightRequest
+	4,  // 11: gov.GovService.GetCityGov:input_type -> gov.GetCityGovRequest
+	5,  // 12: gov.GovService.GetListCityGovs:input_type -> gov.ListCityGovsRequest
+	6,  // 13: gov.GovService.CreateCityGov:output_type -> gov.CityGov
+	11, // 14: gov.GovService.DeleteCityGov:output_type -> google.protobuf.Empty
+	11, // 15: gov.GovService.RefuseCityGovRight:output_type -> google.protobuf.Empty
+	11, // 16: gov.GovService.TransferAdminRight:output_type -> google.protobuf.Empty
+	6,  // 17: gov.GovService.GetCityGov:output_type -> gov.CityGov
+	7,  // 18: gov.GovService.GetListCityGovs:output_type -> gov.ListCityGovs
 	13, // [13:19] is the sub-list for method output_type
 	7,  // [7:13] is the sub-list for method input_type
 	7,  // [7:7] is the sub-list for extension type_name

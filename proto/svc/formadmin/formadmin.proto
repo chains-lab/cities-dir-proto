@@ -9,7 +9,7 @@ import "common/pagination/pagination.proto";
 import "svc/form/form.proto";
 import "svc/city/city.proto";
 
-service FormService {
+service FormAdminService {
   rpc AcceptFormToCreateCity(AcceptFormToCreateCityRequest) returns (form.FormToCreateCity);
   rpc DeclineFormToCreateCity(DeclineFormToCreateCityRequest) returns (form.FormToCreateCity);
 }

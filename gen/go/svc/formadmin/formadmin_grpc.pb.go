@@ -20,139 +20,139 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	FormService_AcceptFormToCreateCity_FullMethodName  = "/formadmin.FormService/AcceptFormToCreateCity"
-	FormService_DeclineFormToCreateCity_FullMethodName = "/formadmin.FormService/DeclineFormToCreateCity"
+	FormAdminService_AcceptFormToCreateCity_FullMethodName  = "/formadmin.FormAdminService/AcceptFormToCreateCity"
+	FormAdminService_DeclineFormToCreateCity_FullMethodName = "/formadmin.FormAdminService/DeclineFormToCreateCity"
 )
 
-// FormServiceClient is the client API for FormService service.
+// FormAdminServiceClient is the client API for FormAdminService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FormServiceClient interface {
+type FormAdminServiceClient interface {
 	AcceptFormToCreateCity(ctx context.Context, in *AcceptFormToCreateCityRequest, opts ...grpc.CallOption) (*form.FormToCreateCity, error)
 	DeclineFormToCreateCity(ctx context.Context, in *DeclineFormToCreateCityRequest, opts ...grpc.CallOption) (*form.FormToCreateCity, error)
 }
 
-type formServiceClient struct {
+type formAdminServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewFormServiceClient(cc grpc.ClientConnInterface) FormServiceClient {
-	return &formServiceClient{cc}
+func NewFormAdminServiceClient(cc grpc.ClientConnInterface) FormAdminServiceClient {
+	return &formAdminServiceClient{cc}
 }
 
-func (c *formServiceClient) AcceptFormToCreateCity(ctx context.Context, in *AcceptFormToCreateCityRequest, opts ...grpc.CallOption) (*form.FormToCreateCity, error) {
+func (c *formAdminServiceClient) AcceptFormToCreateCity(ctx context.Context, in *AcceptFormToCreateCityRequest, opts ...grpc.CallOption) (*form.FormToCreateCity, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(form.FormToCreateCity)
-	err := c.cc.Invoke(ctx, FormService_AcceptFormToCreateCity_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, FormAdminService_AcceptFormToCreateCity_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *formServiceClient) DeclineFormToCreateCity(ctx context.Context, in *DeclineFormToCreateCityRequest, opts ...grpc.CallOption) (*form.FormToCreateCity, error) {
+func (c *formAdminServiceClient) DeclineFormToCreateCity(ctx context.Context, in *DeclineFormToCreateCityRequest, opts ...grpc.CallOption) (*form.FormToCreateCity, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(form.FormToCreateCity)
-	err := c.cc.Invoke(ctx, FormService_DeclineFormToCreateCity_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, FormAdminService_DeclineFormToCreateCity_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// FormServiceServer is the server API for FormService service.
-// All implementations must embed UnimplementedFormServiceServer
+// FormAdminServiceServer is the server API for FormAdminService service.
+// All implementations must embed UnimplementedFormAdminServiceServer
 // for forward compatibility.
-type FormServiceServer interface {
+type FormAdminServiceServer interface {
 	AcceptFormToCreateCity(context.Context, *AcceptFormToCreateCityRequest) (*form.FormToCreateCity, error)
 	DeclineFormToCreateCity(context.Context, *DeclineFormToCreateCityRequest) (*form.FormToCreateCity, error)
-	mustEmbedUnimplementedFormServiceServer()
+	mustEmbedUnimplementedFormAdminServiceServer()
 }
 
-// UnimplementedFormServiceServer must be embedded to have
+// UnimplementedFormAdminServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedFormServiceServer struct{}
+type UnimplementedFormAdminServiceServer struct{}
 
-func (UnimplementedFormServiceServer) AcceptFormToCreateCity(context.Context, *AcceptFormToCreateCityRequest) (*form.FormToCreateCity, error) {
+func (UnimplementedFormAdminServiceServer) AcceptFormToCreateCity(context.Context, *AcceptFormToCreateCityRequest) (*form.FormToCreateCity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AcceptFormToCreateCity not implemented")
 }
-func (UnimplementedFormServiceServer) DeclineFormToCreateCity(context.Context, *DeclineFormToCreateCityRequest) (*form.FormToCreateCity, error) {
+func (UnimplementedFormAdminServiceServer) DeclineFormToCreateCity(context.Context, *DeclineFormToCreateCityRequest) (*form.FormToCreateCity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeclineFormToCreateCity not implemented")
 }
-func (UnimplementedFormServiceServer) mustEmbedUnimplementedFormServiceServer() {}
-func (UnimplementedFormServiceServer) testEmbeddedByValue()                     {}
+func (UnimplementedFormAdminServiceServer) mustEmbedUnimplementedFormAdminServiceServer() {}
+func (UnimplementedFormAdminServiceServer) testEmbeddedByValue()                          {}
 
-// UnsafeFormServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FormServiceServer will
+// UnsafeFormAdminServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FormAdminServiceServer will
 // result in compilation errors.
-type UnsafeFormServiceServer interface {
-	mustEmbedUnimplementedFormServiceServer()
+type UnsafeFormAdminServiceServer interface {
+	mustEmbedUnimplementedFormAdminServiceServer()
 }
 
-func RegisterFormServiceServer(s grpc.ServiceRegistrar, srv FormServiceServer) {
-	// If the following call pancis, it indicates UnimplementedFormServiceServer was
+func RegisterFormAdminServiceServer(s grpc.ServiceRegistrar, srv FormAdminServiceServer) {
+	// If the following call pancis, it indicates UnimplementedFormAdminServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&FormService_ServiceDesc, srv)
+	s.RegisterService(&FormAdminService_ServiceDesc, srv)
 }
 
-func _FormService_AcceptFormToCreateCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FormAdminService_AcceptFormToCreateCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AcceptFormToCreateCityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FormServiceServer).AcceptFormToCreateCity(ctx, in)
+		return srv.(FormAdminServiceServer).AcceptFormToCreateCity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: FormService_AcceptFormToCreateCity_FullMethodName,
+		FullMethod: FormAdminService_AcceptFormToCreateCity_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormServiceServer).AcceptFormToCreateCity(ctx, req.(*AcceptFormToCreateCityRequest))
+		return srv.(FormAdminServiceServer).AcceptFormToCreateCity(ctx, req.(*AcceptFormToCreateCityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FormService_DeclineFormToCreateCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FormAdminService_DeclineFormToCreateCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeclineFormToCreateCityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FormServiceServer).DeclineFormToCreateCity(ctx, in)
+		return srv.(FormAdminServiceServer).DeclineFormToCreateCity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: FormService_DeclineFormToCreateCity_FullMethodName,
+		FullMethod: FormAdminService_DeclineFormToCreateCity_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormServiceServer).DeclineFormToCreateCity(ctx, req.(*DeclineFormToCreateCityRequest))
+		return srv.(FormAdminServiceServer).DeclineFormToCreateCity(ctx, req.(*DeclineFormToCreateCityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// FormService_ServiceDesc is the grpc.ServiceDesc for FormService service.
+// FormAdminService_ServiceDesc is the grpc.ServiceDesc for FormAdminService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var FormService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "formadmin.FormService",
-	HandlerType: (*FormServiceServer)(nil),
+var FormAdminService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "formadmin.FormAdminService",
+	HandlerType: (*FormAdminServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "AcceptFormToCreateCity",
-			Handler:    _FormService_AcceptFormToCreateCity_Handler,
+			Handler:    _FormAdminService_AcceptFormToCreateCity_Handler,
 		},
 		{
 			MethodName: "DeclineFormToCreateCity",
-			Handler:    _FormService_DeclineFormToCreateCity_Handler,
+			Handler:    _FormAdminService_DeclineFormToCreateCity_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

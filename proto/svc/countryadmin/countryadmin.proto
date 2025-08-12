@@ -6,7 +6,7 @@ option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc/countryad
 import "svc/country/country.proto";
 import "common/userdata/userdata.proto";
 
-service CountryService {
+service CountryAdminService {
   rpc CreateCountry (CreateCountryRequest) returns (country.Country);
 
   rpc UpdateCountryStatus (UpdateCountryStatusRequest) returns (country.Country);

@@ -239,8 +239,8 @@ const file_svc_govadmin_govadmin_proto_rawDesc = "" +
 	"\x14DeleteCityGovRequest\x120\n" +
 	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\tR\x06userId2\xda\x01\n" +
-	"\x11AdminPanelService\x12=\n" +
+	"\auser_id\x18\x03 \x01(\tR\x06userId2\xd8\x01\n" +
+	"\x0fGovAdminService\x12=\n" +
 	"\rCreateCityGov\x12\x1e.govadmin.CreateCityGovRequest\x1a\f.gov.CityGov\x12=\n" +
 	"\rUpdateCityGov\x12\x1e.govadmin.UpdateCityGovRequest\x1a\f.gov.CityGov\x12G\n" +
 	"\rDeleteCityGov\x12\x1e.govadmin.DeleteCityGovRequest\x1a\x16.google.protobuf.EmptyBEZCgithub.com/chains-lab/cities-dir-proto/gen/go/svc/govadmin;govadminb\x06proto3"
@@ -270,12 +270,12 @@ var file_svc_govadmin_govadmin_proto_depIdxs = []int32{
 	3, // 0: govadmin.CreateCityGovRequest.initiator:type_name -> userdata.UserData
 	3, // 1: govadmin.UpdateCityGovRequest.initiator:type_name -> userdata.UserData
 	3, // 2: govadmin.DeleteCityGovRequest.initiator:type_name -> userdata.UserData
-	0, // 3: govadmin.AdminPanelService.CreateCityGov:input_type -> govadmin.CreateCityGovRequest
-	1, // 4: govadmin.AdminPanelService.UpdateCityGov:input_type -> govadmin.UpdateCityGovRequest
-	2, // 5: govadmin.AdminPanelService.DeleteCityGov:input_type -> govadmin.DeleteCityGovRequest
-	4, // 6: govadmin.AdminPanelService.CreateCityGov:output_type -> gov.CityGov
-	4, // 7: govadmin.AdminPanelService.UpdateCityGov:output_type -> gov.CityGov
-	5, // 8: govadmin.AdminPanelService.DeleteCityGov:output_type -> google.protobuf.Empty
+	0, // 3: govadmin.GovAdminService.CreateCityGov:input_type -> govadmin.CreateCityGovRequest
+	1, // 4: govadmin.GovAdminService.UpdateCityGov:input_type -> govadmin.UpdateCityGovRequest
+	2, // 5: govadmin.GovAdminService.DeleteCityGov:input_type -> govadmin.DeleteCityGovRequest
+	4, // 6: govadmin.GovAdminService.CreateCityGov:output_type -> gov.CityGov
+	4, // 7: govadmin.GovAdminService.UpdateCityGov:output_type -> gov.CityGov
+	5, // 8: govadmin.GovAdminService.DeleteCityGov:output_type -> google.protobuf.Empty
 	6, // [6:9] is the sub-list for method output_type
 	3, // [3:6] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name

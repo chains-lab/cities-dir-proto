@@ -158,8 +158,8 @@ const file_svc_formadmin_formadmin_proto_rawDesc = "" +
 	"\x1eDeclineFormToCreateCityRequest\x120\n" +
 	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\aform_id\x18\x02 \x01(\tR\x06formId\x12\x16\n" +
-	"\x06reason\x18\x03 \x01(\tR\x06reason2\xc7\x01\n" +
-	"\vFormService\x12Z\n" +
+	"\x06reason\x18\x03 \x01(\tR\x06reason2\xcc\x01\n" +
+	"\x10FormAdminService\x12Z\n" +
 	"\x16AcceptFormToCreateCity\x12(.formadmin.AcceptFormToCreateCityRequest\x1a\x16.form.FormToCreateCity\x12\\\n" +
 	"\x17DeclineFormToCreateCity\x12).formadmin.DeclineFormToCreateCityRequest\x1a\x16.form.FormToCreateCityBGZEgithub.com/chains-lab/cities-dir-proto/gen/go/svc/formadmin;formadminb\x06proto3"
 
@@ -185,10 +185,10 @@ var file_svc_formadmin_formadmin_proto_goTypes = []any{
 var file_svc_formadmin_formadmin_proto_depIdxs = []int32{
 	2, // 0: formadmin.AcceptFormToCreateCityRequest.initiator:type_name -> userdata.UserData
 	2, // 1: formadmin.DeclineFormToCreateCityRequest.initiator:type_name -> userdata.UserData
-	0, // 2: formadmin.FormService.AcceptFormToCreateCity:input_type -> formadmin.AcceptFormToCreateCityRequest
-	1, // 3: formadmin.FormService.DeclineFormToCreateCity:input_type -> formadmin.DeclineFormToCreateCityRequest
-	3, // 4: formadmin.FormService.AcceptFormToCreateCity:output_type -> form.FormToCreateCity
-	3, // 5: formadmin.FormService.DeclineFormToCreateCity:output_type -> form.FormToCreateCity
+	0, // 2: formadmin.FormAdminService.AcceptFormToCreateCity:input_type -> formadmin.AcceptFormToCreateCityRequest
+	1, // 3: formadmin.FormAdminService.DeclineFormToCreateCity:input_type -> formadmin.DeclineFormToCreateCityRequest
+	3, // 4: formadmin.FormAdminService.AcceptFormToCreateCity:output_type -> form.FormToCreateCity
+	3, // 5: formadmin.FormAdminService.DeclineFormToCreateCity:output_type -> form.FormToCreateCity
 	4, // [4:6] is the sub-list for method output_type
 	2, // [2:4] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
