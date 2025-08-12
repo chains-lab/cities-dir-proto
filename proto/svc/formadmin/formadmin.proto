@@ -1,0 +1,29 @@
+syntax = "proto3";
+package formadmin;
+
+option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc/formadmin;formadmin";
+
+import "google/protobuf/empty.proto";
+import "common/userdata/userdata.proto";
+import "common/pagination/pagination.proto";
+import "svc/form/form.proto";
+import "svc/city/city.proto";
+
+service FormService {
+  rpc AcceptFormToCreateCity(AcceptFormToCreateCityRequest) returns (form.FormToCreateCity);
+  rpc DeclineFormToCreateCity(DeclineFormToCreateCityRequest) returns (form.FormToCreateCity);
+}
+
+// REQUESTS
+
+message AcceptFormToCreateCityRequest{
+  userdata.UserData initiator = 1;
+  string form_id  = 2;
+  string admin_id = 3;
+}
+
+message DeclineFormToCreateCityRequest{
+  userdata.UserData initiator = 1;
+  string form_id = 2;
+  string reason  = 3;
+}

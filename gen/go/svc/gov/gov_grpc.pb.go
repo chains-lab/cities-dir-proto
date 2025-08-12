@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: citygov/citygov.proto
+// source: svc/gov/gov.proto
 
-package citygov
+package gov
 
 import (
 	context "context"
@@ -20,12 +20,12 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CityGovService_CreateCityGov_FullMethodName      = "/citygov.CityGovService/CreateCityGov"
-	CityGovService_DeleteCityGov_FullMethodName      = "/citygov.CityGovService/DeleteCityGov"
-	CityGovService_RefuseCityGovRight_FullMethodName = "/citygov.CityGovService/RefuseCityGovRight"
-	CityGovService_TransferAdminRight_FullMethodName = "/citygov.CityGovService/TransferAdminRight"
-	CityGovService_GetCityGov_FullMethodName         = "/citygov.CityGovService/GetCityGov"
-	CityGovService_GetListCityGovs_FullMethodName    = "/citygov.CityGovService/GetListCityGovs"
+	CityGovService_CreateCityGov_FullMethodName      = "/gov.CityGovService/CreateCityGov"
+	CityGovService_DeleteCityGov_FullMethodName      = "/gov.CityGovService/DeleteCityGov"
+	CityGovService_RefuseCityGovRight_FullMethodName = "/gov.CityGovService/RefuseCityGovRight"
+	CityGovService_TransferAdminRight_FullMethodName = "/gov.CityGovService/TransferAdminRight"
+	CityGovService_GetCityGov_FullMethodName         = "/gov.CityGovService/GetCityGov"
+	CityGovService_GetListCityGovs_FullMethodName    = "/gov.CityGovService/GetListCityGovs"
 )
 
 // CityGovServiceClient is the client API for CityGovService service.
@@ -279,7 +279,7 @@ func _CityGovService_GetListCityGovs_Handler(srv interface{}, ctx context.Contex
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var CityGovService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "citygov.CityGovService",
+	ServiceName: "gov.CityGovService",
 	HandlerType: (*CityGovServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -308,5 +308,5 @@ var CityGovService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "citygov/citygov.proto",
+	Metadata: "svc/gov/gov.proto",
 }

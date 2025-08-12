@@ -1,23 +1,16 @@
 syntax = "proto3";
-package city;
+package form;
 
-option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/city;city";
+option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc/form;form";
 
-//import "google/protobuf/empty.proto";
+import "google/protobuf/empty.proto";
 import "common/userdata/userdata.proto";
 import "common/pagination/pagination.proto";
 
-service CityService {
+service FormService {
   rpc SendFormToCreateCity(SendFormToCreateCityRequest)     returns (FormToCreateCity);
   rpc GetFormToCreateCity(GetFormToCreateCityRequest)       returns (FormToCreateCity);
   rpc SearchFormToCreateCity(SearchFormToCreateCityRequest) returns (FormToCreateCityList);
-
-  rpc GetCityById(GetCityByIdRequest)           returns (City);
-
-  rpc UpdateCityStatus(UpdateCityStatusRequest) returns (City);
-  rpc UpdateCityName(UpdateCityNameRequest)     returns (City);
-
-  rpc SearchCities(SearchCitiesRequest) returns (CitiesList);
 }
 
 // REQUESTS
@@ -29,29 +22,6 @@ message SendFormToCreateCityRequest {
   string contact_email = 4;
   string contact_phone = 5;
   string text          = 6;
-}
-
-message GetCityByIdRequest {
-  string city_id = 1;
-}
-
-message SearchCitiesRequest {
-  string name_like  = 1;
-  string country_id = 2;
-  string status     = 3;
-  pagination.Request pagination = 4;
-}
-
-message UpdateCityStatusRequest {
-  userdata.UserData initiator = 1;
-  string city_id = 2;
-  string status  = 3;
-}
-
-message UpdateCityNameRequest {
-  userdata.UserData initiator = 1;
-  string city_id = 2;
-  string name    = 3;
 }
 
 message GetFormToCreateCityRequest{
@@ -70,20 +40,7 @@ message SearchFormToCreateCityRequest{
   pagination.Request pag = 7;
 }
 
-
 // RESPONSES
-
-message City {
-  string id         = 1;
-  string name       = 2;
-  string country_id = 3;
-  string status     = 4;
-}
-
-message CitiesList {
-  repeated City cities     = 1;
-  pagination.Response pagination = 2;
-}
 
 message FormToCreateCity {
   string id = 1;

@@ -1,7 +1,7 @@
 syntax = "proto3";
-package citygov;
+package gov;
 
-option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/citygov;citygov";
+option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc/gov;gov";
 
 import "google/protobuf/empty.proto";
 import "common/userdata/userdata.proto";
@@ -21,20 +21,7 @@ service CityGovService {
 
 // REQUESTS
 
-message TransferAdminRightRequest {
-  userdata.UserData initiator = 1;
-  string city_id        = 2;
-  string new_owner_id   = 3;
-}
-
 message CreateCityGovRequest {
-  userdata.UserData initiator = 1;
-  string city_id = 2;
-  string user_id = 3;
-  string role    = 4;
-}
-
-message UpdateCityGovRequest {
   userdata.UserData initiator = 1;
   string city_id = 2;
   string user_id = 3;
@@ -46,6 +33,13 @@ message DeleteCityGovRequest {
   string city_id = 2;
   string user_id = 3;
 }
+
+message TransferAdminRightRequest {
+  userdata.UserData initiator = 1;
+  string city_id        = 2;
+  string new_owner_id   = 3;
+}
+
 
 message RefuseCityGovRightRequest {
   userdata.UserData initiator = 1;

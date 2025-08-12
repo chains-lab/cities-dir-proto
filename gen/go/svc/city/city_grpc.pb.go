@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: city/city.proto
+// source: svc/city/city.proto
 
 package city
 
@@ -19,22 +19,16 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CityService_SendFormToCreateCity_FullMethodName   = "/city.CityService/SendFormToCreateCity"
-	CityService_GetFormToCreateCity_FullMethodName    = "/city.CityService/GetFormToCreateCity"
-	CityService_SearchFormToCreateCity_FullMethodName = "/city.CityService/SearchFormToCreateCity"
-	CityService_GetCityById_FullMethodName            = "/city.CityService/GetCityById"
-	CityService_UpdateCityStatus_FullMethodName       = "/city.CityService/UpdateCityStatus"
-	CityService_UpdateCityName_FullMethodName         = "/city.CityService/UpdateCityName"
-	CityService_SearchCities_FullMethodName           = "/city.CityService/SearchCities"
+	CityService_GetCityById_FullMethodName      = "/city.CityService/GetCityById"
+	CityService_UpdateCityStatus_FullMethodName = "/city.CityService/UpdateCityStatus"
+	CityService_UpdateCityName_FullMethodName   = "/city.CityService/UpdateCityName"
+	CityService_SearchCities_FullMethodName     = "/city.CityService/SearchCities"
 )
 
 // CityServiceClient is the client API for CityService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CityServiceClient interface {
-	SendFormToCreateCity(ctx context.Context, in *SendFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCity, error)
-	GetFormToCreateCity(ctx context.Context, in *GetFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCity, error)
-	SearchFormToCreateCity(ctx context.Context, in *SearchFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCityList, error)
 	GetCityById(ctx context.Context, in *GetCityByIdRequest, opts ...grpc.CallOption) (*City, error)
 	UpdateCityStatus(ctx context.Context, in *UpdateCityStatusRequest, opts ...grpc.CallOption) (*City, error)
 	UpdateCityName(ctx context.Context, in *UpdateCityNameRequest, opts ...grpc.CallOption) (*City, error)
@@ -47,36 +41,6 @@ type cityServiceClient struct {
 
 func NewCityServiceClient(cc grpc.ClientConnInterface) CityServiceClient {
 	return &cityServiceClient{cc}
-}
-
-func (c *cityServiceClient) SendFormToCreateCity(ctx context.Context, in *SendFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCity, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FormToCreateCity)
-	err := c.cc.Invoke(ctx, CityService_SendFormToCreateCity_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cityServiceClient) GetFormToCreateCity(ctx context.Context, in *GetFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCity, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FormToCreateCity)
-	err := c.cc.Invoke(ctx, CityService_GetFormToCreateCity_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cityServiceClient) SearchFormToCreateCity(ctx context.Context, in *SearchFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCityList, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FormToCreateCityList)
-	err := c.cc.Invoke(ctx, CityService_SearchFormToCreateCity_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
 }
 
 func (c *cityServiceClient) GetCityById(ctx context.Context, in *GetCityByIdRequest, opts ...grpc.CallOption) (*City, error) {
@@ -123,9 +87,6 @@ func (c *cityServiceClient) SearchCities(ctx context.Context, in *SearchCitiesRe
 // All implementations must embed UnimplementedCityServiceServer
 // for forward compatibility.
 type CityServiceServer interface {
-	SendFormToCreateCity(context.Context, *SendFormToCreateCityRequest) (*FormToCreateCity, error)
-	GetFormToCreateCity(context.Context, *GetFormToCreateCityRequest) (*FormToCreateCity, error)
-	SearchFormToCreateCity(context.Context, *SearchFormToCreateCityRequest) (*FormToCreateCityList, error)
 	GetCityById(context.Context, *GetCityByIdRequest) (*City, error)
 	UpdateCityStatus(context.Context, *UpdateCityStatusRequest) (*City, error)
 	UpdateCityName(context.Context, *UpdateCityNameRequest) (*City, error)
@@ -140,15 +101,6 @@ type CityServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedCityServiceServer struct{}
 
-func (UnimplementedCityServiceServer) SendFormToCreateCity(context.Context, *SendFormToCreateCityRequest) (*FormToCreateCity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SendFormToCreateCity not implemented")
-}
-func (UnimplementedCityServiceServer) GetFormToCreateCity(context.Context, *GetFormToCreateCityRequest) (*FormToCreateCity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetFormToCreateCity not implemented")
-}
-func (UnimplementedCityServiceServer) SearchFormToCreateCity(context.Context, *SearchFormToCreateCityRequest) (*FormToCreateCityList, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SearchFormToCreateCity not implemented")
-}
 func (UnimplementedCityServiceServer) GetCityById(context.Context, *GetCityByIdRequest) (*City, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCityById not implemented")
 }
@@ -180,60 +132,6 @@ func RegisterCityServiceServer(s grpc.ServiceRegistrar, srv CityServiceServer) {
 		t.testEmbeddedByValue()
 	}
 	s.RegisterService(&CityService_ServiceDesc, srv)
-}
-
-func _CityService_SendFormToCreateCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendFormToCreateCityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CityServiceServer).SendFormToCreateCity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CityService_SendFormToCreateCity_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityServiceServer).SendFormToCreateCity(ctx, req.(*SendFormToCreateCityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CityService_GetFormToCreateCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFormToCreateCityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CityServiceServer).GetFormToCreateCity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CityService_GetFormToCreateCity_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityServiceServer).GetFormToCreateCity(ctx, req.(*GetFormToCreateCityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CityService_SearchFormToCreateCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SearchFormToCreateCityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CityServiceServer).SearchFormToCreateCity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CityService_SearchFormToCreateCity_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityServiceServer).SearchFormToCreateCity(ctx, req.(*SearchFormToCreateCityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
 }
 
 func _CityService_GetCityById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -316,18 +214,6 @@ var CityService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*CityServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "SendFormToCreateCity",
-			Handler:    _CityService_SendFormToCreateCity_Handler,
-		},
-		{
-			MethodName: "GetFormToCreateCity",
-			Handler:    _CityService_GetFormToCreateCity_Handler,
-		},
-		{
-			MethodName: "SearchFormToCreateCity",
-			Handler:    _CityService_SearchFormToCreateCity_Handler,
-		},
-		{
 			MethodName: "GetCityById",
 			Handler:    _CityService_GetCityById_Handler,
 		},
@@ -345,5 +231,5 @@ var CityService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "city/city.proto",
+	Metadata: "svc/city/city.proto",
 }

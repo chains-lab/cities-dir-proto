@@ -1,10 +1,8 @@
 syntax = "proto3";
 package country;
 
-option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/country;country";
+option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc/country;country";
 
-//import "google/protobuf/empty.proto";
-//import "common/userdata/userdata.proto";
 import "common/pagination/pagination.proto";
 
 service CountryService {

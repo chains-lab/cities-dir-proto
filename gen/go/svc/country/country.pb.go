@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v3.21.12
-// source: country/country.proto
+// source: svc/country/country.proto
 
 package country
 
@@ -31,7 +31,7 @@ type GetCountryByIdRequest struct {
 
 func (x *GetCountryByIdRequest) Reset() {
 	*x = GetCountryByIdRequest{}
-	mi := &file_country_country_proto_msgTypes[0]
+	mi := &file_svc_country_country_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +43,7 @@ func (x *GetCountryByIdRequest) String() string {
 func (*GetCountryByIdRequest) ProtoMessage() {}
 
 func (x *GetCountryByIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_country_country_proto_msgTypes[0]
+	mi := &file_svc_country_country_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +56,7 @@ func (x *GetCountryByIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCountryByIdRequest.ProtoReflect.Descriptor instead.
 func (*GetCountryByIdRequest) Descriptor() ([]byte, []int) {
-	return file_country_country_proto_rawDescGZIP(), []int{0}
+	return file_svc_country_country_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *GetCountryByIdRequest) GetCountryId() string {
@@ -77,7 +77,7 @@ type SearchCountriesRequest struct {
 
 func (x *SearchCountriesRequest) Reset() {
 	*x = SearchCountriesRequest{}
-	mi := &file_country_country_proto_msgTypes[1]
+	mi := &file_svc_country_country_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -89,7 +89,7 @@ func (x *SearchCountriesRequest) String() string {
 func (*SearchCountriesRequest) ProtoMessage() {}
 
 func (x *SearchCountriesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_country_country_proto_msgTypes[1]
+	mi := &file_svc_country_country_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -102,7 +102,7 @@ func (x *SearchCountriesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchCountriesRequest.ProtoReflect.Descriptor instead.
 func (*SearchCountriesRequest) Descriptor() ([]byte, []int) {
-	return file_country_country_proto_rawDescGZIP(), []int{1}
+	return file_svc_country_country_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *SearchCountriesRequest) GetNameLike() string {
@@ -137,7 +137,7 @@ type Country struct {
 
 func (x *Country) Reset() {
 	*x = Country{}
-	mi := &file_country_country_proto_msgTypes[2]
+	mi := &file_svc_country_country_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -149,7 +149,7 @@ func (x *Country) String() string {
 func (*Country) ProtoMessage() {}
 
 func (x *Country) ProtoReflect() protoreflect.Message {
-	mi := &file_country_country_proto_msgTypes[2]
+	mi := &file_svc_country_country_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -162,7 +162,7 @@ func (x *Country) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Country.ProtoReflect.Descriptor instead.
 func (*Country) Descriptor() ([]byte, []int) {
-	return file_country_country_proto_rawDescGZIP(), []int{2}
+	return file_svc_country_country_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Country) GetId() string {
@@ -196,7 +196,7 @@ type CountriesList struct {
 
 func (x *CountriesList) Reset() {
 	*x = CountriesList{}
-	mi := &file_country_country_proto_msgTypes[3]
+	mi := &file_svc_country_country_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -208,7 +208,7 @@ func (x *CountriesList) String() string {
 func (*CountriesList) ProtoMessage() {}
 
 func (x *CountriesList) ProtoReflect() protoreflect.Message {
-	mi := &file_country_country_proto_msgTypes[3]
+	mi := &file_svc_country_country_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -221,7 +221,7 @@ func (x *CountriesList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CountriesList.ProtoReflect.Descriptor instead.
 func (*CountriesList) Descriptor() ([]byte, []int) {
-	return file_country_country_proto_rawDescGZIP(), []int{3}
+	return file_svc_country_country_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CountriesList) GetCountries() []*Country {
@@ -238,11 +238,11 @@ func (x *CountriesList) GetPagination() *pagination.Response {
 	return nil
 }
 
-var File_country_country_proto protoreflect.FileDescriptor
+var File_svc_country_country_proto protoreflect.FileDescriptor
 
-const file_country_country_proto_rawDesc = "" +
+const file_svc_country_country_proto_rawDesc = "" +
 	"\n" +
-	"\x15country/country.proto\x12\acountry\x1a\"common/pagination/pagination.proto\"6\n" +
+	"\x19svc/country/country.proto\x12\acountry\x1a\"common/pagination/pagination.proto\"6\n" +
 	"\x15GetCountryByIdRequest\x12\x1d\n" +
 	"\n" +
 	"country_id\x18\x01 \x01(\tR\tcountryId\"\x82\x01\n" +
@@ -263,22 +263,22 @@ const file_country_country_proto_rawDesc = "" +
 	"pagination2\xa0\x01\n" +
 	"\x0eCountryService\x12B\n" +
 	"\x0eGetCountryById\x12\x1e.country.GetCountryByIdRequest\x1a\x10.country.Country\x12J\n" +
-	"\x0fSearchCountries\x12\x1f.country.SearchCountriesRequest\x1a\x16.country.CountriesListB?Z=github.com/chains-lab/cities-dir-proto/gen/go/country;countryb\x06proto3"
+	"\x0fSearchCountries\x12\x1f.country.SearchCountriesRequest\x1a\x16.country.CountriesListBCZAgithub.com/chains-lab/cities-dir-proto/gen/go/svc/country;countryb\x06proto3"
 
 var (
-	file_country_country_proto_rawDescOnce sync.Once
-	file_country_country_proto_rawDescData []byte
+	file_svc_country_country_proto_rawDescOnce sync.Once
+	file_svc_country_country_proto_rawDescData []byte
 )
 
-func file_country_country_proto_rawDescGZIP() []byte {
-	file_country_country_proto_rawDescOnce.Do(func() {
-		file_country_country_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_country_country_proto_rawDesc), len(file_country_country_proto_rawDesc)))
+func file_svc_country_country_proto_rawDescGZIP() []byte {
+	file_svc_country_country_proto_rawDescOnce.Do(func() {
+		file_svc_country_country_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_svc_country_country_proto_rawDesc), len(file_svc_country_country_proto_rawDesc)))
 	})
-	return file_country_country_proto_rawDescData
+	return file_svc_country_country_proto_rawDescData
 }
 
-var file_country_country_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
-var file_country_country_proto_goTypes = []any{
+var file_svc_country_country_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_svc_country_country_proto_goTypes = []any{
 	(*GetCountryByIdRequest)(nil),  // 0: country.GetCountryByIdRequest
 	(*SearchCountriesRequest)(nil), // 1: country.SearchCountriesRequest
 	(*Country)(nil),                // 2: country.Country
@@ -286,7 +286,7 @@ var file_country_country_proto_goTypes = []any{
 	(*pagination.Request)(nil),     // 4: pagination.Request
 	(*pagination.Response)(nil),    // 5: pagination.Response
 }
-var file_country_country_proto_depIdxs = []int32{
+var file_svc_country_country_proto_depIdxs = []int32{
 	4, // 0: country.SearchCountriesRequest.pagination:type_name -> pagination.Request
 	2, // 1: country.CountriesList.countries:type_name -> country.Country
 	5, // 2: country.CountriesList.pagination:type_name -> pagination.Response
@@ -301,26 +301,26 @@ var file_country_country_proto_depIdxs = []int32{
 	0, // [0:3] is the sub-list for field type_name
 }
 
-func init() { file_country_country_proto_init() }
-func file_country_country_proto_init() {
-	if File_country_country_proto != nil {
+func init() { file_svc_country_country_proto_init() }
+func file_svc_country_country_proto_init() {
+	if File_svc_country_country_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_country_country_proto_rawDesc), len(file_country_country_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_svc_country_country_proto_rawDesc), len(file_svc_country_country_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_country_country_proto_goTypes,
-		DependencyIndexes: file_country_country_proto_depIdxs,
-		MessageInfos:      file_country_country_proto_msgTypes,
+		GoTypes:           file_svc_country_country_proto_goTypes,
+		DependencyIndexes: file_svc_country_country_proto_depIdxs,
+		MessageInfos:      file_svc_country_country_proto_msgTypes,
 	}.Build()
-	File_country_country_proto = out.File
-	file_country_country_proto_goTypes = nil
-	file_country_country_proto_depIdxs = nil
+	File_svc_country_country_proto = out.File
+	file_svc_country_country_proto_goTypes = nil
+	file_svc_country_country_proto_depIdxs = nil
 }
