@@ -86,7 +86,7 @@ func (x *AcceptFormToCreateCityRequest) GetAdminId() string {
 	return ""
 }
 
-type DeclineFormToCreateCityRequest struct {
+type RejectFormToCreateCityRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
 	FormId        string                 `protobuf:"bytes,2,opt,name=form_id,json=formId,proto3" json:"form_id,omitempty"`
@@ -95,20 +95,20 @@ type DeclineFormToCreateCityRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *DeclineFormToCreateCityRequest) Reset() {
-	*x = DeclineFormToCreateCityRequest{}
+func (x *RejectFormToCreateCityRequest) Reset() {
+	*x = RejectFormToCreateCityRequest{}
 	mi := &file_svc_formadmin_formadmin_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *DeclineFormToCreateCityRequest) String() string {
+func (x *RejectFormToCreateCityRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DeclineFormToCreateCityRequest) ProtoMessage() {}
+func (*RejectFormToCreateCityRequest) ProtoMessage() {}
 
-func (x *DeclineFormToCreateCityRequest) ProtoReflect() protoreflect.Message {
+func (x *RejectFormToCreateCityRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_svc_formadmin_formadmin_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -120,26 +120,26 @@ func (x *DeclineFormToCreateCityRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DeclineFormToCreateCityRequest.ProtoReflect.Descriptor instead.
-func (*DeclineFormToCreateCityRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use RejectFormToCreateCityRequest.ProtoReflect.Descriptor instead.
+func (*RejectFormToCreateCityRequest) Descriptor() ([]byte, []int) {
 	return file_svc_formadmin_formadmin_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *DeclineFormToCreateCityRequest) GetInitiator() *userdata.UserData {
+func (x *RejectFormToCreateCityRequest) GetInitiator() *userdata.UserData {
 	if x != nil {
 		return x.Initiator
 	}
 	return nil
 }
 
-func (x *DeclineFormToCreateCityRequest) GetFormId() string {
+func (x *RejectFormToCreateCityRequest) GetFormId() string {
 	if x != nil {
 		return x.FormId
 	}
 	return ""
 }
 
-func (x *DeclineFormToCreateCityRequest) GetReason() string {
+func (x *RejectFormToCreateCityRequest) GetReason() string {
 	if x != nil {
 		return x.Reason
 	}
@@ -154,14 +154,14 @@ const file_svc_formadmin_formadmin_proto_rawDesc = "" +
 	"\x1dAcceptFormToCreateCityRequest\x120\n" +
 	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\aform_id\x18\x02 \x01(\tR\x06formId\x12\x19\n" +
-	"\badmin_id\x18\x03 \x01(\tR\aadminId\"\x83\x01\n" +
-	"\x1eDeclineFormToCreateCityRequest\x120\n" +
+	"\badmin_id\x18\x03 \x01(\tR\aadminId\"\x82\x01\n" +
+	"\x1dRejectFormToCreateCityRequest\x120\n" +
 	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\aform_id\x18\x02 \x01(\tR\x06formId\x12\x16\n" +
-	"\x06reason\x18\x03 \x01(\tR\x06reason2\xcc\x01\n" +
+	"\x06reason\x18\x03 \x01(\tR\x06reason2\xca\x01\n" +
 	"\x10FormAdminService\x12Z\n" +
-	"\x16AcceptFormToCreateCity\x12(.formadmin.AcceptFormToCreateCityRequest\x1a\x16.form.FormToCreateCity\x12\\\n" +
-	"\x17DeclineFormToCreateCity\x12).formadmin.DeclineFormToCreateCityRequest\x1a\x16.form.FormToCreateCityBGZEgithub.com/chains-lab/cities-dir-proto/gen/go/svc/formadmin;formadminb\x06proto3"
+	"\x16AcceptFormToCreateCity\x12(.formadmin.AcceptFormToCreateCityRequest\x1a\x16.form.FormToCreateCity\x12Z\n" +
+	"\x16RejectFormToCreateCity\x12(.formadmin.RejectFormToCreateCityRequest\x1a\x16.form.FormToCreateCityBGZEgithub.com/chains-lab/cities-dir-proto/gen/go/svc/formadmin;formadminb\x06proto3"
 
 var (
 	file_svc_formadmin_formadmin_proto_rawDescOnce sync.Once
@@ -177,18 +177,18 @@ func file_svc_formadmin_formadmin_proto_rawDescGZIP() []byte {
 
 var file_svc_formadmin_formadmin_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_svc_formadmin_formadmin_proto_goTypes = []any{
-	(*AcceptFormToCreateCityRequest)(nil),  // 0: formadmin.AcceptFormToCreateCityRequest
-	(*DeclineFormToCreateCityRequest)(nil), // 1: formadmin.DeclineFormToCreateCityRequest
-	(*userdata.UserData)(nil),              // 2: userdata.UserData
-	(*form.FormToCreateCity)(nil),          // 3: form.FormToCreateCity
+	(*AcceptFormToCreateCityRequest)(nil), // 0: formadmin.AcceptFormToCreateCityRequest
+	(*RejectFormToCreateCityRequest)(nil), // 1: formadmin.RejectFormToCreateCityRequest
+	(*userdata.UserData)(nil),             // 2: userdata.UserData
+	(*form.FormToCreateCity)(nil),         // 3: form.FormToCreateCity
 }
 var file_svc_formadmin_formadmin_proto_depIdxs = []int32{
 	2, // 0: formadmin.AcceptFormToCreateCityRequest.initiator:type_name -> userdata.UserData
-	2, // 1: formadmin.DeclineFormToCreateCityRequest.initiator:type_name -> userdata.UserData
+	2, // 1: formadmin.RejectFormToCreateCityRequest.initiator:type_name -> userdata.UserData
 	0, // 2: formadmin.FormAdminService.AcceptFormToCreateCity:input_type -> formadmin.AcceptFormToCreateCityRequest
-	1, // 3: formadmin.FormAdminService.DeclineFormToCreateCity:input_type -> formadmin.DeclineFormToCreateCityRequest
+	1, // 3: formadmin.FormAdminService.RejectFormToCreateCity:input_type -> formadmin.RejectFormToCreateCityRequest
 	3, // 4: formadmin.FormAdminService.AcceptFormToCreateCity:output_type -> form.FormToCreateCity
-	3, // 5: formadmin.FormAdminService.DeclineFormToCreateCity:output_type -> form.FormToCreateCity
+	3, // 5: formadmin.FormAdminService.RejectFormToCreateCity:output_type -> form.FormToCreateCity
 	4, // [4:6] is the sub-list for method output_type
 	2, // [2:4] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name

@@ -11,7 +11,7 @@ import "svc/city/city.proto";
 
 service FormAdminService {
   rpc AcceptFormToCreateCity(AcceptFormToCreateCityRequest) returns (form.FormToCreateCity);
-  rpc DeclineFormToCreateCity(DeclineFormToCreateCityRequest) returns (form.FormToCreateCity);
+  rpc RejectFormToCreateCity(RejectFormToCreateCityRequest) returns (form.FormToCreateCity);
 }
 
 // REQUESTS
@@ -22,7 +22,7 @@ message AcceptFormToCreateCityRequest{
   string admin_id = 3;
 }
 
-message DeclineFormToCreateCityRequest{
+message RejectFormToCreateCityRequest{
   userdata.UserData initiator = 1;
   string form_id = 2;
   string reason  = 3;

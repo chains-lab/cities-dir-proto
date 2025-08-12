@@ -22,7 +22,6 @@ const _ = grpc.SupportPackageIsVersion9
 
 const (
 	GovAdminService_CreateCityGov_FullMethodName = "/govadmin.GovAdminService/CreateCityGov"
-	GovAdminService_UpdateCityGov_FullMethodName = "/govadmin.GovAdminService/UpdateCityGov"
 	GovAdminService_DeleteCityGov_FullMethodName = "/govadmin.GovAdminService/DeleteCityGov"
 )
 
@@ -31,7 +30,6 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type GovAdminServiceClient interface {
 	CreateCityGov(ctx context.Context, in *CreateCityGovRequest, opts ...grpc.CallOption) (*gov.CityGov, error)
-	UpdateCityGov(ctx context.Context, in *UpdateCityGovRequest, opts ...grpc.CallOption) (*gov.CityGov, error)
 	DeleteCityGov(ctx context.Context, in *DeleteCityGovRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
@@ -53,16 +51,6 @@ func (c *govAdminServiceClient) CreateCityGov(ctx context.Context, in *CreateCit
 	return out, nil
 }
 
-func (c *govAdminServiceClient) UpdateCityGov(ctx context.Context, in *UpdateCityGovRequest, opts ...grpc.CallOption) (*gov.CityGov, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(gov.CityGov)
-	err := c.cc.Invoke(ctx, GovAdminService_UpdateCityGov_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *govAdminServiceClient) DeleteCityGov(ctx context.Context, in *DeleteCityGovRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
@@ -78,7 +66,6 @@ func (c *govAdminServiceClient) DeleteCityGov(ctx context.Context, in *DeleteCit
 // for forward compatibility.
 type GovAdminServiceServer interface {
 	CreateCityGov(context.Context, *CreateCityGovRequest) (*gov.CityGov, error)
-	UpdateCityGov(context.Context, *UpdateCityGovRequest) (*gov.CityGov, error)
 	DeleteCityGov(context.Context, *DeleteCityGovRequest) (*emptypb.Empty, error)
 	mustEmbedUnimplementedGovAdminServiceServer()
 }
@@ -92,9 +79,6 @@ type UnimplementedGovAdminServiceServer struct{}
 
 func (UnimplementedGovAdminServiceServer) CreateCityGov(context.Context, *CreateCityGovRequest) (*gov.CityGov, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateCityGov not implemented")
-}
-func (UnimplementedGovAdminServiceServer) UpdateCityGov(context.Context, *UpdateCityGovRequest) (*gov.CityGov, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityGov not implemented")
 }
 func (UnimplementedGovAdminServiceServer) DeleteCityGov(context.Context, *DeleteCityGovRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteCityGov not implemented")
@@ -138,24 +122,6 @@ func _GovAdminService_CreateCityGov_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GovAdminService_UpdateCityGov_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateCityGovRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GovAdminServiceServer).UpdateCityGov(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GovAdminService_UpdateCityGov_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GovAdminServiceServer).UpdateCityGov(ctx, req.(*UpdateCityGovRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _GovAdminService_DeleteCityGov_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteCityGovRequest)
 	if err := dec(in); err != nil {
@@ -184,10 +150,6 @@ var GovAdminService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateCityGov",
 			Handler:    _GovAdminService_CreateCityGov_Handler,
-		},
-		{
-			MethodName: "UpdateCityGov",
-			Handler:    _GovAdminService_UpdateCityGov_Handler,
 		},
 		{
 			MethodName: "DeleteCityGov",

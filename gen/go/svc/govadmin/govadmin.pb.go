@@ -93,74 +93,6 @@ func (x *CreateCityGovRequest) GetRole() string {
 	return ""
 }
 
-type UpdateCityGovRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
-	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
-	UserId        string                 `protobuf:"bytes,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	Role          string                 `protobuf:"bytes,4,opt,name=role,proto3" json:"role,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UpdateCityGovRequest) Reset() {
-	*x = UpdateCityGovRequest{}
-	mi := &file_svc_govadmin_govadmin_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UpdateCityGovRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateCityGovRequest) ProtoMessage() {}
-
-func (x *UpdateCityGovRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_govadmin_govadmin_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateCityGovRequest.ProtoReflect.Descriptor instead.
-func (*UpdateCityGovRequest) Descriptor() ([]byte, []int) {
-	return file_svc_govadmin_govadmin_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *UpdateCityGovRequest) GetInitiator() *userdata.UserData {
-	if x != nil {
-		return x.Initiator
-	}
-	return nil
-}
-
-func (x *UpdateCityGovRequest) GetCityId() string {
-	if x != nil {
-		return x.CityId
-	}
-	return ""
-}
-
-func (x *UpdateCityGovRequest) GetUserId() string {
-	if x != nil {
-		return x.UserId
-	}
-	return ""
-}
-
-func (x *UpdateCityGovRequest) GetRole() string {
-	if x != nil {
-		return x.Role
-	}
-	return ""
-}
-
 type DeleteCityGovRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
@@ -172,7 +104,7 @@ type DeleteCityGovRequest struct {
 
 func (x *DeleteCityGovRequest) Reset() {
 	*x = DeleteCityGovRequest{}
-	mi := &file_svc_govadmin_govadmin_proto_msgTypes[2]
+	mi := &file_svc_govadmin_govadmin_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -184,7 +116,7 @@ func (x *DeleteCityGovRequest) String() string {
 func (*DeleteCityGovRequest) ProtoMessage() {}
 
 func (x *DeleteCityGovRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_govadmin_govadmin_proto_msgTypes[2]
+	mi := &file_svc_govadmin_govadmin_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -197,7 +129,7 @@ func (x *DeleteCityGovRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteCityGovRequest.ProtoReflect.Descriptor instead.
 func (*DeleteCityGovRequest) Descriptor() ([]byte, []int) {
-	return file_svc_govadmin_govadmin_proto_rawDescGZIP(), []int{2}
+	return file_svc_govadmin_govadmin_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *DeleteCityGovRequest) GetInitiator() *userdata.UserData {
@@ -230,19 +162,13 @@ const file_svc_govadmin_govadmin_proto_rawDesc = "" +
 	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x17\n" +
 	"\auser_id\x18\x03 \x01(\tR\x06userId\x12\x12\n" +
-	"\x04role\x18\x04 \x01(\tR\x04role\"\x8e\x01\n" +
-	"\x14UpdateCityGovRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
-	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\tR\x06userId\x12\x12\n" +
 	"\x04role\x18\x04 \x01(\tR\x04role\"z\n" +
 	"\x14DeleteCityGovRequest\x120\n" +
 	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\tR\x06userId2\xd8\x01\n" +
+	"\auser_id\x18\x03 \x01(\tR\x06userId2\x99\x01\n" +
 	"\x0fGovAdminService\x12=\n" +
-	"\rCreateCityGov\x12\x1e.govadmin.CreateCityGovRequest\x1a\f.gov.CityGov\x12=\n" +
-	"\rUpdateCityGov\x12\x1e.govadmin.UpdateCityGovRequest\x1a\f.gov.CityGov\x12G\n" +
+	"\rCreateCityGov\x12\x1e.govadmin.CreateCityGovRequest\x1a\f.gov.CityGov\x12G\n" +
 	"\rDeleteCityGov\x12\x1e.govadmin.DeleteCityGovRequest\x1a\x16.google.protobuf.EmptyBEZCgithub.com/chains-lab/cities-dir-proto/gen/go/svc/govadmin;govadminb\x06proto3"
 
 var (
@@ -257,30 +183,26 @@ func file_svc_govadmin_govadmin_proto_rawDescGZIP() []byte {
 	return file_svc_govadmin_govadmin_proto_rawDescData
 }
 
-var file_svc_govadmin_govadmin_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_svc_govadmin_govadmin_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_svc_govadmin_govadmin_proto_goTypes = []any{
 	(*CreateCityGovRequest)(nil), // 0: govadmin.CreateCityGovRequest
-	(*UpdateCityGovRequest)(nil), // 1: govadmin.UpdateCityGovRequest
-	(*DeleteCityGovRequest)(nil), // 2: govadmin.DeleteCityGovRequest
-	(*userdata.UserData)(nil),    // 3: userdata.UserData
-	(*gov.CityGov)(nil),          // 4: gov.CityGov
-	(*emptypb.Empty)(nil),        // 5: google.protobuf.Empty
+	(*DeleteCityGovRequest)(nil), // 1: govadmin.DeleteCityGovRequest
+	(*userdata.UserData)(nil),    // 2: userdata.UserData
+	(*gov.CityGov)(nil),          // 3: gov.CityGov
+	(*emptypb.Empty)(nil),        // 4: google.protobuf.Empty
 }
 var file_svc_govadmin_govadmin_proto_depIdxs = []int32{
-	3, // 0: govadmin.CreateCityGovRequest.initiator:type_name -> userdata.UserData
-	3, // 1: govadmin.UpdateCityGovRequest.initiator:type_name -> userdata.UserData
-	3, // 2: govadmin.DeleteCityGovRequest.initiator:type_name -> userdata.UserData
-	0, // 3: govadmin.GovAdminService.CreateCityGov:input_type -> govadmin.CreateCityGovRequest
-	1, // 4: govadmin.GovAdminService.UpdateCityGov:input_type -> govadmin.UpdateCityGovRequest
-	2, // 5: govadmin.GovAdminService.DeleteCityGov:input_type -> govadmin.DeleteCityGovRequest
-	4, // 6: govadmin.GovAdminService.CreateCityGov:output_type -> gov.CityGov
-	4, // 7: govadmin.GovAdminService.UpdateCityGov:output_type -> gov.CityGov
-	5, // 8: govadmin.GovAdminService.DeleteCityGov:output_type -> google.protobuf.Empty
-	6, // [6:9] is the sub-list for method output_type
-	3, // [3:6] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	2, // 0: govadmin.CreateCityGovRequest.initiator:type_name -> userdata.UserData
+	2, // 1: govadmin.DeleteCityGovRequest.initiator:type_name -> userdata.UserData
+	0, // 2: govadmin.GovAdminService.CreateCityGov:input_type -> govadmin.CreateCityGovRequest
+	1, // 3: govadmin.GovAdminService.DeleteCityGov:input_type -> govadmin.DeleteCityGovRequest
+	3, // 4: govadmin.GovAdminService.CreateCityGov:output_type -> gov.CityGov
+	4, // 5: govadmin.GovAdminService.DeleteCityGov:output_type -> google.protobuf.Empty
+	4, // [4:6] is the sub-list for method output_type
+	2, // [2:4] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_svc_govadmin_govadmin_proto_init() }
@@ -294,7 +216,7 @@ func file_svc_govadmin_govadmin_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_svc_govadmin_govadmin_proto_rawDesc), len(file_svc_govadmin_govadmin_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
