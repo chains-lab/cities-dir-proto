@@ -872,11 +872,11 @@ const file_city_city_proto_rawDesc = "" +
 	"\x05forms\x18\x01 \x03(\v2\x16.city.FormToCreateCityR\x05forms\x124\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x14.pagination.ResponseR\n" +
-	"pagination2\xf4\x03\n" +
+	"pagination2\xf8\x03\n" +
 	"\vCityService\x12Q\n" +
 	"\x14SendFormToCreateCity\x12!.city.SendFormToCreateCityRequest\x1a\x16.city.FormToCreateCity\x12O\n" +
-	"\x13GetFormToCreateCity\x12 .city.GetFormToCreateCityRequest\x1a\x16.city.FormToCreateCity\x12U\n" +
-	"\x16SearchFormToCreateCity\x12#.city.SearchFormToCreateCityRequest\x1a\x16.city.FormToCreateCity\x123\n" +
+	"\x13GetFormToCreateCity\x12 .city.GetFormToCreateCityRequest\x1a\x16.city.FormToCreateCity\x12Y\n" +
+	"\x16SearchFormToCreateCity\x12#.city.SearchFormToCreateCityRequest\x1a\x1a.city.FormToCreateCityList\x123\n" +
 	"\vGetCityById\x12\x18.city.GetCityByIdRequest\x1a\n" +
 	".city.City\x12=\n" +
 	"\x10UpdateCityStatus\x12\x1d.city.UpdateCityStatusRequest\x1a\n" +
@@ -933,7 +933,7 @@ var file_city_city_proto_depIdxs = []int32{
 	2,  // 15: city.CityService.SearchCities:input_type -> city.SearchCitiesRequest
 	9,  // 16: city.CityService.SendFormToCreateCity:output_type -> city.FormToCreateCity
 	9,  // 17: city.CityService.GetFormToCreateCity:output_type -> city.FormToCreateCity
-	9,  // 18: city.CityService.SearchFormToCreateCity:output_type -> city.FormToCreateCity
+	10, // 18: city.CityService.SearchFormToCreateCity:output_type -> city.FormToCreateCityList
 	7,  // 19: city.CityService.GetCityById:output_type -> city.City
 	7,  // 20: city.CityService.UpdateCityStatus:output_type -> city.City
 	7,  // 21: city.CityService.UpdateCityName:output_type -> city.City

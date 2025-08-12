@@ -34,7 +34,7 @@ const (
 type CityServiceClient interface {
 	SendFormToCreateCity(ctx context.Context, in *SendFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCity, error)
 	GetFormToCreateCity(ctx context.Context, in *GetFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCity, error)
-	SearchFormToCreateCity(ctx context.Context, in *SearchFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCity, error)
+	SearchFormToCreateCity(ctx context.Context, in *SearchFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCityList, error)
 	GetCityById(ctx context.Context, in *GetCityByIdRequest, opts ...grpc.CallOption) (*City, error)
 	UpdateCityStatus(ctx context.Context, in *UpdateCityStatusRequest, opts ...grpc.CallOption) (*City, error)
 	UpdateCityName(ctx context.Context, in *UpdateCityNameRequest, opts ...grpc.CallOption) (*City, error)
@@ -69,9 +69,9 @@ func (c *cityServiceClient) GetFormToCreateCity(ctx context.Context, in *GetForm
 	return out, nil
 }
 
-func (c *cityServiceClient) SearchFormToCreateCity(ctx context.Context, in *SearchFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCity, error) {
+func (c *cityServiceClient) SearchFormToCreateCity(ctx context.Context, in *SearchFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCityList, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FormToCreateCity)
+	out := new(FormToCreateCityList)
 	err := c.cc.Invoke(ctx, CityService_SearchFormToCreateCity_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -125,7 +125,7 @@ func (c *cityServiceClient) SearchCities(ctx context.Context, in *SearchCitiesRe
 type CityServiceServer interface {
 	SendFormToCreateCity(context.Context, *SendFormToCreateCityRequest) (*FormToCreateCity, error)
 	GetFormToCreateCity(context.Context, *GetFormToCreateCityRequest) (*FormToCreateCity, error)
-	SearchFormToCreateCity(context.Context, *SearchFormToCreateCityRequest) (*FormToCreateCity, error)
+	SearchFormToCreateCity(context.Context, *SearchFormToCreateCityRequest) (*FormToCreateCityList, error)
 	GetCityById(context.Context, *GetCityByIdRequest) (*City, error)
 	UpdateCityStatus(context.Context, *UpdateCityStatusRequest) (*City, error)
 	UpdateCityName(context.Context, *UpdateCityNameRequest) (*City, error)
@@ -146,7 +146,7 @@ func (UnimplementedCityServiceServer) SendFormToCreateCity(context.Context, *Sen
 func (UnimplementedCityServiceServer) GetFormToCreateCity(context.Context, *GetFormToCreateCityRequest) (*FormToCreateCity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFormToCreateCity not implemented")
 }
-func (UnimplementedCityServiceServer) SearchFormToCreateCity(context.Context, *SearchFormToCreateCityRequest) (*FormToCreateCity, error) {
+func (UnimplementedCityServiceServer) SearchFormToCreateCity(context.Context, *SearchFormToCreateCityRequest) (*FormToCreateCityList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchFormToCreateCity not implemented")
 }
 func (UnimplementedCityServiceServer) GetCityById(context.Context, *GetCityByIdRequest) (*City, error) {
