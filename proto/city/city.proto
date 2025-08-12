@@ -9,7 +9,7 @@ import "common/pagination/pagination.proto";
 
 service CityService {
   rpc SendFormToCreateCity(SendFormToCreateCityRequest)           returns (City);
-  rpc GetFormToCreateCreateCity(GetFormToCreateCreateCityRequest) returns (FormToCreateCity);
+  rpc GetFormToCreateCity(GetFormToCreateCityRequest) returns (FormToCreateCity);
   rpc SearchFormToCreateCity(SearchFormToCreateCityRequest)       returns (FormToCreateCity);
 
   rpc GetCityById(GetCityByIdRequest)           returns (City);
@@ -54,7 +54,7 @@ message UpdateCityNameRequest {
   string name    = 3;
 }
 
-message GetFormToCreateCreateCityRequest{
+message GetFormToCreateCityRequest{
   string form_id = 1;
 }
 
@@ -95,7 +95,9 @@ message FormToCreateCity {
   string contact_email = 6;
   string contact_phone = 7;
   string text = 8;
-  string create_at = 9;
+  optional string user_reviewed_id = 9;
+  string create_at = 10;
+  optional string update_at = 11;
 }
 
 message FormToCreateCityList {

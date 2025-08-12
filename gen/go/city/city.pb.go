@@ -339,27 +339,27 @@ func (x *UpdateCityNameRequest) GetName() string {
 	return ""
 }
 
-type GetFormToCreateCreateCityRequest struct {
+type GetFormToCreateCityRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	FormId        string                 `protobuf:"bytes,1,opt,name=form_id,json=formId,proto3" json:"form_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetFormToCreateCreateCityRequest) Reset() {
-	*x = GetFormToCreateCreateCityRequest{}
+func (x *GetFormToCreateCityRequest) Reset() {
+	*x = GetFormToCreateCityRequest{}
 	mi := &file_city_city_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetFormToCreateCreateCityRequest) String() string {
+func (x *GetFormToCreateCityRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetFormToCreateCreateCityRequest) ProtoMessage() {}
+func (*GetFormToCreateCityRequest) ProtoMessage() {}
 
-func (x *GetFormToCreateCreateCityRequest) ProtoReflect() protoreflect.Message {
+func (x *GetFormToCreateCityRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_city_city_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -371,12 +371,12 @@ func (x *GetFormToCreateCreateCityRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetFormToCreateCreateCityRequest.ProtoReflect.Descriptor instead.
-func (*GetFormToCreateCreateCityRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetFormToCreateCityRequest.ProtoReflect.Descriptor instead.
+func (*GetFormToCreateCityRequest) Descriptor() ([]byte, []int) {
 	return file_city_city_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *GetFormToCreateCreateCityRequest) GetFormId() string {
+func (x *GetFormToCreateCityRequest) GetFormId() string {
 	if x != nil {
 		return x.FormId
 	}
@@ -634,18 +634,20 @@ func (x *CitiesList) GetPagination() *pagination.Response {
 }
 
 type FormToCreateCity struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Status        string                 `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
-	CityName      string                 `protobuf:"bytes,3,opt,name=city_name,json=cityName,proto3" json:"city_name,omitempty"`
-	CountryId     string                 `protobuf:"bytes,4,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
-	InitiatorId   string                 `protobuf:"bytes,5,opt,name=initiator_id,json=initiatorId,proto3" json:"initiator_id,omitempty"`
-	ContactEmail  string                 `protobuf:"bytes,6,opt,name=contact_email,json=contactEmail,proto3" json:"contact_email,omitempty"`
-	ContactPhone  string                 `protobuf:"bytes,7,opt,name=contact_phone,json=contactPhone,proto3" json:"contact_phone,omitempty"`
-	Text          string                 `protobuf:"bytes,8,opt,name=text,proto3" json:"text,omitempty"`
-	CreateAt      string                 `protobuf:"bytes,9,opt,name=create_at,json=createAt,proto3" json:"create_at,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	Id             string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Status         string                 `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
+	CityName       string                 `protobuf:"bytes,3,opt,name=city_name,json=cityName,proto3" json:"city_name,omitempty"`
+	CountryId      string                 `protobuf:"bytes,4,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
+	InitiatorId    string                 `protobuf:"bytes,5,opt,name=initiator_id,json=initiatorId,proto3" json:"initiator_id,omitempty"`
+	ContactEmail   string                 `protobuf:"bytes,6,opt,name=contact_email,json=contactEmail,proto3" json:"contact_email,omitempty"`
+	ContactPhone   string                 `protobuf:"bytes,7,opt,name=contact_phone,json=contactPhone,proto3" json:"contact_phone,omitempty"`
+	Text           string                 `protobuf:"bytes,8,opt,name=text,proto3" json:"text,omitempty"`
+	UserReviewedId *string                `protobuf:"bytes,9,opt,name=user_reviewed_id,json=userReviewedId,proto3,oneof" json:"user_reviewed_id,omitempty"`
+	CreateAt       string                 `protobuf:"bytes,10,opt,name=create_at,json=createAt,proto3" json:"create_at,omitempty"`
+	UpdateAt       *string                `protobuf:"bytes,11,opt,name=update_at,json=updateAt,proto3,oneof" json:"update_at,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *FormToCreateCity) Reset() {
@@ -734,9 +736,23 @@ func (x *FormToCreateCity) GetText() string {
 	return ""
 }
 
+func (x *FormToCreateCity) GetUserReviewedId() string {
+	if x != nil && x.UserReviewedId != nil {
+		return *x.UserReviewedId
+	}
+	return ""
+}
+
 func (x *FormToCreateCity) GetCreateAt() string {
 	if x != nil {
 		return x.CreateAt
+	}
+	return ""
+}
+
+func (x *FormToCreateCity) GetUpdateAt() string {
+	if x != nil && x.UpdateAt != nil {
+		return *x.UpdateAt
 	}
 	return ""
 }
@@ -823,8 +839,8 @@ const file_city_city_proto_rawDesc = "" +
 	"\x15UpdateCityNameRequest\x120\n" +
 	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\";\n" +
-	" GetFormToCreateCreateCityRequest\x12\x17\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\"5\n" +
+	"\x1aGetFormToCreateCityRequest\x12\x17\n" +
 	"\aform_id\x18\x01 \x01(\tR\x06formId\"\xf2\x02\n" +
 	"\x1dSearchFormToCreateCityRequest\x12\x13\n" +
 	"\x02id\x18\x01 \x01(\tH\x01R\x02id\x88\x01\x01\x12\x1b\n" +
@@ -855,7 +871,7 @@ const file_city_city_proto_rawDesc = "" +
 	".city.CityR\x06cities\x124\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x14.pagination.ResponseR\n" +
-	"pagination\"\x94\x02\n" +
+	"pagination\"\x88\x03\n" +
 	"\x10FormToCreateCity\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x16\n" +
 	"\x06status\x18\x02 \x01(\tR\x06status\x12\x1b\n" +
@@ -865,17 +881,23 @@ const file_city_city_proto_rawDesc = "" +
 	"\finitiator_id\x18\x05 \x01(\tR\vinitiatorId\x12#\n" +
 	"\rcontact_email\x18\x06 \x01(\tR\fcontactEmail\x12#\n" +
 	"\rcontact_phone\x18\a \x01(\tR\fcontactPhone\x12\x12\n" +
-	"\x04text\x18\b \x01(\tR\x04text\x12\x1b\n" +
-	"\tcreate_at\x18\t \x01(\tR\bcreateAt\"z\n" +
+	"\x04text\x18\b \x01(\tR\x04text\x12-\n" +
+	"\x10user_reviewed_id\x18\t \x01(\tH\x00R\x0euserReviewedId\x88\x01\x01\x12\x1b\n" +
+	"\tcreate_at\x18\n" +
+	" \x01(\tR\bcreateAt\x12 \n" +
+	"\tupdate_at\x18\v \x01(\tH\x01R\bupdateAt\x88\x01\x01B\x13\n" +
+	"\x11_user_reviewed_idB\f\n" +
+	"\n" +
+	"_update_at\"z\n" +
 	"\x14FormToCreateCityList\x12,\n" +
 	"\x05forms\x18\x01 \x01(\v2\x16.city.FormToCreateCityR\x05forms\x124\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x14.pagination.ResponseR\n" +
-	"pagination2\xf4\x03\n" +
+	"pagination2\xe8\x03\n" +
 	"\vCityService\x12E\n" +
 	"\x14SendFormToCreateCity\x12!.city.SendFormToCreateCityRequest\x1a\n" +
-	".city.City\x12[\n" +
-	"\x19GetFormToCreateCreateCity\x12&.city.GetFormToCreateCreateCityRequest\x1a\x16.city.FormToCreateCity\x12U\n" +
+	".city.City\x12O\n" +
+	"\x13GetFormToCreateCity\x12 .city.GetFormToCreateCityRequest\x1a\x16.city.FormToCreateCity\x12U\n" +
 	"\x16SearchFormToCreateCity\x12#.city.SearchFormToCreateCityRequest\x1a\x16.city.FormToCreateCity\x123\n" +
 	"\vGetCityById\x12\x18.city.GetCityByIdRequest\x1a\n" +
 	".city.City\x12=\n" +
@@ -899,20 +921,20 @@ func file_city_city_proto_rawDescGZIP() []byte {
 
 var file_city_city_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_city_city_proto_goTypes = []any{
-	(*SendFormToCreateCityRequest)(nil),      // 0: city.SendFormToCreateCityRequest
-	(*GetCityByIdRequest)(nil),               // 1: city.GetCityByIdRequest
-	(*SearchCitiesRequest)(nil),              // 2: city.SearchCitiesRequest
-	(*UpdateCityStatusRequest)(nil),          // 3: city.UpdateCityStatusRequest
-	(*UpdateCityNameRequest)(nil),            // 4: city.UpdateCityNameRequest
-	(*GetFormToCreateCreateCityRequest)(nil), // 5: city.GetFormToCreateCreateCityRequest
-	(*SearchFormToCreateCityRequest)(nil),    // 6: city.SearchFormToCreateCityRequest
-	(*City)(nil),                             // 7: city.City
-	(*CitiesList)(nil),                       // 8: city.CitiesList
-	(*FormToCreateCity)(nil),                 // 9: city.FormToCreateCity
-	(*FormToCreateCityList)(nil),             // 10: city.FormToCreateCityList
-	(*userdata.UserData)(nil),                // 11: userdata.UserData
-	(*pagination.Request)(nil),               // 12: pagination.Request
-	(*pagination.Response)(nil),              // 13: pagination.Response
+	(*SendFormToCreateCityRequest)(nil),   // 0: city.SendFormToCreateCityRequest
+	(*GetCityByIdRequest)(nil),            // 1: city.GetCityByIdRequest
+	(*SearchCitiesRequest)(nil),           // 2: city.SearchCitiesRequest
+	(*UpdateCityStatusRequest)(nil),       // 3: city.UpdateCityStatusRequest
+	(*UpdateCityNameRequest)(nil),         // 4: city.UpdateCityNameRequest
+	(*GetFormToCreateCityRequest)(nil),    // 5: city.GetFormToCreateCityRequest
+	(*SearchFormToCreateCityRequest)(nil), // 6: city.SearchFormToCreateCityRequest
+	(*City)(nil),                          // 7: city.City
+	(*CitiesList)(nil),                    // 8: city.CitiesList
+	(*FormToCreateCity)(nil),              // 9: city.FormToCreateCity
+	(*FormToCreateCityList)(nil),          // 10: city.FormToCreateCityList
+	(*userdata.UserData)(nil),             // 11: userdata.UserData
+	(*pagination.Request)(nil),            // 12: pagination.Request
+	(*pagination.Response)(nil),           // 13: pagination.Response
 }
 var file_city_city_proto_depIdxs = []int32{
 	11, // 0: city.SendFormToCreateCityRequest.initiator:type_name -> userdata.UserData
@@ -925,14 +947,14 @@ var file_city_city_proto_depIdxs = []int32{
 	9,  // 7: city.FormToCreateCityList.forms:type_name -> city.FormToCreateCity
 	13, // 8: city.FormToCreateCityList.pagination:type_name -> pagination.Response
 	0,  // 9: city.CityService.SendFormToCreateCity:input_type -> city.SendFormToCreateCityRequest
-	5,  // 10: city.CityService.GetFormToCreateCreateCity:input_type -> city.GetFormToCreateCreateCityRequest
+	5,  // 10: city.CityService.GetFormToCreateCity:input_type -> city.GetFormToCreateCityRequest
 	6,  // 11: city.CityService.SearchFormToCreateCity:input_type -> city.SearchFormToCreateCityRequest
 	1,  // 12: city.CityService.GetCityById:input_type -> city.GetCityByIdRequest
 	3,  // 13: city.CityService.UpdateCityStatus:input_type -> city.UpdateCityStatusRequest
 	4,  // 14: city.CityService.UpdateCityName:input_type -> city.UpdateCityNameRequest
 	2,  // 15: city.CityService.SearchCities:input_type -> city.SearchCitiesRequest
 	7,  // 16: city.CityService.SendFormToCreateCity:output_type -> city.City
-	9,  // 17: city.CityService.GetFormToCreateCreateCity:output_type -> city.FormToCreateCity
+	9,  // 17: city.CityService.GetFormToCreateCity:output_type -> city.FormToCreateCity
 	9,  // 18: city.CityService.SearchFormToCreateCity:output_type -> city.FormToCreateCity
 	7,  // 19: city.CityService.GetCityById:output_type -> city.City
 	7,  // 20: city.CityService.UpdateCityStatus:output_type -> city.City
@@ -954,6 +976,7 @@ func file_city_city_proto_init() {
 		(*SearchFormToCreateCityRequest_NewFirst)(nil),
 		(*SearchFormToCreateCityRequest_OldestFirst)(nil),
 	}
+	file_city_city_proto_msgTypes[9].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -31,6 +31,7 @@ type AcceptFormToCreateCityRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
 	FormId        string                 `protobuf:"bytes,2,opt,name=form_id,json=formId,proto3" json:"form_id,omitempty"`
+	AdminId       string                 `protobuf:"bytes,3,opt,name=admin_id,json=adminId,proto3" json:"admin_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -79,10 +80,18 @@ func (x *AcceptFormToCreateCityRequest) GetFormId() string {
 	return ""
 }
 
+func (x *AcceptFormToCreateCityRequest) GetAdminId() string {
+	if x != nil {
+		return x.AdminId
+	}
+	return ""
+}
+
 type DeclineFormToCreateCityRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
 	FormId        string                 `protobuf:"bytes,2,opt,name=form_id,json=formId,proto3" json:"form_id,omitempty"`
+	Reason        string                 `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -127,6 +136,13 @@ func (x *DeclineFormToCreateCityRequest) GetInitiator() *userdata.UserData {
 func (x *DeclineFormToCreateCityRequest) GetFormId() string {
 	if x != nil {
 		return x.FormId
+	}
+	return ""
+}
+
+func (x *DeclineFormToCreateCityRequest) GetReason() string {
+	if x != nil {
+		return x.Reason
 	}
 	return ""
 }
@@ -639,13 +655,15 @@ var File_admin_admin_proto protoreflect.FileDescriptor
 
 const file_admin_admin_proto_rawDesc = "" +
 	"\n" +
-	"\x11admin/admin.proto\x12\x05admin\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1ecommon/userdata/userdata.proto\x1a\"common/pagination/pagination.proto\x1a\x0fcity/city.proto\x1a\x15citygov/citygov.proto\x1a\x15country/country.proto\"j\n" +
+	"\x11admin/admin.proto\x12\x05admin\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1ecommon/userdata/userdata.proto\x1a\"common/pagination/pagination.proto\x1a\x0fcity/city.proto\x1a\x15citygov/citygov.proto\x1a\x15country/country.proto\"\x85\x01\n" +
 	"\x1dAcceptFormToCreateCityRequest\x120\n" +
 	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
-	"\aform_id\x18\x02 \x01(\tR\x06formId\"k\n" +
+	"\aform_id\x18\x02 \x01(\tR\x06formId\x12\x19\n" +
+	"\badmin_id\x18\x03 \x01(\tR\aadminId\"\x83\x01\n" +
 	"\x1eDeclineFormToCreateCityRequest\x120\n" +
 	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
-	"\aform_id\x18\x02 \x01(\tR\x06formId\"t\n" +
+	"\aform_id\x18\x02 \x01(\tR\x06formId\x12\x16\n" +
+	"\x06reason\x18\x03 \x01(\tR\x06reason\"t\n" +
 	"\x14CreateCountryRequest\x120\n" +
 	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x16\n" +

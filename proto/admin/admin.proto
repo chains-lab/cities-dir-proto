@@ -19,7 +19,6 @@ service AdminPanelService {
 
   rpc UpdateCountryName   (UpdateCountryNameRequest)   returns (country.Country);
   rpc UpdateCountryStatus (UpdateCountryStatusRequest) returns (country.Country);
-
   rpc UpdateCityStatus (UpdateCityStatusRequest) returns (city.City);
 
   rpc CreateCityGov (CreateCityGovRequest)     returns (citygov.CityGov);
@@ -29,12 +28,14 @@ service AdminPanelService {
 
 message AcceptFormToCreateCityRequest{
   userdata.UserData initiator = 1;
-  string form_id = 2;
+  string form_id  = 2;
+  string admin_id = 3;
 }
 
 message DeclineFormToCreateCityRequest{
   userdata.UserData initiator = 1;
   string form_id = 2;
+  string reason  = 3;
 }
 
 message CreateCountryRequest {
