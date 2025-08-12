@@ -10,7 +10,7 @@ import "common/pagination/pagination.proto";
 service CityService {
   rpc SendFormToCreateCity(SendFormToCreateCityRequest)     returns (FormToCreateCity);
   rpc GetFormToCreateCity(GetFormToCreateCityRequest)       returns (FormToCreateCity);
-  rpc SearchFormToCreateCity(SearchFormToCreateCityRequest) returns (FormToCreateCity);
+  rpc SearchFormToCreateCity(SearchFormToCreateCityRequest) returns (FormToCreateCityList);
 
   rpc GetCityById(GetCityByIdRequest)           returns (City);
 
