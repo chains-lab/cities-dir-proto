@@ -24,7 +24,7 @@ const (
 	CityGovService_UpdateCityGov_FullMethodName      = "/citygov.CityGovService/UpdateCityGov"
 	CityGovService_DeleteCityGov_FullMethodName      = "/citygov.CityGovService/DeleteCityGov"
 	CityGovService_RefuseCityGovRight_FullMethodName = "/citygov.CityGovService/RefuseCityGovRight"
-	CityGovService_TransferOwnership_FullMethodName  = "/citygov.CityGovService/TransferOwnership"
+	CityGovService_TransferAdminRight_FullMethodName = "/citygov.CityGovService/TransferAdminRight"
 	CityGovService_GetCityGov_FullMethodName         = "/citygov.CityGovService/GetCityGov"
 	CityGovService_GetListCityGovs_FullMethodName    = "/citygov.CityGovService/GetListCityGovs"
 )
@@ -37,7 +37,7 @@ type CityGovServiceClient interface {
 	UpdateCityGov(ctx context.Context, in *UpdateCityGovRequest, opts ...grpc.CallOption) (*CityGov, error)
 	DeleteCityGov(ctx context.Context, in *DeleteCityGovRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	RefuseCityGovRight(ctx context.Context, in *RefuseCityGovRightRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	TransferOwnership(ctx context.Context, in *TransferOwnershipRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	TransferAdminRight(ctx context.Context, in *TransferAdminRightRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetCityGov(ctx context.Context, in *GetCityGovRequest, opts ...grpc.CallOption) (*CityGov, error)
 	GetListCityGovs(ctx context.Context, in *ListCityGovsRequest, opts ...grpc.CallOption) (*ListCityGovs, error)
 }
@@ -90,10 +90,10 @@ func (c *cityGovServiceClient) RefuseCityGovRight(ctx context.Context, in *Refus
 	return out, nil
 }
 
-func (c *cityGovServiceClient) TransferOwnership(ctx context.Context, in *TransferOwnershipRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *cityGovServiceClient) TransferAdminRight(ctx context.Context, in *TransferAdminRightRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, CityGovService_TransferOwnership_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CityGovService_TransferAdminRight_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -128,7 +128,7 @@ type CityGovServiceServer interface {
 	UpdateCityGov(context.Context, *UpdateCityGovRequest) (*CityGov, error)
 	DeleteCityGov(context.Context, *DeleteCityGovRequest) (*emptypb.Empty, error)
 	RefuseCityGovRight(context.Context, *RefuseCityGovRightRequest) (*emptypb.Empty, error)
-	TransferOwnership(context.Context, *TransferOwnershipRequest) (*emptypb.Empty, error)
+	TransferAdminRight(context.Context, *TransferAdminRightRequest) (*emptypb.Empty, error)
 	GetCityGov(context.Context, *GetCityGovRequest) (*CityGov, error)
 	GetListCityGovs(context.Context, *ListCityGovsRequest) (*ListCityGovs, error)
 	mustEmbedUnimplementedCityGovServiceServer()
@@ -153,8 +153,8 @@ func (UnimplementedCityGovServiceServer) DeleteCityGov(context.Context, *DeleteC
 func (UnimplementedCityGovServiceServer) RefuseCityGovRight(context.Context, *RefuseCityGovRightRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RefuseCityGovRight not implemented")
 }
-func (UnimplementedCityGovServiceServer) TransferOwnership(context.Context, *TransferOwnershipRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method TransferOwnership not implemented")
+func (UnimplementedCityGovServiceServer) TransferAdminRight(context.Context, *TransferAdminRightRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TransferAdminRight not implemented")
 }
 func (UnimplementedCityGovServiceServer) GetCityGov(context.Context, *GetCityGovRequest) (*CityGov, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCityGov not implemented")
@@ -255,20 +255,20 @@ func _CityGovService_RefuseCityGovRight_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CityGovService_TransferOwnership_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransferOwnershipRequest)
+func _CityGovService_TransferAdminRight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TransferAdminRightRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CityGovServiceServer).TransferOwnership(ctx, in)
+		return srv.(CityGovServiceServer).TransferAdminRight(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CityGovService_TransferOwnership_FullMethodName,
+		FullMethod: CityGovService_TransferAdminRight_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityGovServiceServer).TransferOwnership(ctx, req.(*TransferOwnershipRequest))
+		return srv.(CityGovServiceServer).TransferAdminRight(ctx, req.(*TransferAdminRightRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -333,8 +333,8 @@ var CityGovService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CityGovService_RefuseCityGovRight_Handler,
 		},
 		{
-			MethodName: "TransferOwnership",
-			Handler:    _CityGovService_TransferOwnership_Handler,
+			MethodName: "TransferAdminRight",
+			Handler:    _CityGovService_TransferAdminRight_Handler,
 		},
 		{
 			MethodName: "GetCityGov",

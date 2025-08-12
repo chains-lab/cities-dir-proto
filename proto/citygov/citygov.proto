@@ -14,7 +14,7 @@ service CityGovService {
 
   rpc RefuseCityGovRight (RefuseCityGovRightRequest)  returns (google.protobuf.Empty);
 
-  rpc TransferOwnership (TransferOwnershipRequest)   returns (google.protobuf.Empty);
+  rpc TransferAdminRight (TransferAdminRightRequest)   returns (google.protobuf.Empty);
 
   rpc GetCityGov        (GetCityGovRequest)        returns (CityGov);
   rpc GetListCityGovs   (ListCityGovsRequest)      returns (ListCityGovs);
@@ -22,7 +22,7 @@ service CityGovService {
 
 // REQUESTS
 
-message TransferOwnershipRequest {
+message TransferAdminRightRequest {
   userdata.UserData initiator = 1;
   string city_id        = 2;
   string new_owner_id   = 3;

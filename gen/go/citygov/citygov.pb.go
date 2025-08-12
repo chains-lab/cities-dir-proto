@@ -24,7 +24,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type TransferOwnershipRequest struct {
+type TransferAdminRightRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
 	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
@@ -33,20 +33,20 @@ type TransferOwnershipRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *TransferOwnershipRequest) Reset() {
-	*x = TransferOwnershipRequest{}
+func (x *TransferAdminRightRequest) Reset() {
+	*x = TransferAdminRightRequest{}
 	mi := &file_citygov_citygov_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *TransferOwnershipRequest) String() string {
+func (x *TransferAdminRightRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*TransferOwnershipRequest) ProtoMessage() {}
+func (*TransferAdminRightRequest) ProtoMessage() {}
 
-func (x *TransferOwnershipRequest) ProtoReflect() protoreflect.Message {
+func (x *TransferAdminRightRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_citygov_citygov_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -58,26 +58,26 @@ func (x *TransferOwnershipRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use TransferOwnershipRequest.ProtoReflect.Descriptor instead.
-func (*TransferOwnershipRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use TransferAdminRightRequest.ProtoReflect.Descriptor instead.
+func (*TransferAdminRightRequest) Descriptor() ([]byte, []int) {
 	return file_citygov_citygov_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *TransferOwnershipRequest) GetInitiator() *userdata.UserData {
+func (x *TransferAdminRightRequest) GetInitiator() *userdata.UserData {
 	if x != nil {
 		return x.Initiator
 	}
 	return nil
 }
 
-func (x *TransferOwnershipRequest) GetCityId() string {
+func (x *TransferAdminRightRequest) GetCityId() string {
 	if x != nil {
 		return x.CityId
 	}
 	return ""
 }
 
-func (x *TransferOwnershipRequest) GetNewOwnerId() string {
+func (x *TransferAdminRightRequest) GetNewOwnerId() string {
 	if x != nil {
 		return x.NewOwnerId
 	}
@@ -560,8 +560,8 @@ var File_citygov_citygov_proto protoreflect.FileDescriptor
 
 const file_citygov_citygov_proto_rawDesc = "" +
 	"\n" +
-	"\x15citygov/citygov.proto\x12\acitygov\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1ecommon/userdata/userdata.proto\x1a\"common/pagination/pagination.proto\"\x87\x01\n" +
-	"\x18TransferOwnershipRequest\x120\n" +
+	"\x15citygov/citygov.proto\x12\acitygov\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1ecommon/userdata/userdata.proto\x1a\"common/pagination/pagination.proto\"\x88\x01\n" +
+	"\x19TransferAdminRightRequest\x120\n" +
 	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12 \n" +
 	"\fnew_owner_id\x18\x03 \x01(\tR\n" +
@@ -602,13 +602,13 @@ const file_citygov_citygov_proto_rawDesc = "" +
 	"government\x124\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x14.pagination.ResponseR\n" +
-	"pagination2\x82\x04\n" +
+	"pagination2\x84\x04\n" +
 	"\x0eCityGovService\x12@\n" +
 	"\rCreateCityGov\x12\x1d.citygov.CreateCityGovRequest\x1a\x10.citygov.CityGov\x12@\n" +
 	"\rUpdateCityGov\x12\x1d.citygov.UpdateCityGovRequest\x1a\x10.citygov.CityGov\x12F\n" +
 	"\rDeleteCityGov\x12\x1d.citygov.DeleteCityGovRequest\x1a\x16.google.protobuf.Empty\x12P\n" +
-	"\x12RefuseCityGovRight\x12\".citygov.RefuseCityGovRightRequest\x1a\x16.google.protobuf.Empty\x12N\n" +
-	"\x11TransferOwnership\x12!.citygov.TransferOwnershipRequest\x1a\x16.google.protobuf.Empty\x12:\n" +
+	"\x12RefuseCityGovRight\x12\".citygov.RefuseCityGovRightRequest\x1a\x16.google.protobuf.Empty\x12P\n" +
+	"\x12TransferAdminRight\x12\".citygov.TransferAdminRightRequest\x1a\x16.google.protobuf.Empty\x12:\n" +
 	"\n" +
 	"GetCityGov\x12\x1a.citygov.GetCityGovRequest\x1a\x10.citygov.CityGov\x12F\n" +
 	"\x0fGetListCityGovs\x12\x1c.citygov.ListCityGovsRequest\x1a\x15.citygov.ListCityGovsB?Z=github.com/chains-lab/cities-dir-proto/gen/go/citygov;citygovb\x06proto3"
@@ -627,7 +627,7 @@ func file_citygov_citygov_proto_rawDescGZIP() []byte {
 
 var file_citygov_citygov_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_citygov_citygov_proto_goTypes = []any{
-	(*TransferOwnershipRequest)(nil),  // 0: citygov.TransferOwnershipRequest
+	(*TransferAdminRightRequest)(nil), // 0: citygov.TransferAdminRightRequest
 	(*CreateCityGovRequest)(nil),      // 1: citygov.CreateCityGovRequest
 	(*UpdateCityGovRequest)(nil),      // 2: citygov.UpdateCityGovRequest
 	(*DeleteCityGovRequest)(nil),      // 3: citygov.DeleteCityGovRequest
@@ -642,7 +642,7 @@ var file_citygov_citygov_proto_goTypes = []any{
 	(*emptypb.Empty)(nil),             // 12: google.protobuf.Empty
 }
 var file_citygov_citygov_proto_depIdxs = []int32{
-	9,  // 0: citygov.TransferOwnershipRequest.initiator:type_name -> userdata.UserData
+	9,  // 0: citygov.TransferAdminRightRequest.initiator:type_name -> userdata.UserData
 	9,  // 1: citygov.CreateCityGovRequest.initiator:type_name -> userdata.UserData
 	9,  // 2: citygov.UpdateCityGovRequest.initiator:type_name -> userdata.UserData
 	9,  // 3: citygov.DeleteCityGovRequest.initiator:type_name -> userdata.UserData
@@ -654,14 +654,14 @@ var file_citygov_citygov_proto_depIdxs = []int32{
 	2,  // 9: citygov.CityGovService.UpdateCityGov:input_type -> citygov.UpdateCityGovRequest
 	3,  // 10: citygov.CityGovService.DeleteCityGov:input_type -> citygov.DeleteCityGovRequest
 	4,  // 11: citygov.CityGovService.RefuseCityGovRight:input_type -> citygov.RefuseCityGovRightRequest
-	0,  // 12: citygov.CityGovService.TransferOwnership:input_type -> citygov.TransferOwnershipRequest
+	0,  // 12: citygov.CityGovService.TransferAdminRight:input_type -> citygov.TransferAdminRightRequest
 	5,  // 13: citygov.CityGovService.GetCityGov:input_type -> citygov.GetCityGovRequest
 	6,  // 14: citygov.CityGovService.GetListCityGovs:input_type -> citygov.ListCityGovsRequest
 	7,  // 15: citygov.CityGovService.CreateCityGov:output_type -> citygov.CityGov
 	7,  // 16: citygov.CityGovService.UpdateCityGov:output_type -> citygov.CityGov
 	12, // 17: citygov.CityGovService.DeleteCityGov:output_type -> google.protobuf.Empty
 	12, // 18: citygov.CityGovService.RefuseCityGovRight:output_type -> google.protobuf.Empty
-	12, // 19: citygov.CityGovService.TransferOwnership:output_type -> google.protobuf.Empty
+	12, // 19: citygov.CityGovService.TransferAdminRight:output_type -> google.protobuf.Empty
 	7,  // 20: citygov.CityGovService.GetCityGov:output_type -> citygov.CityGov
 	8,  // 21: citygov.CityGovService.GetListCityGovs:output_type -> citygov.ListCityGovs
 	15, // [15:22] is the sub-list for method output_type
