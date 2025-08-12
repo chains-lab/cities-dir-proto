@@ -32,7 +32,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CityServiceClient interface {
-	SendFormToCreateCity(ctx context.Context, in *SendFormToCreateCityRequest, opts ...grpc.CallOption) (*City, error)
+	SendFormToCreateCity(ctx context.Context, in *SendFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCity, error)
 	GetFormToCreateCity(ctx context.Context, in *GetFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCity, error)
 	SearchFormToCreateCity(ctx context.Context, in *SearchFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCity, error)
 	GetCityById(ctx context.Context, in *GetCityByIdRequest, opts ...grpc.CallOption) (*City, error)
@@ -49,9 +49,9 @@ func NewCityServiceClient(cc grpc.ClientConnInterface) CityServiceClient {
 	return &cityServiceClient{cc}
 }
 
-func (c *cityServiceClient) SendFormToCreateCity(ctx context.Context, in *SendFormToCreateCityRequest, opts ...grpc.CallOption) (*City, error) {
+func (c *cityServiceClient) SendFormToCreateCity(ctx context.Context, in *SendFormToCreateCityRequest, opts ...grpc.CallOption) (*FormToCreateCity, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(City)
+	out := new(FormToCreateCity)
 	err := c.cc.Invoke(ctx, CityService_SendFormToCreateCity_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -123,7 +123,7 @@ func (c *cityServiceClient) SearchCities(ctx context.Context, in *SearchCitiesRe
 // All implementations must embed UnimplementedCityServiceServer
 // for forward compatibility.
 type CityServiceServer interface {
-	SendFormToCreateCity(context.Context, *SendFormToCreateCityRequest) (*City, error)
+	SendFormToCreateCity(context.Context, *SendFormToCreateCityRequest) (*FormToCreateCity, error)
 	GetFormToCreateCity(context.Context, *GetFormToCreateCityRequest) (*FormToCreateCity, error)
 	SearchFormToCreateCity(context.Context, *SearchFormToCreateCityRequest) (*FormToCreateCity, error)
 	GetCityById(context.Context, *GetCityByIdRequest) (*City, error)
@@ -140,7 +140,7 @@ type CityServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedCityServiceServer struct{}
 
-func (UnimplementedCityServiceServer) SendFormToCreateCity(context.Context, *SendFormToCreateCityRequest) (*City, error) {
+func (UnimplementedCityServiceServer) SendFormToCreateCity(context.Context, *SendFormToCreateCityRequest) (*FormToCreateCity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendFormToCreateCity not implemented")
 }
 func (UnimplementedCityServiceServer) GetFormToCreateCity(context.Context, *GetFormToCreateCityRequest) (*FormToCreateCity, error) {

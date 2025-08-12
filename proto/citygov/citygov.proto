@@ -9,7 +9,6 @@ import "common/pagination/pagination.proto";
 
 service CityGovService {
   rpc CreateCityGov (CreateCityGovRequest)     returns (CityGov);
-  rpc UpdateCityGov (UpdateCityGovRequest)     returns (CityGov);
   rpc DeleteCityGov (DeleteCityGovRequest)     returns (google.protobuf.Empty);
 
   rpc RefuseCityGovRight (RefuseCityGovRightRequest)  returns (google.protobuf.Empty);
@@ -51,7 +50,6 @@ message DeleteCityGovRequest {
 message RefuseCityGovRightRequest {
   userdata.UserData initiator = 1;
   string city_id = 2;
-  string user_id = 3;
 }
 
 message GetCityGovRequest {

@@ -21,7 +21,6 @@ const _ = grpc.SupportPackageIsVersion9
 
 const (
 	CityGovService_CreateCityGov_FullMethodName      = "/citygov.CityGovService/CreateCityGov"
-	CityGovService_UpdateCityGov_FullMethodName      = "/citygov.CityGovService/UpdateCityGov"
 	CityGovService_DeleteCityGov_FullMethodName      = "/citygov.CityGovService/DeleteCityGov"
 	CityGovService_RefuseCityGovRight_FullMethodName = "/citygov.CityGovService/RefuseCityGovRight"
 	CityGovService_TransferAdminRight_FullMethodName = "/citygov.CityGovService/TransferAdminRight"
@@ -34,7 +33,6 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CityGovServiceClient interface {
 	CreateCityGov(ctx context.Context, in *CreateCityGovRequest, opts ...grpc.CallOption) (*CityGov, error)
-	UpdateCityGov(ctx context.Context, in *UpdateCityGovRequest, opts ...grpc.CallOption) (*CityGov, error)
 	DeleteCityGov(ctx context.Context, in *DeleteCityGovRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	RefuseCityGovRight(ctx context.Context, in *RefuseCityGovRightRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	TransferAdminRight(ctx context.Context, in *TransferAdminRightRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -54,16 +52,6 @@ func (c *cityGovServiceClient) CreateCityGov(ctx context.Context, in *CreateCity
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CityGov)
 	err := c.cc.Invoke(ctx, CityGovService_CreateCityGov_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cityGovServiceClient) UpdateCityGov(ctx context.Context, in *UpdateCityGovRequest, opts ...grpc.CallOption) (*CityGov, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CityGov)
-	err := c.cc.Invoke(ctx, CityGovService_UpdateCityGov_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -125,7 +113,6 @@ func (c *cityGovServiceClient) GetListCityGovs(ctx context.Context, in *ListCity
 // for forward compatibility.
 type CityGovServiceServer interface {
 	CreateCityGov(context.Context, *CreateCityGovRequest) (*CityGov, error)
-	UpdateCityGov(context.Context, *UpdateCityGovRequest) (*CityGov, error)
 	DeleteCityGov(context.Context, *DeleteCityGovRequest) (*emptypb.Empty, error)
 	RefuseCityGovRight(context.Context, *RefuseCityGovRightRequest) (*emptypb.Empty, error)
 	TransferAdminRight(context.Context, *TransferAdminRightRequest) (*emptypb.Empty, error)
@@ -143,9 +130,6 @@ type UnimplementedCityGovServiceServer struct{}
 
 func (UnimplementedCityGovServiceServer) CreateCityGov(context.Context, *CreateCityGovRequest) (*CityGov, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateCityGov not implemented")
-}
-func (UnimplementedCityGovServiceServer) UpdateCityGov(context.Context, *UpdateCityGovRequest) (*CityGov, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityGov not implemented")
 }
 func (UnimplementedCityGovServiceServer) DeleteCityGov(context.Context, *DeleteCityGovRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteCityGov not implemented")
@@ -197,24 +181,6 @@ func _CityGovService_CreateCityGov_Handler(srv interface{}, ctx context.Context,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CityGovServiceServer).CreateCityGov(ctx, req.(*CreateCityGovRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CityGovService_UpdateCityGov_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateCityGovRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CityGovServiceServer).UpdateCityGov(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CityGovService_UpdateCityGov_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityGovServiceServer).UpdateCityGov(ctx, req.(*UpdateCityGovRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -319,10 +285,6 @@ var CityGovService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateCityGov",
 			Handler:    _CityGovService_CreateCityGov_Handler,
-		},
-		{
-			MethodName: "UpdateCityGov",
-			Handler:    _CityGovService_UpdateCityGov_Handler,
 		},
 		{
 			MethodName: "DeleteCityGov",
