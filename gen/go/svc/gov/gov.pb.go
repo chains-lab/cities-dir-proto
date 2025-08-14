@@ -8,7 +8,7 @@ package gov
 
 import (
 	pagination "github.com/chains-lab/cities-dir-proto/gen/go/common/pagination"
-	userdata "github.com/chains-lab/cities-dir-proto/gen/go/common/userdata"
+	_ "github.com/chains-lab/cities-dir-proto/gen/go/common/userdata"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
@@ -26,10 +26,9 @@ const (
 
 type CreateCityGovRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
-	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
-	UserId        string                 `protobuf:"bytes,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	Role          string                 `protobuf:"bytes,4,opt,name=role,proto3" json:"role,omitempty"`
+	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	Role          string                 `protobuf:"bytes,3,opt,name=role,proto3" json:"role,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -64,13 +63,6 @@ func (*CreateCityGovRequest) Descriptor() ([]byte, []int) {
 	return file_svc_gov_gov_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CreateCityGovRequest) GetInitiator() *userdata.UserData {
-	if x != nil {
-		return x.Initiator
-	}
-	return nil
-}
-
 func (x *CreateCityGovRequest) GetCityId() string {
 	if x != nil {
 		return x.CityId
@@ -94,9 +86,8 @@ func (x *CreateCityGovRequest) GetRole() string {
 
 type DeleteCityGovRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
-	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
-	UserId        string                 `protobuf:"bytes,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -131,13 +122,6 @@ func (*DeleteCityGovRequest) Descriptor() ([]byte, []int) {
 	return file_svc_gov_gov_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *DeleteCityGovRequest) GetInitiator() *userdata.UserData {
-	if x != nil {
-		return x.Initiator
-	}
-	return nil
-}
-
 func (x *DeleteCityGovRequest) GetCityId() string {
 	if x != nil {
 		return x.CityId
@@ -154,9 +138,8 @@ func (x *DeleteCityGovRequest) GetUserId() string {
 
 type TransferAdminRightRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
-	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
-	NewOwnerId    string                 `protobuf:"bytes,3,opt,name=new_owner_id,json=newOwnerId,proto3" json:"new_owner_id,omitempty"`
+	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	NewOwnerId    string                 `protobuf:"bytes,2,opt,name=new_owner_id,json=newOwnerId,proto3" json:"new_owner_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -191,13 +174,6 @@ func (*TransferAdminRightRequest) Descriptor() ([]byte, []int) {
 	return file_svc_gov_gov_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *TransferAdminRightRequest) GetInitiator() *userdata.UserData {
-	if x != nil {
-		return x.Initiator
-	}
-	return nil
-}
-
 func (x *TransferAdminRightRequest) GetCityId() string {
 	if x != nil {
 		return x.CityId
@@ -214,7 +190,6 @@ func (x *TransferAdminRightRequest) GetNewOwnerId() string {
 
 type RefuseCityGovRightRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
 	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -248,13 +223,6 @@ func (x *RefuseCityGovRightRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use RefuseCityGovRightRequest.ProtoReflect.Descriptor instead.
 func (*RefuseCityGovRightRequest) Descriptor() ([]byte, []int) {
 	return file_svc_gov_gov_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *RefuseCityGovRightRequest) GetInitiator() *userdata.UserData {
-	if x != nil {
-		return x.Initiator
-	}
-	return nil
 }
 
 func (x *RefuseCityGovRightRequest) GetCityId() string {
@@ -484,23 +452,19 @@ var File_svc_gov_gov_proto protoreflect.FileDescriptor
 
 const file_svc_gov_gov_proto_rawDesc = "" +
 	"\n" +
-	"\x11svc/gov/gov.proto\x12\x03gov\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1ecommon/userdata/userdata.proto\x1a\"common/pagination/pagination.proto\"\x8e\x01\n" +
-	"\x14CreateCityGovRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
-	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\tR\x06userId\x12\x12\n" +
-	"\x04role\x18\x04 \x01(\tR\x04role\"z\n" +
-	"\x14DeleteCityGovRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
-	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\tR\x06userId\"\x88\x01\n" +
-	"\x19TransferAdminRightRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
-	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12 \n" +
-	"\fnew_owner_id\x18\x03 \x01(\tR\n" +
-	"newOwnerId\"f\n" +
-	"\x19RefuseCityGovRightRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x17\n" +
+	"\x11svc/gov/gov.proto\x12\x03gov\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1ecommon/userdata/userdata.proto\x1a\"common/pagination/pagination.proto\"\\\n" +
+	"\x14CreateCityGovRequest\x12\x17\n" +
+	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x12\n" +
+	"\x04role\x18\x03 \x01(\tR\x04role\"H\n" +
+	"\x14DeleteCityGovRequest\x12\x17\n" +
+	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\tR\x06userId\"V\n" +
+	"\x19TransferAdminRightRequest\x12\x17\n" +
+	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12 \n" +
+	"\fnew_owner_id\x18\x02 \x01(\tR\n" +
+	"newOwnerId\"4\n" +
+	"\x19RefuseCityGovRightRequest\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\"E\n" +
 	"\x11GetCityGovRequest\x12\x17\n" +
 	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12\x17\n" +
@@ -529,7 +493,10 @@ const file_svc_gov_gov_proto_rawDesc = "" +
 	"\x12TransferAdminRight\x12\x1e.gov.TransferAdminRightRequest\x1a\x16.google.protobuf.Empty\x122\n" +
 	"\n" +
 	"GetCityGov\x12\x16.gov.GetCityGovRequest\x1a\f.gov.CityGov\x12>\n" +
-	"\x0fGetListCityGovs\x12\x18.gov.ListCityGovsRequest\x1a\x11.gov.ListCityGovsB;Z9github.com/chains-lab/cities-dir-proto/gen/go/svc/gov;govb\x06proto3"
+	"\x0fGetListCityGovs\x12\x18.gov.ListCityGovsRequest\x1a\x11.gov.ListCityGovs2\x8f\x01\n" +
+	"\x0fGovAdminService\x128\n" +
+	"\rCreateCityGov\x12\x19.gov.CreateCityGovRequest\x1a\f.gov.CityGov\x12B\n" +
+	"\rDeleteCityGov\x12\x19.gov.DeleteCityGovRequest\x1a\x16.google.protobuf.EmptyB;Z9github.com/chains-lab/cities-dir-proto/gen/go/svc/gov;govb\x06proto3"
 
 var (
 	file_svc_gov_gov_proto_rawDescOnce sync.Once
@@ -553,36 +520,35 @@ var file_svc_gov_gov_proto_goTypes = []any{
 	(*ListCityGovsRequest)(nil),       // 5: gov.ListCityGovsRequest
 	(*CityGov)(nil),                   // 6: gov.CityGov
 	(*ListCityGovs)(nil),              // 7: gov.ListCityGovs
-	(*userdata.UserData)(nil),         // 8: userdata.UserData
-	(*pagination.Request)(nil),        // 9: pagination.Request
-	(*pagination.Response)(nil),       // 10: pagination.Response
-	(*emptypb.Empty)(nil),             // 11: google.protobuf.Empty
+	(*pagination.Request)(nil),        // 8: pagination.Request
+	(*pagination.Response)(nil),       // 9: pagination.Response
+	(*emptypb.Empty)(nil),             // 10: google.protobuf.Empty
 }
 var file_svc_gov_gov_proto_depIdxs = []int32{
-	8,  // 0: gov.CreateCityGovRequest.initiator:type_name -> userdata.UserData
-	8,  // 1: gov.DeleteCityGovRequest.initiator:type_name -> userdata.UserData
-	8,  // 2: gov.TransferAdminRightRequest.initiator:type_name -> userdata.UserData
-	8,  // 3: gov.RefuseCityGovRightRequest.initiator:type_name -> userdata.UserData
-	9,  // 4: gov.ListCityGovsRequest.pagination:type_name -> pagination.Request
-	6,  // 5: gov.ListCityGovs.government:type_name -> gov.CityGov
-	10, // 6: gov.ListCityGovs.pagination:type_name -> pagination.Response
-	0,  // 7: gov.GovService.CreateCityGov:input_type -> gov.CreateCityGovRequest
-	1,  // 8: gov.GovService.DeleteCityGov:input_type -> gov.DeleteCityGovRequest
-	3,  // 9: gov.GovService.RefuseCityGovRight:input_type -> gov.RefuseCityGovRightRequest
-	2,  // 10: gov.GovService.TransferAdminRight:input_type -> gov.TransferAdminRightRequest
-	4,  // 11: gov.GovService.GetCityGov:input_type -> gov.GetCityGovRequest
-	5,  // 12: gov.GovService.GetListCityGovs:input_type -> gov.ListCityGovsRequest
-	6,  // 13: gov.GovService.CreateCityGov:output_type -> gov.CityGov
-	11, // 14: gov.GovService.DeleteCityGov:output_type -> google.protobuf.Empty
-	11, // 15: gov.GovService.RefuseCityGovRight:output_type -> google.protobuf.Empty
-	11, // 16: gov.GovService.TransferAdminRight:output_type -> google.protobuf.Empty
-	6,  // 17: gov.GovService.GetCityGov:output_type -> gov.CityGov
-	7,  // 18: gov.GovService.GetListCityGovs:output_type -> gov.ListCityGovs
-	13, // [13:19] is the sub-list for method output_type
-	7,  // [7:13] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	8,  // 0: gov.ListCityGovsRequest.pagination:type_name -> pagination.Request
+	6,  // 1: gov.ListCityGovs.government:type_name -> gov.CityGov
+	9,  // 2: gov.ListCityGovs.pagination:type_name -> pagination.Response
+	0,  // 3: gov.GovService.CreateCityGov:input_type -> gov.CreateCityGovRequest
+	1,  // 4: gov.GovService.DeleteCityGov:input_type -> gov.DeleteCityGovRequest
+	3,  // 5: gov.GovService.RefuseCityGovRight:input_type -> gov.RefuseCityGovRightRequest
+	2,  // 6: gov.GovService.TransferAdminRight:input_type -> gov.TransferAdminRightRequest
+	4,  // 7: gov.GovService.GetCityGov:input_type -> gov.GetCityGovRequest
+	5,  // 8: gov.GovService.GetListCityGovs:input_type -> gov.ListCityGovsRequest
+	0,  // 9: gov.GovAdminService.CreateCityGov:input_type -> gov.CreateCityGovRequest
+	1,  // 10: gov.GovAdminService.DeleteCityGov:input_type -> gov.DeleteCityGovRequest
+	6,  // 11: gov.GovService.CreateCityGov:output_type -> gov.CityGov
+	10, // 12: gov.GovService.DeleteCityGov:output_type -> google.protobuf.Empty
+	10, // 13: gov.GovService.RefuseCityGovRight:output_type -> google.protobuf.Empty
+	10, // 14: gov.GovService.TransferAdminRight:output_type -> google.protobuf.Empty
+	6,  // 15: gov.GovService.GetCityGov:output_type -> gov.CityGov
+	7,  // 16: gov.GovService.GetListCityGovs:output_type -> gov.ListCityGovs
+	6,  // 17: gov.GovAdminService.CreateCityGov:output_type -> gov.CityGov
+	10, // 18: gov.GovAdminService.DeleteCityGov:output_type -> google.protobuf.Empty
+	11, // [11:19] is the sub-list for method output_type
+	3,  // [3:11] is the sub-list for method input_type
+	3,  // [3:3] is the sub-list for extension type_name
+	3,  // [3:3] is the sub-list for extension extendee
+	0,  // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_svc_gov_gov_proto_init() }
@@ -598,7 +564,7 @@ func file_svc_gov_gov_proto_init() {
 			NumEnums:      0,
 			NumMessages:   8,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   2,
 		},
 		GoTypes:           file_svc_gov_gov_proto_goTypes,
 		DependencyIndexes: file_svc_gov_gov_proto_depIdxs,

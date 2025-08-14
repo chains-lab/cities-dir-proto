@@ -157,3 +157,181 @@ var CountryService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "svc/country/country.proto",
 }
+
+const (
+	CountryAdminService_CreateCountry_FullMethodName       = "/country.CountryAdminService/CreateCountry"
+	CountryAdminService_UpdateCountryStatus_FullMethodName = "/country.CountryAdminService/UpdateCountryStatus"
+	CountryAdminService_UpdateCountryName_FullMethodName   = "/country.CountryAdminService/UpdateCountryName"
+)
+
+// CountryAdminServiceClient is the client API for CountryAdminService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CountryAdminServiceClient interface {
+	CreateCountry(ctx context.Context, in *CreateCountryRequest, opts ...grpc.CallOption) (*Country, error)
+	UpdateCountryStatus(ctx context.Context, in *UpdateCountryStatusRequest, opts ...grpc.CallOption) (*Country, error)
+	UpdateCountryName(ctx context.Context, in *UpdateCountryNameRequest, opts ...grpc.CallOption) (*Country, error)
+}
+
+type countryAdminServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCountryAdminServiceClient(cc grpc.ClientConnInterface) CountryAdminServiceClient {
+	return &countryAdminServiceClient{cc}
+}
+
+func (c *countryAdminServiceClient) CreateCountry(ctx context.Context, in *CreateCountryRequest, opts ...grpc.CallOption) (*Country, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Country)
+	err := c.cc.Invoke(ctx, CountryAdminService_CreateCountry_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *countryAdminServiceClient) UpdateCountryStatus(ctx context.Context, in *UpdateCountryStatusRequest, opts ...grpc.CallOption) (*Country, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Country)
+	err := c.cc.Invoke(ctx, CountryAdminService_UpdateCountryStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *countryAdminServiceClient) UpdateCountryName(ctx context.Context, in *UpdateCountryNameRequest, opts ...grpc.CallOption) (*Country, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Country)
+	err := c.cc.Invoke(ctx, CountryAdminService_UpdateCountryName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CountryAdminServiceServer is the server API for CountryAdminService service.
+// All implementations must embed UnimplementedCountryAdminServiceServer
+// for forward compatibility.
+type CountryAdminServiceServer interface {
+	CreateCountry(context.Context, *CreateCountryRequest) (*Country, error)
+	UpdateCountryStatus(context.Context, *UpdateCountryStatusRequest) (*Country, error)
+	UpdateCountryName(context.Context, *UpdateCountryNameRequest) (*Country, error)
+	mustEmbedUnimplementedCountryAdminServiceServer()
+}
+
+// UnimplementedCountryAdminServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCountryAdminServiceServer struct{}
+
+func (UnimplementedCountryAdminServiceServer) CreateCountry(context.Context, *CreateCountryRequest) (*Country, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCountry not implemented")
+}
+func (UnimplementedCountryAdminServiceServer) UpdateCountryStatus(context.Context, *UpdateCountryStatusRequest) (*Country, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCountryStatus not implemented")
+}
+func (UnimplementedCountryAdminServiceServer) UpdateCountryName(context.Context, *UpdateCountryNameRequest) (*Country, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCountryName not implemented")
+}
+func (UnimplementedCountryAdminServiceServer) mustEmbedUnimplementedCountryAdminServiceServer() {}
+func (UnimplementedCountryAdminServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeCountryAdminServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CountryAdminServiceServer will
+// result in compilation errors.
+type UnsafeCountryAdminServiceServer interface {
+	mustEmbedUnimplementedCountryAdminServiceServer()
+}
+
+func RegisterCountryAdminServiceServer(s grpc.ServiceRegistrar, srv CountryAdminServiceServer) {
+	// If the following call pancis, it indicates UnimplementedCountryAdminServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CountryAdminService_ServiceDesc, srv)
+}
+
+func _CountryAdminService_CreateCountry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCountryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CountryAdminServiceServer).CreateCountry(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CountryAdminService_CreateCountry_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CountryAdminServiceServer).CreateCountry(ctx, req.(*CreateCountryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CountryAdminService_UpdateCountryStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCountryStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CountryAdminServiceServer).UpdateCountryStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CountryAdminService_UpdateCountryStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CountryAdminServiceServer).UpdateCountryStatus(ctx, req.(*UpdateCountryStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CountryAdminService_UpdateCountryName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCountryNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CountryAdminServiceServer).UpdateCountryName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CountryAdminService_UpdateCountryName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CountryAdminServiceServer).UpdateCountryName(ctx, req.(*UpdateCountryNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CountryAdminService_ServiceDesc is the grpc.ServiceDesc for CountryAdminService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CountryAdminService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "country.CountryAdminService",
+	HandlerType: (*CountryAdminServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateCountry",
+			Handler:    _CountryAdminService_CreateCountry_Handler,
+		},
+		{
+			MethodName: "UpdateCountryStatus",
+			Handler:    _CountryAdminService_UpdateCountryStatus_Handler,
+		},
+		{
+			MethodName: "UpdateCountryName",
+			Handler:    _CountryAdminService_UpdateCountryName_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "svc/country/country.proto",
+}

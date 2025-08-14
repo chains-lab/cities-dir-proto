@@ -233,3 +233,105 @@ var CityService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "svc/city/city.proto",
 }
+
+const (
+	CityAdminService_UpdateCityStatus_FullMethodName = "/city.CityAdminService/UpdateCityStatus"
+)
+
+// CityAdminServiceClient is the client API for CityAdminService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CityAdminServiceClient interface {
+	UpdateCityStatus(ctx context.Context, in *UpdateCityStatusRequest, opts ...grpc.CallOption) (*City, error)
+}
+
+type cityAdminServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCityAdminServiceClient(cc grpc.ClientConnInterface) CityAdminServiceClient {
+	return &cityAdminServiceClient{cc}
+}
+
+func (c *cityAdminServiceClient) UpdateCityStatus(ctx context.Context, in *UpdateCityStatusRequest, opts ...grpc.CallOption) (*City, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(City)
+	err := c.cc.Invoke(ctx, CityAdminService_UpdateCityStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CityAdminServiceServer is the server API for CityAdminService service.
+// All implementations must embed UnimplementedCityAdminServiceServer
+// for forward compatibility.
+type CityAdminServiceServer interface {
+	UpdateCityStatus(context.Context, *UpdateCityStatusRequest) (*City, error)
+	mustEmbedUnimplementedCityAdminServiceServer()
+}
+
+// UnimplementedCityAdminServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCityAdminServiceServer struct{}
+
+func (UnimplementedCityAdminServiceServer) UpdateCityStatus(context.Context, *UpdateCityStatusRequest) (*City, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityStatus not implemented")
+}
+func (UnimplementedCityAdminServiceServer) mustEmbedUnimplementedCityAdminServiceServer() {}
+func (UnimplementedCityAdminServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeCityAdminServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CityAdminServiceServer will
+// result in compilation errors.
+type UnsafeCityAdminServiceServer interface {
+	mustEmbedUnimplementedCityAdminServiceServer()
+}
+
+func RegisterCityAdminServiceServer(s grpc.ServiceRegistrar, srv CityAdminServiceServer) {
+	// If the following call pancis, it indicates UnimplementedCityAdminServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CityAdminService_ServiceDesc, srv)
+}
+
+func _CityAdminService_UpdateCityStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCityStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CityAdminServiceServer).UpdateCityStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CityAdminService_UpdateCityStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CityAdminServiceServer).UpdateCityStatus(ctx, req.(*UpdateCityStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CityAdminService_ServiceDesc is the grpc.ServiceDesc for CityAdminService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CityAdminService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "city.CityAdminService",
+	HandlerType: (*CityAdminServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "UpdateCityStatus",
+			Handler:    _CityAdminService_UpdateCityStatus_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "svc/city/city.proto",
+}

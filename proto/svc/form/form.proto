@@ -13,10 +13,14 @@ service FormService {
   rpc SearchFormToCreateCity(SearchFormToCreateCityRequest) returns (FormToCreateCityList);
 }
 
+service FormAdminService {
+  rpc AcceptFormToCreateCity(AcceptFormToCreateCityRequest) returns (form.FormToCreateCity);
+  rpc RejectFormToCreateCity(RejectFormToCreateCityRequest) returns (form.FormToCreateCity);
+}
+
 // REQUESTS
 
 message SendFormToCreateCityRequest {
-  userdata.UserData initiator = 1;
   string city_name     = 2;
   string country_id    = 3;
   string contact_email = 4;
@@ -29,15 +33,33 @@ message GetFormToCreateCityRequest{
 }
 
 message SearchFormToCreateCityRequest{
-  optional string status = 1;
-  optional string city_name = 2;
-  optional string country_id = 3;
-  optional string initiator_id = 4;
-  oneof sort {
-    bool new_first = 5;
-    bool oldest_first = 6;
+  message filters {
+    optional string status = 1;
+    optional string city_name = 2;
+    optional string country_id = 3;
+    optional string initiator_id = 4;
   }
-  pagination.Request pag = 7;
+
+  filters Filters = 1;
+
+  oneof sort {
+    bool new_first = 2;
+    bool oldest_first = 3;
+  }
+
+  pagination.Request pag = 4;
+}
+
+message AcceptFormToCreateCityRequest{
+
+  string form_id  = 2;
+  string admin_id = 3;
+}
+
+message RejectFormToCreateCityRequest{
+
+  string form_id = 2;
+  string reason  = 3;
 }
 
 // RESPONSES

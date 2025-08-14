@@ -8,7 +8,7 @@ package form
 
 import (
 	pagination "github.com/chains-lab/cities-dir-proto/gen/go/common/pagination"
-	userdata "github.com/chains-lab/cities-dir-proto/gen/go/common/userdata"
+	_ "github.com/chains-lab/cities-dir-proto/gen/go/common/userdata"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/known/emptypb"
@@ -26,7 +26,6 @@ const (
 
 type SendFormToCreateCityRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Initiator     *userdata.UserData     `protobuf:"bytes,1,opt,name=initiator,proto3" json:"initiator,omitempty"`
 	CityName      string                 `protobuf:"bytes,2,opt,name=city_name,json=cityName,proto3" json:"city_name,omitempty"`
 	CountryId     string                 `protobuf:"bytes,3,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
 	ContactEmail  string                 `protobuf:"bytes,4,opt,name=contact_email,json=contactEmail,proto3" json:"contact_email,omitempty"`
@@ -64,13 +63,6 @@ func (x *SendFormToCreateCityRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use SendFormToCreateCityRequest.ProtoReflect.Descriptor instead.
 func (*SendFormToCreateCityRequest) Descriptor() ([]byte, []int) {
 	return file_svc_form_form_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *SendFormToCreateCityRequest) GetInitiator() *userdata.UserData {
-	if x != nil {
-		return x.Initiator
-	}
-	return nil
 }
 
 func (x *SendFormToCreateCityRequest) GetCityName() string {
@@ -153,17 +145,14 @@ func (x *GetFormToCreateCityRequest) GetFormId() string {
 }
 
 type SearchFormToCreateCityRequest struct {
-	state       protoimpl.MessageState `protogen:"open.v1"`
-	Status      *string                `protobuf:"bytes,1,opt,name=status,proto3,oneof" json:"status,omitempty"`
-	CityName    *string                `protobuf:"bytes,2,opt,name=city_name,json=cityName,proto3,oneof" json:"city_name,omitempty"`
-	CountryId   *string                `protobuf:"bytes,3,opt,name=country_id,json=countryId,proto3,oneof" json:"country_id,omitempty"`
-	InitiatorId *string                `protobuf:"bytes,4,opt,name=initiator_id,json=initiatorId,proto3,oneof" json:"initiator_id,omitempty"`
+	state   protoimpl.MessageState                `protogen:"open.v1"`
+	Filters *SearchFormToCreateCityRequestFilters `protobuf:"bytes,1,opt,name=Filters,proto3" json:"Filters,omitempty"`
 	// Types that are valid to be assigned to Sort:
 	//
 	//	*SearchFormToCreateCityRequest_NewFirst
 	//	*SearchFormToCreateCityRequest_OldestFirst
 	Sort          isSearchFormToCreateCityRequest_Sort `protobuf_oneof:"sort"`
-	Pag           *pagination.Request                  `protobuf:"bytes,7,opt,name=pag,proto3" json:"pag,omitempty"`
+	Pag           *pagination.Request                  `protobuf:"bytes,4,opt,name=pag,proto3" json:"pag,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -198,32 +187,11 @@ func (*SearchFormToCreateCityRequest) Descriptor() ([]byte, []int) {
 	return file_svc_form_form_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *SearchFormToCreateCityRequest) GetStatus() string {
-	if x != nil && x.Status != nil {
-		return *x.Status
+func (x *SearchFormToCreateCityRequest) GetFilters() *SearchFormToCreateCityRequestFilters {
+	if x != nil {
+		return x.Filters
 	}
-	return ""
-}
-
-func (x *SearchFormToCreateCityRequest) GetCityName() string {
-	if x != nil && x.CityName != nil {
-		return *x.CityName
-	}
-	return ""
-}
-
-func (x *SearchFormToCreateCityRequest) GetCountryId() string {
-	if x != nil && x.CountryId != nil {
-		return *x.CountryId
-	}
-	return ""
-}
-
-func (x *SearchFormToCreateCityRequest) GetInitiatorId() string {
-	if x != nil && x.InitiatorId != nil {
-		return *x.InitiatorId
-	}
-	return ""
+	return nil
 }
 
 func (x *SearchFormToCreateCityRequest) GetSort() isSearchFormToCreateCityRequest_Sort {
@@ -263,16 +231,120 @@ type isSearchFormToCreateCityRequest_Sort interface {
 }
 
 type SearchFormToCreateCityRequest_NewFirst struct {
-	NewFirst bool `protobuf:"varint,5,opt,name=new_first,json=newFirst,proto3,oneof"`
+	NewFirst bool `protobuf:"varint,2,opt,name=new_first,json=newFirst,proto3,oneof"`
 }
 
 type SearchFormToCreateCityRequest_OldestFirst struct {
-	OldestFirst bool `protobuf:"varint,6,opt,name=oldest_first,json=oldestFirst,proto3,oneof"`
+	OldestFirst bool `protobuf:"varint,3,opt,name=oldest_first,json=oldestFirst,proto3,oneof"`
 }
 
 func (*SearchFormToCreateCityRequest_NewFirst) isSearchFormToCreateCityRequest_Sort() {}
 
 func (*SearchFormToCreateCityRequest_OldestFirst) isSearchFormToCreateCityRequest_Sort() {}
+
+type AcceptFormToCreateCityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	FormId        string                 `protobuf:"bytes,2,opt,name=form_id,json=formId,proto3" json:"form_id,omitempty"`
+	AdminId       string                 `protobuf:"bytes,3,opt,name=admin_id,json=adminId,proto3" json:"admin_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AcceptFormToCreateCityRequest) Reset() {
+	*x = AcceptFormToCreateCityRequest{}
+	mi := &file_svc_form_form_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AcceptFormToCreateCityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AcceptFormToCreateCityRequest) ProtoMessage() {}
+
+func (x *AcceptFormToCreateCityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svc_form_form_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AcceptFormToCreateCityRequest.ProtoReflect.Descriptor instead.
+func (*AcceptFormToCreateCityRequest) Descriptor() ([]byte, []int) {
+	return file_svc_form_form_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *AcceptFormToCreateCityRequest) GetFormId() string {
+	if x != nil {
+		return x.FormId
+	}
+	return ""
+}
+
+func (x *AcceptFormToCreateCityRequest) GetAdminId() string {
+	if x != nil {
+		return x.AdminId
+	}
+	return ""
+}
+
+type RejectFormToCreateCityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	FormId        string                 `protobuf:"bytes,2,opt,name=form_id,json=formId,proto3" json:"form_id,omitempty"`
+	Reason        string                 `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RejectFormToCreateCityRequest) Reset() {
+	*x = RejectFormToCreateCityRequest{}
+	mi := &file_svc_form_form_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RejectFormToCreateCityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RejectFormToCreateCityRequest) ProtoMessage() {}
+
+func (x *RejectFormToCreateCityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svc_form_form_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RejectFormToCreateCityRequest.ProtoReflect.Descriptor instead.
+func (*RejectFormToCreateCityRequest) Descriptor() ([]byte, []int) {
+	return file_svc_form_form_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *RejectFormToCreateCityRequest) GetFormId() string {
+	if x != nil {
+		return x.FormId
+	}
+	return ""
+}
+
+func (x *RejectFormToCreateCityRequest) GetReason() string {
+	if x != nil {
+		return x.Reason
+	}
+	return ""
+}
 
 type FormToCreateCity struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
@@ -292,7 +364,7 @@ type FormToCreateCity struct {
 
 func (x *FormToCreateCity) Reset() {
 	*x = FormToCreateCity{}
-	mi := &file_svc_form_form_proto_msgTypes[3]
+	mi := &file_svc_form_form_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -304,7 +376,7 @@ func (x *FormToCreateCity) String() string {
 func (*FormToCreateCity) ProtoMessage() {}
 
 func (x *FormToCreateCity) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_form_form_proto_msgTypes[3]
+	mi := &file_svc_form_form_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -317,7 +389,7 @@ func (x *FormToCreateCity) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormToCreateCity.ProtoReflect.Descriptor instead.
 func (*FormToCreateCity) Descriptor() ([]byte, []int) {
-	return file_svc_form_form_proto_rawDescGZIP(), []int{3}
+	return file_svc_form_form_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *FormToCreateCity) GetId() string {
@@ -400,7 +472,7 @@ type FormToCreateCityList struct {
 
 func (x *FormToCreateCityList) Reset() {
 	*x = FormToCreateCityList{}
-	mi := &file_svc_form_form_proto_msgTypes[4]
+	mi := &file_svc_form_form_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -412,7 +484,7 @@ func (x *FormToCreateCityList) String() string {
 func (*FormToCreateCityList) ProtoMessage() {}
 
 func (x *FormToCreateCityList) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_form_form_proto_msgTypes[4]
+	mi := &file_svc_form_form_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -425,7 +497,7 @@ func (x *FormToCreateCityList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormToCreateCityList.ProtoReflect.Descriptor instead.
 func (*FormToCreateCityList) Descriptor() ([]byte, []int) {
-	return file_svc_form_form_proto_rawDescGZIP(), []int{4}
+	return file_svc_form_form_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *FormToCreateCityList) GetForms() []*FormToCreateCity {
@@ -442,13 +514,80 @@ func (x *FormToCreateCityList) GetPagination() *pagination.Response {
 	return nil
 }
 
+type SearchFormToCreateCityRequestFilters struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Status        *string                `protobuf:"bytes,1,opt,name=status,proto3,oneof" json:"status,omitempty"`
+	CityName      *string                `protobuf:"bytes,2,opt,name=city_name,json=cityName,proto3,oneof" json:"city_name,omitempty"`
+	CountryId     *string                `protobuf:"bytes,3,opt,name=country_id,json=countryId,proto3,oneof" json:"country_id,omitempty"`
+	InitiatorId   *string                `protobuf:"bytes,4,opt,name=initiator_id,json=initiatorId,proto3,oneof" json:"initiator_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchFormToCreateCityRequestFilters) Reset() {
+	*x = SearchFormToCreateCityRequestFilters{}
+	mi := &file_svc_form_form_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchFormToCreateCityRequestFilters) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchFormToCreateCityRequestFilters) ProtoMessage() {}
+
+func (x *SearchFormToCreateCityRequestFilters) ProtoReflect() protoreflect.Message {
+	mi := &file_svc_form_form_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchFormToCreateCityRequestFilters.ProtoReflect.Descriptor instead.
+func (*SearchFormToCreateCityRequestFilters) Descriptor() ([]byte, []int) {
+	return file_svc_form_form_proto_rawDescGZIP(), []int{2, 0}
+}
+
+func (x *SearchFormToCreateCityRequestFilters) GetStatus() string {
+	if x != nil && x.Status != nil {
+		return *x.Status
+	}
+	return ""
+}
+
+func (x *SearchFormToCreateCityRequestFilters) GetCityName() string {
+	if x != nil && x.CityName != nil {
+		return *x.CityName
+	}
+	return ""
+}
+
+func (x *SearchFormToCreateCityRequestFilters) GetCountryId() string {
+	if x != nil && x.CountryId != nil {
+		return *x.CountryId
+	}
+	return ""
+}
+
+func (x *SearchFormToCreateCityRequestFilters) GetInitiatorId() string {
+	if x != nil && x.InitiatorId != nil {
+		return *x.InitiatorId
+	}
+	return ""
+}
+
 var File_svc_form_form_proto protoreflect.FileDescriptor
 
 const file_svc_form_form_proto_rawDesc = "" +
 	"\n" +
-	"\x13svc/form/form.proto\x12\x04form\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1ecommon/userdata/userdata.proto\x1a\"common/pagination/pagination.proto\"\xe9\x01\n" +
-	"\x1bSendFormToCreateCityRequest\x120\n" +
-	"\tinitiator\x18\x01 \x01(\v2\x12.userdata.UserDataR\tinitiator\x12\x1b\n" +
+	"\x13svc/form/form.proto\x12\x04form\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1ecommon/userdata/userdata.proto\x1a\"common/pagination/pagination.proto\"\xb7\x01\n" +
+	"\x1bSendFormToCreateCityRequest\x12\x1b\n" +
 	"\tcity_name\x18\x02 \x01(\tR\bcityName\x12\x1d\n" +
 	"\n" +
 	"country_id\x18\x03 \x01(\tR\tcountryId\x12#\n" +
@@ -456,22 +595,30 @@ const file_svc_form_form_proto_rawDesc = "" +
 	"\rcontact_phone\x18\x05 \x01(\tR\fcontactPhone\x12\x12\n" +
 	"\x04text\x18\x06 \x01(\tR\x04text\"5\n" +
 	"\x1aGetFormToCreateCityRequest\x12\x17\n" +
-	"\aform_id\x18\x01 \x01(\tR\x06formId\"\xd6\x02\n" +
-	"\x1dSearchFormToCreateCityRequest\x12\x1b\n" +
-	"\x06status\x18\x01 \x01(\tH\x01R\x06status\x88\x01\x01\x12 \n" +
-	"\tcity_name\x18\x02 \x01(\tH\x02R\bcityName\x88\x01\x01\x12\"\n" +
+	"\aform_id\x18\x01 \x01(\tR\x06formId\"\xa9\x03\n" +
+	"\x1dSearchFormToCreateCityRequest\x12E\n" +
+	"\aFilters\x18\x01 \x01(\v2+.form.SearchFormToCreateCityRequest.filtersR\aFilters\x12\x1d\n" +
+	"\tnew_first\x18\x02 \x01(\bH\x00R\bnewFirst\x12#\n" +
+	"\foldest_first\x18\x03 \x01(\bH\x00R\voldestFirst\x12%\n" +
+	"\x03pag\x18\x04 \x01(\v2\x13.pagination.RequestR\x03pag\x1a\xcd\x01\n" +
+	"\afilters\x12\x1b\n" +
+	"\x06status\x18\x01 \x01(\tH\x00R\x06status\x88\x01\x01\x12 \n" +
+	"\tcity_name\x18\x02 \x01(\tH\x01R\bcityName\x88\x01\x01\x12\"\n" +
 	"\n" +
-	"country_id\x18\x03 \x01(\tH\x03R\tcountryId\x88\x01\x01\x12&\n" +
-	"\finitiator_id\x18\x04 \x01(\tH\x04R\vinitiatorId\x88\x01\x01\x12\x1d\n" +
-	"\tnew_first\x18\x05 \x01(\bH\x00R\bnewFirst\x12#\n" +
-	"\foldest_first\x18\x06 \x01(\bH\x00R\voldestFirst\x12%\n" +
-	"\x03pag\x18\a \x01(\v2\x13.pagination.RequestR\x03pagB\x06\n" +
-	"\x04sortB\t\n" +
+	"country_id\x18\x03 \x01(\tH\x02R\tcountryId\x88\x01\x01\x12&\n" +
+	"\finitiator_id\x18\x04 \x01(\tH\x03R\vinitiatorId\x88\x01\x01B\t\n" +
 	"\a_statusB\f\n" +
 	"\n" +
 	"_city_nameB\r\n" +
 	"\v_country_idB\x0f\n" +
-	"\r_initiator_id\"\xc0\x02\n" +
+	"\r_initiator_idB\x06\n" +
+	"\x04sort\"S\n" +
+	"\x1dAcceptFormToCreateCityRequest\x12\x17\n" +
+	"\aform_id\x18\x02 \x01(\tR\x06formId\x12\x19\n" +
+	"\badmin_id\x18\x03 \x01(\tR\aadminId\"P\n" +
+	"\x1dRejectFormToCreateCityRequest\x12\x17\n" +
+	"\aform_id\x18\x02 \x01(\tR\x06formId\x12\x16\n" +
+	"\x06reason\x18\x03 \x01(\tR\x06reason\"\xc0\x02\n" +
 	"\x10FormToCreateCity\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x16\n" +
 	"\x06status\x18\x02 \x01(\tR\x06status\x12\x1b\n" +
@@ -494,7 +641,10 @@ const file_svc_form_form_proto_rawDesc = "" +
 	"\vFormService\x12Q\n" +
 	"\x14SendFormToCreateCity\x12!.form.SendFormToCreateCityRequest\x1a\x16.form.FormToCreateCity\x12O\n" +
 	"\x13GetFormToCreateCity\x12 .form.GetFormToCreateCityRequest\x1a\x16.form.FormToCreateCity\x12Y\n" +
-	"\x16SearchFormToCreateCity\x12#.form.SearchFormToCreateCityRequest\x1a\x1a.form.FormToCreateCityListB=Z;github.com/chains-lab/cities-dir-proto/gen/go/svc/form;formb\x06proto3"
+	"\x16SearchFormToCreateCity\x12#.form.SearchFormToCreateCityRequest\x1a\x1a.form.FormToCreateCityList2\xc0\x01\n" +
+	"\x10FormAdminService\x12U\n" +
+	"\x16AcceptFormToCreateCity\x12#.form.AcceptFormToCreateCityRequest\x1a\x16.form.FormToCreateCity\x12U\n" +
+	"\x16RejectFormToCreateCity\x12#.form.RejectFormToCreateCityRequest\x1a\x16.form.FormToCreateCityB=Z;github.com/chains-lab/cities-dir-proto/gen/go/svc/form;formb\x06proto3"
 
 var (
 	file_svc_form_form_proto_rawDescOnce sync.Once
@@ -508,30 +658,36 @@ func file_svc_form_form_proto_rawDescGZIP() []byte {
 	return file_svc_form_form_proto_rawDescData
 }
 
-var file_svc_form_form_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_svc_form_form_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_svc_form_form_proto_goTypes = []any{
-	(*SendFormToCreateCityRequest)(nil),   // 0: form.SendFormToCreateCityRequest
-	(*GetFormToCreateCityRequest)(nil),    // 1: form.GetFormToCreateCityRequest
-	(*SearchFormToCreateCityRequest)(nil), // 2: form.SearchFormToCreateCityRequest
-	(*FormToCreateCity)(nil),              // 3: form.FormToCreateCity
-	(*FormToCreateCityList)(nil),          // 4: form.FormToCreateCityList
-	(*userdata.UserData)(nil),             // 5: userdata.UserData
-	(*pagination.Request)(nil),            // 6: pagination.Request
-	(*pagination.Response)(nil),           // 7: pagination.Response
+	(*SendFormToCreateCityRequest)(nil),          // 0: form.SendFormToCreateCityRequest
+	(*GetFormToCreateCityRequest)(nil),           // 1: form.GetFormToCreateCityRequest
+	(*SearchFormToCreateCityRequest)(nil),        // 2: form.SearchFormToCreateCityRequest
+	(*AcceptFormToCreateCityRequest)(nil),        // 3: form.AcceptFormToCreateCityRequest
+	(*RejectFormToCreateCityRequest)(nil),        // 4: form.RejectFormToCreateCityRequest
+	(*FormToCreateCity)(nil),                     // 5: form.FormToCreateCity
+	(*FormToCreateCityList)(nil),                 // 6: form.FormToCreateCityList
+	(*SearchFormToCreateCityRequestFilters)(nil), // 7: form.SearchFormToCreateCityRequest.filters
+	(*pagination.Request)(nil),                   // 8: pagination.Request
+	(*pagination.Response)(nil),                  // 9: pagination.Response
 }
 var file_svc_form_form_proto_depIdxs = []int32{
-	5, // 0: form.SendFormToCreateCityRequest.initiator:type_name -> userdata.UserData
-	6, // 1: form.SearchFormToCreateCityRequest.pag:type_name -> pagination.Request
-	3, // 2: form.FormToCreateCityList.forms:type_name -> form.FormToCreateCity
-	7, // 3: form.FormToCreateCityList.pagination:type_name -> pagination.Response
+	7, // 0: form.SearchFormToCreateCityRequest.Filters:type_name -> form.SearchFormToCreateCityRequest.filters
+	8, // 1: form.SearchFormToCreateCityRequest.pag:type_name -> pagination.Request
+	5, // 2: form.FormToCreateCityList.forms:type_name -> form.FormToCreateCity
+	9, // 3: form.FormToCreateCityList.pagination:type_name -> pagination.Response
 	0, // 4: form.FormService.SendFormToCreateCity:input_type -> form.SendFormToCreateCityRequest
 	1, // 5: form.FormService.GetFormToCreateCity:input_type -> form.GetFormToCreateCityRequest
 	2, // 6: form.FormService.SearchFormToCreateCity:input_type -> form.SearchFormToCreateCityRequest
-	3, // 7: form.FormService.SendFormToCreateCity:output_type -> form.FormToCreateCity
-	3, // 8: form.FormService.GetFormToCreateCity:output_type -> form.FormToCreateCity
-	4, // 9: form.FormService.SearchFormToCreateCity:output_type -> form.FormToCreateCityList
-	7, // [7:10] is the sub-list for method output_type
-	4, // [4:7] is the sub-list for method input_type
+	3, // 7: form.FormAdminService.AcceptFormToCreateCity:input_type -> form.AcceptFormToCreateCityRequest
+	4, // 8: form.FormAdminService.RejectFormToCreateCity:input_type -> form.RejectFormToCreateCityRequest
+	5, // 9: form.FormService.SendFormToCreateCity:output_type -> form.FormToCreateCity
+	5, // 10: form.FormService.GetFormToCreateCity:output_type -> form.FormToCreateCity
+	6, // 11: form.FormService.SearchFormToCreateCity:output_type -> form.FormToCreateCityList
+	5, // 12: form.FormAdminService.AcceptFormToCreateCity:output_type -> form.FormToCreateCity
+	5, // 13: form.FormAdminService.RejectFormToCreateCity:output_type -> form.FormToCreateCity
+	9, // [9:14] is the sub-list for method output_type
+	4, // [4:9] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
 	4, // [4:4] is the sub-list for extension extendee
 	0, // [0:4] is the sub-list for field type_name
@@ -546,15 +702,16 @@ func file_svc_form_form_proto_init() {
 		(*SearchFormToCreateCityRequest_NewFirst)(nil),
 		(*SearchFormToCreateCityRequest_OldestFirst)(nil),
 	}
+	file_svc_form_form_proto_msgTypes[7].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_svc_form_form_proto_rawDesc), len(file_svc_form_form_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   8,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   2,
 		},
 		GoTypes:           file_svc_form_form_proto_goTypes,
 		DependencyIndexes: file_svc_form_form_proto_depIdxs,

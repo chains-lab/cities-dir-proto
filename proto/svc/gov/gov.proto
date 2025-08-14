@@ -19,30 +19,30 @@ service GovService {
   rpc GetListCityGovs   (ListCityGovsRequest)      returns (ListCityGovs);
 }
 
+service GovAdminService {
+  rpc CreateCityGov (CreateCityGovRequest)     returns (gov.CityGov);
+  rpc DeleteCityGov (DeleteCityGovRequest)     returns (google.protobuf.Empty);
+}
+
 // REQUESTS
 
 message CreateCityGovRequest {
-  userdata.UserData initiator = 1;
-  string city_id = 2;
-  string user_id = 3;
-  string role    = 4;
+  string city_id = 1;
+  string user_id = 2;
+  string role    = 3;
 }
 
 message DeleteCityGovRequest {
-  userdata.UserData initiator = 1;
-  string city_id = 2;
-  string user_id = 3;
+  string city_id = 1;
+  string user_id = 2;
 }
 
 message TransferAdminRightRequest {
-  userdata.UserData initiator = 1;
-  string city_id        = 2;
-  string new_owner_id   = 3;
+  string city_id        = 1;
+  string new_owner_id   = 2;
 }
 
-
 message RefuseCityGovRightRequest {
-  userdata.UserData initiator = 1;
   string city_id = 2;
 }
 

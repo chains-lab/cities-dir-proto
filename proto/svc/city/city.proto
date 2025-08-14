@@ -16,8 +16,11 @@ service CityService {
   rpc SearchCities(SearchCitiesRequest) returns (CitiesList);
 }
 
-// REQUESTS
+service CityAdminService {
+  rpc UpdateCityStatus (UpdateCityStatusRequest) returns (City);
+}
 
+// REQUESTS
 message GetCityByIdRequest {
   string city_id = 1;
 }
@@ -30,13 +33,11 @@ message SearchCitiesRequest {
 }
 
 message UpdateCityStatusRequest {
-  userdata.UserData initiator = 1;
   string city_id = 2;
   string status  = 3;
 }
 
 message UpdateCityNameRequest {
-  userdata.UserData initiator = 1;
   string city_id = 2;
   string name    = 3;
 }
