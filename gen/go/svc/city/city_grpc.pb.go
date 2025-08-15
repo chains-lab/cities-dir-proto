@@ -19,10 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CityService_GetCityById_FullMethodName      = "/city.CityService/GetCityById"
-	CityService_UpdateCityStatus_FullMethodName = "/city.CityService/UpdateCityStatus"
-	CityService_UpdateCityName_FullMethodName   = "/city.CityService/UpdateCityName"
-	CityService_SearchCities_FullMethodName     = "/city.CityService/SearchCities"
+	CityService_GetCityById_FullMethodName           = "/city.CityService/GetCityById"
+	CityService_UpdateCityStatus_FullMethodName      = "/city.CityService/UpdateCityStatus"
+	CityService_UpdateCityName_FullMethodName        = "/city.CityService/UpdateCityName"
+	CityService_SearchCities_FullMethodName          = "/city.CityService/SearchCities"
+	CityService_AdminCreateCity_FullMethodName       = "/city.CityService/AdminCreateCity"
+	CityService_AdminUpdateCityStatus_FullMethodName = "/city.CityService/AdminUpdateCityStatus"
 )
 
 // CityServiceClient is the client API for CityService service.
@@ -33,6 +35,9 @@ type CityServiceClient interface {
 	UpdateCityStatus(ctx context.Context, in *UpdateCityStatusRequest, opts ...grpc.CallOption) (*City, error)
 	UpdateCityName(ctx context.Context, in *UpdateCityNameRequest, opts ...grpc.CallOption) (*City, error)
 	SearchCities(ctx context.Context, in *SearchCitiesRequest, opts ...grpc.CallOption) (*CitiesList, error)
+	// Admin methods
+	AdminCreateCity(ctx context.Context, in *AdminCreateCityRequest, opts ...grpc.CallOption) (*City, error)
+	AdminUpdateCityStatus(ctx context.Context, in *AdminUpdateCityStatusRequest, opts ...grpc.CallOption) (*City, error)
 }
 
 type cityServiceClient struct {
@@ -83,6 +88,26 @@ func (c *cityServiceClient) SearchCities(ctx context.Context, in *SearchCitiesRe
 	return out, nil
 }
 
+func (c *cityServiceClient) AdminCreateCity(ctx context.Context, in *AdminCreateCityRequest, opts ...grpc.CallOption) (*City, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(City)
+	err := c.cc.Invoke(ctx, CityService_AdminCreateCity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cityServiceClient) AdminUpdateCityStatus(ctx context.Context, in *AdminUpdateCityStatusRequest, opts ...grpc.CallOption) (*City, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(City)
+	err := c.cc.Invoke(ctx, CityService_AdminUpdateCityStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CityServiceServer is the server API for CityService service.
 // All implementations must embed UnimplementedCityServiceServer
 // for forward compatibility.
@@ -91,6 +116,9 @@ type CityServiceServer interface {
 	UpdateCityStatus(context.Context, *UpdateCityStatusRequest) (*City, error)
 	UpdateCityName(context.Context, *UpdateCityNameRequest) (*City, error)
 	SearchCities(context.Context, *SearchCitiesRequest) (*CitiesList, error)
+	// Admin methods
+	AdminCreateCity(context.Context, *AdminCreateCityRequest) (*City, error)
+	AdminUpdateCityStatus(context.Context, *AdminUpdateCityStatusRequest) (*City, error)
 	mustEmbedUnimplementedCityServiceServer()
 }
 
@@ -112,6 +140,12 @@ func (UnimplementedCityServiceServer) UpdateCityName(context.Context, *UpdateCit
 }
 func (UnimplementedCityServiceServer) SearchCities(context.Context, *SearchCitiesRequest) (*CitiesList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchCities not implemented")
+}
+func (UnimplementedCityServiceServer) AdminCreateCity(context.Context, *AdminCreateCityRequest) (*City, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AdminCreateCity not implemented")
+}
+func (UnimplementedCityServiceServer) AdminUpdateCityStatus(context.Context, *AdminUpdateCityStatusRequest) (*City, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AdminUpdateCityStatus not implemented")
 }
 func (UnimplementedCityServiceServer) mustEmbedUnimplementedCityServiceServer() {}
 func (UnimplementedCityServiceServer) testEmbeddedByValue()                     {}
@@ -206,6 +240,42 @@ func _CityService_SearchCities_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CityService_AdminCreateCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AdminCreateCityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CityServiceServer).AdminCreateCity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CityService_AdminCreateCity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CityServiceServer).AdminCreateCity(ctx, req.(*AdminCreateCityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CityService_AdminUpdateCityStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AdminUpdateCityStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CityServiceServer).AdminUpdateCityStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CityService_AdminUpdateCityStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CityServiceServer).AdminUpdateCityStatus(ctx, req.(*AdminUpdateCityStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // CityService_ServiceDesc is the grpc.ServiceDesc for CityService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -229,145 +299,13 @@ var CityService_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "SearchCities",
 			Handler:    _CityService_SearchCities_Handler,
 		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "svc/city/city.proto",
-}
-
-const (
-	CityAdminService_CreateCity_FullMethodName       = "/city.CityAdminService/CreateCity"
-	CityAdminService_UpdateCityStatus_FullMethodName = "/city.CityAdminService/UpdateCityStatus"
-)
-
-// CityAdminServiceClient is the client API for CityAdminService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CityAdminServiceClient interface {
-	CreateCity(ctx context.Context, in *CreateCityRequest, opts ...grpc.CallOption) (*City, error)
-	UpdateCityStatus(ctx context.Context, in *UpdateCityStatusRequest, opts ...grpc.CallOption) (*City, error)
-}
-
-type cityAdminServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCityAdminServiceClient(cc grpc.ClientConnInterface) CityAdminServiceClient {
-	return &cityAdminServiceClient{cc}
-}
-
-func (c *cityAdminServiceClient) CreateCity(ctx context.Context, in *CreateCityRequest, opts ...grpc.CallOption) (*City, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(City)
-	err := c.cc.Invoke(ctx, CityAdminService_CreateCity_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cityAdminServiceClient) UpdateCityStatus(ctx context.Context, in *UpdateCityStatusRequest, opts ...grpc.CallOption) (*City, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(City)
-	err := c.cc.Invoke(ctx, CityAdminService_UpdateCityStatus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CityAdminServiceServer is the server API for CityAdminService service.
-// All implementations must embed UnimplementedCityAdminServiceServer
-// for forward compatibility.
-type CityAdminServiceServer interface {
-	CreateCity(context.Context, *CreateCityRequest) (*City, error)
-	UpdateCityStatus(context.Context, *UpdateCityStatusRequest) (*City, error)
-	mustEmbedUnimplementedCityAdminServiceServer()
-}
-
-// UnimplementedCityAdminServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCityAdminServiceServer struct{}
-
-func (UnimplementedCityAdminServiceServer) CreateCity(context.Context, *CreateCityRequest) (*City, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateCity not implemented")
-}
-func (UnimplementedCityAdminServiceServer) UpdateCityStatus(context.Context, *UpdateCityStatusRequest) (*City, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityStatus not implemented")
-}
-func (UnimplementedCityAdminServiceServer) mustEmbedUnimplementedCityAdminServiceServer() {}
-func (UnimplementedCityAdminServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeCityAdminServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CityAdminServiceServer will
-// result in compilation errors.
-type UnsafeCityAdminServiceServer interface {
-	mustEmbedUnimplementedCityAdminServiceServer()
-}
-
-func RegisterCityAdminServiceServer(s grpc.ServiceRegistrar, srv CityAdminServiceServer) {
-	// If the following call pancis, it indicates UnimplementedCityAdminServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CityAdminService_ServiceDesc, srv)
-}
-
-func _CityAdminService_CreateCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CityAdminServiceServer).CreateCity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CityAdminService_CreateCity_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityAdminServiceServer).CreateCity(ctx, req.(*CreateCityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CityAdminService_UpdateCityStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateCityStatusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CityAdminServiceServer).UpdateCityStatus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CityAdminService_UpdateCityStatus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityAdminServiceServer).UpdateCityStatus(ctx, req.(*UpdateCityStatusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CityAdminService_ServiceDesc is the grpc.ServiceDesc for CityAdminService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CityAdminService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "city.CityAdminService",
-	HandlerType: (*CityAdminServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CreateCity",
-			Handler:    _CityAdminService_CreateCity_Handler,
+			MethodName: "AdminCreateCity",
+			Handler:    _CityService_AdminCreateCity_Handler,
 		},
 		{
-			MethodName: "UpdateCityStatus",
-			Handler:    _CityAdminService_UpdateCityStatus_Handler,
+			MethodName: "AdminUpdateCityStatus",
+			Handler:    _CityService_AdminUpdateCityStatus_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
