@@ -17,6 +17,8 @@ service CityService {
 }
 
 service CityAdminService {
+  rpc CreateCity(CreateCityRequest) returns (City);
+
   rpc UpdateCityStatus (UpdateCityStatusRequest) returns (City);
 }
 
@@ -40,6 +42,12 @@ message UpdateCityStatusRequest {
 message UpdateCityNameRequest {
   string city_id = 2;
   string name    = 3;
+}
+
+message CreateCityRequest {
+  string name       = 1;
+  string country_id = 2;
+  string status     = 3;
 }
 
 // RESPONSES
