@@ -14,12 +14,10 @@ service CityService {
   rpc UpdateCityName(UpdateCityNameRequest)     returns (City);
 
   rpc SearchCities(SearchCitiesRequest) returns (CitiesList);
-}
 
-service CityAdminService {
-  rpc CreateCity(CreateCityRequest) returns (City);
-
-  rpc UpdateCityStatus (UpdateCityStatusRequest) returns (City);
+  // Admin methods
+  rpc AdminCreateCity(AdminCreateCityRequest) returns (City);
+  rpc AdminUpdateCityStatus(AdminUpdateCityStatusRequest) returns (City);
 }
 
 // REQUESTS
@@ -44,10 +42,15 @@ message UpdateCityNameRequest {
   string name    = 3;
 }
 
-message CreateCityRequest {
+message AdminCreateCityRequest {
   string name       = 1;
   string country_id = 2;
   string status     = 3;
+}
+
+message AdminUpdateCityStatusRequest {
+  string city_id = 1;
+  string status  = 2;
 }
 
 // RESPONSES
