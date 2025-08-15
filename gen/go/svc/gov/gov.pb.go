@@ -24,18 +24,165 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type CreateCityGovAdminRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateCityGovAdminRequest) Reset() {
+	*x = CreateCityGovAdminRequest{}
+	mi := &file_svc_gov_gov_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateCityGovAdminRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateCityGovAdminRequest) ProtoMessage() {}
+
+func (x *CreateCityGovAdminRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svc_gov_gov_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateCityGovAdminRequest.ProtoReflect.Descriptor instead.
+func (*CreateCityGovAdminRequest) Descriptor() ([]byte, []int) {
+	return file_svc_gov_gov_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *CreateCityGovAdminRequest) GetCityId() string {
+	if x != nil {
+		return x.CityId
+	}
+	return ""
+}
+
+func (x *CreateCityGovAdminRequest) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+type DeleteCityGovAdminRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteCityGovAdminRequest) Reset() {
+	*x = DeleteCityGovAdminRequest{}
+	mi := &file_svc_gov_gov_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteCityGovAdminRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteCityGovAdminRequest) ProtoMessage() {}
+
+func (x *DeleteCityGovAdminRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svc_gov_gov_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteCityGovAdminRequest.ProtoReflect.Descriptor instead.
+func (*DeleteCityGovAdminRequest) Descriptor() ([]byte, []int) {
+	return file_svc_gov_gov_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *DeleteCityGovAdminRequest) GetCityId() string {
+	if x != nil {
+		return x.CityId
+	}
+	return ""
+}
+
+type CreateCityAdminRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateCityAdminRequest) Reset() {
+	*x = CreateCityAdminRequest{}
+	mi := &file_svc_gov_gov_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateCityAdminRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateCityAdminRequest) ProtoMessage() {}
+
+func (x *CreateCityAdminRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svc_gov_gov_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateCityAdminRequest.ProtoReflect.Descriptor instead.
+func (*CreateCityAdminRequest) Descriptor() ([]byte, []int) {
+	return file_svc_gov_gov_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *CreateCityAdminRequest) GetCityId() string {
+	if x != nil {
+		return x.CityId
+	}
+	return ""
+}
+
+func (x *CreateCityAdminRequest) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
 type CreateCityGovRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	Role          string                 `protobuf:"bytes,3,opt,name=role,proto3" json:"role,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateCityGovRequest) Reset() {
 	*x = CreateCityGovRequest{}
-	mi := &file_svc_gov_gov_proto_msgTypes[0]
+	mi := &file_svc_gov_gov_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -47,7 +194,7 @@ func (x *CreateCityGovRequest) String() string {
 func (*CreateCityGovRequest) ProtoMessage() {}
 
 func (x *CreateCityGovRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_gov_gov_proto_msgTypes[0]
+	mi := &file_svc_gov_gov_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -60,7 +207,7 @@ func (x *CreateCityGovRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateCityGovRequest.ProtoReflect.Descriptor instead.
 func (*CreateCityGovRequest) Descriptor() ([]byte, []int) {
-	return file_svc_gov_gov_proto_rawDescGZIP(), []int{0}
+	return file_svc_gov_gov_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CreateCityGovRequest) GetCityId() string {
@@ -77,13 +224,6 @@ func (x *CreateCityGovRequest) GetUserId() string {
 	return ""
 }
 
-func (x *CreateCityGovRequest) GetRole() string {
-	if x != nil {
-		return x.Role
-	}
-	return ""
-}
-
 type DeleteCityGovRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
@@ -94,7 +234,7 @@ type DeleteCityGovRequest struct {
 
 func (x *DeleteCityGovRequest) Reset() {
 	*x = DeleteCityGovRequest{}
-	mi := &file_svc_gov_gov_proto_msgTypes[1]
+	mi := &file_svc_gov_gov_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -106,7 +246,7 @@ func (x *DeleteCityGovRequest) String() string {
 func (*DeleteCityGovRequest) ProtoMessage() {}
 
 func (x *DeleteCityGovRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_gov_gov_proto_msgTypes[1]
+	mi := &file_svc_gov_gov_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -119,7 +259,7 @@ func (x *DeleteCityGovRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteCityGovRequest.ProtoReflect.Descriptor instead.
 func (*DeleteCityGovRequest) Descriptor() ([]byte, []int) {
-	return file_svc_gov_gov_proto_rawDescGZIP(), []int{1}
+	return file_svc_gov_gov_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *DeleteCityGovRequest) GetCityId() string {
@@ -146,7 +286,7 @@ type TransferAdminRightRequest struct {
 
 func (x *TransferAdminRightRequest) Reset() {
 	*x = TransferAdminRightRequest{}
-	mi := &file_svc_gov_gov_proto_msgTypes[2]
+	mi := &file_svc_gov_gov_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -158,7 +298,7 @@ func (x *TransferAdminRightRequest) String() string {
 func (*TransferAdminRightRequest) ProtoMessage() {}
 
 func (x *TransferAdminRightRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_gov_gov_proto_msgTypes[2]
+	mi := &file_svc_gov_gov_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -171,7 +311,7 @@ func (x *TransferAdminRightRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TransferAdminRightRequest.ProtoReflect.Descriptor instead.
 func (*TransferAdminRightRequest) Descriptor() ([]byte, []int) {
-	return file_svc_gov_gov_proto_rawDescGZIP(), []int{2}
+	return file_svc_gov_gov_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *TransferAdminRightRequest) GetCityId() string {
@@ -197,7 +337,7 @@ type RefuseCityGovRightRequest struct {
 
 func (x *RefuseCityGovRightRequest) Reset() {
 	*x = RefuseCityGovRightRequest{}
-	mi := &file_svc_gov_gov_proto_msgTypes[3]
+	mi := &file_svc_gov_gov_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -209,7 +349,7 @@ func (x *RefuseCityGovRightRequest) String() string {
 func (*RefuseCityGovRightRequest) ProtoMessage() {}
 
 func (x *RefuseCityGovRightRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_gov_gov_proto_msgTypes[3]
+	mi := &file_svc_gov_gov_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -222,7 +362,7 @@ func (x *RefuseCityGovRightRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RefuseCityGovRightRequest.ProtoReflect.Descriptor instead.
 func (*RefuseCityGovRightRequest) Descriptor() ([]byte, []int) {
-	return file_svc_gov_gov_proto_rawDescGZIP(), []int{3}
+	return file_svc_gov_gov_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *RefuseCityGovRightRequest) GetCityId() string {
@@ -242,7 +382,7 @@ type GetCityGovRequest struct {
 
 func (x *GetCityGovRequest) Reset() {
 	*x = GetCityGovRequest{}
-	mi := &file_svc_gov_gov_proto_msgTypes[4]
+	mi := &file_svc_gov_gov_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -254,7 +394,7 @@ func (x *GetCityGovRequest) String() string {
 func (*GetCityGovRequest) ProtoMessage() {}
 
 func (x *GetCityGovRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_gov_gov_proto_msgTypes[4]
+	mi := &file_svc_gov_gov_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -267,7 +407,7 @@ func (x *GetCityGovRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCityGovRequest.ProtoReflect.Descriptor instead.
 func (*GetCityGovRequest) Descriptor() ([]byte, []int) {
-	return file_svc_gov_gov_proto_rawDescGZIP(), []int{4}
+	return file_svc_gov_gov_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetCityGovRequest) GetCityId() string {
@@ -294,7 +434,7 @@ type ListCityGovsRequest struct {
 
 func (x *ListCityGovsRequest) Reset() {
 	*x = ListCityGovsRequest{}
-	mi := &file_svc_gov_gov_proto_msgTypes[5]
+	mi := &file_svc_gov_gov_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -306,7 +446,7 @@ func (x *ListCityGovsRequest) String() string {
 func (*ListCityGovsRequest) ProtoMessage() {}
 
 func (x *ListCityGovsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_gov_gov_proto_msgTypes[5]
+	mi := &file_svc_gov_gov_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -319,7 +459,7 @@ func (x *ListCityGovsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListCityGovsRequest.ProtoReflect.Descriptor instead.
 func (*ListCityGovsRequest) Descriptor() ([]byte, []int) {
-	return file_svc_gov_gov_proto_rawDescGZIP(), []int{5}
+	return file_svc_gov_gov_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ListCityGovsRequest) GetCityId() string {
@@ -347,7 +487,7 @@ type CityGov struct {
 
 func (x *CityGov) Reset() {
 	*x = CityGov{}
-	mi := &file_svc_gov_gov_proto_msgTypes[6]
+	mi := &file_svc_gov_gov_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -359,7 +499,7 @@ func (x *CityGov) String() string {
 func (*CityGov) ProtoMessage() {}
 
 func (x *CityGov) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_gov_gov_proto_msgTypes[6]
+	mi := &file_svc_gov_gov_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -372,7 +512,7 @@ func (x *CityGov) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CityGov.ProtoReflect.Descriptor instead.
 func (*CityGov) Descriptor() ([]byte, []int) {
-	return file_svc_gov_gov_proto_rawDescGZIP(), []int{6}
+	return file_svc_gov_gov_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CityGov) GetCityId() string {
@@ -406,7 +546,7 @@ type ListCityGovs struct {
 
 func (x *ListCityGovs) Reset() {
 	*x = ListCityGovs{}
-	mi := &file_svc_gov_gov_proto_msgTypes[7]
+	mi := &file_svc_gov_gov_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -418,7 +558,7 @@ func (x *ListCityGovs) String() string {
 func (*ListCityGovs) ProtoMessage() {}
 
 func (x *ListCityGovs) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_gov_gov_proto_msgTypes[7]
+	mi := &file_svc_gov_gov_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -431,7 +571,7 @@ func (x *ListCityGovs) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListCityGovs.ProtoReflect.Descriptor instead.
 func (*ListCityGovs) Descriptor() ([]byte, []int) {
-	return file_svc_gov_gov_proto_rawDescGZIP(), []int{7}
+	return file_svc_gov_gov_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ListCityGovs) GetGovernment() []*CityGov {
@@ -452,11 +592,18 @@ var File_svc_gov_gov_proto protoreflect.FileDescriptor
 
 const file_svc_gov_gov_proto_rawDesc = "" +
 	"\n" +
-	"\x11svc/gov/gov.proto\x12\x03gov\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1ecommon/userdata/userdata.proto\x1a\"common/pagination/pagination.proto\"\\\n" +
+	"\x11svc/gov/gov.proto\x12\x03gov\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1ecommon/userdata/userdata.proto\x1a\"common/pagination/pagination.proto\"M\n" +
+	"\x19CreateCityGovAdminRequest\x12\x17\n" +
+	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\tR\x06userId\"4\n" +
+	"\x19DeleteCityGovAdminRequest\x12\x17\n" +
+	"\acity_id\x18\x01 \x01(\tR\x06cityId\"J\n" +
+	"\x16CreateCityAdminRequest\x12\x17\n" +
+	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\tR\x06userId\"H\n" +
 	"\x14CreateCityGovRequest\x12\x17\n" +
 	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x12\n" +
-	"\x04role\x18\x03 \x01(\tR\x04role\"H\n" +
+	"\auser_id\x18\x02 \x01(\tR\x06userId\"H\n" +
 	"\x14DeleteCityGovRequest\x12\x17\n" +
 	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\"V\n" +
@@ -493,10 +640,11 @@ const file_svc_gov_gov_proto_rawDesc = "" +
 	"\x12TransferAdminRight\x12\x1e.gov.TransferAdminRightRequest\x1a\x16.google.protobuf.Empty\x122\n" +
 	"\n" +
 	"GetCityGov\x12\x16.gov.GetCityGovRequest\x1a\f.gov.CityGov\x12>\n" +
-	"\x0fGetListCityGovs\x12\x18.gov.ListCityGovsRequest\x1a\x11.gov.ListCityGovs2\x8f\x01\n" +
-	"\x0fGovAdminService\x128\n" +
-	"\rCreateCityGov\x12\x19.gov.CreateCityGovRequest\x1a\f.gov.CityGov\x12B\n" +
-	"\rDeleteCityGov\x12\x19.gov.DeleteCityGovRequest\x1a\x16.google.protobuf.EmptyB;Z9github.com/chains-lab/cities-dir-proto/gen/go/svc/gov;govb\x06proto3"
+	"\x0fGetListCityGovs\x12\x18.gov.ListCityGovsRequest\x1a\x11.gov.ListCityGovs2\xdd\x01\n" +
+	"\x0fGovAdminService\x12B\n" +
+	"\x12CreateCityGovAdmin\x12\x1e.gov.CreateCityGovAdminRequest\x1a\f.gov.CityGov\x12L\n" +
+	"\x12DeleteCityGovAdmin\x12\x1e.gov.DeleteCityGovAdminRequest\x1a\x16.google.protobuf.Empty\x128\n" +
+	"\rCreateCityGov\x12\x19.gov.CreateCityGovRequest\x1a\f.gov.CityGovB;Z9github.com/chains-lab/cities-dir-proto/gen/go/svc/gov;govb\x06proto3"
 
 var (
 	file_svc_gov_gov_proto_rawDescOnce sync.Once
@@ -510,42 +658,47 @@ func file_svc_gov_gov_proto_rawDescGZIP() []byte {
 	return file_svc_gov_gov_proto_rawDescData
 }
 
-var file_svc_gov_gov_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_svc_gov_gov_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_svc_gov_gov_proto_goTypes = []any{
-	(*CreateCityGovRequest)(nil),      // 0: gov.CreateCityGovRequest
-	(*DeleteCityGovRequest)(nil),      // 1: gov.DeleteCityGovRequest
-	(*TransferAdminRightRequest)(nil), // 2: gov.TransferAdminRightRequest
-	(*RefuseCityGovRightRequest)(nil), // 3: gov.RefuseCityGovRightRequest
-	(*GetCityGovRequest)(nil),         // 4: gov.GetCityGovRequest
-	(*ListCityGovsRequest)(nil),       // 5: gov.ListCityGovsRequest
-	(*CityGov)(nil),                   // 6: gov.CityGov
-	(*ListCityGovs)(nil),              // 7: gov.ListCityGovs
-	(*pagination.Request)(nil),        // 8: pagination.Request
-	(*pagination.Response)(nil),       // 9: pagination.Response
-	(*emptypb.Empty)(nil),             // 10: google.protobuf.Empty
+	(*CreateCityGovAdminRequest)(nil), // 0: gov.CreateCityGovAdminRequest
+	(*DeleteCityGovAdminRequest)(nil), // 1: gov.DeleteCityGovAdminRequest
+	(*CreateCityAdminRequest)(nil),    // 2: gov.CreateCityAdminRequest
+	(*CreateCityGovRequest)(nil),      // 3: gov.CreateCityGovRequest
+	(*DeleteCityGovRequest)(nil),      // 4: gov.DeleteCityGovRequest
+	(*TransferAdminRightRequest)(nil), // 5: gov.TransferAdminRightRequest
+	(*RefuseCityGovRightRequest)(nil), // 6: gov.RefuseCityGovRightRequest
+	(*GetCityGovRequest)(nil),         // 7: gov.GetCityGovRequest
+	(*ListCityGovsRequest)(nil),       // 8: gov.ListCityGovsRequest
+	(*CityGov)(nil),                   // 9: gov.CityGov
+	(*ListCityGovs)(nil),              // 10: gov.ListCityGovs
+	(*pagination.Request)(nil),        // 11: pagination.Request
+	(*pagination.Response)(nil),       // 12: pagination.Response
+	(*emptypb.Empty)(nil),             // 13: google.protobuf.Empty
 }
 var file_svc_gov_gov_proto_depIdxs = []int32{
-	8,  // 0: gov.ListCityGovsRequest.pagination:type_name -> pagination.Request
-	6,  // 1: gov.ListCityGovs.government:type_name -> gov.CityGov
-	9,  // 2: gov.ListCityGovs.pagination:type_name -> pagination.Response
-	0,  // 3: gov.GovService.CreateCityGov:input_type -> gov.CreateCityGovRequest
-	1,  // 4: gov.GovService.DeleteCityGov:input_type -> gov.DeleteCityGovRequest
-	3,  // 5: gov.GovService.RefuseCityGovRight:input_type -> gov.RefuseCityGovRightRequest
-	2,  // 6: gov.GovService.TransferAdminRight:input_type -> gov.TransferAdminRightRequest
-	4,  // 7: gov.GovService.GetCityGov:input_type -> gov.GetCityGovRequest
-	5,  // 8: gov.GovService.GetListCityGovs:input_type -> gov.ListCityGovsRequest
-	0,  // 9: gov.GovAdminService.CreateCityGov:input_type -> gov.CreateCityGovRequest
-	1,  // 10: gov.GovAdminService.DeleteCityGov:input_type -> gov.DeleteCityGovRequest
-	6,  // 11: gov.GovService.CreateCityGov:output_type -> gov.CityGov
-	10, // 12: gov.GovService.DeleteCityGov:output_type -> google.protobuf.Empty
-	10, // 13: gov.GovService.RefuseCityGovRight:output_type -> google.protobuf.Empty
-	10, // 14: gov.GovService.TransferAdminRight:output_type -> google.protobuf.Empty
-	6,  // 15: gov.GovService.GetCityGov:output_type -> gov.CityGov
-	7,  // 16: gov.GovService.GetListCityGovs:output_type -> gov.ListCityGovs
-	6,  // 17: gov.GovAdminService.CreateCityGov:output_type -> gov.CityGov
-	10, // 18: gov.GovAdminService.DeleteCityGov:output_type -> google.protobuf.Empty
-	11, // [11:19] is the sub-list for method output_type
-	3,  // [3:11] is the sub-list for method input_type
+	11, // 0: gov.ListCityGovsRequest.pagination:type_name -> pagination.Request
+	9,  // 1: gov.ListCityGovs.government:type_name -> gov.CityGov
+	12, // 2: gov.ListCityGovs.pagination:type_name -> pagination.Response
+	3,  // 3: gov.GovService.CreateCityGov:input_type -> gov.CreateCityGovRequest
+	4,  // 4: gov.GovService.DeleteCityGov:input_type -> gov.DeleteCityGovRequest
+	6,  // 5: gov.GovService.RefuseCityGovRight:input_type -> gov.RefuseCityGovRightRequest
+	5,  // 6: gov.GovService.TransferAdminRight:input_type -> gov.TransferAdminRightRequest
+	7,  // 7: gov.GovService.GetCityGov:input_type -> gov.GetCityGovRequest
+	8,  // 8: gov.GovService.GetListCityGovs:input_type -> gov.ListCityGovsRequest
+	0,  // 9: gov.GovAdminService.CreateCityGovAdmin:input_type -> gov.CreateCityGovAdminRequest
+	1,  // 10: gov.GovAdminService.DeleteCityGovAdmin:input_type -> gov.DeleteCityGovAdminRequest
+	3,  // 11: gov.GovAdminService.CreateCityGov:input_type -> gov.CreateCityGovRequest
+	9,  // 12: gov.GovService.CreateCityGov:output_type -> gov.CityGov
+	13, // 13: gov.GovService.DeleteCityGov:output_type -> google.protobuf.Empty
+	13, // 14: gov.GovService.RefuseCityGovRight:output_type -> google.protobuf.Empty
+	13, // 15: gov.GovService.TransferAdminRight:output_type -> google.protobuf.Empty
+	9,  // 16: gov.GovService.GetCityGov:output_type -> gov.CityGov
+	10, // 17: gov.GovService.GetListCityGovs:output_type -> gov.ListCityGovs
+	9,  // 18: gov.GovAdminService.CreateCityGovAdmin:output_type -> gov.CityGov
+	13, // 19: gov.GovAdminService.DeleteCityGovAdmin:output_type -> google.protobuf.Empty
+	9,  // 20: gov.GovAdminService.CreateCityGov:output_type -> gov.CityGov
+	12, // [12:21] is the sub-list for method output_type
+	3,  // [3:12] is the sub-list for method input_type
 	3,  // [3:3] is the sub-list for extension type_name
 	3,  // [3:3] is the sub-list for extension extendee
 	0,  // [0:3] is the sub-list for field type_name
@@ -562,7 +715,7 @@ func file_svc_gov_gov_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_svc_gov_gov_proto_rawDesc), len(file_svc_gov_gov_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

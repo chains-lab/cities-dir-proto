@@ -312,16 +312,18 @@ var GovService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	GovAdminService_CreateCityGov_FullMethodName = "/gov.GovAdminService/CreateCityGov"
-	GovAdminService_DeleteCityGov_FullMethodName = "/gov.GovAdminService/DeleteCityGov"
+	GovAdminService_CreateCityGovAdmin_FullMethodName = "/gov.GovAdminService/CreateCityGovAdmin"
+	GovAdminService_DeleteCityGovAdmin_FullMethodName = "/gov.GovAdminService/DeleteCityGovAdmin"
+	GovAdminService_CreateCityGov_FullMethodName      = "/gov.GovAdminService/CreateCityGov"
 )
 
 // GovAdminServiceClient is the client API for GovAdminService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type GovAdminServiceClient interface {
+	CreateCityGovAdmin(ctx context.Context, in *CreateCityGovAdminRequest, opts ...grpc.CallOption) (*CityGov, error)
+	DeleteCityGovAdmin(ctx context.Context, in *DeleteCityGovAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	CreateCityGov(ctx context.Context, in *CreateCityGovRequest, opts ...grpc.CallOption) (*CityGov, error)
-	DeleteCityGov(ctx context.Context, in *DeleteCityGovRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
 type govAdminServiceClient struct {
@@ -330,6 +332,26 @@ type govAdminServiceClient struct {
 
 func NewGovAdminServiceClient(cc grpc.ClientConnInterface) GovAdminServiceClient {
 	return &govAdminServiceClient{cc}
+}
+
+func (c *govAdminServiceClient) CreateCityGovAdmin(ctx context.Context, in *CreateCityGovAdminRequest, opts ...grpc.CallOption) (*CityGov, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CityGov)
+	err := c.cc.Invoke(ctx, GovAdminService_CreateCityGovAdmin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *govAdminServiceClient) DeleteCityGovAdmin(ctx context.Context, in *DeleteCityGovAdminRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, GovAdminService_DeleteCityGovAdmin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *govAdminServiceClient) CreateCityGov(ctx context.Context, in *CreateCityGovRequest, opts ...grpc.CallOption) (*CityGov, error) {
@@ -342,22 +364,13 @@ func (c *govAdminServiceClient) CreateCityGov(ctx context.Context, in *CreateCit
 	return out, nil
 }
 
-func (c *govAdminServiceClient) DeleteCityGov(ctx context.Context, in *DeleteCityGovRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, GovAdminService_DeleteCityGov_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // GovAdminServiceServer is the server API for GovAdminService service.
 // All implementations must embed UnimplementedGovAdminServiceServer
 // for forward compatibility.
 type GovAdminServiceServer interface {
+	CreateCityGovAdmin(context.Context, *CreateCityGovAdminRequest) (*CityGov, error)
+	DeleteCityGovAdmin(context.Context, *DeleteCityGovAdminRequest) (*emptypb.Empty, error)
 	CreateCityGov(context.Context, *CreateCityGovRequest) (*CityGov, error)
-	DeleteCityGov(context.Context, *DeleteCityGovRequest) (*emptypb.Empty, error)
 	mustEmbedUnimplementedGovAdminServiceServer()
 }
 
@@ -368,11 +381,14 @@ type GovAdminServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedGovAdminServiceServer struct{}
 
+func (UnimplementedGovAdminServiceServer) CreateCityGovAdmin(context.Context, *CreateCityGovAdminRequest) (*CityGov, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCityGovAdmin not implemented")
+}
+func (UnimplementedGovAdminServiceServer) DeleteCityGovAdmin(context.Context, *DeleteCityGovAdminRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteCityGovAdmin not implemented")
+}
 func (UnimplementedGovAdminServiceServer) CreateCityGov(context.Context, *CreateCityGovRequest) (*CityGov, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateCityGov not implemented")
-}
-func (UnimplementedGovAdminServiceServer) DeleteCityGov(context.Context, *DeleteCityGovRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteCityGov not implemented")
 }
 func (UnimplementedGovAdminServiceServer) mustEmbedUnimplementedGovAdminServiceServer() {}
 func (UnimplementedGovAdminServiceServer) testEmbeddedByValue()                         {}
@@ -395,6 +411,42 @@ func RegisterGovAdminServiceServer(s grpc.ServiceRegistrar, srv GovAdminServiceS
 	s.RegisterService(&GovAdminService_ServiceDesc, srv)
 }
 
+func _GovAdminService_CreateCityGovAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCityGovAdminRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GovAdminServiceServer).CreateCityGovAdmin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GovAdminService_CreateCityGovAdmin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GovAdminServiceServer).CreateCityGovAdmin(ctx, req.(*CreateCityGovAdminRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GovAdminService_DeleteCityGovAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteCityGovAdminRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GovAdminServiceServer).DeleteCityGovAdmin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GovAdminService_DeleteCityGovAdmin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GovAdminServiceServer).DeleteCityGovAdmin(ctx, req.(*DeleteCityGovAdminRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GovAdminService_CreateCityGov_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateCityGovRequest)
 	if err := dec(in); err != nil {
@@ -413,24 +465,6 @@ func _GovAdminService_CreateCityGov_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GovAdminService_DeleteCityGov_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteCityGovRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GovAdminServiceServer).DeleteCityGov(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GovAdminService_DeleteCityGov_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GovAdminServiceServer).DeleteCityGov(ctx, req.(*DeleteCityGovRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // GovAdminService_ServiceDesc is the grpc.ServiceDesc for GovAdminService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -439,12 +473,16 @@ var GovAdminService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*GovAdminServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CreateCityGov",
-			Handler:    _GovAdminService_CreateCityGov_Handler,
+			MethodName: "CreateCityGovAdmin",
+			Handler:    _GovAdminService_CreateCityGovAdmin_Handler,
 		},
 		{
-			MethodName: "DeleteCityGov",
-			Handler:    _GovAdminService_DeleteCityGov_Handler,
+			MethodName: "DeleteCityGovAdmin",
+			Handler:    _GovAdminService_DeleteCityGovAdmin_Handler,
+		},
+		{
+			MethodName: "CreateCityGov",
+			Handler:    _GovAdminService_CreateCityGov_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
