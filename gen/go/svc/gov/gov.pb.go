@@ -24,7 +24,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type AdminCreateCityGovAdminRequest struct {
+type CreateCityGovAdminRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
@@ -32,20 +32,20 @@ type AdminCreateCityGovAdminRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AdminCreateCityGovAdminRequest) Reset() {
-	*x = AdminCreateCityGovAdminRequest{}
+func (x *CreateCityGovAdminRequest) Reset() {
+	*x = CreateCityGovAdminRequest{}
 	mi := &file_svc_gov_gov_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AdminCreateCityGovAdminRequest) String() string {
+func (x *CreateCityGovAdminRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AdminCreateCityGovAdminRequest) ProtoMessage() {}
+func (*CreateCityGovAdminRequest) ProtoMessage() {}
 
-func (x *AdminCreateCityGovAdminRequest) ProtoReflect() protoreflect.Message {
+func (x *CreateCityGovAdminRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_svc_gov_gov_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -57,46 +57,46 @@ func (x *AdminCreateCityGovAdminRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AdminCreateCityGovAdminRequest.ProtoReflect.Descriptor instead.
-func (*AdminCreateCityGovAdminRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use CreateCityGovAdminRequest.ProtoReflect.Descriptor instead.
+func (*CreateCityGovAdminRequest) Descriptor() ([]byte, []int) {
 	return file_svc_gov_gov_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *AdminCreateCityGovAdminRequest) GetCityId() string {
+func (x *CreateCityGovAdminRequest) GetCityId() string {
 	if x != nil {
 		return x.CityId
 	}
 	return ""
 }
 
-func (x *AdminCreateCityGovAdminRequest) GetUserId() string {
+func (x *CreateCityGovAdminRequest) GetUserId() string {
 	if x != nil {
 		return x.UserId
 	}
 	return ""
 }
 
-type AdminDeleteCityGovAdminRequest struct {
+type DeleteCityGovAdminRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AdminDeleteCityGovAdminRequest) Reset() {
-	*x = AdminDeleteCityGovAdminRequest{}
+func (x *DeleteCityGovAdminRequest) Reset() {
+	*x = DeleteCityGovAdminRequest{}
 	mi := &file_svc_gov_gov_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AdminDeleteCityGovAdminRequest) String() string {
+func (x *DeleteCityGovAdminRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AdminDeleteCityGovAdminRequest) ProtoMessage() {}
+func (*DeleteCityGovAdminRequest) ProtoMessage() {}
 
-func (x *AdminDeleteCityGovAdminRequest) ProtoReflect() protoreflect.Message {
+func (x *DeleteCityGovAdminRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_svc_gov_gov_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -108,12 +108,12 @@ func (x *AdminDeleteCityGovAdminRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AdminDeleteCityGovAdminRequest.ProtoReflect.Descriptor instead.
-func (*AdminDeleteCityGovAdminRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use DeleteCityGovAdminRequest.ProtoReflect.Descriptor instead.
+func (*DeleteCityGovAdminRequest) Descriptor() ([]byte, []int) {
 	return file_svc_gov_gov_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *AdminDeleteCityGovAdminRequest) GetCityId() string {
+func (x *DeleteCityGovAdminRequest) GetCityId() string {
 	if x != nil {
 		return x.CityId
 	}
@@ -644,11 +644,11 @@ var File_svc_gov_gov_proto protoreflect.FileDescriptor
 
 const file_svc_gov_gov_proto_rawDesc = "" +
 	"\n" +
-	"\x11svc/gov/gov.proto\x12\x03gov\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1ecommon/userdata/userdata.proto\x1a\"common/pagination/pagination.proto\"R\n" +
-	"\x1eAdminCreateCityGovAdminRequest\x12\x17\n" +
+	"\x11svc/gov/gov.proto\x12\x03gov\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1ecommon/userdata/userdata.proto\x1a\"common/pagination/pagination.proto\"M\n" +
+	"\x19CreateCityGovAdminRequest\x12\x17\n" +
 	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\tR\x06userId\"9\n" +
-	"\x1eAdminDeleteCityGovAdminRequest\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\tR\x06userId\"4\n" +
+	"\x19DeleteCityGovAdminRequest\x12\x17\n" +
 	"\acity_id\x18\x01 \x01(\tR\x06cityId\"M\n" +
 	"\x19AdminCreateCityGovRequest\x12\x17\n" +
 	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12\x17\n" +
@@ -686,7 +686,7 @@ const file_svc_gov_gov_proto_rawDesc = "" +
 	"government\x124\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x14.pagination.ResponseR\n" +
-	"pagination2\x84\x05\n" +
+	"pagination2\xac\x04\n" +
 	"\n" +
 	"GovService\x128\n" +
 	"\rCreateCityGov\x12\x19.gov.CreateCityGovRequest\x1a\f.gov.CityGov\x12B\n" +
@@ -695,10 +695,9 @@ const file_svc_gov_gov_proto_rawDesc = "" +
 	"\x12TransferAdminRight\x12\x1e.gov.TransferAdminRightRequest\x1a\x16.google.protobuf.Empty\x122\n" +
 	"\n" +
 	"GetCityGov\x12\x16.gov.GetCityGovRequest\x1a\f.gov.CityGov\x12>\n" +
-	"\x0fGetListCityGovs\x12\x18.gov.ListCityGovsRequest\x1a\x11.gov.ListCityGovs\x12L\n" +
-	"\x17AdminCreateCityGovAdmin\x12#.gov.AdminCreateCityGovAdminRequest\x1a\f.gov.CityGov\x12V\n" +
-	"\x17AdminDeleteCityGovAdmin\x12#.gov.AdminDeleteCityGovAdminRequest\x1a\x16.google.protobuf.Empty\x12B\n" +
-	"\x12AdminCreateCityGov\x12\x1e.gov.AdminCreateCityGovRequest\x1a\f.gov.CityGovB;Z9github.com/chains-lab/cities-dir-proto/gen/go/svc/gov;govb\x06proto3"
+	"\x0fGetListCityGovs\x12\x18.gov.ListCityGovsRequest\x1a\x11.gov.ListCityGovs\x12B\n" +
+	"\x12CreateCityGovAdmin\x12\x1e.gov.CreateCityGovAdminRequest\x1a\f.gov.CityGov\x12L\n" +
+	"\x12DeleteCityGovAdmin\x12\x1e.gov.DeleteCityGovAdminRequest\x1a\x16.google.protobuf.EmptyB;Z9github.com/chains-lab/cities-dir-proto/gen/go/svc/gov;govb\x06proto3"
 
 var (
 	file_svc_gov_gov_proto_rawDescOnce sync.Once
@@ -714,21 +713,21 @@ func file_svc_gov_gov_proto_rawDescGZIP() []byte {
 
 var file_svc_gov_gov_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
 var file_svc_gov_gov_proto_goTypes = []any{
-	(*AdminCreateCityGovAdminRequest)(nil), // 0: gov.AdminCreateCityGovAdminRequest
-	(*AdminDeleteCityGovAdminRequest)(nil), // 1: gov.AdminDeleteCityGovAdminRequest
-	(*AdminCreateCityGovRequest)(nil),      // 2: gov.AdminCreateCityGovRequest
-	(*CreateCityAdminRequest)(nil),         // 3: gov.CreateCityAdminRequest
-	(*CreateCityGovRequest)(nil),           // 4: gov.CreateCityGovRequest
-	(*DeleteCityGovRequest)(nil),           // 5: gov.DeleteCityGovRequest
-	(*TransferAdminRightRequest)(nil),      // 6: gov.TransferAdminRightRequest
-	(*RefuseCityGovRightRequest)(nil),      // 7: gov.RefuseCityGovRightRequest
-	(*GetCityGovRequest)(nil),              // 8: gov.GetCityGovRequest
-	(*ListCityGovsRequest)(nil),            // 9: gov.ListCityGovsRequest
-	(*CityGov)(nil),                        // 10: gov.CityGov
-	(*ListCityGovs)(nil),                   // 11: gov.ListCityGovs
-	(*pagination.Request)(nil),             // 12: pagination.Request
-	(*pagination.Response)(nil),            // 13: pagination.Response
-	(*emptypb.Empty)(nil),                  // 14: google.protobuf.Empty
+	(*CreateCityGovAdminRequest)(nil), // 0: gov.CreateCityGovAdminRequest
+	(*DeleteCityGovAdminRequest)(nil), // 1: gov.DeleteCityGovAdminRequest
+	(*AdminCreateCityGovRequest)(nil), // 2: gov.AdminCreateCityGovRequest
+	(*CreateCityAdminRequest)(nil),    // 3: gov.CreateCityAdminRequest
+	(*CreateCityGovRequest)(nil),      // 4: gov.CreateCityGovRequest
+	(*DeleteCityGovRequest)(nil),      // 5: gov.DeleteCityGovRequest
+	(*TransferAdminRightRequest)(nil), // 6: gov.TransferAdminRightRequest
+	(*RefuseCityGovRightRequest)(nil), // 7: gov.RefuseCityGovRightRequest
+	(*GetCityGovRequest)(nil),         // 8: gov.GetCityGovRequest
+	(*ListCityGovsRequest)(nil),       // 9: gov.ListCityGovsRequest
+	(*CityGov)(nil),                   // 10: gov.CityGov
+	(*ListCityGovs)(nil),              // 11: gov.ListCityGovs
+	(*pagination.Request)(nil),        // 12: pagination.Request
+	(*pagination.Response)(nil),       // 13: pagination.Response
+	(*emptypb.Empty)(nil),             // 14: google.protobuf.Empty
 }
 var file_svc_gov_gov_proto_depIdxs = []int32{
 	12, // 0: gov.ListCityGovsRequest.pagination:type_name -> pagination.Request
@@ -740,20 +739,18 @@ var file_svc_gov_gov_proto_depIdxs = []int32{
 	6,  // 6: gov.GovService.TransferAdminRight:input_type -> gov.TransferAdminRightRequest
 	8,  // 7: gov.GovService.GetCityGov:input_type -> gov.GetCityGovRequest
 	9,  // 8: gov.GovService.GetListCityGovs:input_type -> gov.ListCityGovsRequest
-	0,  // 9: gov.GovService.AdminCreateCityGovAdmin:input_type -> gov.AdminCreateCityGovAdminRequest
-	1,  // 10: gov.GovService.AdminDeleteCityGovAdmin:input_type -> gov.AdminDeleteCityGovAdminRequest
-	2,  // 11: gov.GovService.AdminCreateCityGov:input_type -> gov.AdminCreateCityGovRequest
-	10, // 12: gov.GovService.CreateCityGov:output_type -> gov.CityGov
-	14, // 13: gov.GovService.DeleteCityGov:output_type -> google.protobuf.Empty
-	14, // 14: gov.GovService.RefuseCityGovRight:output_type -> google.protobuf.Empty
-	14, // 15: gov.GovService.TransferAdminRight:output_type -> google.protobuf.Empty
-	10, // 16: gov.GovService.GetCityGov:output_type -> gov.CityGov
-	11, // 17: gov.GovService.GetListCityGovs:output_type -> gov.ListCityGovs
-	10, // 18: gov.GovService.AdminCreateCityGovAdmin:output_type -> gov.CityGov
-	14, // 19: gov.GovService.AdminDeleteCityGovAdmin:output_type -> google.protobuf.Empty
-	10, // 20: gov.GovService.AdminCreateCityGov:output_type -> gov.CityGov
-	12, // [12:21] is the sub-list for method output_type
-	3,  // [3:12] is the sub-list for method input_type
+	0,  // 9: gov.GovService.CreateCityGovAdmin:input_type -> gov.CreateCityGovAdminRequest
+	1,  // 10: gov.GovService.DeleteCityGovAdmin:input_type -> gov.DeleteCityGovAdminRequest
+	10, // 11: gov.GovService.CreateCityGov:output_type -> gov.CityGov
+	14, // 12: gov.GovService.DeleteCityGov:output_type -> google.protobuf.Empty
+	14, // 13: gov.GovService.RefuseCityGovRight:output_type -> google.protobuf.Empty
+	14, // 14: gov.GovService.TransferAdminRight:output_type -> google.protobuf.Empty
+	10, // 15: gov.GovService.GetCityGov:output_type -> gov.CityGov
+	11, // 16: gov.GovService.GetListCityGovs:output_type -> gov.ListCityGovs
+	10, // 17: gov.GovService.CreateCityGovAdmin:output_type -> gov.CityGov
+	14, // 18: gov.GovService.DeleteCityGovAdmin:output_type -> google.protobuf.Empty
+	11, // [11:19] is the sub-list for method output_type
+	3,  // [3:11] is the sub-list for method input_type
 	3,  // [3:3] is the sub-list for extension type_name
 	3,  // [3:3] is the sub-list for extension extendee
 	0,  // [0:3] is the sub-list for field type_name

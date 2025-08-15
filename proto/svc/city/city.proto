@@ -16,8 +16,7 @@ service CityService {
   rpc SearchCities(SearchCitiesRequest) returns (CitiesList);
 
   // Admin methods
-  rpc AdminCreateCity(AdminCreateCityRequest) returns (City);
-  rpc AdminUpdateCityStatus(AdminUpdateCityStatusRequest) returns (City);
+  rpc CreateCity(CreateCityRequest) returns (City);
 }
 
 // REQUESTS
@@ -42,7 +41,7 @@ message UpdateCityNameRequest {
   string name    = 3;
 }
 
-message AdminCreateCityRequest {
+message CreateCityRequest {
   string name       = 1;
   string country_id = 2;
   string status     = 3;

@@ -241,7 +241,7 @@ func (x *UpdateCityNameRequest) GetName() string {
 	return ""
 }
 
-type AdminCreateCityRequest struct {
+type CreateCityRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	CountryId     string                 `protobuf:"bytes,2,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
@@ -250,20 +250,20 @@ type AdminCreateCityRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AdminCreateCityRequest) Reset() {
-	*x = AdminCreateCityRequest{}
+func (x *CreateCityRequest) Reset() {
+	*x = CreateCityRequest{}
 	mi := &file_svc_city_city_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AdminCreateCityRequest) String() string {
+func (x *CreateCityRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AdminCreateCityRequest) ProtoMessage() {}
+func (*CreateCityRequest) ProtoMessage() {}
 
-func (x *AdminCreateCityRequest) ProtoReflect() protoreflect.Message {
+func (x *CreateCityRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_svc_city_city_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -275,26 +275,26 @@ func (x *AdminCreateCityRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AdminCreateCityRequest.ProtoReflect.Descriptor instead.
-func (*AdminCreateCityRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use CreateCityRequest.ProtoReflect.Descriptor instead.
+func (*CreateCityRequest) Descriptor() ([]byte, []int) {
 	return file_svc_city_city_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *AdminCreateCityRequest) GetName() string {
+func (x *CreateCityRequest) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-func (x *AdminCreateCityRequest) GetCountryId() string {
+func (x *CreateCityRequest) GetCountryId() string {
 	if x != nil {
 		return x.CountryId
 	}
 	return ""
 }
 
-func (x *AdminCreateCityRequest) GetStatus() string {
+func (x *CreateCityRequest) GetStatus() string {
 	if x != nil {
 		return x.Status
 	}
@@ -493,8 +493,8 @@ const file_svc_city_city_proto_rawDesc = "" +
 	"\x06status\x18\x03 \x01(\tR\x06status\"D\n" +
 	"\x15UpdateCityNameRequest\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\"c\n" +
-	"\x16AdminCreateCityRequest\x12\x12\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\"^\n" +
+	"\x11CreateCityRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n" +
 	"\n" +
 	"country_id\x18\x02 \x01(\tR\tcountryId\x12\x16\n" +
@@ -514,7 +514,7 @@ const file_svc_city_city_proto_rawDesc = "" +
 	".city.CityR\x06cities\x124\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x14.pagination.ResponseR\n" +
-	"pagination2\xff\x02\n" +
+	"pagination2\xac\x02\n" +
 	"\vCityService\x123\n" +
 	"\vGetCityById\x12\x18.city.GetCityByIdRequest\x1a\n" +
 	".city.City\x12=\n" +
@@ -522,10 +522,9 @@ const file_svc_city_city_proto_rawDesc = "" +
 	".city.City\x129\n" +
 	"\x0eUpdateCityName\x12\x1b.city.UpdateCityNameRequest\x1a\n" +
 	".city.City\x12;\n" +
-	"\fSearchCities\x12\x19.city.SearchCitiesRequest\x1a\x10.city.CitiesList\x12;\n" +
-	"\x0fAdminCreateCity\x12\x1c.city.AdminCreateCityRequest\x1a\n" +
-	".city.City\x12G\n" +
-	"\x15AdminUpdateCityStatus\x12\".city.AdminUpdateCityStatusRequest\x1a\n" +
+	"\fSearchCities\x12\x19.city.SearchCitiesRequest\x1a\x10.city.CitiesList\x121\n" +
+	"\n" +
+	"CreateCity\x12\x17.city.CreateCityRequest\x1a\n" +
 	".city.CityB=Z;github.com/chains-lab/cities-dir-proto/gen/go/svc/city;cityb\x06proto3"
 
 var (
@@ -546,7 +545,7 @@ var file_svc_city_city_proto_goTypes = []any{
 	(*SearchCitiesRequest)(nil),          // 1: city.SearchCitiesRequest
 	(*UpdateCityStatusRequest)(nil),      // 2: city.UpdateCityStatusRequest
 	(*UpdateCityNameRequest)(nil),        // 3: city.UpdateCityNameRequest
-	(*AdminCreateCityRequest)(nil),       // 4: city.AdminCreateCityRequest
+	(*CreateCityRequest)(nil),            // 4: city.CreateCityRequest
 	(*AdminUpdateCityStatusRequest)(nil), // 5: city.AdminUpdateCityStatusRequest
 	(*City)(nil),                         // 6: city.City
 	(*CitiesList)(nil),                   // 7: city.CitiesList
@@ -561,16 +560,14 @@ var file_svc_city_city_proto_depIdxs = []int32{
 	2, // 4: city.CityService.UpdateCityStatus:input_type -> city.UpdateCityStatusRequest
 	3, // 5: city.CityService.UpdateCityName:input_type -> city.UpdateCityNameRequest
 	1, // 6: city.CityService.SearchCities:input_type -> city.SearchCitiesRequest
-	4, // 7: city.CityService.AdminCreateCity:input_type -> city.AdminCreateCityRequest
-	5, // 8: city.CityService.AdminUpdateCityStatus:input_type -> city.AdminUpdateCityStatusRequest
-	6, // 9: city.CityService.GetCityById:output_type -> city.City
-	6, // 10: city.CityService.UpdateCityStatus:output_type -> city.City
-	6, // 11: city.CityService.UpdateCityName:output_type -> city.City
-	7, // 12: city.CityService.SearchCities:output_type -> city.CitiesList
-	6, // 13: city.CityService.AdminCreateCity:output_type -> city.City
-	6, // 14: city.CityService.AdminUpdateCityStatus:output_type -> city.City
-	9, // [9:15] is the sub-list for method output_type
-	3, // [3:9] is the sub-list for method input_type
+	4, // 7: city.CityService.CreateCity:input_type -> city.CreateCityRequest
+	6, // 8: city.CityService.GetCityById:output_type -> city.City
+	6, // 9: city.CityService.UpdateCityStatus:output_type -> city.City
+	6, // 10: city.CityService.UpdateCityName:output_type -> city.City
+	7, // 11: city.CityService.SearchCities:output_type -> city.CitiesList
+	6, // 12: city.CityService.CreateCity:output_type -> city.City
+	8, // [8:13] is the sub-list for method output_type
+	3, // [3:8] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
 	3, // [3:3] is the sub-list for extension extendee
 	0, // [0:3] is the sub-list for field type_name

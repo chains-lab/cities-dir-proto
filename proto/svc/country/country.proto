@@ -10,10 +10,11 @@ service CountryService {
 
   rpc SearchCountries (SearchCountriesRequest)  returns (CountriesList);
 
-  rpc AdminCreateCountry (AdminCreateCountryRequest) returns (Country);
+  // Admin methods
+  rpc CreateCountry (CreateCountryRequest) returns (Country);
 
-  rpc AdminUpdateCountryStatus (AdminUpdateCountryStatusRequest) returns (Country);
-  rpc AdminUpdateCountryName   (AdminUpdateCountryNameRequest)   returns (Country);
+  rpc UpdateCountryStatus (UpdateCountryStatusRequest) returns (Country);
+  rpc UpdateCountryName   (UpdateCountryNameRequest)   returns (Country);
 }
 
 // REQUESTS
@@ -28,17 +29,17 @@ message SearchCountriesRequest {
   pagination.Request pagination = 3;
 }
 
-message AdminCreateCountryRequest {
+message CreateCountryRequest {
   string name   = 1;
   string status = 2;
 }
 
-message AdminUpdateCountryStatusRequest {
+message UpdateCountryStatusRequest {
   string country_id = 1;
   string status     = 2;
 }
 
-message AdminUpdateCountryNameRequest {
+message UpdateCountryNameRequest {
   string country_id = 1;
   string name       = 2;
 }

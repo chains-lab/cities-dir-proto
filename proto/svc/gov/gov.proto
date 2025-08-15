@@ -18,20 +18,19 @@ service GovService {
   rpc GetCityGov        (GetCityGovRequest)        returns (CityGov);
   rpc GetListCityGovs   (ListCityGovsRequest)      returns (ListCityGovs);
 
-  rpc AdminCreateCityGovAdmin (AdminCreateCityGovAdminRequest) returns (CityGov);
-  rpc AdminDeleteCityGovAdmin (AdminDeleteCityGovAdminRequest) returns (google.protobuf.Empty);
-
-  rpc AdminCreateCityGov (AdminCreateCityGovRequest)     returns (CityGov);
+  // Admin methods
+  rpc CreateCityGovAdmin (CreateCityGovAdminRequest) returns (CityGov);
+  rpc DeleteCityGovAdmin (DeleteCityGovAdminRequest) returns (google.protobuf.Empty);
 }
 
 // REQUESTS
 
-message AdminCreateCityGovAdminRequest {
+message CreateCityGovAdminRequest {
   string city_id = 1;
   string user_id = 2;
 }
 
-message AdminDeleteCityGovAdminRequest {
+message DeleteCityGovAdminRequest {
   string city_id = 1;
 }
 
