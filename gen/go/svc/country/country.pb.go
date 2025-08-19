@@ -7,7 +7,7 @@
 package country
 
 import (
-	pagination "github.com/chains-lab/cities-dir-proto/gen/go/common/pagination"
+	pagination "github.com/chains-lab/cities-proto/gen/go/common/pagination"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -433,7 +433,7 @@ const file_svc_country_country_proto_rawDesc = "" +
 	"\x0fSearchCountries\x12\x1f.country.SearchCountriesRequest\x1a\x16.country.CountriesList\x12@\n" +
 	"\rCreateCountry\x12\x1d.country.CreateCountryRequest\x1a\x10.country.Country\x12L\n" +
 	"\x13UpdateCountryStatus\x12#.country.UpdateCountryStatusRequest\x1a\x10.country.Country\x12H\n" +
-	"\x11UpdateCountryName\x12!.country.UpdateCountryNameRequest\x1a\x10.country.CountryBCZAgithub.com/chains-lab/cities-dir-proto/gen/go/svc/country;countryb\x06proto3"
+	"\x11UpdateCountryName\x12!.country.UpdateCountryNameRequest\x1a\x10.country.CountryB?Z=github.com/chains-lab/cities-proto/gen/go/svc/country;countryb\x06proto3"
 
 var (
 	file_svc_country_country_proto_rawDescOnce sync.Once

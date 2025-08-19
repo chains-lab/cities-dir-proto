@@ -1,4 +1,4 @@
-module github.com/chains-lab/cities-dir-proto
+module github.com/chains-lab/cities-proto
 
 go 1.23.7
 

@@ -7,8 +7,7 @@
 package city
 
 import (
-	pagination "github.com/chains-lab/cities-dir-proto/gen/go/common/pagination"
-	_ "github.com/chains-lab/cities-dir-proto/gen/go/common/userdata"
+	pagination "github.com/chains-lab/cities-proto/gen/go/common/pagination"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/known/emptypb"
@@ -477,7 +476,7 @@ var File_svc_city_city_proto protoreflect.FileDescriptor
 
 const file_svc_city_city_proto_rawDesc = "" +
 	"\n" +
-	"\x13svc/city/city.proto\x12\x04city\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1ecommon/userdata/userdata.proto\x1a\"common/pagination/pagination.proto\"-\n" +
+	"\x13svc/city/city.proto\x12\x04city\x1a\x1bgoogle/protobuf/empty.proto\x1a\"common/pagination/pagination.proto\"-\n" +
 	"\x12GetCityByIdRequest\x12\x17\n" +
 	"\acity_id\x18\x01 \x01(\tR\x06cityId\"\x9e\x01\n" +
 	"\x13SearchCitiesRequest\x12\x1b\n" +
@@ -525,7 +524,7 @@ const file_svc_city_city_proto_rawDesc = "" +
 	"\fSearchCities\x12\x19.city.SearchCitiesRequest\x1a\x10.city.CitiesList\x121\n" +
 	"\n" +
 	"CreateCity\x12\x17.city.CreateCityRequest\x1a\n" +
-	".city.CityB=Z;github.com/chains-lab/cities-dir-proto/gen/go/svc/city;cityb\x06proto3"
+	".city.CityB9Z7github.com/chains-lab/cities-proto/gen/go/svc/city;cityb\x06proto3"
 
 var (
 	file_svc_city_city_proto_rawDescOnce sync.Once

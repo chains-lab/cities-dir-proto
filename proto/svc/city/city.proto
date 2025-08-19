@@ -1,10 +1,9 @@
 syntax = "proto3";
 package city;
 
-option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc/city;city";
+option go_package = "github.com/chains-lab/cities-proto/gen/go/svc/city;city";
 
 import "google/protobuf/empty.proto";
-import "common/userdata/userdata.proto";
 import "common/pagination/pagination.proto";
 
 service CityService {

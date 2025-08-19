@@ -1,7 +1,7 @@
 syntax = "proto3";
 package country;
 
-option go_package = "github.com/chains-lab/cities-dir-proto/gen/go/svc/country;country";
+option go_package = "github.com/chains-lab/cities-proto/gen/go/svc/country;country";
 
 import "common/pagination/pagination.proto";
 
@@ -10,11 +10,12 @@ service CountryService {
 
   rpc SearchCountries (SearchCountriesRequest)  returns (CountriesList);
 
-  // Admin methods
-  rpc CreateCountry (CreateCountryRequest) returns (Country);
-
+  // Update methods for city-gov and adnmin
   rpc UpdateCountryStatus (UpdateCountryStatusRequest) returns (Country);
   rpc UpdateCountryName   (UpdateCountryNameRequest)   returns (Country);
+
+  // Admin methods
+  rpc CreateCountry (CreateCountryRequest) returns (Country);
 }
 
 // REQUESTS
