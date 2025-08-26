@@ -7,32 +7,68 @@ import "google/protobuf/empty.proto";
 import "common/pagination/pagination.proto";
 
 service CityService {
-  rpc GetCityById(GetCityByIdRequest)           returns (City);
+  rpc GetCityById(GetCityByIdRequest)                     returns (City);
+  rpc SearchCities(SearchCitiesRequest)                   returns (CitiesList);
+  rpc GetNearestCity(GetNearestCityRequest)               returns (City);
 
-  rpc UpdateCityStatus(UpdateCityStatusRequest) returns (City);
-  rpc UpdateCityName(UpdateCityNameRequest)     returns (City);
+  rpc UpdateCityName(UpdateCityNameRequest)          returns (City);
+  rpc UpdateCitySlug(UpdateCitySlugRequest)          returns (City);
+  rpc UpdateCityIcon(UpdateCityIconRequest)          returns (City);
+  rpc UpdateCityTimezone(UpdateCityTimezoneRequest)  returns (City);
+  rpc UpdateCityStatus(UpdateCityStatusRequest)      returns (City);
 
-  rpc SearchCities(SearchCitiesRequest) returns (CitiesList);
+  //ADMIN methods
+  rpc UpdateCityZone(UpdateCityZoneRequest)         returns (City);
 
-  // Admin methods
   rpc CreateCity(CreateCityRequest) returns (City);
 }
 
 // REQUESTS
+
+message CreateCityRequest {
+  string name       = 1;
+  string country_id = 2;
+  string status     = 3;
+  string icon       = 4;
+  string slug       = 5;
+  string timezone   = 6;
+  string zone_geojson = 7;
+}
+
 message GetCityByIdRequest {
   string city_id = 1;
 }
 
+message GetNearestCityRequest {
+  double latitude  = 1;
+  double longitude = 2;
+}
+
 message SearchCitiesRequest {
-  string name_like  = 1;
-  string country_id = 2;
-  string status     = 3;
+  string          name_like  = 1;
+  string          country_id = 2;
+  repeated string status = 3;
   pagination.Request pagination = 4;
 }
 
-message UpdateCityStatusRequest {
-  string city_id = 2;
-  string status  = 3;
+message UpdateCitySlugRequest {
+  string city_id = 1;
+  string slug    = 2;
+}
+
+message UpdateCityIconRequest {
+  string city_id = 1;
+  string icon    = 2;
+}
+
+message UpdateCityTimezoneRequest {
+  string city_id = 1;
+  string timezone= 2;
+}
+
+message UpdateCityZoneRequest {
+  string city_id = 1;
+  string zone_geojson = 4;
 }
 
 message UpdateCityNameRequest {
@@ -40,24 +76,24 @@ message UpdateCityNameRequest {
   string name    = 3;
 }
 
-message CreateCityRequest {
-  string name       = 1;
-  string country_id = 2;
-  string status     = 3;
-}
-
-message AdminUpdateCityStatusRequest {
-  string city_id = 1;
-  string status  = 2;
+message UpdateCityStatusRequest {
+  string city_id = 2;
+  string status  = 3;
 }
 
 // RESPONSES
 
 message City {
-  string id         = 1;
-  string name       = 2;
-  string country_id = 3;
-  string status     = 4;
+  string id           = 1;
+  string country_id   = 2;
+  string status       = 3;
+  string zone_geojson = 4;
+  string name         = 5;
+  string icon         = 6;
+  string slug         = 7;
+  string timezone     = 8;
+  string updated_at   = 10;
+  string created_at   = 9;
 }
 
 message CitiesList {

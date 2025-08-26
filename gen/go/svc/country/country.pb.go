@@ -430,10 +430,10 @@ const file_svc_country_country_proto_rawDesc = "" +
 	"pagination2\xfa\x02\n" +
 	"\x0eCountryService\x12B\n" +
 	"\x0eGetCountryById\x12\x1e.country.GetCountryByIdRequest\x1a\x10.country.Country\x12J\n" +
-	"\x0fSearchCountries\x12\x1f.country.SearchCountriesRequest\x1a\x16.country.CountriesList\x12@\n" +
-	"\rCreateCountry\x12\x1d.country.CreateCountryRequest\x1a\x10.country.Country\x12L\n" +
+	"\x0fSearchCountries\x12\x1f.country.SearchCountriesRequest\x1a\x16.country.CountriesList\x12L\n" +
 	"\x13UpdateCountryStatus\x12#.country.UpdateCountryStatusRequest\x1a\x10.country.Country\x12H\n" +
-	"\x11UpdateCountryName\x12!.country.UpdateCountryNameRequest\x1a\x10.country.CountryB?Z=github.com/chains-lab/cities-proto/gen/go/svc/country;countryb\x06proto3"
+	"\x11UpdateCountryName\x12!.country.UpdateCountryNameRequest\x1a\x10.country.Country\x12@\n" +
+	"\rCreateCountry\x12\x1d.country.CreateCountryRequest\x1a\x10.country.CountryB?Z=github.com/chains-lab/cities-proto/gen/go/svc/country;countryb\x06proto3"
 
 var (
 	file_svc_country_country_proto_rawDescOnce sync.Once
@@ -465,14 +465,14 @@ var file_svc_country_country_proto_depIdxs = []int32{
 	8, // 2: country.CountriesList.pagination:type_name -> pagination.Response
 	0, // 3: country.CountryService.GetCountryById:input_type -> country.GetCountryByIdRequest
 	1, // 4: country.CountryService.SearchCountries:input_type -> country.SearchCountriesRequest
-	2, // 5: country.CountryService.CreateCountry:input_type -> country.CreateCountryRequest
-	3, // 6: country.CountryService.UpdateCountryStatus:input_type -> country.UpdateCountryStatusRequest
-	4, // 7: country.CountryService.UpdateCountryName:input_type -> country.UpdateCountryNameRequest
+	3, // 5: country.CountryService.UpdateCountryStatus:input_type -> country.UpdateCountryStatusRequest
+	4, // 6: country.CountryService.UpdateCountryName:input_type -> country.UpdateCountryNameRequest
+	2, // 7: country.CountryService.CreateCountry:input_type -> country.CreateCountryRequest
 	5, // 8: country.CountryService.GetCountryById:output_type -> country.Country
 	6, // 9: country.CountryService.SearchCountries:output_type -> country.CountriesList
-	5, // 10: country.CountryService.CreateCountry:output_type -> country.Country
-	5, // 11: country.CountryService.UpdateCountryStatus:output_type -> country.Country
-	5, // 12: country.CountryService.UpdateCountryName:output_type -> country.Country
+	5, // 10: country.CountryService.UpdateCountryStatus:output_type -> country.Country
+	5, // 11: country.CountryService.UpdateCountryName:output_type -> country.Country
+	5, // 12: country.CountryService.CreateCountry:output_type -> country.Country
 	8, // [8:13] is the sub-list for method output_type
 	3, // [3:8] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name

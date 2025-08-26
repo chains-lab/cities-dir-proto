@@ -10,7 +10,6 @@ service CountryService {
 
   rpc SearchCountries (SearchCountriesRequest)  returns (CountriesList);
 
-  // Update methods for city-gov and adnmin
   rpc UpdateCountryStatus (UpdateCountryStatusRequest) returns (Country);
   rpc UpdateCountryName   (UpdateCountryNameRequest)   returns (Country);
 

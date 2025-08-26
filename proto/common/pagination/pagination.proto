@@ -11,5 +11,6 @@ message Request {
 message Response {
   uint64 page = 1;
   uint64 size = 2;
-  uint64 total = 3;
+  bool   prev = 3;
+  bool   next = 4;
 }

@@ -19,11 +19,16 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CityService_GetCityById_FullMethodName      = "/city.CityService/GetCityById"
-	CityService_UpdateCityStatus_FullMethodName = "/city.CityService/UpdateCityStatus"
-	CityService_UpdateCityName_FullMethodName   = "/city.CityService/UpdateCityName"
-	CityService_SearchCities_FullMethodName     = "/city.CityService/SearchCities"
-	CityService_CreateCity_FullMethodName       = "/city.CityService/CreateCity"
+	CityService_GetCityById_FullMethodName        = "/city.CityService/GetCityById"
+	CityService_SearchCities_FullMethodName       = "/city.CityService/SearchCities"
+	CityService_GetNearestCity_FullMethodName     = "/city.CityService/GetNearestCity"
+	CityService_UpdateCityName_FullMethodName     = "/city.CityService/UpdateCityName"
+	CityService_UpdateCitySlug_FullMethodName     = "/city.CityService/UpdateCitySlug"
+	CityService_UpdateCityIcon_FullMethodName     = "/city.CityService/UpdateCityIcon"
+	CityService_UpdateCityTimezone_FullMethodName = "/city.CityService/UpdateCityTimezone"
+	CityService_UpdateCityStatus_FullMethodName   = "/city.CityService/UpdateCityStatus"
+	CityService_UpdateCityZone_FullMethodName     = "/city.CityService/UpdateCityZone"
+	CityService_CreateCity_FullMethodName         = "/city.CityService/CreateCity"
 )
 
 // CityServiceClient is the client API for CityService service.
@@ -31,10 +36,15 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CityServiceClient interface {
 	GetCityById(ctx context.Context, in *GetCityByIdRequest, opts ...grpc.CallOption) (*City, error)
-	UpdateCityStatus(ctx context.Context, in *UpdateCityStatusRequest, opts ...grpc.CallOption) (*City, error)
-	UpdateCityName(ctx context.Context, in *UpdateCityNameRequest, opts ...grpc.CallOption) (*City, error)
 	SearchCities(ctx context.Context, in *SearchCitiesRequest, opts ...grpc.CallOption) (*CitiesList, error)
-	// Admin methods
+	GetNearestCity(ctx context.Context, in *GetNearestCityRequest, opts ...grpc.CallOption) (*City, error)
+	UpdateCityName(ctx context.Context, in *UpdateCityNameRequest, opts ...grpc.CallOption) (*City, error)
+	UpdateCitySlug(ctx context.Context, in *UpdateCitySlugRequest, opts ...grpc.CallOption) (*City, error)
+	UpdateCityIcon(ctx context.Context, in *UpdateCityIconRequest, opts ...grpc.CallOption) (*City, error)
+	UpdateCityTimezone(ctx context.Context, in *UpdateCityTimezoneRequest, opts ...grpc.CallOption) (*City, error)
+	UpdateCityStatus(ctx context.Context, in *UpdateCityStatusRequest, opts ...grpc.CallOption) (*City, error)
+	// ADMIN methods
+	UpdateCityZone(ctx context.Context, in *UpdateCityZoneRequest, opts ...grpc.CallOption) (*City, error)
 	CreateCity(ctx context.Context, in *CreateCityRequest, opts ...grpc.CallOption) (*City, error)
 }
 
@@ -56,10 +66,20 @@ func (c *cityServiceClient) GetCityById(ctx context.Context, in *GetCityByIdRequ
 	return out, nil
 }
 
-func (c *cityServiceClient) UpdateCityStatus(ctx context.Context, in *UpdateCityStatusRequest, opts ...grpc.CallOption) (*City, error) {
+func (c *cityServiceClient) SearchCities(ctx context.Context, in *SearchCitiesRequest, opts ...grpc.CallOption) (*CitiesList, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CitiesList)
+	err := c.cc.Invoke(ctx, CityService_SearchCities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cityServiceClient) GetNearestCity(ctx context.Context, in *GetNearestCityRequest, opts ...grpc.CallOption) (*City, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(City)
-	err := c.cc.Invoke(ctx, CityService_UpdateCityStatus_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CityService_GetNearestCity_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,10 +96,50 @@ func (c *cityServiceClient) UpdateCityName(ctx context.Context, in *UpdateCityNa
 	return out, nil
 }
 
-func (c *cityServiceClient) SearchCities(ctx context.Context, in *SearchCitiesRequest, opts ...grpc.CallOption) (*CitiesList, error) {
+func (c *cityServiceClient) UpdateCitySlug(ctx context.Context, in *UpdateCitySlugRequest, opts ...grpc.CallOption) (*City, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CitiesList)
-	err := c.cc.Invoke(ctx, CityService_SearchCities_FullMethodName, in, out, cOpts...)
+	out := new(City)
+	err := c.cc.Invoke(ctx, CityService_UpdateCitySlug_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cityServiceClient) UpdateCityIcon(ctx context.Context, in *UpdateCityIconRequest, opts ...grpc.CallOption) (*City, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(City)
+	err := c.cc.Invoke(ctx, CityService_UpdateCityIcon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cityServiceClient) UpdateCityTimezone(ctx context.Context, in *UpdateCityTimezoneRequest, opts ...grpc.CallOption) (*City, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(City)
+	err := c.cc.Invoke(ctx, CityService_UpdateCityTimezone_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cityServiceClient) UpdateCityStatus(ctx context.Context, in *UpdateCityStatusRequest, opts ...grpc.CallOption) (*City, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(City)
+	err := c.cc.Invoke(ctx, CityService_UpdateCityStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cityServiceClient) UpdateCityZone(ctx context.Context, in *UpdateCityZoneRequest, opts ...grpc.CallOption) (*City, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(City)
+	err := c.cc.Invoke(ctx, CityService_UpdateCityZone_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,10 +161,15 @@ func (c *cityServiceClient) CreateCity(ctx context.Context, in *CreateCityReques
 // for forward compatibility.
 type CityServiceServer interface {
 	GetCityById(context.Context, *GetCityByIdRequest) (*City, error)
-	UpdateCityStatus(context.Context, *UpdateCityStatusRequest) (*City, error)
-	UpdateCityName(context.Context, *UpdateCityNameRequest) (*City, error)
 	SearchCities(context.Context, *SearchCitiesRequest) (*CitiesList, error)
-	// Admin methods
+	GetNearestCity(context.Context, *GetNearestCityRequest) (*City, error)
+	UpdateCityName(context.Context, *UpdateCityNameRequest) (*City, error)
+	UpdateCitySlug(context.Context, *UpdateCitySlugRequest) (*City, error)
+	UpdateCityIcon(context.Context, *UpdateCityIconRequest) (*City, error)
+	UpdateCityTimezone(context.Context, *UpdateCityTimezoneRequest) (*City, error)
+	UpdateCityStatus(context.Context, *UpdateCityStatusRequest) (*City, error)
+	// ADMIN methods
+	UpdateCityZone(context.Context, *UpdateCityZoneRequest) (*City, error)
 	CreateCity(context.Context, *CreateCityRequest) (*City, error)
 	mustEmbedUnimplementedCityServiceServer()
 }
@@ -119,14 +184,29 @@ type UnimplementedCityServiceServer struct{}
 func (UnimplementedCityServiceServer) GetCityById(context.Context, *GetCityByIdRequest) (*City, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCityById not implemented")
 }
-func (UnimplementedCityServiceServer) UpdateCityStatus(context.Context, *UpdateCityStatusRequest) (*City, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityStatus not implemented")
+func (UnimplementedCityServiceServer) SearchCities(context.Context, *SearchCitiesRequest) (*CitiesList, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchCities not implemented")
+}
+func (UnimplementedCityServiceServer) GetNearestCity(context.Context, *GetNearestCityRequest) (*City, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetNearestCity not implemented")
 }
 func (UnimplementedCityServiceServer) UpdateCityName(context.Context, *UpdateCityNameRequest) (*City, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityName not implemented")
 }
-func (UnimplementedCityServiceServer) SearchCities(context.Context, *SearchCitiesRequest) (*CitiesList, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SearchCities not implemented")
+func (UnimplementedCityServiceServer) UpdateCitySlug(context.Context, *UpdateCitySlugRequest) (*City, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCitySlug not implemented")
+}
+func (UnimplementedCityServiceServer) UpdateCityIcon(context.Context, *UpdateCityIconRequest) (*City, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityIcon not implemented")
+}
+func (UnimplementedCityServiceServer) UpdateCityTimezone(context.Context, *UpdateCityTimezoneRequest) (*City, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityTimezone not implemented")
+}
+func (UnimplementedCityServiceServer) UpdateCityStatus(context.Context, *UpdateCityStatusRequest) (*City, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityStatus not implemented")
+}
+func (UnimplementedCityServiceServer) UpdateCityZone(context.Context, *UpdateCityZoneRequest) (*City, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCityZone not implemented")
 }
 func (UnimplementedCityServiceServer) CreateCity(context.Context, *CreateCityRequest) (*City, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateCity not implemented")
@@ -170,20 +250,38 @@ func _CityService_GetCityById_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CityService_UpdateCityStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateCityStatusRequest)
+func _CityService_SearchCities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchCitiesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CityServiceServer).UpdateCityStatus(ctx, in)
+		return srv.(CityServiceServer).SearchCities(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CityService_UpdateCityStatus_FullMethodName,
+		FullMethod: CityService_SearchCities_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityServiceServer).UpdateCityStatus(ctx, req.(*UpdateCityStatusRequest))
+		return srv.(CityServiceServer).SearchCities(ctx, req.(*SearchCitiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CityService_GetNearestCity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNearestCityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CityServiceServer).GetNearestCity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CityService_GetNearestCity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CityServiceServer).GetNearestCity(ctx, req.(*GetNearestCityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -206,20 +304,92 @@ func _CityService_UpdateCityName_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CityService_SearchCities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SearchCitiesRequest)
+func _CityService_UpdateCitySlug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCitySlugRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CityServiceServer).SearchCities(ctx, in)
+		return srv.(CityServiceServer).UpdateCitySlug(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CityService_SearchCities_FullMethodName,
+		FullMethod: CityService_UpdateCitySlug_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CityServiceServer).SearchCities(ctx, req.(*SearchCitiesRequest))
+		return srv.(CityServiceServer).UpdateCitySlug(ctx, req.(*UpdateCitySlugRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CityService_UpdateCityIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCityIconRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CityServiceServer).UpdateCityIcon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CityService_UpdateCityIcon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CityServiceServer).UpdateCityIcon(ctx, req.(*UpdateCityIconRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CityService_UpdateCityTimezone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCityTimezoneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CityServiceServer).UpdateCityTimezone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CityService_UpdateCityTimezone_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CityServiceServer).UpdateCityTimezone(ctx, req.(*UpdateCityTimezoneRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CityService_UpdateCityStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCityStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CityServiceServer).UpdateCityStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CityService_UpdateCityStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CityServiceServer).UpdateCityStatus(ctx, req.(*UpdateCityStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CityService_UpdateCityZone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCityZoneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CityServiceServer).UpdateCityZone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CityService_UpdateCityZone_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CityServiceServer).UpdateCityZone(ctx, req.(*UpdateCityZoneRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -254,16 +424,36 @@ var CityService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CityService_GetCityById_Handler,
 		},
 		{
-			MethodName: "UpdateCityStatus",
-			Handler:    _CityService_UpdateCityStatus_Handler,
+			MethodName: "SearchCities",
+			Handler:    _CityService_SearchCities_Handler,
+		},
+		{
+			MethodName: "GetNearestCity",
+			Handler:    _CityService_GetNearestCity_Handler,
 		},
 		{
 			MethodName: "UpdateCityName",
 			Handler:    _CityService_UpdateCityName_Handler,
 		},
 		{
-			MethodName: "SearchCities",
-			Handler:    _CityService_SearchCities_Handler,
+			MethodName: "UpdateCitySlug",
+			Handler:    _CityService_UpdateCitySlug_Handler,
+		},
+		{
+			MethodName: "UpdateCityIcon",
+			Handler:    _CityService_UpdateCityIcon_Handler,
+		},
+		{
+			MethodName: "UpdateCityTimezone",
+			Handler:    _CityService_UpdateCityTimezone_Handler,
+		},
+		{
+			MethodName: "UpdateCityStatus",
+			Handler:    _CityService_UpdateCityStatus_Handler,
+		},
+		{
+			MethodName: "UpdateCityZone",
+			Handler:    _CityService_UpdateCityZone_Handler,
 		},
 		{
 			MethodName: "CreateCity",

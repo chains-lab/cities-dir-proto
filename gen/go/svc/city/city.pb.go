@@ -23,235 +23,22 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// REQUESTS
-type GetCityByIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCityByIdRequest) Reset() {
-	*x = GetCityByIdRequest{}
-	mi := &file_svc_city_city_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCityByIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCityByIdRequest) ProtoMessage() {}
-
-func (x *GetCityByIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_city_city_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCityByIdRequest.ProtoReflect.Descriptor instead.
-func (*GetCityByIdRequest) Descriptor() ([]byte, []int) {
-	return file_svc_city_city_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *GetCityByIdRequest) GetCityId() string {
-	if x != nil {
-		return x.CityId
-	}
-	return ""
-}
-
-type SearchCitiesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	NameLike      string                 `protobuf:"bytes,1,opt,name=name_like,json=nameLike,proto3" json:"name_like,omitempty"`
-	CountryId     string                 `protobuf:"bytes,2,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
-	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
-	Pagination    *pagination.Request    `protobuf:"bytes,4,opt,name=pagination,proto3" json:"pagination,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SearchCitiesRequest) Reset() {
-	*x = SearchCitiesRequest{}
-	mi := &file_svc_city_city_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SearchCitiesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SearchCitiesRequest) ProtoMessage() {}
-
-func (x *SearchCitiesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_city_city_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SearchCitiesRequest.ProtoReflect.Descriptor instead.
-func (*SearchCitiesRequest) Descriptor() ([]byte, []int) {
-	return file_svc_city_city_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *SearchCitiesRequest) GetNameLike() string {
-	if x != nil {
-		return x.NameLike
-	}
-	return ""
-}
-
-func (x *SearchCitiesRequest) GetCountryId() string {
-	if x != nil {
-		return x.CountryId
-	}
-	return ""
-}
-
-func (x *SearchCitiesRequest) GetStatus() string {
-	if x != nil {
-		return x.Status
-	}
-	return ""
-}
-
-func (x *SearchCitiesRequest) GetPagination() *pagination.Request {
-	if x != nil {
-		return x.Pagination
-	}
-	return nil
-}
-
-type UpdateCityStatusRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
-	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UpdateCityStatusRequest) Reset() {
-	*x = UpdateCityStatusRequest{}
-	mi := &file_svc_city_city_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UpdateCityStatusRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateCityStatusRequest) ProtoMessage() {}
-
-func (x *UpdateCityStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_city_city_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateCityStatusRequest.ProtoReflect.Descriptor instead.
-func (*UpdateCityStatusRequest) Descriptor() ([]byte, []int) {
-	return file_svc_city_city_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *UpdateCityStatusRequest) GetCityId() string {
-	if x != nil {
-		return x.CityId
-	}
-	return ""
-}
-
-func (x *UpdateCityStatusRequest) GetStatus() string {
-	if x != nil {
-		return x.Status
-	}
-	return ""
-}
-
-type UpdateCityNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
-	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UpdateCityNameRequest) Reset() {
-	*x = UpdateCityNameRequest{}
-	mi := &file_svc_city_city_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UpdateCityNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateCityNameRequest) ProtoMessage() {}
-
-func (x *UpdateCityNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_city_city_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateCityNameRequest.ProtoReflect.Descriptor instead.
-func (*UpdateCityNameRequest) Descriptor() ([]byte, []int) {
-	return file_svc_city_city_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *UpdateCityNameRequest) GetCityId() string {
-	if x != nil {
-		return x.CityId
-	}
-	return ""
-}
-
-func (x *UpdateCityNameRequest) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
 type CreateCityRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	CountryId     string                 `protobuf:"bytes,2,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
 	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
+	Icon          string                 `protobuf:"bytes,4,opt,name=icon,proto3" json:"icon,omitempty"`
+	Slug          string                 `protobuf:"bytes,5,opt,name=slug,proto3" json:"slug,omitempty"`
+	Timezone      string                 `protobuf:"bytes,6,opt,name=timezone,proto3" json:"timezone,omitempty"`
+	ZoneGeojson   string                 `protobuf:"bytes,7,opt,name=zone_geojson,json=zoneGeojson,proto3" json:"zone_geojson,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateCityRequest) Reset() {
 	*x = CreateCityRequest{}
-	mi := &file_svc_city_city_proto_msgTypes[4]
+	mi := &file_svc_city_city_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -263,7 +50,7 @@ func (x *CreateCityRequest) String() string {
 func (*CreateCityRequest) ProtoMessage() {}
 
 func (x *CreateCityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_city_city_proto_msgTypes[4]
+	mi := &file_svc_city_city_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -276,7 +63,7 @@ func (x *CreateCityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateCityRequest.ProtoReflect.Descriptor instead.
 func (*CreateCityRequest) Descriptor() ([]byte, []int) {
-	return file_svc_city_city_proto_rawDescGZIP(), []int{4}
+	return file_svc_city_city_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *CreateCityRequest) GetName() string {
@@ -300,28 +87,272 @@ func (x *CreateCityRequest) GetStatus() string {
 	return ""
 }
 
-type AdminUpdateCityStatusRequest struct {
+func (x *CreateCityRequest) GetIcon() string {
+	if x != nil {
+		return x.Icon
+	}
+	return ""
+}
+
+func (x *CreateCityRequest) GetSlug() string {
+	if x != nil {
+		return x.Slug
+	}
+	return ""
+}
+
+func (x *CreateCityRequest) GetTimezone() string {
+	if x != nil {
+		return x.Timezone
+	}
+	return ""
+}
+
+func (x *CreateCityRequest) GetZoneGeojson() string {
+	if x != nil {
+		return x.ZoneGeojson
+	}
+	return ""
+}
+
+type GetCityByIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
-	Status        string                 `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AdminUpdateCityStatusRequest) Reset() {
-	*x = AdminUpdateCityStatusRequest{}
+func (x *GetCityByIdRequest) Reset() {
+	*x = GetCityByIdRequest{}
+	mi := &file_svc_city_city_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCityByIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCityByIdRequest) ProtoMessage() {}
+
+func (x *GetCityByIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svc_city_city_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCityByIdRequest.ProtoReflect.Descriptor instead.
+func (*GetCityByIdRequest) Descriptor() ([]byte, []int) {
+	return file_svc_city_city_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetCityByIdRequest) GetCityId() string {
+	if x != nil {
+		return x.CityId
+	}
+	return ""
+}
+
+type GetNearestCityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Latitude      float64                `protobuf:"fixed64,1,opt,name=latitude,proto3" json:"latitude,omitempty"`
+	Longitude     float64                `protobuf:"fixed64,2,opt,name=longitude,proto3" json:"longitude,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNearestCityRequest) Reset() {
+	*x = GetNearestCityRequest{}
+	mi := &file_svc_city_city_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNearestCityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNearestCityRequest) ProtoMessage() {}
+
+func (x *GetNearestCityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svc_city_city_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNearestCityRequest.ProtoReflect.Descriptor instead.
+func (*GetNearestCityRequest) Descriptor() ([]byte, []int) {
+	return file_svc_city_city_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetNearestCityRequest) GetLatitude() float64 {
+	if x != nil {
+		return x.Latitude
+	}
+	return 0
+}
+
+func (x *GetNearestCityRequest) GetLongitude() float64 {
+	if x != nil {
+		return x.Longitude
+	}
+	return 0
+}
+
+type SearchCitiesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	NameLike      string                 `protobuf:"bytes,1,opt,name=name_like,json=nameLike,proto3" json:"name_like,omitempty"`
+	CountryId     string                 `protobuf:"bytes,2,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
+	Status        []string               `protobuf:"bytes,3,rep,name=status,proto3" json:"status,omitempty"`
+	Pagination    *pagination.Request    `protobuf:"bytes,4,opt,name=pagination,proto3" json:"pagination,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SearchCitiesRequest) Reset() {
+	*x = SearchCitiesRequest{}
+	mi := &file_svc_city_city_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SearchCitiesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchCitiesRequest) ProtoMessage() {}
+
+func (x *SearchCitiesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svc_city_city_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchCitiesRequest.ProtoReflect.Descriptor instead.
+func (*SearchCitiesRequest) Descriptor() ([]byte, []int) {
+	return file_svc_city_city_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *SearchCitiesRequest) GetNameLike() string {
+	if x != nil {
+		return x.NameLike
+	}
+	return ""
+}
+
+func (x *SearchCitiesRequest) GetCountryId() string {
+	if x != nil {
+		return x.CountryId
+	}
+	return ""
+}
+
+func (x *SearchCitiesRequest) GetStatus() []string {
+	if x != nil {
+		return x.Status
+	}
+	return nil
+}
+
+func (x *SearchCitiesRequest) GetPagination() *pagination.Request {
+	if x != nil {
+		return x.Pagination
+	}
+	return nil
+}
+
+type UpdateCitySlugRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	Slug          string                 `protobuf:"bytes,2,opt,name=slug,proto3" json:"slug,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateCitySlugRequest) Reset() {
+	*x = UpdateCitySlugRequest{}
+	mi := &file_svc_city_city_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateCitySlugRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateCitySlugRequest) ProtoMessage() {}
+
+func (x *UpdateCitySlugRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svc_city_city_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateCitySlugRequest.ProtoReflect.Descriptor instead.
+func (*UpdateCitySlugRequest) Descriptor() ([]byte, []int) {
+	return file_svc_city_city_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *UpdateCitySlugRequest) GetCityId() string {
+	if x != nil {
+		return x.CityId
+	}
+	return ""
+}
+
+func (x *UpdateCitySlugRequest) GetSlug() string {
+	if x != nil {
+		return x.Slug
+	}
+	return ""
+}
+
+type UpdateCityIconRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	Icon          string                 `protobuf:"bytes,2,opt,name=icon,proto3" json:"icon,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateCityIconRequest) Reset() {
+	*x = UpdateCityIconRequest{}
 	mi := &file_svc_city_city_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AdminUpdateCityStatusRequest) String() string {
+func (x *UpdateCityIconRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AdminUpdateCityStatusRequest) ProtoMessage() {}
+func (*UpdateCityIconRequest) ProtoMessage() {}
 
-func (x *AdminUpdateCityStatusRequest) ProtoReflect() protoreflect.Message {
+func (x *UpdateCityIconRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_svc_city_city_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -333,19 +364,227 @@ func (x *AdminUpdateCityStatusRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AdminUpdateCityStatusRequest.ProtoReflect.Descriptor instead.
-func (*AdminUpdateCityStatusRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use UpdateCityIconRequest.ProtoReflect.Descriptor instead.
+func (*UpdateCityIconRequest) Descriptor() ([]byte, []int) {
 	return file_svc_city_city_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *AdminUpdateCityStatusRequest) GetCityId() string {
+func (x *UpdateCityIconRequest) GetCityId() string {
 	if x != nil {
 		return x.CityId
 	}
 	return ""
 }
 
-func (x *AdminUpdateCityStatusRequest) GetStatus() string {
+func (x *UpdateCityIconRequest) GetIcon() string {
+	if x != nil {
+		return x.Icon
+	}
+	return ""
+}
+
+type UpdateCityTimezoneRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	Timezone      string                 `protobuf:"bytes,2,opt,name=timezone,proto3" json:"timezone,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateCityTimezoneRequest) Reset() {
+	*x = UpdateCityTimezoneRequest{}
+	mi := &file_svc_city_city_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateCityTimezoneRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateCityTimezoneRequest) ProtoMessage() {}
+
+func (x *UpdateCityTimezoneRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svc_city_city_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateCityTimezoneRequest.ProtoReflect.Descriptor instead.
+func (*UpdateCityTimezoneRequest) Descriptor() ([]byte, []int) {
+	return file_svc_city_city_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *UpdateCityTimezoneRequest) GetCityId() string {
+	if x != nil {
+		return x.CityId
+	}
+	return ""
+}
+
+func (x *UpdateCityTimezoneRequest) GetTimezone() string {
+	if x != nil {
+		return x.Timezone
+	}
+	return ""
+}
+
+type UpdateCityZoneRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CityId        string                 `protobuf:"bytes,1,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	ZoneGeojson   string                 `protobuf:"bytes,4,opt,name=zone_geojson,json=zoneGeojson,proto3" json:"zone_geojson,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateCityZoneRequest) Reset() {
+	*x = UpdateCityZoneRequest{}
+	mi := &file_svc_city_city_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateCityZoneRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateCityZoneRequest) ProtoMessage() {}
+
+func (x *UpdateCityZoneRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svc_city_city_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateCityZoneRequest.ProtoReflect.Descriptor instead.
+func (*UpdateCityZoneRequest) Descriptor() ([]byte, []int) {
+	return file_svc_city_city_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *UpdateCityZoneRequest) GetCityId() string {
+	if x != nil {
+		return x.CityId
+	}
+	return ""
+}
+
+func (x *UpdateCityZoneRequest) GetZoneGeojson() string {
+	if x != nil {
+		return x.ZoneGeojson
+	}
+	return ""
+}
+
+type UpdateCityNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateCityNameRequest) Reset() {
+	*x = UpdateCityNameRequest{}
+	mi := &file_svc_city_city_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateCityNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateCityNameRequest) ProtoMessage() {}
+
+func (x *UpdateCityNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svc_city_city_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateCityNameRequest.ProtoReflect.Descriptor instead.
+func (*UpdateCityNameRequest) Descriptor() ([]byte, []int) {
+	return file_svc_city_city_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *UpdateCityNameRequest) GetCityId() string {
+	if x != nil {
+		return x.CityId
+	}
+	return ""
+}
+
+func (x *UpdateCityNameRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+type UpdateCityStatusRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CityId        string                 `protobuf:"bytes,2,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateCityStatusRequest) Reset() {
+	*x = UpdateCityStatusRequest{}
+	mi := &file_svc_city_city_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateCityStatusRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateCityStatusRequest) ProtoMessage() {}
+
+func (x *UpdateCityStatusRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_svc_city_city_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateCityStatusRequest.ProtoReflect.Descriptor instead.
+func (*UpdateCityStatusRequest) Descriptor() ([]byte, []int) {
+	return file_svc_city_city_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *UpdateCityStatusRequest) GetCityId() string {
+	if x != nil {
+		return x.CityId
+	}
+	return ""
+}
+
+func (x *UpdateCityStatusRequest) GetStatus() string {
 	if x != nil {
 		return x.Status
 	}
@@ -355,16 +594,22 @@ func (x *AdminUpdateCityStatusRequest) GetStatus() string {
 type City struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	CountryId     string                 `protobuf:"bytes,3,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
-	Status        string                 `protobuf:"bytes,4,opt,name=status,proto3" json:"status,omitempty"`
+	CountryId     string                 `protobuf:"bytes,2,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
+	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
+	ZoneGeojson   string                 `protobuf:"bytes,4,opt,name=zone_geojson,json=zoneGeojson,proto3" json:"zone_geojson,omitempty"`
+	Name          string                 `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
+	Icon          string                 `protobuf:"bytes,6,opt,name=icon,proto3" json:"icon,omitempty"`
+	Slug          string                 `protobuf:"bytes,7,opt,name=slug,proto3" json:"slug,omitempty"`
+	Timezone      string                 `protobuf:"bytes,8,opt,name=timezone,proto3" json:"timezone,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *City) Reset() {
 	*x = City{}
-	mi := &file_svc_city_city_proto_msgTypes[6]
+	mi := &file_svc_city_city_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -376,7 +621,7 @@ func (x *City) String() string {
 func (*City) ProtoMessage() {}
 
 func (x *City) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_city_city_proto_msgTypes[6]
+	mi := &file_svc_city_city_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -389,19 +634,12 @@ func (x *City) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use City.ProtoReflect.Descriptor instead.
 func (*City) Descriptor() ([]byte, []int) {
-	return file_svc_city_city_proto_rawDescGZIP(), []int{6}
+	return file_svc_city_city_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *City) GetId() string {
 	if x != nil {
 		return x.Id
-	}
-	return ""
-}
-
-func (x *City) GetName() string {
-	if x != nil {
-		return x.Name
 	}
 	return ""
 }
@@ -420,6 +658,55 @@ func (x *City) GetStatus() string {
 	return ""
 }
 
+func (x *City) GetZoneGeojson() string {
+	if x != nil {
+		return x.ZoneGeojson
+	}
+	return ""
+}
+
+func (x *City) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *City) GetIcon() string {
+	if x != nil {
+		return x.Icon
+	}
+	return ""
+}
+
+func (x *City) GetSlug() string {
+	if x != nil {
+		return x.Slug
+	}
+	return ""
+}
+
+func (x *City) GetTimezone() string {
+	if x != nil {
+		return x.Timezone
+	}
+	return ""
+}
+
+func (x *City) GetUpdatedAt() string {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return ""
+}
+
+func (x *City) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
 type CitiesList struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Cities        []*City                `protobuf:"bytes,1,rep,name=cities,proto3" json:"cities,omitempty"`
@@ -430,7 +717,7 @@ type CitiesList struct {
 
 func (x *CitiesList) Reset() {
 	*x = CitiesList{}
-	mi := &file_svc_city_city_proto_msgTypes[7]
+	mi := &file_svc_city_city_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -442,7 +729,7 @@ func (x *CitiesList) String() string {
 func (*CitiesList) ProtoMessage() {}
 
 func (x *CitiesList) ProtoReflect() protoreflect.Message {
-	mi := &file_svc_city_city_proto_msgTypes[7]
+	mi := &file_svc_city_city_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -455,7 +742,7 @@ func (x *CitiesList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CitiesList.ProtoReflect.Descriptor instead.
 func (*CitiesList) Descriptor() ([]byte, []int) {
-	return file_svc_city_city_proto_rawDescGZIP(), []int{7}
+	return file_svc_city_city_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CitiesList) GetCities() []*City {
@@ -476,52 +763,87 @@ var File_svc_city_city_proto protoreflect.FileDescriptor
 
 const file_svc_city_city_proto_rawDesc = "" +
 	"\n" +
-	"\x13svc/city/city.proto\x12\x04city\x1a\x1bgoogle/protobuf/empty.proto\x1a\"common/pagination/pagination.proto\"-\n" +
-	"\x12GetCityByIdRequest\x12\x17\n" +
-	"\acity_id\x18\x01 \x01(\tR\x06cityId\"\x9e\x01\n" +
-	"\x13SearchCitiesRequest\x12\x1b\n" +
-	"\tname_like\x18\x01 \x01(\tR\bnameLike\x12\x1d\n" +
-	"\n" +
-	"country_id\x18\x02 \x01(\tR\tcountryId\x12\x16\n" +
-	"\x06status\x18\x03 \x01(\tR\x06status\x123\n" +
-	"\n" +
-	"pagination\x18\x04 \x01(\v2\x13.pagination.RequestR\n" +
-	"pagination\"J\n" +
-	"\x17UpdateCityStatusRequest\x12\x17\n" +
-	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x16\n" +
-	"\x06status\x18\x03 \x01(\tR\x06status\"D\n" +
-	"\x15UpdateCityNameRequest\x12\x17\n" +
-	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\"^\n" +
+	"\x13svc/city/city.proto\x12\x04city\x1a\x1bgoogle/protobuf/empty.proto\x1a\"common/pagination/pagination.proto\"\xc5\x01\n" +
 	"\x11CreateCityRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n" +
 	"\n" +
 	"country_id\x18\x02 \x01(\tR\tcountryId\x12\x16\n" +
-	"\x06status\x18\x03 \x01(\tR\x06status\"O\n" +
-	"\x1cAdminUpdateCityStatusRequest\x12\x17\n" +
-	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12\x16\n" +
-	"\x06status\x18\x02 \x01(\tR\x06status\"a\n" +
-	"\x04City\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
+	"\x06status\x18\x03 \x01(\tR\x06status\x12\x12\n" +
+	"\x04icon\x18\x04 \x01(\tR\x04icon\x12\x12\n" +
+	"\x04slug\x18\x05 \x01(\tR\x04slug\x12\x1a\n" +
+	"\btimezone\x18\x06 \x01(\tR\btimezone\x12!\n" +
+	"\fzone_geojson\x18\a \x01(\tR\vzoneGeojson\"-\n" +
+	"\x12GetCityByIdRequest\x12\x17\n" +
+	"\acity_id\x18\x01 \x01(\tR\x06cityId\"Q\n" +
+	"\x15GetNearestCityRequest\x12\x1a\n" +
+	"\blatitude\x18\x01 \x01(\x01R\blatitude\x12\x1c\n" +
+	"\tlongitude\x18\x02 \x01(\x01R\tlongitude\"\x9e\x01\n" +
+	"\x13SearchCitiesRequest\x12\x1b\n" +
+	"\tname_like\x18\x01 \x01(\tR\bnameLike\x12\x1d\n" +
 	"\n" +
-	"country_id\x18\x03 \x01(\tR\tcountryId\x12\x16\n" +
-	"\x06status\x18\x04 \x01(\tR\x06status\"f\n" +
+	"country_id\x18\x02 \x01(\tR\tcountryId\x12\x16\n" +
+	"\x06status\x18\x03 \x03(\tR\x06status\x123\n" +
+	"\n" +
+	"pagination\x18\x04 \x01(\v2\x13.pagination.RequestR\n" +
+	"pagination\"D\n" +
+	"\x15UpdateCitySlugRequest\x12\x17\n" +
+	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12\x12\n" +
+	"\x04slug\x18\x02 \x01(\tR\x04slug\"D\n" +
+	"\x15UpdateCityIconRequest\x12\x17\n" +
+	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12\x12\n" +
+	"\x04icon\x18\x02 \x01(\tR\x04icon\"P\n" +
+	"\x19UpdateCityTimezoneRequest\x12\x17\n" +
+	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12\x1a\n" +
+	"\btimezone\x18\x02 \x01(\tR\btimezone\"S\n" +
+	"\x15UpdateCityZoneRequest\x12\x17\n" +
+	"\acity_id\x18\x01 \x01(\tR\x06cityId\x12!\n" +
+	"\fzone_geojson\x18\x04 \x01(\tR\vzoneGeojson\"D\n" +
+	"\x15UpdateCityNameRequest\x12\x17\n" +
+	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x12\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\"J\n" +
+	"\x17UpdateCityStatusRequest\x12\x17\n" +
+	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x16\n" +
+	"\x06status\x18\x03 \x01(\tR\x06status\"\x86\x02\n" +
+	"\x04City\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
+	"\n" +
+	"country_id\x18\x02 \x01(\tR\tcountryId\x12\x16\n" +
+	"\x06status\x18\x03 \x01(\tR\x06status\x12!\n" +
+	"\fzone_geojson\x18\x04 \x01(\tR\vzoneGeojson\x12\x12\n" +
+	"\x04name\x18\x05 \x01(\tR\x04name\x12\x12\n" +
+	"\x04icon\x18\x06 \x01(\tR\x04icon\x12\x12\n" +
+	"\x04slug\x18\a \x01(\tR\x04slug\x12\x1a\n" +
+	"\btimezone\x18\b \x01(\tR\btimezone\x12\x1d\n" +
+	"\n" +
+	"updated_at\x18\n" +
+	" \x01(\tR\tupdatedAt\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\t \x01(\tR\tcreatedAt\"f\n" +
 	"\n" +
 	"CitiesList\x12\"\n" +
 	"\x06cities\x18\x01 \x03(\v2\n" +
 	".city.CityR\x06cities\x124\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x14.pagination.ResponseR\n" +
-	"pagination2\xac\x02\n" +
+	"pagination2\xdb\x04\n" +
 	"\vCityService\x123\n" +
 	"\vGetCityById\x12\x18.city.GetCityByIdRequest\x1a\n" +
+	".city.City\x12;\n" +
+	"\fSearchCities\x12\x19.city.SearchCitiesRequest\x1a\x10.city.CitiesList\x129\n" +
+	"\x0eGetNearestCity\x12\x1b.city.GetNearestCityRequest\x1a\n" +
+	".city.City\x129\n" +
+	"\x0eUpdateCityName\x12\x1b.city.UpdateCityNameRequest\x1a\n" +
+	".city.City\x129\n" +
+	"\x0eUpdateCitySlug\x12\x1b.city.UpdateCitySlugRequest\x1a\n" +
+	".city.City\x129\n" +
+	"\x0eUpdateCityIcon\x12\x1b.city.UpdateCityIconRequest\x1a\n" +
+	".city.City\x12A\n" +
+	"\x12UpdateCityTimezone\x12\x1f.city.UpdateCityTimezoneRequest\x1a\n" +
 	".city.City\x12=\n" +
 	"\x10UpdateCityStatus\x12\x1d.city.UpdateCityStatusRequest\x1a\n" +
 	".city.City\x129\n" +
-	"\x0eUpdateCityName\x12\x1b.city.UpdateCityNameRequest\x1a\n" +
-	".city.City\x12;\n" +
-	"\fSearchCities\x12\x19.city.SearchCitiesRequest\x1a\x10.city.CitiesList\x121\n" +
+	"\x0eUpdateCityZone\x12\x1b.city.UpdateCityZoneRequest\x1a\n" +
+	".city.City\x121\n" +
 	"\n" +
 	"CreateCity\x12\x17.city.CreateCityRequest\x1a\n" +
 	".city.CityB9Z7github.com/chains-lab/cities-proto/gen/go/svc/city;cityb\x06proto3"
@@ -538,38 +860,52 @@ func file_svc_city_city_proto_rawDescGZIP() []byte {
 	return file_svc_city_city_proto_rawDescData
 }
 
-var file_svc_city_city_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_svc_city_city_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
 var file_svc_city_city_proto_goTypes = []any{
-	(*GetCityByIdRequest)(nil),           // 0: city.GetCityByIdRequest
-	(*SearchCitiesRequest)(nil),          // 1: city.SearchCitiesRequest
-	(*UpdateCityStatusRequest)(nil),      // 2: city.UpdateCityStatusRequest
-	(*UpdateCityNameRequest)(nil),        // 3: city.UpdateCityNameRequest
-	(*CreateCityRequest)(nil),            // 4: city.CreateCityRequest
-	(*AdminUpdateCityStatusRequest)(nil), // 5: city.AdminUpdateCityStatusRequest
-	(*City)(nil),                         // 6: city.City
-	(*CitiesList)(nil),                   // 7: city.CitiesList
-	(*pagination.Request)(nil),           // 8: pagination.Request
-	(*pagination.Response)(nil),          // 9: pagination.Response
+	(*CreateCityRequest)(nil),         // 0: city.CreateCityRequest
+	(*GetCityByIdRequest)(nil),        // 1: city.GetCityByIdRequest
+	(*GetNearestCityRequest)(nil),     // 2: city.GetNearestCityRequest
+	(*SearchCitiesRequest)(nil),       // 3: city.SearchCitiesRequest
+	(*UpdateCitySlugRequest)(nil),     // 4: city.UpdateCitySlugRequest
+	(*UpdateCityIconRequest)(nil),     // 5: city.UpdateCityIconRequest
+	(*UpdateCityTimezoneRequest)(nil), // 6: city.UpdateCityTimezoneRequest
+	(*UpdateCityZoneRequest)(nil),     // 7: city.UpdateCityZoneRequest
+	(*UpdateCityNameRequest)(nil),     // 8: city.UpdateCityNameRequest
+	(*UpdateCityStatusRequest)(nil),   // 9: city.UpdateCityStatusRequest
+	(*City)(nil),                      // 10: city.City
+	(*CitiesList)(nil),                // 11: city.CitiesList
+	(*pagination.Request)(nil),        // 12: pagination.Request
+	(*pagination.Response)(nil),       // 13: pagination.Response
 }
 var file_svc_city_city_proto_depIdxs = []int32{
-	8, // 0: city.SearchCitiesRequest.pagination:type_name -> pagination.Request
-	6, // 1: city.CitiesList.cities:type_name -> city.City
-	9, // 2: city.CitiesList.pagination:type_name -> pagination.Response
-	0, // 3: city.CityService.GetCityById:input_type -> city.GetCityByIdRequest
-	2, // 4: city.CityService.UpdateCityStatus:input_type -> city.UpdateCityStatusRequest
-	3, // 5: city.CityService.UpdateCityName:input_type -> city.UpdateCityNameRequest
-	1, // 6: city.CityService.SearchCities:input_type -> city.SearchCitiesRequest
-	4, // 7: city.CityService.CreateCity:input_type -> city.CreateCityRequest
-	6, // 8: city.CityService.GetCityById:output_type -> city.City
-	6, // 9: city.CityService.UpdateCityStatus:output_type -> city.City
-	6, // 10: city.CityService.UpdateCityName:output_type -> city.City
-	7, // 11: city.CityService.SearchCities:output_type -> city.CitiesList
-	6, // 12: city.CityService.CreateCity:output_type -> city.City
-	8, // [8:13] is the sub-list for method output_type
-	3, // [3:8] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	12, // 0: city.SearchCitiesRequest.pagination:type_name -> pagination.Request
+	10, // 1: city.CitiesList.cities:type_name -> city.City
+	13, // 2: city.CitiesList.pagination:type_name -> pagination.Response
+	1,  // 3: city.CityService.GetCityById:input_type -> city.GetCityByIdRequest
+	3,  // 4: city.CityService.SearchCities:input_type -> city.SearchCitiesRequest
+	2,  // 5: city.CityService.GetNearestCity:input_type -> city.GetNearestCityRequest
+	8,  // 6: city.CityService.UpdateCityName:input_type -> city.UpdateCityNameRequest
+	4,  // 7: city.CityService.UpdateCitySlug:input_type -> city.UpdateCitySlugRequest
+	5,  // 8: city.CityService.UpdateCityIcon:input_type -> city.UpdateCityIconRequest
+	6,  // 9: city.CityService.UpdateCityTimezone:input_type -> city.UpdateCityTimezoneRequest
+	9,  // 10: city.CityService.UpdateCityStatus:input_type -> city.UpdateCityStatusRequest
+	7,  // 11: city.CityService.UpdateCityZone:input_type -> city.UpdateCityZoneRequest
+	0,  // 12: city.CityService.CreateCity:input_type -> city.CreateCityRequest
+	10, // 13: city.CityService.GetCityById:output_type -> city.City
+	11, // 14: city.CityService.SearchCities:output_type -> city.CitiesList
+	10, // 15: city.CityService.GetNearestCity:output_type -> city.City
+	10, // 16: city.CityService.UpdateCityName:output_type -> city.City
+	10, // 17: city.CityService.UpdateCitySlug:output_type -> city.City
+	10, // 18: city.CityService.UpdateCityIcon:output_type -> city.City
+	10, // 19: city.CityService.UpdateCityTimezone:output_type -> city.City
+	10, // 20: city.CityService.UpdateCityStatus:output_type -> city.City
+	10, // 21: city.CityService.UpdateCityZone:output_type -> city.City
+	10, // 22: city.CityService.CreateCity:output_type -> city.City
+	13, // [13:23] is the sub-list for method output_type
+	3,  // [3:13] is the sub-list for method input_type
+	3,  // [3:3] is the sub-list for extension type_name
+	3,  // [3:3] is the sub-list for extension extendee
+	0,  // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_svc_city_city_proto_init() }
@@ -583,7 +919,7 @@ func file_svc_city_city_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_svc_city_city_proto_rawDesc), len(file_svc_city_city_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

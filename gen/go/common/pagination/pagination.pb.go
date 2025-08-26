@@ -77,7 +77,8 @@ type Response struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Page          uint64                 `protobuf:"varint,1,opt,name=page,proto3" json:"page,omitempty"`
 	Size          uint64                 `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
-	Total         uint64                 `protobuf:"varint,3,opt,name=total,proto3" json:"total,omitempty"`
+	Prev          bool                   `protobuf:"varint,3,opt,name=prev,proto3" json:"prev,omitempty"`
+	Next          bool                   `protobuf:"varint,4,opt,name=next,proto3" json:"next,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -126,11 +127,18 @@ func (x *Response) GetSize() uint64 {
 	return 0
 }
 
-func (x *Response) GetTotal() uint64 {
+func (x *Response) GetPrev() bool {
 	if x != nil {
-		return x.Total
+		return x.Prev
 	}
-	return 0
+	return false
+}
+
+func (x *Response) GetNext() bool {
+	if x != nil {
+		return x.Next
+	}
+	return false
 }
 
 var File_common_pagination_pagination_proto protoreflect.FileDescriptor
@@ -141,11 +149,12 @@ const file_common_pagination_pagination_proto_rawDesc = "" +
 	"pagination\"1\n" +
 	"\aRequest\x12\x12\n" +
 	"\x04page\x18\x01 \x01(\x04R\x04page\x12\x12\n" +
-	"\x04size\x18\x02 \x01(\x04R\x04size\"H\n" +
+	"\x04size\x18\x02 \x01(\x04R\x04size\"Z\n" +
 	"\bResponse\x12\x12\n" +
 	"\x04page\x18\x01 \x01(\x04R\x04page\x12\x12\n" +
-	"\x04size\x18\x02 \x01(\x04R\x04size\x12\x14\n" +
-	"\x05total\x18\x03 \x01(\x04R\x05totalBHZFgithub.com/chains-lab/cities-proto/gen/go/common/pagination;paginationb\x06proto3"
+	"\x04size\x18\x02 \x01(\x04R\x04size\x12\x12\n" +
+	"\x04prev\x18\x03 \x01(\bR\x04prev\x12\x12\n" +
+	"\x04next\x18\x04 \x01(\bR\x04nextBHZFgithub.com/chains-lab/cities-proto/gen/go/common/pagination;paginationb\x06proto3"
 
 var (
 	file_common_pagination_pagination_proto_rawDescOnce sync.Once
