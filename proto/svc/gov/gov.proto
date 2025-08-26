@@ -5,6 +5,7 @@ option go_package = "github.com/chains-lab/cities-proto/gen/go/svc/gov;gov";
 
 import "google/protobuf/empty.proto";
 import "common/pagination/pagination.proto";
+import "google/protobuf/timestamp.proto";
 
 service GovService {
   rpc CreateCityGov (CreateCityGovRequest)     returns (CityGov);
@@ -70,6 +71,8 @@ message CityGov {
   string city_id = 1;
   string user_id = 2;
   string role    = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
 }
 
 message ListCityGovs {

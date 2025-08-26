@@ -11,6 +11,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/known/emptypb"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -601,8 +602,8 @@ type City struct {
 	Icon          string                 `protobuf:"bytes,6,opt,name=icon,proto3" json:"icon,omitempty"`
 	Slug          string                 `protobuf:"bytes,7,opt,name=slug,proto3" json:"slug,omitempty"`
 	Timezone      string                 `protobuf:"bytes,8,opt,name=timezone,proto3" json:"timezone,omitempty"`
-	UpdatedAt     string                 `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	CreatedAt     string                 `protobuf:"bytes,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -693,18 +694,18 @@ func (x *City) GetTimezone() string {
 	return ""
 }
 
-func (x *City) GetUpdatedAt() string {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return ""
-}
-
-func (x *City) GetCreatedAt() string {
+func (x *City) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.CreatedAt
 	}
-	return ""
+	return nil
+}
+
+func (x *City) GetUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return nil
 }
 
 type CitiesList struct {
@@ -763,7 +764,7 @@ var File_svc_city_city_proto protoreflect.FileDescriptor
 
 const file_svc_city_city_proto_rawDesc = "" +
 	"\n" +
-	"\x13svc/city/city.proto\x12\x04city\x1a\x1bgoogle/protobuf/empty.proto\x1a\"common/pagination/pagination.proto\"\xc5\x01\n" +
+	"\x13svc/city/city.proto\x12\x04city\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\"common/pagination/pagination.proto\"\xc5\x01\n" +
 	"\x11CreateCityRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n" +
 	"\n" +
@@ -803,7 +804,7 @@ const file_svc_city_city_proto_rawDesc = "" +
 	"\x04name\x18\x03 \x01(\tR\x04name\"J\n" +
 	"\x17UpdateCityStatusRequest\x12\x17\n" +
 	"\acity_id\x18\x02 \x01(\tR\x06cityId\x12\x16\n" +
-	"\x06status\x18\x03 \x01(\tR\x06status\"\x86\x02\n" +
+	"\x06status\x18\x03 \x01(\tR\x06status\"\xbe\x02\n" +
 	"\x04City\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
 	"\n" +
@@ -813,12 +814,12 @@ const file_svc_city_city_proto_rawDesc = "" +
 	"\x04name\x18\x05 \x01(\tR\x04name\x12\x12\n" +
 	"\x04icon\x18\x06 \x01(\tR\x04icon\x12\x12\n" +
 	"\x04slug\x18\a \x01(\tR\x04slug\x12\x1a\n" +
-	"\btimezone\x18\b \x01(\tR\btimezone\x12\x1d\n" +
+	"\btimezone\x18\b \x01(\tR\btimezone\x129\n" +
+	"\n" +
+	"created_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
 	"updated_at\x18\n" +
-	" \x01(\tR\tupdatedAt\x12\x1d\n" +
-	"\n" +
-	"created_at\x18\t \x01(\tR\tcreatedAt\"f\n" +
+	" \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\"f\n" +
 	"\n" +
 	"CitiesList\x12\"\n" +
 	"\x06cities\x18\x01 \x03(\v2\n" +
@@ -875,37 +876,40 @@ var file_svc_city_city_proto_goTypes = []any{
 	(*City)(nil),                      // 10: city.City
 	(*CitiesList)(nil),                // 11: city.CitiesList
 	(*pagination.Request)(nil),        // 12: pagination.Request
-	(*pagination.Response)(nil),       // 13: pagination.Response
+	(*timestamppb.Timestamp)(nil),     // 13: google.protobuf.Timestamp
+	(*pagination.Response)(nil),       // 14: pagination.Response
 }
 var file_svc_city_city_proto_depIdxs = []int32{
 	12, // 0: city.SearchCitiesRequest.pagination:type_name -> pagination.Request
-	10, // 1: city.CitiesList.cities:type_name -> city.City
-	13, // 2: city.CitiesList.pagination:type_name -> pagination.Response
-	1,  // 3: city.CityService.GetCityById:input_type -> city.GetCityByIdRequest
-	3,  // 4: city.CityService.SearchCities:input_type -> city.SearchCitiesRequest
-	2,  // 5: city.CityService.GetNearestCity:input_type -> city.GetNearestCityRequest
-	8,  // 6: city.CityService.UpdateCityName:input_type -> city.UpdateCityNameRequest
-	4,  // 7: city.CityService.UpdateCitySlug:input_type -> city.UpdateCitySlugRequest
-	5,  // 8: city.CityService.UpdateCityIcon:input_type -> city.UpdateCityIconRequest
-	6,  // 9: city.CityService.UpdateCityTimezone:input_type -> city.UpdateCityTimezoneRequest
-	9,  // 10: city.CityService.UpdateCityStatus:input_type -> city.UpdateCityStatusRequest
-	7,  // 11: city.CityService.UpdateCityZone:input_type -> city.UpdateCityZoneRequest
-	0,  // 12: city.CityService.CreateCity:input_type -> city.CreateCityRequest
-	10, // 13: city.CityService.GetCityById:output_type -> city.City
-	11, // 14: city.CityService.SearchCities:output_type -> city.CitiesList
-	10, // 15: city.CityService.GetNearestCity:output_type -> city.City
-	10, // 16: city.CityService.UpdateCityName:output_type -> city.City
-	10, // 17: city.CityService.UpdateCitySlug:output_type -> city.City
-	10, // 18: city.CityService.UpdateCityIcon:output_type -> city.City
-	10, // 19: city.CityService.UpdateCityTimezone:output_type -> city.City
-	10, // 20: city.CityService.UpdateCityStatus:output_type -> city.City
-	10, // 21: city.CityService.UpdateCityZone:output_type -> city.City
-	10, // 22: city.CityService.CreateCity:output_type -> city.City
-	13, // [13:23] is the sub-list for method output_type
-	3,  // [3:13] is the sub-list for method input_type
-	3,  // [3:3] is the sub-list for extension type_name
-	3,  // [3:3] is the sub-list for extension extendee
-	0,  // [0:3] is the sub-list for field type_name
+	13, // 1: city.City.created_at:type_name -> google.protobuf.Timestamp
+	13, // 2: city.City.updated_at:type_name -> google.protobuf.Timestamp
+	10, // 3: city.CitiesList.cities:type_name -> city.City
+	14, // 4: city.CitiesList.pagination:type_name -> pagination.Response
+	1,  // 5: city.CityService.GetCityById:input_type -> city.GetCityByIdRequest
+	3,  // 6: city.CityService.SearchCities:input_type -> city.SearchCitiesRequest
+	2,  // 7: city.CityService.GetNearestCity:input_type -> city.GetNearestCityRequest
+	8,  // 8: city.CityService.UpdateCityName:input_type -> city.UpdateCityNameRequest
+	4,  // 9: city.CityService.UpdateCitySlug:input_type -> city.UpdateCitySlugRequest
+	5,  // 10: city.CityService.UpdateCityIcon:input_type -> city.UpdateCityIconRequest
+	6,  // 11: city.CityService.UpdateCityTimezone:input_type -> city.UpdateCityTimezoneRequest
+	9,  // 12: city.CityService.UpdateCityStatus:input_type -> city.UpdateCityStatusRequest
+	7,  // 13: city.CityService.UpdateCityZone:input_type -> city.UpdateCityZoneRequest
+	0,  // 14: city.CityService.CreateCity:input_type -> city.CreateCityRequest
+	10, // 15: city.CityService.GetCityById:output_type -> city.City
+	11, // 16: city.CityService.SearchCities:output_type -> city.CitiesList
+	10, // 17: city.CityService.GetNearestCity:output_type -> city.City
+	10, // 18: city.CityService.UpdateCityName:output_type -> city.City
+	10, // 19: city.CityService.UpdateCitySlug:output_type -> city.City
+	10, // 20: city.CityService.UpdateCityIcon:output_type -> city.City
+	10, // 21: city.CityService.UpdateCityTimezone:output_type -> city.City
+	10, // 22: city.CityService.UpdateCityStatus:output_type -> city.City
+	10, // 23: city.CityService.UpdateCityZone:output_type -> city.City
+	10, // 24: city.CityService.CreateCity:output_type -> city.City
+	15, // [15:25] is the sub-list for method output_type
+	5,  // [5:15] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_svc_city_city_proto_init() }

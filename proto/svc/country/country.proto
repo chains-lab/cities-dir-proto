@@ -3,6 +3,8 @@ package country;
 
 option go_package = "github.com/chains-lab/cities-proto/gen/go/svc/country;country";
 
+
+import "google/protobuf/timestamp.proto";
 import "common/pagination/pagination.proto";
 
 service CountryService {
@@ -51,6 +53,8 @@ message Country {
   string id     = 1;
   string name   = 2;
   string status = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
 }
 
 message CountriesList {

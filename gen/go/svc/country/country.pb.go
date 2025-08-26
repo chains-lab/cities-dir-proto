@@ -10,6 +10,7 @@ import (
 	pagination "github.com/chains-lab/cities-proto/gen/go/common/pagination"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -287,6 +288,8 @@ type Country struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
+	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -340,6 +343,20 @@ func (x *Country) GetStatus() string {
 		return x.Status
 	}
 	return ""
+}
+
+func (x *Country) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
+}
+
+func (x *Country) GetUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return nil
 }
 
 type CountriesList struct {
@@ -398,7 +415,7 @@ var File_svc_country_country_proto protoreflect.FileDescriptor
 
 const file_svc_country_country_proto_rawDesc = "" +
 	"\n" +
-	"\x19svc/country/country.proto\x12\acountry\x1a\"common/pagination/pagination.proto\"6\n" +
+	"\x19svc/country/country.proto\x12\acountry\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\"common/pagination/pagination.proto\"6\n" +
 	"\x15GetCountryByIdRequest\x12\x1d\n" +
 	"\n" +
 	"country_id\x18\x01 \x01(\tR\tcountryId\"\x82\x01\n" +
@@ -418,11 +435,15 @@ const file_svc_country_country_proto_rawDesc = "" +
 	"\x18UpdateCountryNameRequest\x12\x1d\n" +
 	"\n" +
 	"country_id\x18\x01 \x01(\tR\tcountryId\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\"E\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\"\xbb\x01\n" +
 	"\aCountry\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x16\n" +
-	"\x06status\x18\x03 \x01(\tR\x06status\"u\n" +
+	"\x06status\x18\x03 \x01(\tR\x06status\x129\n" +
+	"\n" +
+	"created_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
+	"\n" +
+	"updated_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\"u\n" +
 	"\rCountriesList\x12.\n" +
 	"\tcountries\x18\x01 \x03(\v2\x10.country.CountryR\tcountries\x124\n" +
 	"\n" +
@@ -457,27 +478,30 @@ var file_svc_country_country_proto_goTypes = []any{
 	(*Country)(nil),                    // 5: country.Country
 	(*CountriesList)(nil),              // 6: country.CountriesList
 	(*pagination.Request)(nil),         // 7: pagination.Request
-	(*pagination.Response)(nil),        // 8: pagination.Response
+	(*timestamppb.Timestamp)(nil),      // 8: google.protobuf.Timestamp
+	(*pagination.Response)(nil),        // 9: pagination.Response
 }
 var file_svc_country_country_proto_depIdxs = []int32{
-	7, // 0: country.SearchCountriesRequest.pagination:type_name -> pagination.Request
-	5, // 1: country.CountriesList.countries:type_name -> country.Country
-	8, // 2: country.CountriesList.pagination:type_name -> pagination.Response
-	0, // 3: country.CountryService.GetCountryById:input_type -> country.GetCountryByIdRequest
-	1, // 4: country.CountryService.SearchCountries:input_type -> country.SearchCountriesRequest
-	3, // 5: country.CountryService.UpdateCountryStatus:input_type -> country.UpdateCountryStatusRequest
-	4, // 6: country.CountryService.UpdateCountryName:input_type -> country.UpdateCountryNameRequest
-	2, // 7: country.CountryService.CreateCountry:input_type -> country.CreateCountryRequest
-	5, // 8: country.CountryService.GetCountryById:output_type -> country.Country
-	6, // 9: country.CountryService.SearchCountries:output_type -> country.CountriesList
-	5, // 10: country.CountryService.UpdateCountryStatus:output_type -> country.Country
-	5, // 11: country.CountryService.UpdateCountryName:output_type -> country.Country
-	5, // 12: country.CountryService.CreateCountry:output_type -> country.Country
-	8, // [8:13] is the sub-list for method output_type
-	3, // [3:8] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	7,  // 0: country.SearchCountriesRequest.pagination:type_name -> pagination.Request
+	8,  // 1: country.Country.created_at:type_name -> google.protobuf.Timestamp
+	8,  // 2: country.Country.updated_at:type_name -> google.protobuf.Timestamp
+	5,  // 3: country.CountriesList.countries:type_name -> country.Country
+	9,  // 4: country.CountriesList.pagination:type_name -> pagination.Response
+	0,  // 5: country.CountryService.GetCountryById:input_type -> country.GetCountryByIdRequest
+	1,  // 6: country.CountryService.SearchCountries:input_type -> country.SearchCountriesRequest
+	3,  // 7: country.CountryService.UpdateCountryStatus:input_type -> country.UpdateCountryStatusRequest
+	4,  // 8: country.CountryService.UpdateCountryName:input_type -> country.UpdateCountryNameRequest
+	2,  // 9: country.CountryService.CreateCountry:input_type -> country.CreateCountryRequest
+	5,  // 10: country.CountryService.GetCountryById:output_type -> country.Country
+	6,  // 11: country.CountryService.SearchCountries:output_type -> country.CountriesList
+	5,  // 12: country.CountryService.UpdateCountryStatus:output_type -> country.Country
+	5,  // 13: country.CountryService.UpdateCountryName:output_type -> country.Country
+	5,  // 14: country.CountryService.CreateCountry:output_type -> country.Country
+	10, // [10:15] is the sub-list for method output_type
+	5,  // [5:10] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_svc_country_country_proto_init() }

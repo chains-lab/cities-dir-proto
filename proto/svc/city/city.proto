@@ -3,6 +3,7 @@ package city;
 
 option go_package = "github.com/chains-lab/cities-proto/gen/go/svc/city;city";
 
+import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 import "common/pagination/pagination.proto";
 
@@ -92,8 +93,8 @@ message City {
   string icon         = 6;
   string slug         = 7;
   string timezone     = 8;
-  string updated_at   = 10;
-  string created_at   = 9;
+  google.protobuf.Timestamp created_at   = 9;
+  google.protobuf.Timestamp updated_at   = 10;
 }
 
 message CitiesList {
